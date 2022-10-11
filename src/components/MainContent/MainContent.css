@@ -8,9 +8,9 @@
 .main-school-name {
     font-size: 22px;
     font-weight: 400;
+    padding-bottom: 30px;
 }
 
 .main-petition-ul {
-    border: 1px solid black;
     height: 100%;
 }
