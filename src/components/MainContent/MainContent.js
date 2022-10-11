@@ -15,6 +15,12 @@ export default function MainContent() {
                     MessageNumber = {23}
                     ProgressDate = {60}
                 />
+                <PetitionList 
+                    Title = {"사감쌤 없애주세요"}
+                    Date = {"12/03 - 12/10"}
+                    MessageNumber = {23}
+                    ProgressDate = {100}
+                />
             </ul>
         </div>
     )
