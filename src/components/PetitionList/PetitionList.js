@@ -12,8 +12,12 @@ export default function PetitionList({Title, Date, MessageNumber, ProgressDate})
         setProgressDate(ProgressDate)
     }, [progressDate])
 
+    const PetitionOnClick = () => {
+        console.log("PetitionList Click")
+    }
+
     return (
-        <li className="petition-list">
+        <li className="petition-list" onClick={PetitionOnClick}>
             <div className="petition-content">
                 <div className="petition-area">
                     <div>

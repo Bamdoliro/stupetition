@@ -6,6 +6,11 @@
     border: 1px solid #E2E2E2;
     padding: 24px;
     margin-bottom: 16px;
+    cursor: pointer;
+}
+
+.petition-list:hover {
+    background-color: #f2f4f3;
 }
 
 .petition-content {
