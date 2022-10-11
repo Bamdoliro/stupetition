@@ -9,3 +9,8 @@
     font-size: 22px;
     font-weight: 400;
 }
+
+.main-petition-ul {
+    border: 1px solid black;
+    height: 100%;
+}
