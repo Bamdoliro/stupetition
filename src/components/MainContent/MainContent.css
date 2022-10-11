@@ -1,0 +1,16 @@
+.main-container {
+    margin: 0 auto;
+    height: 100%;
+    width: 50vw;
+    padding-top: 30px;
+}
+
+.main-school-name {
+    font-size: 22px;
+    font-weight: 400;
+    padding-bottom: 30px;
+}
+
+.main-petition-ul {
+    height: 100%;
+}
