@@ -9,7 +9,12 @@ export default function MainContent() {
                 부산 소프트웨어 마이스터고등학교
             </div>
             <ul className="main-petition-ul">
-                <PetitionList />
+                <PetitionList 
+                    Title = {"아침운동 없애주세요"}
+                    Date = {"02/02 - 04/02"}
+                    MessageNumber = {23}
+                    ProgressDate = {60}
+                />
             </ul>
         </div>
     )

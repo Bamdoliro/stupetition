@@ -1,12 +1,16 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import MessageLogo from "../../assets/message.svg"
 import ArrowLogo from "../../assets/arrow.svg"
 import "./PetitionList.css"
 import styled from 'styled-components';
 
-export default function PetitionList() {
+export default function PetitionList({Title, Date, MessageNumber, ProgressDate}) {
 
-    const [count, setProgress] = useState(60)
+    const [progressDate, setProgressDate] = useState(0)
+
+    useEffect(() => {
+        setProgressDate(ProgressDate)
+    }, [progressDate])
 
     return (
         <li className="petition-list">
@@ -14,10 +18,10 @@ export default function PetitionList() {
                 <div className="petition-area">
                     <div>
                         <span className="petition-title">
-                            아침운동 없애주세요
+                            {Title}
                         </span>
                         <span className="petition-date">
-                            02/02 - 04/02
+                            {Date}
                         </span>
                     </div>
                     <img src={ArrowLogo} className="arrow-logo" />
@@ -25,11 +29,11 @@ export default function PetitionList() {
                 <div className="petition-message-area">
                     <img src={MessageLogo} className="message-logo" />
                     <span className="message-number">
-                        23
+                        {MessageNumber}
                     </span>
                 </div>
                 <div class="progress-bar">
-                    <Progress width={count + "%"} />
+                    <Progress width={progressDate + "%"} />
                 </div>
             </div>
         </li>
