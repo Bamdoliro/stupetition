@@ -2,11 +2,11 @@ import React from "react"
 import "./MainContent.css"
 import PetitionList from "../PetitionList/PetitionList.js"
 
-export default function MainContent() {
+export default function MainContent({SchoolName}) {
     return (
         <div className="main-container">
             <div className="main-school-name">
-                부산 소프트웨어 마이스터고등학교
+                {SchoolName}
             </div>
             <ul className="main-petition-ul">
                 <PetitionList 

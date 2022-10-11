@@ -8,7 +8,7 @@ export default function MainHeader() {
         <div className="main-header">
             {/* 로고 부분 */}
             <div className="main-header-logo">
-                <img src={Logo} />
+                <img src={Logo} className="logo" />
                 <span>
                     학생청원
                 </span>

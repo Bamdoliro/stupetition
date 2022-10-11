@@ -8,7 +8,9 @@ export default function MainPage() {
         <div>
             <MainHeader />
             <MainTabBar />
-            <MainContent />
+            <MainContent 
+                SchoolName = {"부산 소프트웨어 마이스터 고등학교"}
+            />
         </div>
     )
 }
