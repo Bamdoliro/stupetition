@@ -5,8 +5,17 @@ import PetitionList from "../PetitionList/PetitionList.js"
 export default function MainContent({SchoolName}) {
     return (
         <div className="main-container">
-            <div className="main-school-name">
-                {SchoolName}
+            <div className="main-container-bar">
+                <div className="main-school-name">
+                    <span>
+                        {SchoolName}
+                    </span>
+                </div>
+                <div className="main-post-area">
+                    <button className="main-add-post-btn">
+                        게시물 추가
+                    </button>
+                </div>
             </div>
             <ul className="main-petition-ul">
                 <PetitionList 
