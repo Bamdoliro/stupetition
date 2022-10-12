@@ -36,7 +36,7 @@ export default function PetitionList({Title, Date, MessageNumber, ProgressDate})
                         {MessageNumber}
                     </span>
                 </div>
-                <div class="progress-bar">
+                <div className="progress-bar">
                     <Progress width={progressDate + "%"} />
                 </div>
             </div>
