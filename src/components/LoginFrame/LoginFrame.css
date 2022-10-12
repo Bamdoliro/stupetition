@@ -1,0 +1,16 @@
+.login-frame {
+    display: flex;
+    width: 900px;
+    height: 600px;
+    background-color: #fff;
+}
+
+.login-box {
+    width: 50%;
+    border: 1px solid black;
+}
+
+.login-main-logo {
+    width: 150px;
+    height: 150px;
+}
