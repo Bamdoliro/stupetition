@@ -21,15 +21,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #E2E2E2;
-    outline: none;
-    border-radius: 8px;
-    color: #fff;
-    padding: 16px;
-    font-size: 16px;
     background-color: #4361EE;
-    height: 30px;
+    width: 85px;
+    height: 35px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 12px;
+    margin: 0px 5px;
     cursor: pointer;
+    outline: none;
+    border: none;
 }
 
 .main-petition-ul {
