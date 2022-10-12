@@ -5,12 +5,36 @@
     background-color: #fff;
 }
 
-.login-box {
-    width: 50%;
-    border: 1px solid black;
-}
-
 .login-main-logo {
     width: 150px;
     height: 150px;
+}
+
+.login-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.login-inner-box {
+    height: 500px;
+    width: 350px;
+    border: 1px solid black;
+    padding-left: 16px;
+}
+
+.login-inner-content {
+    position: relative;
+    top: 20px;
+}
+
+.login-title {
+    font-size: 34px;
+    font-weight: bold;
+}
+
+.login-input-area {
+    position: relative;
+    top: 50px;
 }
