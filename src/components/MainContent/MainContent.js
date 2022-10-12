@@ -3,6 +3,10 @@ import "./MainContent.css"
 import PetitionList from "../PetitionList/PetitionList.js"
 
 export default function MainContent({SchoolName}) {
+    const PostOnClick = () => {
+        console.log("Post Btn Click")
+    }
+
     return (
         <div className="main-container">
             <div className="main-container-bar">
@@ -12,7 +16,7 @@ export default function MainContent({SchoolName}) {
                     </span>
                 </div>
                 <div className="main-post-area">
-                    <button className="main-add-post-btn">
+                    <button className="main-add-post-btn" onClick={PostOnClick}>
                         게시물 추가
                     </button>
                 </div>
