@@ -22,8 +22,11 @@ export default function LoginFrame() {
                             <PassWordInput type="password" placeholder="비밀번호를 입력해 주세요." />
                         </div>
                         <LoginButton onClick={LoginBtnClick}>
-                            로그인하기
+                            로그인 하기
                         </LoginButton>
+                    </div>
+                    <div className="login-sign-up-bar">
+                        <a href="#" className="login-sign-up">아직 계정 없으신가요?</a>
                     </div>
                 </div>
             </div>

@@ -20,12 +20,11 @@
 .login-inner-box {
     height: 500px;
     width: 330px;
-    border: 1px solid black;
 }
 
 .login-inner-content {
     position: relative;
-    top: 80px;
+    top: 50px;
 }
 
 .login-title {
@@ -36,4 +35,18 @@
 .login-input-area {
     position: relative;
     top: 50px;
+}
+
+.login-sign-up-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    top: 300px;
+}
+
+.login-sign-up {
+    text-decoration: none;
+    color: #989898;
 }
