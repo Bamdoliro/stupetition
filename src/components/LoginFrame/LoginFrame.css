@@ -19,14 +19,13 @@
 
 .login-inner-box {
     height: 500px;
-    width: 350px;
+    width: 330px;
     border: 1px solid black;
-    padding-left: 16px;
 }
 
 .login-inner-content {
     position: relative;
-    top: 20px;
+    top: 80px;
 }
 
 .login-title {
