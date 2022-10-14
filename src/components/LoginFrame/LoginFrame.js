@@ -12,7 +12,9 @@ export default function LoginFrame() {
             </LoginImgBox>
             <div className="login-box">
                 <div className="login-inner-box">
-                    <SignUp />
+                    <div className="login-inner-content">
+                        <SignIn />
+                    </div>
                 </div>
             </div>
         </div>

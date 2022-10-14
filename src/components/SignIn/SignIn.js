@@ -8,16 +8,14 @@ export default function SignIn() {
 
     return (
         <>
-            <div className="login-inner-content"> {/* 클래스명 굉장히 맘에 안듬 */}
-                <div className="login-title">로그인</div>
-                <div className="login-input-area">
-                    <LoginInput type="text" placeholder="이메일을 입력해 주세요." />
-                    <PassWordInput type="password" placeholder="비밀번호를 입력해 주세요." />
-                </div>
-                <LoginButton onClick={LoginBtnClick}>
-                    로그인 하기
-                </LoginButton>
+            <div className="login-title">로그인</div>
+            <div className="login-input-area">
+                <LoginInput type="text" placeholder="이메일을 입력해 주세요." />
+                <PassWordInput type="password" placeholder="비밀번호를 입력해 주세요." />
             </div>
+            <LoginButton onClick={LoginBtnClick}>
+                로그인 하기
+            </LoginButton>
             <div className="login-sign-up-bar">
                 <a href="#" className="login-sign-up">아직 계정 없으신가요?</a>
             </div>

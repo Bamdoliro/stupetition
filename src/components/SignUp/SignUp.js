@@ -3,22 +3,25 @@ import "./SignUp.css"
 
 export default function SignIn() {
     const SignUpBtnClick = () => {
-        console.log("클릭");
+        console.log("버튼 클릭");
+    }
+
+    const SearchSchoolClick = () => {
+        console.log("학교 검색 버튼 클릭");
     }
 
     return (
         <>
-            <div className="login-inner-content"> {/* 클래스명 굉장히 맘에 안듬 */}
-                <div className="login-title">회원가입</div>
-                <div className="login-input-area">
-                    <SignUpInput type="text" placeholder="가입할 이메일을 입력해 주세요." />
-                    <PassWordInput type="password" placeholder="사용할 비밀번호를 입력해 주세요." />
-                    <RePassWordInput type="password" placeholder="비밀번호를 다시 한번 입력해 주세요." />
-                </div>
-                <SignUpButton onClick={SignUpBtnClick}>
-                    회원가입
-                </SignUpButton>
+            <div className="login-title">회원가입</div>
+            <div className="login-input-area">
+                <SignUpInput type="email" placeholder="가입할 이메일을 입력해 주세요." />
+                <PassWordInput type="password" placeholder="사용할 비밀번호를 입력해 주세요." />
+                <RePassWordInput type="password" placeholder="비밀번호를 다시 한번 입력해 주세요." />
+                <SearchSchoolInput type="text" placeholder="학교를 선택해 주세요." onClick={SearchSchoolClick}/>
             </div>
+            <SignUpButton onClick={SignUpBtnClick}>
+                회원가입
+            </SignUpButton>
         </>
     )
 }
@@ -52,6 +55,17 @@ const RePassWordInput = styled.input`
     border-bottom: 2.5px solid #4361EE;
     margin-bottom: 24px;
 `
+
+const SearchSchoolInput = styled.input`
+    border: none;
+    outline: none;
+    height: 41px;
+    font-size: 16px;
+    width: 330px;
+    border-bottom: 2.5px solid #4361EE;
+    margin-bottom: 24px;
+`
+
 
 const SignUpButton = styled.button`
     display: flex;
