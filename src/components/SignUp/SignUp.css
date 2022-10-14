@@ -1,0 +1,14 @@
+.login-inner-content {
+    position: relative;
+    top: 50px;
+}
+
+.login-title {
+    font-size: 34px;
+    font-weight: bold;
+}
+
+.login-input-area {
+    position: relative;
+    top: 50px;
+}

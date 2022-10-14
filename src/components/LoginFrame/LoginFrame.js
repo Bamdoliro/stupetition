@@ -1,6 +1,7 @@
 import "./LoginFrame.css"
 import Logo from "../../assets/logo.svg"
 import SignIn from "../SignIn/SignIn";
+import SignUp from "../SignUp/SignUp"
 import styled from 'styled-components';
 
 export default function LoginFrame() {
@@ -11,7 +12,7 @@ export default function LoginFrame() {
             </LoginImgBox>
             <div className="login-box">
                 <div className="login-inner-box">
-                    <SignIn />
+                    <SignUp />
                 </div>
             </div>
         </div>
