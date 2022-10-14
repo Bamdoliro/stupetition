@@ -1,13 +1,9 @@
 import "./LoginFrame.css"
-import styled from 'styled-components';
 import Logo from "../../assets/logo.svg"
+import SignIn from "../SignIn/SignIn";
+import styled from 'styled-components';
 
 export default function LoginFrame() {
-
-    const LoginBtnClick = () => {
-        console.log("클릭");
-    }
-
     return (
         <div className="login-frame">
             <LoginImgBox>
@@ -15,19 +11,7 @@ export default function LoginFrame() {
             </LoginImgBox>
             <div className="login-box">
                 <div className="login-inner-box">
-                    <div className="login-inner-content"> {/* 클래스명 굉장히 맘에 안듬 */}
-                        <div className="login-title">로그인</div>
-                        <div className="login-input-area">
-                            <LoginInput type="text" placeholder="이메일을 입력해 주세요." />
-                            <PassWordInput type="password" placeholder="비밀번호를 입력해 주세요." />
-                        </div>
-                        <LoginButton onClick={LoginBtnClick}>
-                            로그인 하기
-                        </LoginButton>
-                    </div>
-                    <div className="login-sign-up-bar">
-                        <a href="#" className="login-sign-up">아직 계정 없으신가요?</a>
-                    </div>
+                    <SignIn />
                 </div>
             </div>
         </div>
@@ -40,42 +24,4 @@ const LoginImgBox = styled.div`
     justify-content: center;
     width: 50%;
     background-color: #F2FAFE;
-`
-
-const LoginInput = styled.input`
-    border: none;
-    outline: none;
-    height: 41px;
-    font-size: 16px;
-    width: 330px;
-    border-bottom: 2.5px solid #4361EE;
-    margin-bottom: 24px;
-`
-
-const PassWordInput = styled.input`
-    border: none;
-    outline: none;
-    height: 41px;
-    font-size: 16px;
-    width: 330px;
-    border-bottom: 2.5px solid #4361EE;
-    margin-bottom: 24px;
-`
-
-const LoginButton = styled.button`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    top: 100px;
-    float: right;
-    border: none;
-    border-radius: 8px;
-    padding: 18px;
-    outline: none;
-    background-color: #4361EE;
-    color: #fff;
-    width: 100px;
-    height: 30px;
-    cursor: pointer;
 `
