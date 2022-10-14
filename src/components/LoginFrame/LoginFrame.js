@@ -39,7 +39,7 @@ const LoginImgBox = styled.div`
     align-items: center;
     justify-content: center;
     width: 50%;
-    background-color: #C6B5D7;
+    background-color: #F2FAFE;
 `
 
 const LoginInput = styled.input`
@@ -48,7 +48,7 @@ const LoginInput = styled.input`
     height: 41px;
     font-size: 16px;
     width: 330px;
-    border-bottom: 2.5px solid #C6B5D7;
+    border-bottom: 2.5px solid #4361EE;
     margin-bottom: 24px;
 `
 
@@ -58,7 +58,7 @@ const PassWordInput = styled.input`
     height: 41px;
     font-size: 16px;
     width: 330px;
-    border-bottom: 2.5px solid #C6B5D7;
+    border-bottom: 2.5px solid #4361EE;
     margin-bottom: 24px;
 `
 
@@ -73,7 +73,7 @@ const LoginButton = styled.button`
     border-radius: 8px;
     padding: 18px;
     outline: none;
-    background-color: #C6B5D7;
+    background-color: #4361EE;
     color: #fff;
     width: 100px;
     height: 30px;
