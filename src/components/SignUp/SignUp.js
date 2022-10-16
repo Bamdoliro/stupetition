@@ -12,29 +12,39 @@ export default function SignIn() {
     }
 
     return (
-        <div className="login-frame">
-            <LoginImgBox>
-                <img src={Logo} className="login-main-logo" />
-            </LoginImgBox>
-            <div className="login-box">
-                <div className="login-inner-box">
-                    <div className="login-inner-content">
-                        <div className="login-title">회원가입</div>
-                        <div className="login-input-area">
-                            <SignUpInput type="email" placeholder="가입할 이메일을 입력해 주세요." />
-                            <PassWordInput type="password" placeholder="사용할 비밀번호를 입력해 주세요." />
-                            <RePassWordInput type="password" placeholder="비밀번호를 다시 한번 입력해 주세요." />
-                            <SearchSchoolInput type="text" placeholder="학교를 선택해 주세요." onClick={SearchSchoolClick} />
+        <BackGround>
+            <div className="login-frame">
+                <LoginImgBox>
+                    <img src={Logo} className="login-main-logo" />
+                </LoginImgBox>
+                <div className="login-box">
+                    <div className="login-inner-box">
+                        <div className="login-inner-content">
+                            <div className="login-title">회원가입</div>
+                            <div className="login-input-area">
+                                <SignUpInput type="email" placeholder="가입할 이메일을 입력해 주세요." />
+                                <PassWordInput type="password" placeholder="사용할 비밀번호를 입력해 주세요." />
+                                <RePassWordInput type="password" placeholder="비밀번호를 다시 한번 입력해 주세요." />
+                                <SearchSchoolInput type="text" placeholder="학교를 선택해 주세요." onClick={SearchSchoolClick} />
+                            </div>
+                            <SignUpButton onClick={SignUpBtnClick}>
+                                회원가입
+                            </SignUpButton>
                         </div>
-                        <SignUpButton onClick={SignUpBtnClick}>
-                            회원가입
-                        </SignUpButton>
                     </div>
                 </div>
             </div>
-        </div>
+        </BackGround>
     )
 }
+
+const BackGround = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2f4f3;
+    height: 100vh;
+`
 
 const LoginImgBox = styled.div`
     display: flex;

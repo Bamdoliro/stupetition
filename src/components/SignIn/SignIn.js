@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Logo from "../../assets/logo.svg"
 import "./SignIn.css"
@@ -10,30 +11,41 @@ export default function SignIn() {
     }
 
     return (
-        <div className="login-frame">
-            <LoginImgBox>
-                <img src={Logo} className="login-main-logo" />
-            </LoginImgBox>
-            <div className="login-box">
-                <div className="login-inner-box">
-                    <div className="login-inner-content">
-                        <div className="login-title">로그인</div>
-                        <div className="login-input-area">
-                            <LoginInput type="text" placeholder="이메일을 입력해 주세요." />
-                            <PassWordInput type="password" placeholder="비밀번호를 입력해 주세요." />
-                        </div>
-                        <LoginButton onClick={LoginBtnClick}>
-                            로그인 하기
-                        </LoginButton>
-                        <div className="login-sign-up-bar">
-                            <a href="#" className="login-sign-up">아직 계정 없으신가요?</a>
+        <BackGround>
+            <div className="login-frame">
+                <LoginImgBox>
+                    <img src={Logo} className="login-main-logo" />
+                </LoginImgBox>
+                <div className="login-box">
+                    <div className="login-inner-box">
+                        <div className="login-inner-content">
+                            <div className="login-title">로그인</div>
+                            <div className="login-input-area">
+                                <LoginInput type="text" placeholder="이메일을 입력해 주세요." />
+                                <PassWordInput type="password" placeholder="비밀번호를 입력해 주세요." />
+                            </div>
+                            <LoginButton onClick={LoginBtnClick}>
+                                로그인 하기
+                            </LoginButton>
+                            <div className="login-sign-up-bar">
+                                <Link to="/signup" href="#" className="login-sign-up">아직 계정 없으신가요?</Link>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </BackGround>
     )
 }
+
+const BackGround = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2f4f3;
+    height: 100vh;
+`
+
 const LoginImgBox = styled.div`
     display: flex;
     align-items: center;
