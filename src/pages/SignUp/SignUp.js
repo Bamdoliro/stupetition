@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Logo from "../../assets/logo.svg"
 import "./SignUp.css"
+import SignUpModal from '../../components/SignUpModal/SignUpModal';
 
 export default function SignIn() {
     const SignUpBtnClick = () => {
@@ -12,29 +13,31 @@ export default function SignIn() {
     }
 
     return (
-        <BackGround>
-            <div className="login-frame">
-                <LoginImgBox>
-                    <img src={Logo} className="login-main-logo" />
-                </LoginImgBox>
-                <div className="login-box">
-                    <div className="login-inner-box">
-                        <form className="login-inner-content">
-                            <div className="login-title">회원가입</div>
-                            <div className="login-input-area">
-                                <SignUpInput type="email" placeholder="가입할 이메일을 입력해 주세요." />
-                                <PassWordInput type="password" placeholder="사용할 비밀번호를 입력해 주세요." />
-                                <RePassWordInput type="password" placeholder="비밀번호를 다시 한번 입력해 주세요." />
-                                <SearchSchoolInput type="text" placeholder="학교를 선택해 주세요." onClick={SearchSchoolClick} />
-                            </div>
-                            <SignUpButton onClick={SignUpBtnClick}>
-                                회원가입
-                            </SignUpButton>
-                        </form>
+        <>
+            <BackGround>
+                <div className="login-frame">
+                    <LoginImgBox>
+                        <img src={Logo} className="login-main-logo" />
+                    </LoginImgBox>
+                    <div className="login-box">
+                        <div className="login-inner-box">
+                            <form className="login-inner-content">
+                                <div className="login-title">회원가입</div>
+                                <div className="login-input-area">
+                                    <SignUpInput type="email" placeholder="가입할 이메일을 입력해 주세요." />
+                                    <PassWordInput type="password" placeholder="사용할 비밀번호를 입력해 주세요." />
+                                    <RePassWordInput type="password" placeholder="비밀번호를 다시 한번 입력해 주세요." />
+                                    <SearchSchoolInput type="text" placeholder="학교를 선택해 주세요." onClick={SearchSchoolClick} />
+                                </div>
+                                <SignUpButton onClick={SignUpBtnClick}>
+                                    회원가입
+                                </SignUpButton>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </BackGround>
+            </BackGround>
+        </>
     )
 }
 
