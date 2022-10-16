@@ -19,7 +19,7 @@ export default function SignIn() {
                 </LoginImgBox>
                 <div className="login-box">
                     <div className="login-inner-box">
-                        <div className="login-inner-content">
+                        <form className="login-inner-content">
                             <div className="login-title">회원가입</div>
                             <div className="login-input-area">
                                 <SignUpInput type="email" placeholder="가입할 이메일을 입력해 주세요." />
@@ -30,7 +30,7 @@ export default function SignIn() {
                             <SignUpButton onClick={SignUpBtnClick}>
                                 회원가입
                             </SignUpButton>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
