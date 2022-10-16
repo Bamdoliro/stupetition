@@ -2,6 +2,7 @@ import React from "react"
 import "./MainHeader.css"
 import Logo from "../../assets/logo.svg"
 import Search from "../../assets/search.svg"
+import { Link } from "react-router-dom"
 
 export default function MainHeader() {
     return (

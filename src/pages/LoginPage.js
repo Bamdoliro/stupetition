@@ -1,10 +1,10 @@
-import LoginFrame from "../components/LoginFrame/LoginFrame"
 import styled from 'styled-components';
+import SignIn from '../components/SignIn/SignIn';
 
 export default function LoginPage() {
     return (
         <LoginBackGround>
-            <LoginFrame />
+            <SignIn />
         </LoginBackGround>
     )
 }
