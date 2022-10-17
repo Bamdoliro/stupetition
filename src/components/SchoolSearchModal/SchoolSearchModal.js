@@ -1,6 +1,7 @@
 import "./SchoolSearchModal.css"
 import styled from 'styled-components';
 import SearchLogo from "../../assets/search_blue.svg"
+import { Link } from "react-router-dom";
 
 export default function SchoolSearchModal() {
     return (
@@ -18,6 +19,7 @@ export default function SchoolSearchModal() {
                         />
                     </div>
                 </div>
+                <Link className="school-registration-btn">학교가 검색되지 않나요?</Link>
             </div>
         </div>
     )
