@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Logo from "../../assets/logo.svg"
 import "./SignUp.css"
-import SignUpModal from '../../components/SignUpModal/SignUpModal';
+import SchoolSearchModal from "../../components/SchoolSearchModal/SchoolSearchModal"
 
 export default function SignIn() {
     const SignUpBtnClick = () => {
@@ -37,6 +37,7 @@ export default function SignIn() {
                     </div>
                 </div>
             </BackGround>
+            <SchoolSearchModal />
         </>
     )
 }

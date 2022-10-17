@@ -1,15 +1,20 @@
 .main-tab-bar {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     height: 80px;
     border-bottom: 1px solid #E2E2E2;
     background-color: #f2f4f3;
 }
 
+.main-tab-frame {
+    width: 50vw;
+    display: flex;
+    justify-content: space-between;
+}
+
 .main-tab-item {
     cursor: pointer;
-    width: 120px;
     text-align: center;
     list-style: none;
 }
@@ -19,7 +24,7 @@
 }
 
 .item-focus-text {
-    font-size: 20px;
+    font-size: 18px;
     color: #4361EE;
     border-bottom: 2px solid #4361EE;
 }
