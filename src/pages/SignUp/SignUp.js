@@ -2,14 +2,19 @@ import styled from 'styled-components';
 import Logo from "../../assets/logo.svg"
 import "./SignUp.css"
 import SchoolSearchModal from "../../components/SchoolSearchModal/SchoolSearchModal"
+import { useState } from 'react';
 
 export default function SignIn() {
+    const [searchModalOpen, setSearchModalOpen] = useState(false);
+
     const SignUpBtnClick = () => {
         console.log("버튼 클릭");
     }
 
     const SearchSchoolClick = () => {
         console.log("학교 검색 버튼 클릭");
+        setSearchModalOpen(true);
+        console.log(searchModalOpen)
     }
 
     return (
@@ -37,7 +42,10 @@ export default function SignIn() {
                     </div>
                 </div>
             </BackGround>
-            <SchoolSearchModal />
+            <SchoolSearchModal
+                isOpen={searchModalOpen}
+                closeModal = {() => setSearchModalOpen(false) }
+            />
         </>
     )
 }
