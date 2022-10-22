@@ -2,19 +2,51 @@ import styled from 'styled-components';
 import Logo from "../../assets/logo.svg"
 import "./SignUp.css"
 import SchoolSearchModal from "../../components/SchoolSearchModal/SchoolSearchModal"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import {baseUrl} from "../../api/url"
+import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 export default function SignIn() {
+
+    const navigate = useNavigate();
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    useEffect(() => {
+        console.log(email)
+    }, [email])
+
+    useEffect(() => {
+        console.log(password)
+    }, [password])
+
+    // api 
+    const joinUser = async (email, password) => {
+        try {
+            const response = await axios.post(`${baseUrl}/user/join/`, {
+                params: {
+                    "email": email,
+                    "password": password,
+                    "schoolId": 0,
+                },
+            })
+            console.log(response.data)
+            setEmail("")
+            setPassword("")
+            navigate("/signin")
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
+
+    // modal
     const [searchModalOpen, setSearchModalOpen] = useState(false);
 
-    const SignUpBtnClick = () => {
-        console.log("버튼 클릭");
-    }
-
     const SearchSchoolClick = () => {
-        console.log("학교 검색 버튼 클릭");
         setSearchModalOpen(true);
-        console.log(searchModalOpen)
     }
 
     return (
@@ -29,12 +61,20 @@ export default function SignIn() {
                             <form className="login-inner-content">
                                 <div className="login-title">회원가입</div>
                                 <div className="login-input-area">
-                                    <SignUpInput type="email" placeholder="가입할 이메일을 입력해 주세요." />
-                                    <PassWordInput type="password" placeholder="사용할 비밀번호를 입력해 주세요." />
+                                    <SignUpInput 
+                                        type="email" 
+                                        placeholder="가입할 이메일을 입력해 주세요."
+                                        onChange={(e) => setEmail(e.target.value)}    
+                                    />
+                                    <PassWordInput 
+                                        type="password" 
+                                        placeholder="사용할 비밀번호를 입력해 주세요."
+                                        onChange={(e) => setPassword(e.target.value)}    
+                                    />
                                     <RePassWordInput type="password" placeholder="비밀번호를 다시 한번 입력해 주세요." />
                                     <SearchSchoolInput type="text" placeholder="학교를 선택해 주세요." onClick={SearchSchoolClick} />
                                 </div>
-                                <SignUpButton onClick={SignUpBtnClick}>
+                                <SignUpButton onClick={() => joinUser(email, password)}>
                                     회원가입
                                 </SignUpButton>
                             </form>
