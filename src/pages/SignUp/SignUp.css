@@ -36,17 +36,3 @@
     position: relative;
     top: 50px;
 }
-
-.login-sign-up-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    position: relative;
-    top: 300px;
-}
-
-.login-sign-up {
-    text-decoration: none;
-    color: #989898;
-}
