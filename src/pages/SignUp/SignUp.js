@@ -13,6 +13,8 @@ export default function SignIn() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [isRePassword, setRePassWord] = useState("")
+    const [checkPassword, setCheckPassWord] = useState(false);
 
     useEffect(() => {
         console.log(email)
@@ -22,22 +24,31 @@ export default function SignIn() {
         console.log(password)
     }, [password])
 
+    useEffect(() => {
+        if(password === checkPassword) {
+            setCheckPassWord(true);
+        }
+    }, [isRePassword])
+
     // api 
-    const joinUser = async (email, password) => {
-        try {
-            const response = await axios.post(`${baseUrl}/user/join/`, {
-                params: {
+    const joinUser = async () => {
+        if(checkPassword != false) {
+            try {
+                const response = await axios.post(`${baseUrl}/user/join/`, {
                     "email": email,
                     "password": password,
                     "schoolId": 0,
-                },
-            })
-            console.log(response.data)
-            setEmail("")
-            setPassword("")
-            navigate("/signin")
-        } catch (e) {
-            console.log(e);
+                })
+                setEmail("")
+                setPassword("")
+                setCheckPassWord(false)
+                navigate("/signin")
+            } catch (e) {
+                console.log(e);
+            }
+        }
+        else {
+            alert("비밀번호가 맞지 않습니다 다시 한번 확인해주세요.")
         }
     };
 
@@ -71,10 +82,14 @@ export default function SignIn() {
                                         placeholder="사용할 비밀번호를 입력해 주세요."
                                         onChange={(e) => setPassword(e.target.value)}    
                                     />
-                                    <RePassWordInput type="password" placeholder="비밀번호를 다시 한번 입력해 주세요." />
+                                    <RePassWordInput 
+                                        type="password"
+                                        placeholder="비밀번호를 다시 한번 입력해 주세요." 
+                                        onChange={(e) => setRePassWord(e.target.value)}
+                                    />
                                     <SearchSchoolInput type="text" placeholder="학교를 선택해 주세요." onClick={SearchSchoolClick} />
                                 </div>
-                                <SignUpButton onClick={() => joinUser(email, password)}>
+                                <SignUpButton onClick={joinUser}>
                                     회원가입
                                 </SignUpButton>
                             </form>
