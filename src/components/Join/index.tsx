@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import config from 'config/config.json';
+import customAxios from 'lib/axios/customAxios';
 import * as S from './style';
 
 const Join = () => {
@@ -17,7 +16,7 @@ const Join = () => {
 
   const onSubmit = () => {
     try {
-      const response = axios.post(`${config.BASE_URL}/user/join`, userData);
+      const respconse = customAxios.post(`/user/join`, userData);
     } catch (error) {
       console.log(error);
     }
