@@ -15,7 +15,7 @@ const Join = () => {
     setUserData({ ...userData, [name]: value });
   };
 
-  const onSubmit = async () => {
+  const onClick = async () => {
     try {
       const response = await customAxios.post('/user/join', userData);
       if (response.data.status === 400) {
@@ -49,7 +49,7 @@ const Join = () => {
         name="schoolId"
         placeholder="학교 ID를 입력하세요"
       />
-      <S.Button onClick={onSubmit}>회원가입</S.Button>
+      <S.Button onClick={onClick}>회원가입</S.Button>
     </S.SignUp>
   );
 };
