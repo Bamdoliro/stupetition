@@ -1,6 +1,6 @@
-name: "✨ Feature"
-description: "새로운 기능에 대한 issue를 작성하세요!"
-labels: "✨ Feature"
+name: '✨ Feature'
+description: '새로운 기능에 대한 issue를 작성하세요!'
+labels: '✨ Feature'
 body:
   - type: textarea
     attributes:
@@ -18,5 +18,5 @@ body:
       required: true
   - type: textarea
     attributes:
-      label: 🙋🏻 Halmal
+      label: 🙋🏻 More
       description: 더 하고 싶은 말이 있다면 작성해 주세요.
