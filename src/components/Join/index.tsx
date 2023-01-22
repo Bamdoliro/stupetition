@@ -17,16 +17,20 @@ const Join = () => {
 
   const onSubmit = async () => {
     try {
+      console.log(userData);
       const response = await customAxios.post('/user/join', userData);
+      if (response.data.status === 400) {
+        alert(response.data.message);
+        return;
+      }
       setJoinData(response.data);
-      console.log(response);
-    } catch (error) {
-      console.log(error);
+    } catch (err: any) {
+      alert(err.response.data.message);
     }
   };
 
   return (
-    <S.SignUp onSubmit={onSubmit}>
+    <S.SignUp>
       <S.Input
         onChange={onChange}
         name="email"
@@ -44,7 +48,7 @@ const Join = () => {
         name="schoolId"
         placeholder="학교 ID를 입력하세요"
       />
-      <S.Button>회원가입</S.Button>
+      <S.Button onClick={onSubmit}>회원가입</S.Button>
     </S.SignUp>
   );
 };
