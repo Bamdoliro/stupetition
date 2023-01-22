@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import customAxios from 'lib/axios/customAxios';
+import { AxiosError } from 'axios';
 import * as S from './style';
 
 const Join = () => {
-  const [joinData, setJoinData] = useState();
   const [userData, setUserData] = useState({
     email: '',
     password: '',
@@ -17,15 +17,16 @@ const Join = () => {
 
   const onSubmit = async () => {
     try {
-      console.log(userData);
       const response = await customAxios.post('/user/join', userData);
       if (response.data.status === 400) {
         alert(response.data.message);
         return;
       }
-      setJoinData(response.data);
-    } catch (err: any) {
-      alert(err.response.data.message);
+      alert('회원가입 성공 !!');
+    } catch (err) {
+      if (err instanceof AxiosError) {
+        alert(err.response?.data?.message);
+      }
     }
   };
 
