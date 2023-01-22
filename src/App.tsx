@@ -1,5 +1,7 @@
-function App() {
-  return <div>Hello</div>;
-}
+import Join from './components/Join';
+
+const App = () => {
+  return <Join />;
+};
 
 export default App;
