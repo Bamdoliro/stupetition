@@ -8,19 +8,16 @@ const customAxios = axios.create({
 customAxios.interceptors.response.use(
   function (response) {
     if (response.data.status) {
-      const ErrorMessage = response.data.message;
-      return ErrorMessage;
-    }
-    if (response.status === 200) {
-      return '로그인 성공 !!';
+      const errorMessage = response.data.message;
+      return errorMessage;
     }
     return response;
   },
 
   function (error) {
     if (error.response && error.response.status) {
-      const ErrorMessage = error.response.data.message;
-      return ErrorMessage;
+      const errorMessage = error.response.data.message;
+      return errorMessage;
     }
 
     return Promise.reject(error);

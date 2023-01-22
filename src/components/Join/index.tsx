@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import customAxios from 'lib/axios/customAxios';
 import { AxiosError as Error } from 'axios';
-import { UserInfo } from 'type/user';
+import { CreateUserRequest } from 'type/user';
 import * as S from './style';
 
 const Join = () => {
-  const [userData, setUserData] = useState<UserInfo>({
+  const [userData, setUserData] = useState<CreateUserRequest>({
     email: '',
     password: '',
     schoolId: -1,
@@ -18,6 +18,9 @@ const Join = () => {
 
   const onClick = async () => {
     const response = await customAxios.post('/user/join', userData);
+    if (response.status === 200) {
+      alert('회원가입 성공 !!');
+    }
     alert(response);
   };
 
