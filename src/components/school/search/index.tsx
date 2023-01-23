@@ -1,10 +1,10 @@
 import customAxios from 'lib/axios/customAxios';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { SchoolSearchType } from 'type/school/search.type';
 import * as S from './style';
 
 const SchoolSearch = () => {
-  const [searchWord, setSearchWord] = useState('');
+  const [searchWord, setSearchWord] = useState<string>();
   const [searchResult, setSearchResult] = useState<SchoolSearchType[]>([]);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,11 +17,11 @@ const SchoolSearch = () => {
         q: searchWord,
       },
     });
-    if (response.status === 200) {
+    if (response.status === 200 && searchWord !== '') {
       setSearchResult(response.data);
       return;
     }
-    alert(response);
+    setSearchResult([]);
   };
 
   return (
