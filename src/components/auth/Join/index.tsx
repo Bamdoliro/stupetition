@@ -20,6 +20,7 @@ const Join = () => {
     const response = await customAxios.post('/user/join', userData);
     if (response.status === 200) {
       alert('회원가입 성공 !!');
+      return;
     }
     alert(response);
   };

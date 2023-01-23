@@ -1,7 +1,8 @@
-import Join from './components/Join';
+import SchoolSearch from 'components/SchoolSearch';
+import Join from 'components/auth/Join';
 
 const App = () => {
-  return <Join />;
+  return <SchoolSearch />;
 };
 
 export default App;

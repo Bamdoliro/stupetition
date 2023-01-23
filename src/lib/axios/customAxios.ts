@@ -7,10 +7,10 @@ const customAxios = axios.create({
 
 customAxios.interceptors.response.use(
   function (response) {
-    if (response.data.status) {
-      const errorMessage = response.data.message;
-      return errorMessage;
-    }
+    // if (response.data.status) {
+    //   const errorMessage = response.data.message;
+    //   return errorMessage;
+    // }
     return response;
   },
 
