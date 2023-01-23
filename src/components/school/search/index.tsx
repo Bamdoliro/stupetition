@@ -1,16 +1,11 @@
 import customAxios from 'lib/axios/customAxios';
 import { useEffect, useState } from 'react';
+import { SchoolSearchType } from 'type/school/search.type';
 import * as S from './style';
 
 const SchoolSearch = () => {
-  interface SearchResultData {
-    name: string;
-    id: number;
-    emailDomain: string;
-  }
-
   const [searchWord, setSearchWord] = useState('');
-  const [searchResult, setSearchResult] = useState<SearchResultData[]>([]);
+  const [searchResult, setSearchResult] = useState<SchoolSearchType[]>([]);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchWord(e.target.value);

@@ -1,4 +1,4 @@
-import SchoolSearch from 'components/SchoolSearch';
+import SchoolSearch from 'components/school/search';
 import Join from 'components/auth/Join';
 import Login from 'components/auth/Login';
 

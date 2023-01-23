@@ -1,9 +1,10 @@
 import customAxios from 'lib/axios/customAxios';
 import { useState } from 'react';
+import { LoginType } from 'type/auth/login.type';
 import * as S from './style';
 
 const Login = () => {
-  const [loginData, setLoginData] = useState({
+  const [loginData, setLoginData] = useState<LoginType>({
     email: '',
     password: '',
   });
