@@ -5,9 +5,8 @@ import Login from 'components/auth/Login';
 const App = () => {
   return (
     <>
-      {/* <Join />
-      <Login /> */}
-      <SchoolSearch />
+      <Join />
+      <Login />
     </>
   );
 };

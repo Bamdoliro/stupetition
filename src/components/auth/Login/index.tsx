@@ -1,6 +1,7 @@
 import customAxios from 'lib/axios/customAxios';
 import { useState } from 'react';
 import { LoginType } from 'type/auth/login.type';
+import { setAccessToken, setRefreshToken } from 'lib/token/token';
 import * as S from './style';
 
 const Login = () => {
@@ -11,7 +12,11 @@ const Login = () => {
 
   const onClick = async () => {
     const response = await customAxios.post('/user/login', loginData);
-    console.log(response);
+    if (response.status === 200) {
+      alert('로그인 성공 !!');
+      setAccessToken(response.data.accessToken);
+      setRefreshToken(response.data.refreshToken);
+    }
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
