@@ -20,16 +20,15 @@ customAxios.interceptors.request.use(
 
 customAxios.interceptors.response.use(
   function (response) {
-    if (response.data.status) {
-      const errorMessage = response.data.message;
-      return errorMessage;
-    }
     return response;
   },
 
   function (error) {
     if (error.response && error.response.status) {
-      const errorMessage = error.response.data.message;
+      // error 메세지를 json으로 주면 어케 처리해야하나요 알려주세요..
+      // 따로 util 만들어서 처리 해야하나요?
+      const errorMessage = error.request.response;
+      alert(errorMessage);
       return errorMessage;
     }
 

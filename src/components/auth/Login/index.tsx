@@ -25,8 +25,8 @@ const Login = () => {
     }
   };
 
-  const logOut = () => {
-    const response = customAxios.delete('/auth', authorization());
+  const logOut = async () => {
+    const response = customAxios.delete('/auth', await authorization());
     deleteAccessToken();
     deleteRefreshToken();
     console.log(response);
