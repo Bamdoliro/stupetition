@@ -1,4 +1,4 @@
-import customAxios from 'lib/axios/customAxios';
+import { customAxios } from 'lib/axios/customAxios';
 import { useState } from 'react';
 import { SchoolSearchType } from 'type/school/search.type';
 import * as S from './style';

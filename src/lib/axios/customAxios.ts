@@ -1,6 +1,17 @@
 import axios from 'axios';
 
+// 인증이 필요 없는
 const customAxios = axios.create({
+  baseURL: process.env.REACT_APP_BASE_URL,
+  timeout: 10000,
+  headers: {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${localStorage.getItem('access-token')}`,
+  },
+});
+
+// jwt 인증이 필요한
+const accessAxios = axios.create({
   baseURL: process.env.REACT_APP_BASE_URL,
   timeout: 10000,
   headers: {
@@ -27,4 +38,4 @@ customAxios.interceptors.response.use(
     return Promise.reject(error);
   },
 );
-export default customAxios;
+export { customAxios, accessAxios };
