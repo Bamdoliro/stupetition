@@ -1,6 +1,7 @@
-import { customAxios, accessAxios } from 'lib/axios/customAxios';
+import { customAxios } from 'lib/axios/customAxios';
 import { useState } from 'react';
 import { LoginType } from 'type/auth/login.type';
+import { authorization } from 'lib/token/authorization';
 import {
   setAccessToken,
   setRefreshToken,
@@ -25,7 +26,7 @@ const Login = () => {
   };
 
   const logOut = () => {
-    const response = accessAxios.delete('/auth');
+    const response = customAxios.delete('/auth', authorization());
     deleteAccessToken();
     deleteRefreshToken();
     console.log(response);

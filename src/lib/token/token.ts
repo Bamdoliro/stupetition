@@ -1,25 +1,23 @@
-export const setAccessToken = async (token: string) => {
-  await localStorage.setItem('access-token', token);
+export const setAccessToken = (token: string) => {
+  localStorage.setItem('access-token', token);
 };
 
-export const getAccessToken = async () => {
-  const response = await localStorage.getItem('access-token');
-  return response;
+export const getAccessToken = () => {
+  return localStorage.getItem('access-token');
 };
 
-export const deleteAccessToken = async () => {
-  await localStorage.removeItem('access-token');
+export const deleteAccessToken = () => {
+  localStorage.removeItem('access-token');
 };
 
-export const setRefreshToken = async (token: string) => {
-  await localStorage.setItem('refresh-token', token);
+export const setRefreshToken = (token: string) => {
+  localStorage.setItem('refresh-token', token);
 };
 
-export const getRefreshToken = async () => {
-  const response = await localStorage.getItem('refresh-token');
-  return response;
+export const getRefreshToken = () => {
+  localStorage.getItem('refresh-token');
 };
 
-export const deleteRefreshToken = async () => {
-  await localStorage.removeItem('refresh-token');
+export const deleteRefreshToken = () => {
+  localStorage.removeItem('refresh-token');
 };
