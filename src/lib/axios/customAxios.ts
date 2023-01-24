@@ -15,6 +15,7 @@ const accessAxios = axios.create({
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
+    withCredentials: false,
     Authorization: `Bearer ${localStorage.getItem('access-token')}`,
   },
 });

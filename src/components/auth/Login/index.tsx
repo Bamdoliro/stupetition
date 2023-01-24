@@ -1,4 +1,4 @@
-import { customAxios } from 'lib/axios/customAxios';
+import { customAxios, accessAxios } from 'lib/axios/customAxios';
 import { useState } from 'react';
 import { LoginType } from 'type/auth/login.type';
 import {
@@ -25,7 +25,9 @@ const Login = () => {
   };
 
   const logOut = () => {
-    const response = customAxios.delete('/auth');
+    const response = accessAxios.delete('/auth');
+    deleteAccessToken();
+    deleteRefreshToken();
     console.log(response);
   };
 
