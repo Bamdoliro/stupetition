@@ -40,7 +40,7 @@ customAxios.interceptors.response.use(
 
     if (error.response) {
       try {
-        const { data } = await customAxios.put('/auth', {
+        const { data } = await customAxios.put('/auth', null, {
           headers: {
             'Refresh-Token': `${refreshToken}`,
           },
