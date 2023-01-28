@@ -1,4 +1,6 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
+import { getAccessToken, getRefreshToken } from 'lib/token/token';
+import { AccessExpression } from 'typescript';
 
 // 인증이 필요 없는
 const customAxios = axios.create({
@@ -19,20 +21,35 @@ customAxios.interceptors.request.use(
 );
 
 customAxios.interceptors.response.use(
-  function (response) {
+  (response) => {
     return response;
   },
 
-  function (error) {
-    if (error.response && error.response.status) {
-      // error 메세지를 json으로 주면 어케 처리해야하나요 알려주세요..
-      // 따로 util 만들어서 처리 해야하나요?
-      const errorMessage = error.request.response;
-      alert(errorMessage);
-      return errorMessage;
-    }
+  async (error: AxiosError) => {
+    // if (error.response && error.response.status) {
+    //   // error 메세지를 json으로 주면 어케 처리해야하나요 알려주세요..
+    //   // 따로 util 만들어서 처리 해야하나요?
+    //   const errorMessage = error.request.response;
+    //   alert(errorMessage);
+    //   return errorMessage;
+    // }
 
-    return Promise.reject(error);
+    // 토큰 재발급
+    const refreshToken = getRefreshToken();
+    console.log(error);
+
+    if (error.response) {
+      try {
+        const { data } = await customAxios.put('/auth', {
+          headers: {
+            'Refresh-Token': `${refreshToken}`,
+          },
+        });
+        console.log(data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
   },
 );
 export { customAxios };

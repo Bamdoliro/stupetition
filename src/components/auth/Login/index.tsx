@@ -26,10 +26,14 @@ const Login = () => {
   };
 
   const logOut = async () => {
-    const response = customAxios.delete('/auth', await authorization());
-    deleteAccessToken();
-    deleteRefreshToken();
-    console.log(response);
+    const response = customAxios.delete('/auth', authorization());
+    if ((await response).status === 200) {
+      deleteAccessToken();
+      deleteRefreshToken();
+      alert('로그아웃 성공 !!');
+      return;
+    }
+    alert('로그아웃 실패 ㅠ');
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
