@@ -37,8 +37,7 @@ customAxios.interceptors.response.use(
               'Refresh-Token': `${refreshToken}`,
             },
           });
-          console.log(data);
-          localStorage.setItem('acess-token', data.accessToken);
+          localStorage.setItem('access-token', data.accessToken);
         } catch (err) {
           console.log(err);
         }
