@@ -31,9 +31,7 @@ const Login = () => {
       deleteAccessToken();
       deleteRefreshToken();
       alert('로그아웃 성공 !!');
-      return;
     }
-    alert('로그아웃 실패 ㅠ');
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
