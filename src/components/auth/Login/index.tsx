@@ -23,6 +23,8 @@ const Login = () => {
       setAccessToken(response.data.accessToken);
       setRefreshToken(response.data.refreshToken);
     }
+    console.log('에러');
+    console.log(response);
   };
 
   const logOut = async () => {

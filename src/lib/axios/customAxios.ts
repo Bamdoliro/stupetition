@@ -1,5 +1,5 @@
 import axios, { AxiosError } from 'axios';
-import { getAccessToken, getRefreshToken } from 'lib/token/token';
+import { getRefreshToken } from 'lib/token/token';
 import { AccessExpression } from 'typescript';
 
 // 인증이 필요 없는
@@ -22,11 +22,12 @@ customAxios.interceptors.request.use(
 
 customAxios.interceptors.response.use(
   (response) => {
+    console.log(response);
     return response;
   },
   async (error: AxiosError) => {
     // 토큰 재발급
-    const refreshToken = localStorage.getItem('refresh-token');
+    const refreshToken = getRefreshToken();
     if (error.response) {
       // response 있는지 부터 확인
       if (error.response?.status === 401) {
@@ -44,6 +45,10 @@ customAxios.interceptors.response.use(
         }
       }
     }
+    alert(error.request.response);
+    // 에러 메세지 나중에 고치자...
+    // 심청이 하고 와서 고치자..
+    return error;
   },
 );
 export { customAxios };
