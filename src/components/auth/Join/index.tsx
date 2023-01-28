@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import customAxios from 'lib/axios/customAxios';
-import { AxiosError as Error } from 'axios';
-import { CreateUserRequest } from 'type/user';
+import { customAxios } from 'lib/axios/customAxios';
+import { JoinType } from 'type/auth/join.type';
 import * as S from './style';
 
 const Join = () => {
-  const [userData, setUserData] = useState<CreateUserRequest>({
+  const [userData, setUserData] = useState<JoinType>({
     email: '',
     password: '',
-    schoolId: -1,
+    schoolId: 0,
   });
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,11 +16,10 @@ const Join = () => {
   };
 
   const onClick = async () => {
-    const response = await customAxios.post('/user/join', userData);
+    const response = await customAxios.post('/user', userData);
     if (response.status === 200) {
       alert('회원가입 성공 !!');
     }
-    alert(response);
   };
 
   return (

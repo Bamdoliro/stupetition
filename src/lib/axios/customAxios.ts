@@ -1,26 +1,52 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
+import { getRefreshToken } from 'lib/token/token';
+import { AccessExpression } from 'typescript';
 
+// 인증이 필요 없는
 const customAxios = axios.create({
   baseURL: process.env.REACT_APP_BASE_URL,
   timeout: 10000,
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
-customAxios.interceptors.response.use(
-  function (response) {
-    if (response.data.status) {
-      const errorMessage = response.data.message;
-      return errorMessage;
-    }
-    return response;
+customAxios.interceptors.request.use(
+  function (config) {
+    return config;
   },
-
   function (error) {
-    if (error.response && error.response.status) {
-      const errorMessage = error.response.data.message;
-      return errorMessage;
-    }
-
     return Promise.reject(error);
   },
 );
-export default customAxios;
+
+customAxios.interceptors.response.use(
+  (response) => {
+    console.log(response);
+    return response;
+  },
+  async (error: AxiosError) => {
+    if (error.response) {
+      if (error.response?.status === 401) {
+        // 토큰 재발급 로직
+        const refreshToken = getRefreshToken();
+        try {
+          const { data } = await customAxios.put('/auth', null, {
+            headers: {
+              'Refresh-Token': `${refreshToken}`,
+            },
+          });
+          localStorage.setItem('access-token', data.accessToken);
+          alert('다시 시도해 주세요 !');
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    }
+    alert(error.request.response);
+    // 에러 메세지 나중에 고치자...
+    // 심청이 하고 와서 고치자..
+    return error;
+  },
+);
+export { customAxios };
