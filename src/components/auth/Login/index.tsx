@@ -16,7 +16,7 @@ const Login = () => {
     password: '',
   });
 
-  const logIn = async () => {
+  const login = async () => {
     const response = await customAxios.post('/auth', loginData);
     if (response.status === 200) {
       alert('로그인 성공 !!');
@@ -27,9 +27,9 @@ const Login = () => {
     console.log(response);
   };
 
-  const logOut = async () => {
-    const response = customAxios.delete('/auth', authorization());
-    if ((await response).status === 200) {
+  const logout = async () => {
+    const response = await customAxios.delete('/auth', authorization());
+    if (response.status === 200) {
       deleteAccessToken();
       deleteRefreshToken();
       alert('로그아웃 성공 !!');
@@ -55,8 +55,8 @@ const Login = () => {
         type="password"
         onChange={onChange}
       />
-      <S.Button onClick={logIn}>로그인</S.Button>
-      <S.Button onClick={logOut}>로그아웃</S.Button>
+      <S.Button onClick={login}>로그인</S.Button>
+      <S.Button onClick={logout}>로그아웃</S.Button>
     </S.Login>
   );
 };

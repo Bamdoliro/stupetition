@@ -26,12 +26,10 @@ customAxios.interceptors.response.use(
     return response;
   },
   async (error: AxiosError) => {
-    // 토큰 재발급
-    const refreshToken = getRefreshToken();
     if (error.response) {
-      // response 있는지 부터 확인
       if (error.response?.status === 401) {
-        // 있으면 status 확인
+        // 토큰 재발급 로직
+        const refreshToken = getRefreshToken();
         try {
           const { data } = await customAxios.put('/auth', null, {
             headers: {

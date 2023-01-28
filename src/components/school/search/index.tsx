@@ -12,14 +12,16 @@ const SchoolSearch = () => {
   };
 
   const getSchool = async () => {
-    const response = await customAxios.get('/school/search', {
-      params: {
-        q: searchWord,
-      },
-    });
-    if (response.status === 200 && searchWord !== '') {
-      setSearchResult(response.data);
-      return;
+    if (searchWord !== '') {
+      const response = await customAxios.get('/school/search', {
+        params: {
+          q: searchWord,
+        },
+      });
+      if (response.status === 200) {
+        setSearchResult(response.data);
+        return;
+      }
     }
     setSearchResult([]);
   };
