@@ -54,7 +54,7 @@ const Login = () => {
   };
 
   return (
-    <S.Login>
+    <S.LoginContainer>
       <S.Input
         placeholder="아이디를 입력하세요."
         name="email"
@@ -69,7 +69,7 @@ const Login = () => {
       />
       <S.Button onClick={login}>로그인</S.Button>
       <S.Button onClick={logout}>로그아웃</S.Button>
-    </S.Login>
+    </S.LoginContainer>
   );
 };
 

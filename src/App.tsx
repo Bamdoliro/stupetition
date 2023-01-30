@@ -1,15 +1,7 @@
-import SearchSchool from 'components/school/search';
-import Join from 'components/auth/Join';
-import Login from 'components/auth/Login';
+import LoginPage from 'pages/Login';
 
 const App = () => {
-  return (
-    <>
-      <Join />
-      <Login />
-      <SearchSchool />
-    </>
-  );
+  return <LoginPage />;
 };
 
 export default App;
