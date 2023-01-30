@@ -1,41 +1,35 @@
-import { customAxios } from 'lib/axios/customAxios';
 import { useState } from 'react';
 import { SchoolSearchType } from 'type/school/search.type';
+import { useQuery } from 'react-query';
+import { getSchoolSerach } from 'api/school';
 import * as S from './style';
 
 const SchoolSearch = () => {
-  const [searchWord, setSearchWord] = useState<string>();
-  const [searchResult, setSearchResult] = useState<SchoolSearchType[]>([]);
+  const [searchWord, setSearchWord] = useState<string>('');
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchWord(e.target.value);
   };
 
-  const getSchool = async () => {
-    if (searchWord !== '') {
-      const response = await customAxios.get('/school/search', {
-        params: {
-          q: searchWord,
-        },
-      });
-      if (response.status === 200) {
-        setSearchResult(response.data);
-        return;
-      }
-    }
-    setSearchResult([]);
-  };
+  const { data } = useQuery<SchoolSearchType[]>(
+    ['searchWord', searchWord],
+    () => getSchoolSerach(searchWord),
+    {
+      enabled: !!searchWord,
+      select: (data) => data.slice(0, 5), // 5개만 잘라서 가지고 옴
+    },
+  );
 
   return (
     <>
       <S.SchoolSearch>
         <S.Input onChange={onChange} placeholder="검색어를 입력하던가 말던가" />
-        <S.Button onClick={getSchool}>검색</S.Button>
       </S.SchoolSearch>
       <S.SearchResult>
-        {searchResult.map((item) => {
-          return <S.List key={item.id}>{item.name}</S.List>;
-        })}
+        {data &&
+          data.map((item) => {
+            return <S.List key={item.id}>{item.name}</S.List>;
+          })}
       </S.SearchResult>
     </>
   );

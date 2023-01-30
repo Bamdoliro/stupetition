@@ -7,6 +7,7 @@ const App = () => {
     <>
       <Join />
       <Login />
+      <SchoolSearch />
     </>
   );
 };
