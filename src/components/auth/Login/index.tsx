@@ -9,7 +9,7 @@ import {
   deleteRefreshToken,
 } from 'lib/token/token';
 import { useMutation } from 'react-query';
-import { postLogin } from 'api/auth';
+import { deleteLogout, postLogin } from 'api/auth';
 import * as S from './style';
 
 const Login = () => {
@@ -18,7 +18,12 @@ const Login = () => {
     password: '',
   });
 
-  const { mutate } = useMutation(postLogin, {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setLoginData({ ...loginData, [name]: value });
+  };
+
+  const loginMutate = useMutation(postLogin, {
     onSuccess: (res) => {
       setAccessToken(res.accessToken);
       setRefreshToken(res.refreshtoken);
@@ -29,22 +34,23 @@ const Login = () => {
     },
   });
 
-  const login = () => {
-    mutate(loginData);
-  };
-
-  const logout = async () => {
-    const response = await customAxios.delete('/auth', authorization());
-    if (response.status === 200) {
+  const logoutMutate = useMutation(deleteLogout, {
+    onSuccess: () => {
       deleteAccessToken();
       deleteRefreshToken();
       alert('로그아웃 성공 !!');
-    }
+    },
+    onError: (err) => {
+      console.log(err);
+    },
+  });
+
+  const login = () => {
+    loginMutate.mutate(loginData);
   };
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setLoginData({ ...loginData, [name]: value });
+  const logout = () => {
+    logoutMutate.mutate();
   };
 
   return (
