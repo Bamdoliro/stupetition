@@ -1,6 +1,6 @@
 import { customAxios } from 'lib/axios/customAxios';
 import { useState } from 'react';
-import { LoginType } from 'type/auth/login.type';
+import { LoginType } from 'type/auth/auth.type';
 import { authorization } from 'lib/token/authorization';
 import {
   setAccessToken,
@@ -8,6 +8,8 @@ import {
   deleteAccessToken,
   deleteRefreshToken,
 } from 'lib/token/token';
+import { useMutation } from 'react-query';
+import { postLogin } from 'api/auth';
 import * as S from './style';
 
 const Login = () => {
@@ -16,15 +18,19 @@ const Login = () => {
     password: '',
   });
 
-  const login = async () => {
-    const response = await customAxios.post('/auth', loginData);
-    if (response.status === 200) {
+  const { mutate } = useMutation(postLogin, {
+    onSuccess: (res) => {
+      setAccessToken(res.accessToken);
+      setRefreshToken(res.refreshtoken);
       alert('로그인 성공 !!');
-      setAccessToken(response.data.accessToken);
-      setRefreshToken(response.data.refreshToken);
-    }
-    console.log('에러');
-    console.log(response);
+    },
+    onError: (err) => {
+      console.log(err);
+    },
+  });
+
+  const login = () => {
+    mutate(loginData);
   };
 
   const logout = async () => {

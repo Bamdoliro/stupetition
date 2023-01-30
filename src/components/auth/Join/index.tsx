@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { JoinType } from 'type/auth/join.type';
+import { JoinType } from 'type/auth/auth.type';
 import { useMutation } from 'react-query';
 import { postJoin } from 'api/auth';
 import * as S from './style';
@@ -11,7 +11,12 @@ const Join = () => {
     schoolId: 0,
   });
 
-  const join = useMutation(postJoin, {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setUserData({ ...userData, [name]: value });
+  };
+
+  const { mutate } = useMutation(postJoin, {
     onSuccess: () => {
       alert('회원가입 성공 !!');
     },
@@ -20,13 +25,8 @@ const Join = () => {
     },
   });
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setUserData({ ...userData, [name]: value });
-  };
-
   const submit = () => {
-    join.mutate(userData);
+    mutate(userData);
   };
 
   return (

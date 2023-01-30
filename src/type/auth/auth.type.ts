@@ -3,3 +3,8 @@ export interface JoinType {
   password: string;
   schoolId: number;
 }
+
+export interface LoginType {
+  email: string;
+  password: string;
+}
