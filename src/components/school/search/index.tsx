@@ -26,7 +26,7 @@ const SchoolSearch = () => {
         <S.Input onChange={onChange} placeholder="검색어를 입력하던가 말던가" />
       </S.SchoolSearch>
       <S.SearchResult>
-        {data &&
+        {
           data?.map((item) => {
             return <S.List key={item.id}>{item.name}</S.List>;
           })}
