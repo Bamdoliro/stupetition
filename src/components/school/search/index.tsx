@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { SchoolSearchType } from 'type/school/search.type';
 import { useQuery } from 'react-query';
-import { getSchoolSerach } from 'api/school';
+import { searchSchool } from 'api/school';
 import * as S from './style';
 
 const SchoolSearch = () => {
@@ -13,7 +13,7 @@ const SchoolSearch = () => {
 
   const { data } = useQuery<SchoolSearchType[]>(
     ['searchWord', searchWord],
-    () => getSchoolSerach(searchWord),
+    () => searchSchool(searchWord),
     {
       enabled: !!searchWord,
       select: (data) => data.slice(0, 5), // 5개만 잘라서 가지고 옴
