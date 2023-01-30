@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import GlobalStyled from 'shared/styles/global.style';
+import GlobalStyled from 'styles/global.style';
 import App from './App';
 
 const queryClient = new QueryClient();
