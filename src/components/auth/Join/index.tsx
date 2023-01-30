@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { customAxios } from 'lib/axios/customAxios';
 import { JoinType } from 'type/auth/join.type';
+import { useMutation } from 'react-query';
+import { postJoin } from 'api/auth';
 import * as S from './style';
 
 const Join = () => {
@@ -10,16 +11,22 @@ const Join = () => {
     schoolId: 0,
   });
 
+  const join = useMutation(postJoin, {
+    onSuccess: () => {
+      alert('회원가입 성공 !!');
+    },
+    onError: (err) => {
+      console.log(err);
+    },
+  });
+
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
   };
 
-  const onClick = async () => {
-    const response = await customAxios.post('/user', userData);
-    if (response.status === 200) {
-      alert('회원가입 성공 !!');
-    }
+  const submit = () => {
+    join.mutate(userData);
   };
 
   return (
@@ -41,7 +48,7 @@ const Join = () => {
         name="schoolId"
         placeholder="학교 ID를 입력하세요"
       />
-      <S.Button onClick={onClick}>회원가입</S.Button>
+      <S.Button onClick={submit}>회원가입</S.Button>
     </S.SignUp>
   );
 };
