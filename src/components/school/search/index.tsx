@@ -4,7 +4,7 @@ import { useQuery } from 'react-query';
 import { searchSchool } from 'api/school';
 import * as S from './style';
 
-const SchoolSearch = () => {
+const SearchSchool = () => {
   const [searchWord, setSearchWord] = useState<string>('');
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,13 +26,12 @@ const SchoolSearch = () => {
         <S.Input onChange={onChange} placeholder="검색어를 입력하던가 말던가" />
       </S.SchoolSearch>
       <S.SearchResult>
-        {
-          data?.map((item) => {
-            return <S.List key={item.id}>{item.name}</S.List>;
-          })}
+        {data?.map((item) => {
+          return <S.List key={item.id}>{item.name}</S.List>;
+        })}
       </S.SearchResult>
     </>
   );
 };
 
-export default SchoolSearch;
+export default SearchSchool;
