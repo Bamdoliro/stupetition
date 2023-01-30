@@ -1,6 +1,6 @@
 import { customAxios } from 'lib/axios/customAxios';
 import { useState } from 'react';
-import { LoginType } from 'type/auth/login.type';
+import { LoginType } from 'type/auth/auth.type';
 import { authorization } from 'lib/token/authorization';
 import {
   setAccessToken,
@@ -8,6 +8,8 @@ import {
   deleteAccessToken,
   deleteRefreshToken,
 } from 'lib/token/token';
+import { useMutation } from 'react-query';
+import { logoutUser, loginUser } from 'api/auth';
 import * as S from './style';
 
 const Login = () => {
@@ -16,29 +18,39 @@ const Login = () => {
     password: '',
   });
 
-  const login = async () => {
-    const response = await customAxios.post('/auth', loginData);
-    if (response.status === 200) {
-      alert('로그인 성공 !!');
-      setAccessToken(response.data.accessToken);
-      setRefreshToken(response.data.refreshToken);
-    }
-    console.log('에러');
-    console.log(response);
-  };
-
-  const logout = async () => {
-    const response = await customAxios.delete('/auth', authorization());
-    if (response.status === 200) {
-      deleteAccessToken();
-      deleteRefreshToken();
-      alert('로그아웃 성공 !!');
-    }
-  };
-
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setLoginData({ ...loginData, [name]: value });
+  };
+
+  const loginMutate = useMutation(loginUser, {
+    onSuccess: (res) => {
+      setAccessToken(res.accessToken);
+      setRefreshToken(res.refreshtoken);
+      alert('로그인 성공 !!');
+    },
+    onError: (err) => {
+      console.log(err);
+    },
+  });
+
+  const logoutMutate = useMutation(logoutUser, {
+    onSuccess: () => {
+      deleteAccessToken();
+      deleteRefreshToken();
+      alert('로그아웃 성공 !!');
+    },
+    onError: (err) => {
+      console.log(err);
+    },
+  });
+
+  const login = () => {
+    loginMutate.mutate(loginData);
+  };
+
+  const logout = () => {
+    logoutMutate.mutate();
   };
 
   return (

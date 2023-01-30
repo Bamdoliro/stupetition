@@ -1,4 +1,4 @@
-import SchoolSearch from 'components/school/search';
+import SearchSchool from 'components/school/search';
 import Join from 'components/auth/Join';
 import Login from 'components/auth/Login';
 
@@ -7,6 +7,7 @@ const App = () => {
     <>
       <Join />
       <Login />
+      <SearchSchool />
     </>
   );
 };
