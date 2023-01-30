@@ -9,7 +9,7 @@ import {
   deleteRefreshToken,
 } from 'lib/token/token';
 import { useMutation } from 'react-query';
-import { deleteLogout, postLogin } from 'api/auth';
+import { logoutUser, loginUser } from 'api/auth';
 import * as S from './style';
 
 const Login = () => {
@@ -23,7 +23,7 @@ const Login = () => {
     setLoginData({ ...loginData, [name]: value });
   };
 
-  const loginMutate = useMutation(postLogin, {
+  const loginMutate = useMutation(loginUser, {
     onSuccess: (res) => {
       setAccessToken(res.accessToken);
       setRefreshToken(res.refreshtoken);
@@ -34,7 +34,7 @@ const Login = () => {
     },
   });
 
-  const logoutMutate = useMutation(deleteLogout, {
+  const logoutMutate = useMutation(logoutUser, {
     onSuccess: () => {
       deleteAccessToken();
       deleteRefreshToken();

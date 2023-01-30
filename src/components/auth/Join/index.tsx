@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { JoinType } from 'type/auth/auth.type';
 import { useMutation } from 'react-query';
-import { postJoin } from 'api/auth';
+import { joinUser } from 'api/auth';
 import * as S from './style';
 
 const Join = () => {
@@ -16,7 +16,7 @@ const Join = () => {
     setUserData({ ...userData, [name]: value });
   };
 
-  const { mutate } = useMutation(postJoin, {
+  const { mutate } = useMutation(joinUser, {
     onSuccess: () => {
       alert('회원가입 성공 !!');
     },
