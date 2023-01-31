@@ -20,6 +20,7 @@ const GlobalStyled = createGlobalStyle`
       -webkit-user-select: auto;
       -ms-user-select: auto;
       user-select: auto;
+      border: none;
     }
     input:focus {
       outline: none;
