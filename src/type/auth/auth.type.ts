@@ -1,6 +1,7 @@
 export interface JoinType {
   email: string;
   password: string;
+  rePassword: string;
   schoolId: number;
 }
 

@@ -7,7 +7,7 @@ export const Container = styled.div`
   background-color: ${color.gray300};
 `;
 
-export const LoginWrap = styled.div`
+export const Wrap = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
@@ -17,8 +17,8 @@ export const LoginWrap = styled.div`
 `;
 
 export const LoginBox = styled.div`
-  width: 550px;
-  height: 500px;
+  width: 42.9%;
+  height: 60%;
   background-color: ${color.white};
   border-radius: 12px;
   padding: 5rem;
@@ -47,5 +47,3 @@ export const InputWrap = styled.div`
   margin: 42px 0px;
   gap: 18px;
 `;
-
-export const Button = styled.button``;

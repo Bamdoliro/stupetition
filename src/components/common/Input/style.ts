@@ -14,6 +14,6 @@ export const Input = styled.input`
   padding: 0px 20px;
   border-radius: 12px;
   background-color: #f3f6ff;
-  color: #202020;
+  color: ${color.black};
   font-size: 16px;
 `;

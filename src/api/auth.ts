@@ -2,8 +2,8 @@ import { customAxios } from 'lib/axios/customAxios';
 import { JoinType, LoginType } from 'type/auth/auth.type';
 import { authorization } from 'lib/token/authorization';
 
-export const joinUser = async (userData: JoinType) => {
-  await customAxios.post('/user', userData);
+export const joinUser = async ({ email, password, schoolId }: JoinType) => {
+  await customAxios.post('/user', { email, password, schoolId });
 };
 
 export const loginUser = async (loginData: LoginType) => {

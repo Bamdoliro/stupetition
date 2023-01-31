@@ -1,4 +1,5 @@
 import LoginPage from 'pages/Login';
+import JoinPage from 'pages/Join';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const App = () => {
@@ -6,6 +7,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LoginPage />} />
+        <Route path="/join" element={<JoinPage />} />
       </Routes>
     </BrowserRouter>
   );

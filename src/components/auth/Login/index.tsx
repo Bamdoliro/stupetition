@@ -10,9 +10,11 @@ import {
 } from 'lib/token/token';
 import { useMutation } from 'react-query';
 import { logoutUser, loginUser } from 'api/auth';
+import { useNavigate } from 'react-router-dom';
 import * as S from './style';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [loginData, setLoginData] = useState<LoginType>({
     email: '',
     password: '',
@@ -55,11 +57,12 @@ const Login = () => {
 
   return (
     <S.Container>
-      <S.LoginWrap>
+      <S.Wrap>
         <S.LoginBox>
           <S.Title>로그인</S.Title>
           <S.SubTitle>
-            신규 사용자이신가요? <S.Join>계정만들기</S.Join>
+            신규 사용자이신가요?{' '}
+            <S.Join onClick={() => navigate('/join')}>계정만들기</S.Join>
           </S.SubTitle>
           <S.InputWrap>
             <Input
@@ -79,7 +82,7 @@ const Login = () => {
           </S.InputWrap>
           <Button value="로그인" onClick={login} />
         </S.LoginBox>
-      </S.LoginWrap>
+      </S.Wrap>
     </S.Container>
   );
 };
