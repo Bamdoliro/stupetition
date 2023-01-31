@@ -1,8 +1,7 @@
-import { customAxios } from 'lib/axios/customAxios';
 import { useState } from 'react';
 import { LoginType } from 'type/auth/auth.type';
-import { authorization } from 'lib/token/authorization';
 import Input from 'components/common/Input';
+import Button from 'components/common/Button';
 import {
   setAccessToken,
   setRefreshToken,
@@ -64,23 +63,23 @@ const Login = () => {
           </S.SubTitle>
           <S.InputWrap>
             <Input
-              placeholder="아이디를 입력해주세요"
+              desc="학교 이메일 주소"
+              placeholder="학교 이메일 주소를 입력해주세요"
               type="email"
               name="email"
               onChange={onChange}
             />
+            <Input
+              desc="비밀번호"
+              placeholder="아이디를 입력해주세요"
+              type="password"
+              name="password"
+              onChange={onChange}
+            />
           </S.InputWrap>
+          <Button value="로그인" onClick={login} />
         </S.LoginBox>
       </S.LoginWrap>
-      {/*
-      <S.Input
-        placeholder="비밀번호를 입력하세요."
-        name="password"
-        type="password"
-        onChange={onChange}
-      />
-      <S.Button onClick={login}>로그인</S.Button>
-      <S.Button onClick={logout}>로그아웃</S.Button> */}
     </S.Container>
   );
 };

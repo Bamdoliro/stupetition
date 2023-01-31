@@ -42,6 +42,8 @@ export const Join = styled.a`
 `;
 
 export const InputWrap = styled.div`
+  display: flex;
+  flex-direction: column;
   margin: 42px 0px;
   gap: 18px;
 `;
