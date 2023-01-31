@@ -1,4 +1,4 @@
-import { getAccessToken } from './token';
+import { getAccessToken } from '../storage/token';
 
 export const authorization = () => {
   const token = getAccessToken();

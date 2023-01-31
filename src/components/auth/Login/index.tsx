@@ -7,14 +7,23 @@ import {
   setRefreshToken,
   deleteAccessToken,
   deleteRefreshToken,
-} from 'lib/token/token';
+} from 'lib/storage/token';
 import { useMutation } from 'react-query';
 import { logoutUser, loginUser } from 'api/auth';
 import { useNavigate } from 'react-router-dom';
+import {
+  deleteAuthority,
+  deleteSchoolName,
+  setAuthority,
+  setSchoolName,
+} from 'lib/storage/user';
+import { useSetRecoilState } from 'recoil';
+import { userData } from 'atom/user';
 import * as S from './style';
 
 const Login = () => {
   const navigate = useNavigate();
+  const setUserData = useSetRecoilState(userData);
   const [loginData, setLoginData] = useState<LoginType>({
     email: '',
     password: '',
@@ -27,9 +36,17 @@ const Login = () => {
 
   const loginMutate = useMutation(loginUser, {
     onSuccess: (res) => {
+      setAuthority(res.user.authority);
+      setSchoolName(res.user.schoolName);
       setAccessToken(res.accessToken);
       setRefreshToken(res.refreshtoken);
+      setUserData({
+        authority: res.user.authority,
+        schoolName: res.user.schoolName,
+      });
+
       alert('로그인 성공 !!');
+      navigate('/main');
     },
     onError: (err) => {
       console.log(err);
@@ -38,6 +55,8 @@ const Login = () => {
 
   const logoutMutate = useMutation(logoutUser, {
     onSuccess: () => {
+      deleteAuthority();
+      deleteSchoolName();
       deleteAccessToken();
       deleteRefreshToken();
       alert('로그아웃 성공 !!');

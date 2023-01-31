@@ -4,9 +4,12 @@ import { useMutation } from 'react-query';
 import { joinUser } from 'api/auth';
 import Input from 'components/common/Input';
 import Button from 'components/common/Button';
+import { useNavigate } from 'react-router-dom';
 import * as S from './style';
 
 const Join = () => {
+  const navigate = useNavigate();
+
   const [userData, setUserData] = useState<JoinType>({
     email: '',
     password: '',
@@ -22,6 +25,7 @@ const Join = () => {
   const { mutate } = useMutation(joinUser, {
     onSuccess: () => {
       alert('회원가입 성공 !!');
+      navigate('/');
     },
     onError: (err) => {
       console.log(err);
@@ -67,7 +71,7 @@ const Join = () => {
             <Input
               desc="학교"
               placeholder="학교를 입력해주세요"
-              type="number"
+              type="text"
               name="schoolId"
               onChange={onChange}
             />

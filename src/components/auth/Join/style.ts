@@ -37,9 +37,3 @@ export const InputWrap = styled.div`
   gap: 36px;
   width: 64%;
 `;
-
-export const SignUp = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 200px;
-`;
