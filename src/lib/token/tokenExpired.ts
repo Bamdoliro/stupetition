@@ -1,5 +1,5 @@
 import { customAxios } from 'lib/axios/customAxios';
-import { getRefreshToken } from './token';
+import { getRefreshToken } from '../storage/token';
 
 export const tokenExpired = async () => {
   const refreshToken = getRefreshToken();
