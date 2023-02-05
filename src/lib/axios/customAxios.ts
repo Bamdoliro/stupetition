@@ -27,7 +27,7 @@ customAxios.interceptors.response.use(
       if (error.response?.status === 401) {
         tokenExpired();
       }
-      alert(error.request.response);
+      // alert(error.request.response);
     }
     return Promise.reject(error);
   },
