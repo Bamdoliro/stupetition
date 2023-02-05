@@ -1,5 +1,7 @@
+import CreateBoard from 'components/board/createBoard';
+
 const MainPage = () => {
-  return <div>이것은 메인 페이지</div>;
+  return <CreateBoard />;
 };
 
 export default MainPage;
