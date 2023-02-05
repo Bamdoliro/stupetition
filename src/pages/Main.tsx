@@ -1,5 +1,13 @@
+import CreateBoard from 'components/board/createBoard';
+import GetBoards from 'components/board/getBoards/Index';
+
 const MainPage = () => {
-  return <div>이것은 메인 페이지</div>;
+  return (
+    <>
+      <CreateBoard />
+      <GetBoards />
+    </>
+  );
 };
 
 export default MainPage;
