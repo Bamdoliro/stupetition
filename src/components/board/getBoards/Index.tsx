@@ -1,11 +1,11 @@
 import { useQuery } from 'react-query';
 import { getBoard } from 'api/board';
-import { GetBoardType } from 'type/board/board.type';
+import { GetBoardType, StatusType } from 'type/board/board.type';
 import { useState } from 'react';
 import * as S from './style';
 
 const GetBoards = () => {
-  const [status, setStatus] = useState('PETITION');
+  const [status, setStatus] = useState<StatusType>('PETITION');
 
   const { isLoading, isError, data } = useQuery<GetBoardType[]>(
     ['status', status],

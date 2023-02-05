@@ -9,3 +9,5 @@ export interface GetBoardType {
   numberOfAgreers: number;
   title: string;
 }
+
+export type StatusType = string;
