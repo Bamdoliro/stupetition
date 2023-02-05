@@ -10,4 +10,4 @@ export interface GetBoardType {
   title: string;
 }
 
-export type StatusType = string;
+export type StatusType = 'PETITION' | 'EXPIRED' | 'WAITING' | 'ANSWERED';
