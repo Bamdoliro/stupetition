@@ -25,7 +25,6 @@ const CreateBoard = () => {
   };
 
   const submit = () => {
-    console.log(boardData);
     mutate(boardData);
   };
 
