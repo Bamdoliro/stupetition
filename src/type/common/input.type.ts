@@ -3,6 +3,7 @@ export interface InputPropsType {
   type: string;
   name: string;
   placeholder: string;
+  value?: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   onFocus?: React.FocusEventHandler<HTMLInputElement>;
 }

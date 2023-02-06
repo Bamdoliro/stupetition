@@ -7,6 +7,7 @@ const SearchInput = ({
   placeholder,
   type,
   name,
+  value,
   onChange,
   onFocus,
 }: InputPropsType) => {
@@ -19,6 +20,7 @@ const SearchInput = ({
           placeholder={placeholder}
           type={type}
           name={name}
+          value={value}
           onChange={onChange}
           onFocus={onFocus}
         />

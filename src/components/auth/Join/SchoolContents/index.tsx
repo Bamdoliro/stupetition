@@ -4,23 +4,23 @@ import { SchoolType } from 'type/school/search.type';
 import { useQuery } from 'react-query';
 import { searchSchool } from 'api/school';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { joinData } from 'atom/join';
+import { useRecoilState } from 'recoil';
+import { JoinType } from 'type/auth/auth.type';
 import SchoolList from './SchoolList';
 import * as S from './style';
 
 const SchoolContents = () => {
+  const navigate = useNavigate();
+
   const [searchWord, setSearchWord] = useState('');
-  const [schoolData, setSchoolData] = useState<SchoolType>({
-    name: '',
-    id: 0,
-  });
+  const [userData, setUserData] = useRecoilState<JoinType>(joinData);
 
   const handleClickRadio = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.id;
     const id = Number(e.target.value);
-    setSchoolData({
-      name,
-      id,
-    });
+    setUserData({ ...userData, schoolName: name, schoolId: id });
   };
 
   const onChage = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,7 +32,7 @@ const SchoolContents = () => {
     () => searchSchool(searchWord),
     {
       enabled: !!searchWord,
-      select: (data) => data.slice(0, 5), // 5개만 잘라서 가지고 옴
+      select: (data) => data.slice(0, 10), // 5개만 잘라서 가지고 옴
     },
   );
 
@@ -64,11 +64,20 @@ const SchoolContents = () => {
             value="취소"
             option="UNFILLED"
             width="50%"
-            onClick={() => console.log('취소')}
+            onClick={() => {
+              navigate('/join');
+              setUserData({
+                email: '',
+                password: '',
+                rePassword: '',
+                schoolId: 0,
+                schoolName: '',
+              });
+            }}
           />
           <Button
             value="완료"
-            onClick={() => console.log(schoolData)}
+            onClick={() => navigate('/join')}
             option="FILLED"
             width="50%"
           />
