@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import * as T from 'styles/text';
 import { color } from 'styles/theme';
 
 export const Container = styled.div`
@@ -17,6 +18,9 @@ export const Wrap = styled.div`
 `;
 
 export const LoginBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 42.9%;
   height: 60%;
   background-color: ${color.white};
@@ -24,19 +28,17 @@ export const LoginBox = styled.div`
   padding: 5rem;
 `;
 
-export const Title = styled.div`
-  font-size: 32px;
-  font-weight: 600;
+export const Title = styled(T.H1)`
+  color: ${color.gray900};
   padding-bottom: 8px;
 `;
 
-export const SubTitle = styled.div`
-  font-size: 16px;
-  font-weight: 400;
+export const SubTitle = styled(T.p)`
   color: ${color.gray600};
 `;
 
-export const Join = styled.a`
+export const Join = styled(T.p)`
+  display: inline-block;
   color: ${color.main};
   cursor: pointer;
 `;
