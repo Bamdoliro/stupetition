@@ -8,6 +8,7 @@ const SearchInput = ({
   type,
   name,
   onChange,
+  onFocus,
 }: InputPropsType) => {
   return (
     <div>
@@ -19,6 +20,7 @@ const SearchInput = ({
           type={type}
           name={name}
           onChange={onChange}
+          onFocus={onFocus}
         />
       </S.Wrap>
     </div>

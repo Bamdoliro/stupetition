@@ -7,14 +7,14 @@ export const Container = styled.div`
   background-color: ${color.gray300};
 `;
 
-export const Wrap = styled.div`
+export const Join = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: flex-end;
 `;
 
-export const JoinBox = styled.div`
+export const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,12 +28,4 @@ export const Title = styled.div`
   font-size: 36px;
   font-weight: 600;
   color: ${color.black};
-`;
-
-export const InputWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 4rem 0rem;
-  gap: 36px;
-  width: 64%;
 `;
