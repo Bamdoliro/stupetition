@@ -37,9 +37,9 @@ const SchoolContents = () => {
   );
 
   return (
-    <>
+    <S.Container>
       <S.Title>학교 검색</S.Title>
-      <S.Container>
+      <S.Wrap>
         <SearchInput
           placeholder="학교 검색"
           type="text"
@@ -82,8 +82,8 @@ const SchoolContents = () => {
             width="50%"
           />
         </S.ButtonWrap>
-      </S.Container>
-    </>
+      </S.Wrap>
+    </S.Container>
   );
 };
 
