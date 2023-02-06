@@ -29,38 +29,40 @@ const SchoolContents = () => {
 
   return (
     <S.Container>
-      <SearchInput
-        placeholder="학교 검색"
-        type="text"
-        name="school"
-        onChange={onChage}
-      />
-      <S.SchoolWrap>
-        {data?.map((item) => {
-          return (
-            <SchoolList
-              key={item.id}
-              name={item.name}
-              id={item.id}
-              emailDomain={item.emailDomain}
-            />
-          );
-        })}
-      </S.SchoolWrap>
-      <S.ButtonWrap>
-        <Button
-          value="취소"
-          onClick={() => console.log('눌림')}
-          option="UNFILLED"
-          width="50%"
+      <S.Form action="action">
+        <SearchInput
+          placeholder="학교 검색"
+          type="text"
+          name="school"
+          onChange={onChage}
         />
-        <Button
-          value="완료"
-          onClick={() => console.log('눌림')}
-          option="FILLED"
-          width="50%"
-        />
-      </S.ButtonWrap>
+        <S.SchoolWrap>
+          {data?.map((item) => {
+            return (
+              <SchoolList
+                key={item.id}
+                name={item.name}
+                id={item.id}
+                emailDomain={item.emailDomain}
+              />
+            );
+          })}
+        </S.SchoolWrap>
+        <S.ButtonWrap>
+          <Button
+            value="취소"
+            onClick={() => console.log('눌림')}
+            option="UNFILLED"
+            width="50%"
+          />
+          <Button
+            value="완료"
+            onClick={() => console.log('눌림')}
+            option="FILLED"
+            width="50%"
+          />
+        </S.ButtonWrap>
+      </S.Form>
     </S.Container>
   );
 };

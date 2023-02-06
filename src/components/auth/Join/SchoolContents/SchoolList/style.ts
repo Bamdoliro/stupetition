@@ -1,3 +1,4 @@
+import { type } from 'os';
 import styled from 'styled-components';
 import * as T from 'styles/text';
 import { color } from 'styles/theme';
@@ -25,17 +26,35 @@ export const Email = styled(T.caption)`
   color: ${color.gray500};
 `;
 
-export const Button = styled.button`
+export const Button = styled.div``;
+
+export const RadioInput = styled.input`
+  position: absolute;
+  opacity: 0;
+`;
+
+export const RadioLabel = styled.label`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 56px;
   height: 36px;
-  padding: 10px;
+  padding: 9px;
   border-radius: 10px;
   background-color: ${color.main};
   color: ${color.white};
   font-weight: 500;
   font-size: 14px;
   line-height: 160%;
+  cursor: pointer;
+  &:before {
+    content: '선택';
+  }
+  ${RadioInput}:checked + & {
+    &:before {
+      content: '선택됨';
+    }
+    background-color: ${color.gray400};
+    content: '선택됨';
+  }
 `;

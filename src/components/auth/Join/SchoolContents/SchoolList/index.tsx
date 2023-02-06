@@ -8,7 +8,15 @@ const SchoolList = ({ name, id, emailDomain }: SchoolType) => {
         <S.SchoolName>{name}</S.SchoolName>
         <S.Email>@{emailDomain}</S.Email>
       </S.ListWrap>
-      <S.Button>선택</S.Button>
+      <S.Button>
+        <S.RadioInput
+          type="radio"
+          id={`radio-btn${id}`}
+          name="school-radio"
+          value={id}
+        />
+        <S.RadioLabel htmlFor={`radio-btn${id}`} />
+      </S.Button>
     </S.List>
   );
 };
