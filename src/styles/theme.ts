@@ -3,6 +3,6 @@ export const color = {
   white: '#FFFFFF',
   black: '#202020',
   gray600: '#505050',
-  gray500: '#808080',
+  gray500: '#9E9E9E',
   gray300: '#DCDCDC',
 };
