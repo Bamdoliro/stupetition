@@ -73,7 +73,7 @@ const JoinContents = () => {
           onFocus={() => console.log('gg')}
         />
       </S.InputWrap>
-      <Button value="회원가입" onClick={submit} />
+      <Button value="회원가입" onClick={submit} option="FILLED" width="174px" />
     </div>
   );
 };
