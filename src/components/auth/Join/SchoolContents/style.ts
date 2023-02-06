@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { color } from 'styles/theme';
 
 export const Container = styled.div`
   display: flex;
@@ -15,11 +14,3 @@ export const SchoolWrap = styled.ul`
   max-height: 67.2%;
   border: 1px solid black;
 `;
-
-export const List = styled.li`
-  height: 72px;
-  width: 100%;
-  border: 1px solid black;
-`;
-
-export const Email = styled.p``;

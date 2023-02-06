@@ -3,6 +3,7 @@ import { SchoolSearchType } from 'type/school/search.type';
 import { useQuery } from 'react-query';
 import { searchSchool } from 'api/school';
 import { useState } from 'react';
+import SchoolList from './SchoolList';
 import * as S from './style';
 
 const SchoolContents = () => {
@@ -35,9 +36,7 @@ const SchoolContents = () => {
         onChange={onChage}
       />
       <S.SchoolWrap>
-        <S.List>
-          <S.Email>@bssm.hs.kr</S.Email>
-        </S.List>
+        <SchoolList />
       </S.SchoolWrap>
     </S.Container>
   );

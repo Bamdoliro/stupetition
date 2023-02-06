@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import { color } from 'styles/theme';
 
 export const Button = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 225px;
   height: 48px;
   padding: 0px 22px;
