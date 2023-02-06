@@ -1,7 +1,7 @@
-import { SchoolType } from 'type/school/search.type';
+import { SchoolListType } from 'type/school/search.type';
 import * as S from './style';
 
-const SchoolList = ({ name, id, emailDomain }: SchoolType) => {
+const SchoolList = ({ name, id, emailDomain, onChange }: SchoolListType) => {
   return (
     <S.List>
       <S.ListWrap>
@@ -11,11 +11,12 @@ const SchoolList = ({ name, id, emailDomain }: SchoolType) => {
       <S.Button>
         <S.RadioInput
           type="radio"
-          id={`radio-btn${id}`}
+          id={name}
           name="school-radio"
           value={id}
+          onChange={onChange}
         />
-        <S.RadioLabel htmlFor={`radio-btn${id}`} />
+        <S.RadioLabel htmlFor={name} />
       </S.Button>
     </S.List>
   );

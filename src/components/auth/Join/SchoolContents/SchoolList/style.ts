@@ -1,4 +1,3 @@
-import { type } from 'os';
 import styled from 'styled-components';
 import * as T from 'styles/text';
 import { color } from 'styles/theme';

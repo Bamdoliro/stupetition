@@ -42,39 +42,47 @@ const JoinContents = () => {
   };
 
   return (
-    <div>
-      <S.InputWrap>
-        <Input
-          desc="학교 이메일 주소"
-          placeholder="학교 이메일 주소를 입력해주세요"
-          type="email"
-          name="email"
-          onChange={onChange}
+    <>
+      <S.Title>회원가입</S.Title>
+      <div>
+        <S.InputWrap>
+          <Input
+            desc="학교 이메일 주소"
+            placeholder="학교 이메일 주소를 입력해주세요"
+            type="email"
+            name="email"
+            onChange={onChange}
+          />
+          <Input
+            desc="비밀번호"
+            placeholder="비밀번호를 입력해주세요"
+            type="password"
+            name="password"
+            onChange={onChange}
+          />
+          <Input
+            desc="비밀번호 확인"
+            placeholder="비밀번호를 다시 입력해주세요"
+            type="password"
+            name="rePassword"
+            onChange={onChange}
+          />
+          <SearchInput
+            desc="학교"
+            placeholder="학교를 입력해주세요"
+            type="text"
+            name="schoolId"
+            onFocus={() => navigate('/join/school')}
+          />
+        </S.InputWrap>
+        <Button
+          value="회원가입"
+          onClick={submit}
+          option="FILLED"
+          width="174px"
         />
-        <Input
-          desc="비밀번호"
-          placeholder="비밀번호를 입력해주세요"
-          type="password"
-          name="password"
-          onChange={onChange}
-        />
-        <Input
-          desc="비밀번호 확인"
-          placeholder="비밀번호를 다시 입력해주세요"
-          type="password"
-          name="rePassword"
-          onChange={onChange}
-        />
-        <SearchInput
-          desc="학교"
-          placeholder="학교를 입력해주세요"
-          type="text"
-          name="schoolId"
-          onFocus={() => console.log('gg')}
-        />
-      </S.InputWrap>
-      <Button value="회원가입" onClick={submit} option="FILLED" width="174px" />
-    </div>
+      </div>
+    </>
   );
 };
 

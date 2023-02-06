@@ -8,28 +8,38 @@ import SchoolList from './SchoolList';
 import * as S from './style';
 
 const SchoolContents = () => {
-  const [schoolData, setSchoolData] = useState({
-    school: '',
-    schoolId: 0,
+  const [searchWord, setSearchWord] = useState('');
+  const [schoolData, setSchoolData] = useState<SchoolType>({
+    name: '',
+    id: 0,
   });
 
+  const handleClickRadio = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const name = e.target.id;
+    const id = Number(e.target.value);
+    setSchoolData({
+      name,
+      id,
+    });
+  };
+
   const onChage = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setSchoolData({ ...schoolData, [name]: value });
+    setSearchWord(e.target.value);
   };
 
   const { data } = useQuery<SchoolType[]>(
-    ['searchWord', schoolData.school],
-    () => searchSchool(schoolData.school),
+    ['searchWord', searchWord],
+    () => searchSchool(searchWord),
     {
-      enabled: !!schoolData.school,
+      enabled: !!searchWord,
       select: (data) => data.slice(0, 5), // 5개만 잘라서 가지고 옴
     },
   );
 
   return (
-    <S.Container>
-      <S.Form action="action">
+    <>
+      <S.Title>학교 검색</S.Title>
+      <S.Container>
         <SearchInput
           placeholder="학교 검색"
           type="text"
@@ -44,6 +54,7 @@ const SchoolContents = () => {
                 name={item.name}
                 id={item.id}
                 emailDomain={item.emailDomain}
+                onChange={handleClickRadio}
               />
             );
           })}
@@ -51,19 +62,19 @@ const SchoolContents = () => {
         <S.ButtonWrap>
           <Button
             value="취소"
-            onClick={() => console.log('눌림')}
             option="UNFILLED"
             width="50%"
+            onClick={() => console.log('취소')}
           />
           <Button
             value="완료"
-            onClick={() => console.log('눌림')}
+            onClick={() => console.log(schoolData)}
             option="FILLED"
             width="50%"
           />
         </S.ButtonWrap>
-      </S.Form>
-    </S.Container>
+      </S.Container>
+    </>
   );
 };
 

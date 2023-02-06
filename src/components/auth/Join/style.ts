@@ -23,9 +23,3 @@ export const Wrap = styled.div`
   height: 100%;
   background-color: ${color.white};
 `;
-
-export const Title = styled.div`
-  font-size: 36px;
-  font-weight: 600;
-  color: ${color.black};
-`;

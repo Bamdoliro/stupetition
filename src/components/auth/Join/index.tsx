@@ -1,28 +1,21 @@
 import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import JoinContents from './JoinContents';
 import SchoolContents from './SchoolContents';
 import * as S from './style';
 
 const Join = () => {
   return (
-    <>
-      <S.Container>
-        <S.Join>
-          <S.Wrap>
-            <S.Title>학교 검색</S.Title>
-            <SchoolContents />
-          </S.Wrap>
-        </S.Join>
-      </S.Container>
-      {/* <S.Container>
-        <S.Join>
-          <S.Wrap>
-            <S.Title>학교 검색</S.Title>
-            <JoinContents />
-          </S.Wrap>
-        </S.Join>
-      </S.Container> */}
-    </>
+    <S.Container>
+      <S.Join>
+        <S.Wrap>
+          <Routes>
+            <Route path="/" element={<JoinContents />} />
+            <Route path="/school" element={<SchoolContents />} />
+          </Routes>
+        </S.Wrap>
+      </S.Join>
+    </S.Container>
   );
 };
 
