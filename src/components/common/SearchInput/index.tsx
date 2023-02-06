@@ -12,7 +12,7 @@ const SearchInput = ({
 }: InputPropsType) => {
   return (
     <div>
-      <S.Desc>{desc}</S.Desc>
+      {desc === undefined ? '' : <S.Desc>{desc}</S.Desc>}
       <S.Wrap>
         <S.Img src={SearchSvg} />
         <S.Input

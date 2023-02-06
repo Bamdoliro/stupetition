@@ -4,7 +4,7 @@ import * as S from './style';
 const Input = ({ desc, placeholder, type, name, onChange }: InputPropsType) => {
   return (
     <div>
-      <S.Desc>{desc}</S.Desc>
+      {desc === undefined ? '' : <S.Desc>{desc}</S.Desc>}
       <S.Input
         placeholder={placeholder}
         type={type}

@@ -1,5 +1,5 @@
 export interface InputPropsType {
-  desc: string;
+  desc?: string;
   type: string;
   name: string;
   placeholder: string;

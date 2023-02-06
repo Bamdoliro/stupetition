@@ -29,7 +29,6 @@ const SchoolContents = () => {
   return (
     <S.Container>
       <SearchInput
-        desc="학교"
         placeholder="학교 검색"
         type="text"
         name="school"
