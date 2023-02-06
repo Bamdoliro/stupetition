@@ -6,8 +6,8 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 48px;
-  width: 100%;
-  height: 100%;
+  width: 64%;
+  height: 73.5%;
 `;
 
 export const Title = styled.div`
@@ -19,13 +19,13 @@ export const Title = styled.div`
 export const Wrap = styled.div`
   display: flex;
   flex-direction: column;
-  width: 64%;
-  height: 60%;
+  height: 100%;
+  width: 100%;
 `;
 
 export const SchoolWrap = styled.ul`
-  height: 67.2%;
-  max-height: 67.2%;
+  height: 100%;
+  max-height: 100%;
   overflow: auto;
 `;
 

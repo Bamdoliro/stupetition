@@ -15,6 +15,9 @@ export const Join = styled.div`
 `;
 
 export const Wrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding-left: 9.125rem;
   width: 56%;
   height: 100%;

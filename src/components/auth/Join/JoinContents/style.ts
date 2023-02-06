@@ -5,9 +5,9 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 36px;
-  width: 100%;
-  height: 100%;
+  gap: 48px;
+  width: 64%;
+  height: 73.5%;
 `;
 
 export const Title = styled.div`
@@ -20,5 +20,5 @@ export const InputWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 36px;
-  width: 64%;
+  width: 100%;
 `;
