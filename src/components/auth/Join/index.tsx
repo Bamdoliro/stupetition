@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { JoinType } from 'type/auth/auth.type';
 import { useMutation } from 'react-query';
 import { joinUser } from 'api/auth';
+import SearchInput from 'components/common/SearchInput';
 import Input from 'components/common/Input';
 import Button from 'components/common/Button';
 import { useNavigate } from 'react-router-dom';
@@ -68,7 +69,7 @@ const Join = () => {
               name="rePassword"
               onChange={onChange}
             />
-            <Input
+            <SearchInput
               desc="학교"
               placeholder="학교를 입력해주세요"
               type="text"

@@ -11,7 +11,7 @@ export const Desc = styled.div`
 export const Input = styled.input`
   height: 48px;
   width: 100%;
-  padding: 0px 20px;
+  padding: 0px 16px;
   border-radius: 12px;
   background-color: #f3f6ff;
   color: ${color.black};
