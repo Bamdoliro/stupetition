@@ -1,4 +1,4 @@
-export interface SchoolSearchType {
+export interface SchoolType {
   name: string;
   id: number;
   emailDomain: string;

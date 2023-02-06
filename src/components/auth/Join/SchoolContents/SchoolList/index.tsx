@@ -1,11 +1,12 @@
+import { SchoolType } from 'type/school/search.type';
 import * as S from './style';
 
-const SchoolList = () => {
+const SchoolList = ({ name, id, emailDomain }: SchoolType) => {
   return (
     <S.List>
       <S.ListWrap>
-        <S.SchoolName>부산소프트웨어마이스터고등학교</S.SchoolName>
-        <S.Email>@bssm.hs.kr</S.Email>
+        <S.SchoolName>{name}</S.SchoolName>
+        <S.Email>@{emailDomain}</S.Email>
       </S.ListWrap>
       <S.Button>선택</S.Button>
     </S.List>

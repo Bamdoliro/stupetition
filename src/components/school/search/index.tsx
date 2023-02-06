@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SchoolSearchType } from 'type/school/search.type';
+import { SchoolType } from 'type/school/search.type';
 import { useQuery } from 'react-query';
 import { searchSchool } from 'api/school';
 import * as S from './style';
@@ -11,7 +11,7 @@ const SearchSchool = () => {
     setSearchWord(e.target.value);
   };
 
-  const { data } = useQuery<SchoolSearchType[]>(
+  const { data } = useQuery<SchoolType[]>(
     ['searchWord', searchWord],
     () => searchSchool(searchWord),
     {

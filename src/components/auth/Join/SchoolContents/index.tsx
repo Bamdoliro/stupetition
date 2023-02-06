@@ -1,5 +1,5 @@
 import SearchInput from 'components/common/SearchInput';
-import { SchoolSearchType } from 'type/school/search.type';
+import { SchoolType } from 'type/school/search.type';
 import { useQuery } from 'react-query';
 import { searchSchool } from 'api/school';
 import { useState } from 'react';
@@ -17,7 +17,7 @@ const SchoolContents = () => {
     setSchoolData({ ...schoolData, [name]: value });
   };
 
-  const { data } = useQuery<SchoolSearchType[]>(
+  const { data } = useQuery<SchoolType[]>(
     ['searchWord', schoolData.school],
     () => searchSchool(schoolData.school),
     {
@@ -35,7 +35,11 @@ const SchoolContents = () => {
         onChange={onChage}
       />
       <S.SchoolWrap>
-        <SchoolList />
+        <SchoolList
+          name="부산소프트웨어마이스터고등학교"
+          id={1}
+          emailDomain="bssm.hs.kr"
+        />
       </S.SchoolWrap>
     </S.Container>
   );
