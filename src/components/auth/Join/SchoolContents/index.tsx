@@ -1,4 +1,5 @@
 import SearchInput from 'components/common/SearchInput';
+import Button from 'components/common/Button';
 import { SchoolType } from 'type/school/search.type';
 import { useQuery } from 'react-query';
 import { searchSchool } from 'api/school';
@@ -35,12 +36,31 @@ const SchoolContents = () => {
         onChange={onChage}
       />
       <S.SchoolWrap>
-        <SchoolList
-          name="부산소프트웨어마이스터고등학교"
-          id={1}
-          emailDomain="bssm.hs.kr"
-        />
+        {data?.map((item) => {
+          return (
+            <SchoolList
+              key={item.id}
+              name={item.name}
+              id={item.id}
+              emailDomain={item.emailDomain}
+            />
+          );
+        })}
       </S.SchoolWrap>
+      <S.ButtonWrap>
+        <Button
+          value="취소"
+          onClick={() => console.log('눌림')}
+          option="UNFILLED"
+          width="50%"
+        />
+        <Button
+          value="완료"
+          onClick={() => console.log('눌림')}
+          option="FILLED"
+          width="50%"
+        />
+      </S.ButtonWrap>
     </S.Container>
   );
 };

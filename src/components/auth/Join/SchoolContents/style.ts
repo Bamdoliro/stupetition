@@ -12,5 +12,11 @@ export const Container = styled.div`
 export const SchoolWrap = styled.ul`
   height: 67.2%;
   max-height: 67.2%;
-  border: 1px solid black;
+  overflow: auto;
+`;
+
+export const ButtonWrap = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 12px;
 `;

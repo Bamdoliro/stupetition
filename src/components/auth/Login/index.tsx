@@ -99,7 +99,12 @@ const Login = () => {
               onChange={onChange}
             />
           </S.InputWrap>
-          <Button value="로그인" onClick={login} />
+          <Button
+            value="로그인"
+            onClick={login}
+            option="FILLED"
+            width="174px"
+          />
         </S.LoginBox>
       </S.Wrap>
     </S.Container>
