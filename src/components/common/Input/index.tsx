@@ -11,7 +11,7 @@ const Input = ({
 }: InputPropsType) => {
   return (
     <div>
-      {desc === undefined ? '' : <S.Desc>{desc}</S.Desc>}
+      {desc ? <S.Desc>{desc}</S.Desc> : ''}
       <S.Input
         placeholder={placeholder}
         type={type}
