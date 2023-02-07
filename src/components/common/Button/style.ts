@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { color } from 'styles/theme';
 
-export const FilledButtonFilledButton = styled.button`
+export const FilledButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
