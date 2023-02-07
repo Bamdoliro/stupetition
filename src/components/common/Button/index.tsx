@@ -3,13 +3,13 @@ import * as S from './style';
 
 const Button = ({ value, onClick, width, option }: ButtonPropsType) => {
   return option === 'FILLED' ? (
-    <S.FillButton style={{ width }} onClick={onClick}>
+    <S.FilledButton style={{ width }} onClick={onClick}>
       {value}
-    </S.FillButton>
+    </S.FilledButton>
   ) : (
-    <S.UnfillButton style={{ width }} onClick={onClick}>
+    <S.UnfilledButton style={{ width }} onClick={onClick}>
       {value}
-    </S.UnfillButton>
+    </S.UnfilledButton>
   );
 };
 
