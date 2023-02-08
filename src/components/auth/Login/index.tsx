@@ -78,28 +78,35 @@ const Login = () => {
     <S.Container>
       <S.Wrap>
         <S.LoginBox>
-          <S.Title>로그인</S.Title>
-          <S.SubTitle>
-            신규 사용자이신가요?{' '}
-            <S.Join onClick={() => navigate('/join')}>계정만들기</S.Join>
-          </S.SubTitle>
-          <S.InputWrap>
-            <Input
-              desc="학교 이메일 주소"
-              placeholder="학교 이메일 주소를 입력해주세요"
-              type="email"
-              name="email"
-              onChange={onChange}
+          <div>
+            <S.Title>로그인</S.Title>
+            <S.SubTitle>
+              신규 사용자이신가요?{' '}
+              <S.Join onClick={() => navigate('/join')}>계정만들기</S.Join>
+            </S.SubTitle>
+            <S.InputWrap>
+              <Input
+                desc="학교 이메일 주소"
+                placeholder="학교 이메일 주소를 입력해주세요"
+                type="email"
+                name="email"
+                onChange={onChange}
+              />
+              <Input
+                desc="비밀번호"
+                placeholder="아이디를 입력해주세요"
+                type="password"
+                name="password"
+                onChange={onChange}
+              />
+            </S.InputWrap>
+            <Button
+              value="로그인"
+              onClick={login}
+              option="FILLED"
+              width="174px"
             />
-            <Input
-              desc="비밀번호"
-              placeholder="아이디를 입력해주세요"
-              type="password"
-              name="password"
-              onChange={onChange}
-            />
-          </S.InputWrap>
-          <Button value="로그인" onClick={login} />
+          </div>
         </S.LoginBox>
       </S.Wrap>
     </S.Container>

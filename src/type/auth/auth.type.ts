@@ -3,6 +3,7 @@ export interface JoinType {
   password: string;
   rePassword: string;
   schoolId: number;
+  schoolName: string;
 }
 
 export interface LoginType {
