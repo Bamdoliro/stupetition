@@ -13,7 +13,7 @@ export const Wrap = styled.div`
   align-items: center;
   height: 48px;
   border-radius: 12px;
-  background-color: #f3f6ff;
+  background-color: ${color.gray100};
   padding: 0px 0px 0px 16px;
 `;
 
@@ -25,7 +25,7 @@ export const Img = styled.img`
 
 export const Input = styled.input`
   border-radius: 0px 12px 12px 0px;
-  background-color: #f3f6ff;
+  background-color: ${color.gray100};
   width: 100%;
   height: 100%;
   font-size: 16px;
