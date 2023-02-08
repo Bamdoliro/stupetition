@@ -10,6 +10,7 @@ export const Container = styled.div`
   border-radius: 100px;
   padding: 0.375rem;
   background-color: ${color.gray50};
+  margin: 2.25rem 0px 3rem 0;
 `;
 
 export const TabButton = styled.div`
@@ -28,11 +29,15 @@ export const RadioLabel = styled.label`
   width: 100%;
   height: 100%;
   border-radius: 100px;
-
   font-weight: 400;
   font-size: 16px;
   line-height: 160%;
   color: ${color.black};
+  cursor: pointer;
+
+  ${RadioInput}:hover + & {
+    background-color: ${color.gray100};
+  }
   ${RadioInput}:checked + & {
     color: ${color.white};
     background-color: ${color.main};
