@@ -75,6 +75,7 @@ const JoinContents = () => {
             onChange={onChange}
           />
           <SearchInput
+            width="100%"
             desc="학교"
             placeholder="학교를 입력해주세요"
             type="text"

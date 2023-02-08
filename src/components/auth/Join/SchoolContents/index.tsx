@@ -41,6 +41,7 @@ const SchoolContents = () => {
       <S.Wrap>
         <S.Title>학교 검색</S.Title>
         <SearchInput
+          width="100%"
           placeholder="학교 검색"
           type="text"
           name="school"

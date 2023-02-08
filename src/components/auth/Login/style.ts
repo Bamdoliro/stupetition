@@ -33,11 +33,11 @@ export const Title = styled(T.H1)`
   padding-bottom: 8px;
 `;
 
-export const SubTitle = styled(T.p)`
+export const SubTitle = styled(T.p2)`
   color: ${color.gray600};
 `;
 
-export const Join = styled(T.p)`
+export const Join = styled(T.p2)`
   display: inline-block;
   color: ${color.main};
   cursor: pointer;

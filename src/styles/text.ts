@@ -63,11 +63,25 @@ export const btn = styled.p`
   letter-spacing: -0.15px;
 `;
 
-export const p = styled.p`
+export const p1 = styled.p`
+  font-weight: 500;
+  font-size: 1.125rem;
+  line-height: 140%;
+  letter-spacing: 0.15px;
+`;
+
+export const p2 = styled.p`
   font-weight: 400;
   font-size: 1rem;
   line-height: 160%;
   letter-spacing: -0.15px;
+`;
+
+export const p3 = styled.p`
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 160%;
+  letter-spacing: -0.1px;
 `;
 
 export const caption = styled.p`

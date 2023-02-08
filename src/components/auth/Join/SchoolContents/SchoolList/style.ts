@@ -17,7 +17,7 @@ export const ListWrap = styled.div`
   flex-direction: column;
 `;
 
-export const SchoolName = styled(T.p)`
+export const SchoolName = styled(T.p2)`
   color: ${color.gray900};
 `;
 

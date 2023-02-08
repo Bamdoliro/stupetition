@@ -12,7 +12,6 @@ export const Wrap = styled.div`
   display: flex;
   align-items: center;
   height: 48px;
-  width: 100%;
   border-radius: 12px;
   background-color: #f3f6ff;
   padding: 0px 0px 0px 16px;
