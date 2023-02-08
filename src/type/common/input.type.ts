@@ -5,6 +5,7 @@ export interface InputPropsType {
   placeholder: string;
   value?: string;
   width?: string;
+  height?: string;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   onFocus?: React.FocusEventHandler<HTMLInputElement>;
 }

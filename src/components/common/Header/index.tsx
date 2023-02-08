@@ -12,6 +12,7 @@ const Header = () => {
         </S.LogoWrap>
         <S.NavWrap>
           <SearchInput
+            height="40px"
             width="240px"
             placeholder="청원 검색"
             type="text"

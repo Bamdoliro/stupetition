@@ -11,7 +11,6 @@ export const Desc = styled.div`
 export const Wrap = styled.div`
   display: flex;
   align-items: center;
-  height: 48px;
   border-radius: 12px;
   background-color: ${color.gray100};
   padding: 0px 0px 0px 16px;
