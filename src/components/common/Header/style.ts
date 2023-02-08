@@ -7,6 +7,7 @@ export const Container = styled.div`
   justify-content: center;
   width: 100vw;
   height: 56px;
+  background-color: ${color.white};
 `;
 
 export const Wrap = styled.div`
@@ -15,6 +16,7 @@ export const Wrap = styled.div`
   justify-content: space-between;
   width: 86.1%;
   height: 100%;
+  background-color: ${color.white};
 `;
 
 export const LogoWrap = styled.div`
@@ -38,4 +40,5 @@ export const NavWrap = styled.div`
   display: flex;
   align-items: center;
   gap: 24px;
+  padding: 5.5px 0px;
 `;
