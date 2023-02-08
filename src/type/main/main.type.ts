@@ -5,3 +5,7 @@ export interface RadioPropsType {
   status: string;
   setStatus: Dispatch<SetStateAction<StatusType>>;
 }
+
+export interface ProgressbarPropsType {
+  numberOfAgreers: number;
+}

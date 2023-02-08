@@ -52,16 +52,3 @@ export const Progress = styled.div`
   font-size: 12px;
   line-height: 160%;
 `;
-
-export const ProgressBarWrap = styled.div`
-  width: 96px;
-  height: 96px;
-`;
-
-export const Percent = styled(T.H5)`
-  color: ${color.gray600};
-`;
-
-export const Personnel = styled(T.caption)`
-  color: ${color.gray600};
-`;

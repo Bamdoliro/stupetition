@@ -1,14 +1,8 @@
-import {
-  CircularProgressbarWithChildren,
-  buildStyles,
-} from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { color } from 'styles/theme';
+import Progressbar from './Progressbar';
 import * as S from './style';
 
 const PetitionList = () => {
-  const percentage = 66;
-
   return (
     <S.Container>
       <S.Wrap>
@@ -19,18 +13,7 @@ const PetitionList = () => {
             <S.Date>2023-02-07</S.Date>
           </S.DetailInfo>
         </S.Info>
-        <S.ProgressBarWrap>
-          <CircularProgressbarWithChildren
-            value={percentage}
-            styles={buildStyles({
-              strokeLinecap: 'butt',
-              pathColor: color.main,
-            })}
-          >
-            <S.Percent>40%</S.Percent>
-            <S.Personnel>50명</S.Personnel>
-          </CircularProgressbarWithChildren>
-        </S.ProgressBarWrap>
+        <Progressbar numberOfAgreers={10} />
       </S.Wrap>
     </S.Container>
   );
