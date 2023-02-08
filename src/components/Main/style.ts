@@ -33,3 +33,10 @@ export const ContentsWrap = styled.div`
   align-items: center;
   width: 100%;
 `;
+
+export const PetitionWrap = styled.div`
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 30px;
+  width: 74.4%;
+`;

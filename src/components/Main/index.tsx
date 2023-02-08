@@ -18,10 +18,16 @@ const Main = () => {
       </S.Banner>
       <S.ContentsWrap>
         <RadioTabMenu setStatus={setStatus} status={status} />
-        <PetitionList
-          createdAt="2023-02-08T15:17:05.763Z"
-          title="제발 소개과 보내주세요 안그러면 저 자퇴합니다"
-        />
+        <S.PetitionWrap>
+          <PetitionList
+            createdAt="2023-02-08T15:17:05.763Z"
+            title="제발 소개과 보내주세요 안그러면 저 자퇴합니다"
+          />
+          <PetitionList
+            createdAt="2023-02-08T15:17:05.763Z"
+            title="제발 소개과 보내주세요 안그러면 저 자퇴합니다"
+          />
+        </S.PetitionWrap>
       </S.ContentsWrap>
     </S.Container>
   );

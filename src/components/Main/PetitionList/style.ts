@@ -5,7 +5,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   height: 140px;
-  width: 700px;
+  width: 100%;
   border: 1px solid black;
   border: 1px solid ${color.gray200};
   border-radius: 16px;
@@ -20,6 +20,7 @@ export const Wrap = styled.div`
 `;
 
 export const Info = styled.div`
+  width: 80%;
   display: flex;
   flex-direction: column;
   gap: 17px;
@@ -27,6 +28,10 @@ export const Info = styled.div`
 
 export const Title = styled(T.H4)`
   color: ${color.gray900};
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 `;
 
 export const DetailInfo = styled.div`
