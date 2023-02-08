@@ -1,3 +1,4 @@
+import PetitionList from './PetitionList';
 import RadioTabMenu from './RadioTabMenu';
 import * as S from './style';
 
@@ -13,6 +14,7 @@ const Main = () => {
       </S.Banner>
       <S.ContentsWrap>
         <RadioTabMenu />
+        <PetitionList />
       </S.ContentsWrap>
     </S.Container>
   );

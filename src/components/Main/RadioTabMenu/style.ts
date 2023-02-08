@@ -32,7 +32,7 @@ export const RadioLabel = styled.label`
   font-weight: 400;
   font-size: 16px;
   line-height: 160%;
-  color: ${color.black};
+  color: ${color.gray900};
   cursor: pointer;
 
   ${RadioInput}:hover + & {
