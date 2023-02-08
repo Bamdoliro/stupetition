@@ -39,14 +39,16 @@ const Login = () => {
       setAuthority(res.user.authority);
       setSchoolName(res.user.schoolName);
       setAccessToken(res.accessToken);
-      setRefreshToken(res.refreshtoken);
+      setRefreshToken(res.refreshToken);
       setUserData({
+        accessToken: res.accessToken,
+        refreshToken: res.refreshToken,
         authority: res.user.authority,
         schoolName: res.user.schoolName,
       });
 
       alert('로그인 성공 !!');
-      navigate('/main');
+      navigate('/');
     },
     onError: (err) => {
       console.log(err);

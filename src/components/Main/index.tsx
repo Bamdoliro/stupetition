@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import { getBoard } from 'api/board';
 import { StatusType, GetBoardType } from 'type/board/board.type';
+import { useRecoilValue } from 'recoil';
+import { userData } from 'atom/user';
 import PetitionList from './PetitionList';
 import RadioTabMenu from './RadioTabMenu';
 import * as S from './style';
 
 const Main = () => {
   const [status, setStatus] = useState<StatusType>('PETITION');
+  const user = useRecoilValue(userData);
 
   const { isLoading, isError, data } = useQuery<GetBoardType[]>(
     ['status', status],
@@ -26,17 +29,21 @@ const Main = () => {
       <S.ContentsWrap>
         <RadioTabMenu setStatus={setStatus} status={status} />
         <S.PetitionWrap>
-          {data?.map((item) => {
-            return (
-              <PetitionList
-                key={item.id}
-                createdAt={item.createdAt}
-                title={item.title}
-                numberOfAgreers={item.numberOfAgreers}
-                status={status}
-              />
-            );
-          })}
+          {user.schoolName !== undefined ? (
+            data?.map((item) => {
+              return (
+                <PetitionList
+                  key={item.id}
+                  createdAt={item.createdAt}
+                  title={item.title}
+                  numberOfAgreers={item.numberOfAgreers}
+                  status={status}
+                />
+              );
+            })
+          ) : (
+            <div>로그인을 해야지 청원을 하지 ;;</div>
+          )}
         </S.PetitionWrap>
       </S.ContentsWrap>
     </S.Container>
