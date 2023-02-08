@@ -29,6 +29,7 @@ export const Img = styled.img``;
 
 export const Logo = styled(T.H5)`
   color: ${color.black};
+  cursor: pointer;
 `;
 
 export const Login = styled(T.H5)`

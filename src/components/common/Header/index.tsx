@@ -1,14 +1,16 @@
 import Logo from 'assets/logo.svg';
+import { useNavigate } from 'react-router-dom';
 import SearchInput from '../SearchInput';
 import * as S from './style';
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <S.Container>
       <S.Wrap>
         <S.LogoWrap>
           <S.Img src={Logo} />
-          <S.Logo>학생청원</S.Logo>
+          <S.Logo onClick={() => window.location.reload()}>학생청원</S.Logo>
         </S.LogoWrap>
         <S.NavWrap>
           <SearchInput
@@ -18,7 +20,7 @@ const Header = () => {
             type="text"
             name="stupetitionSearch"
           />
-          <S.Login>로그인</S.Login>
+          <S.Login onClick={() => navigate('/login')}>로그인</S.Login>
         </S.NavWrap>
       </S.Wrap>
     </S.Container>
