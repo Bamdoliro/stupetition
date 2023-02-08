@@ -15,6 +15,9 @@ const Main = () => {
   const { isLoading, isError, data } = useQuery<GetBoardType[]>(
     ['status', status],
     () => getBoard(status),
+    {
+      enabled: !!user?.authority,
+    },
   );
 
   return (
@@ -29,7 +32,7 @@ const Main = () => {
       <S.ContentsWrap>
         <RadioTabMenu setStatus={setStatus} status={status} />
         <S.PetitionWrap>
-          {user.schoolName !== undefined ? (
+          {user?.authority ? (
             data?.map((item) => {
               return (
                 <PetitionList

@@ -2,21 +2,11 @@ import { useState } from 'react';
 import { LoginType } from 'type/auth/auth.type';
 import Input from 'components/common/Input';
 import Button from 'components/common/Button';
-import {
-  setAccessToken,
-  setRefreshToken,
-  deleteAccessToken,
-  deleteRefreshToken,
-} from 'lib/storage/token';
+import { setAccessToken, setRefreshToken } from 'lib/storage/token';
 import { useMutation } from 'react-query';
-import { logoutUser, loginUser } from 'api/auth';
+import { loginUser } from 'api/auth';
 import { useNavigate } from 'react-router-dom';
-import {
-  deleteAuthority,
-  deleteSchoolName,
-  setAuthority,
-  setSchoolName,
-} from 'lib/storage/user';
+import { setAuthority, setSchoolName } from 'lib/storage/user';
 import { useSetRecoilState } from 'recoil';
 import { userData } from 'atom/user';
 import * as S from './style';
@@ -55,25 +45,8 @@ const Login = () => {
     },
   });
 
-  const logoutMutate = useMutation(logoutUser, {
-    onSuccess: () => {
-      deleteAuthority();
-      deleteSchoolName();
-      deleteAccessToken();
-      deleteRefreshToken();
-      alert('로그아웃 성공 !!');
-    },
-    onError: (err) => {
-      console.log(err);
-    },
-  });
-
   const login = () => {
     loginMutate.mutate(loginData);
-  };
-
-  const logout = () => {
-    logoutMutate.mutate();
   };
 
   return (

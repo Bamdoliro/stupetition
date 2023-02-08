@@ -37,6 +37,11 @@ export const Login = styled(T.H5)`
   cursor: pointer;
 `;
 
+export const Logout = styled(T.H5)`
+  color: ${color.black};
+  cursor: pointer;
+`;
+
 export const NavWrap = styled.div`
   display: flex;
   align-items: center;
