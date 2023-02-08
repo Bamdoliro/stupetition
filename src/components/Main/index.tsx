@@ -1,8 +1,12 @@
+import React, { useState } from 'react';
+import { StatusType } from 'type/board/board.type';
 import PetitionList from './PetitionList';
 import RadioTabMenu from './RadioTabMenu';
 import * as S from './style';
 
 const Main = () => {
+  const [status, setStatus] = useState<StatusType>('PETITION');
+
   return (
     <S.Container>
       <S.Banner>
@@ -13,7 +17,7 @@ const Main = () => {
         </S.BannerText>
       </S.Banner>
       <S.ContentsWrap>
-        <RadioTabMenu />
+        <RadioTabMenu setStatus={setStatus} status={status} />
         <PetitionList />
       </S.ContentsWrap>
     </S.Container>
