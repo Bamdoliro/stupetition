@@ -28,8 +28,7 @@ export const Email = styled(T.caption)`
 export const Button = styled.div``;
 
 export const RadioInput = styled.input`
-  position: absolute;
-  opacity: 0;
+  display: none;
 `;
 
 export const RadioLabel = styled.label`
