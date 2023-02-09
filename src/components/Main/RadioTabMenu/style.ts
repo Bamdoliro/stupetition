@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   gap: 6px;
-  width: 276px;
+  width: 350px;
   height: 54px;
   border-radius: 100px;
   padding: 0.375rem;
@@ -15,7 +15,7 @@ export const Container = styled.div`
 
 export const TabButton = styled.div`
   height: 42px;
-  width: 84px;
+  width: 80px;
 `;
 
 export const RadioInput = styled.input`
@@ -33,6 +33,7 @@ export const RadioLabel = styled.label`
   font-size: 16px;
   line-height: 160%;
   color: ${color.gray900};
+
   cursor: pointer;
 
   ${RadioInput}:hover + & {
