@@ -8,6 +8,7 @@ export const Container = styled.div`
   top: 0;
   display: flex;
   justify-content: center;
+  z-index: 1;
   width: 100vw;
   height: 56px;
   background-color: ${color.white};

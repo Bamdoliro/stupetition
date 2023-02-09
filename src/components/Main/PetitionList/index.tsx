@@ -1,7 +1,7 @@
 import 'react-circular-progressbar/dist/styles.css';
 import { PetitionListPropsType } from 'type/main/main.type';
 import { ProgressChecker } from 'utills/ProgressChecker';
-import Progressbar from './Progressbar';
+import Progressbar from '../../common/Progressbar';
 import * as S from './style';
 
 const PetitionList = ({
