@@ -12,6 +12,7 @@ import * as S from './style';
 const Main = () => {
   const [status, setStatus] = useState<StatusType>('PETITION');
   const user = useRecoilValue(userData);
+  const [isBannerOpen, setIsBannerOpen] = useState(true);
 
   const { isLoading, isError, data } = useQuery<GetBoardType[]>(
     ['status', status],
@@ -23,13 +24,20 @@ const Main = () => {
 
   return (
     <S.Container>
-      <S.Banner>
-        <S.BannerText>
-          학생청원,
-          <br />
-          학생들의 목소리를 듣다
-        </S.BannerText>
-      </S.Banner>
+      {isBannerOpen ? (
+        <S.Banner>
+          <S.BannerText>
+            학생청원,
+            <br />
+            학생들의 목소리를 듣다
+          </S.BannerText>
+          <S.CloseBanner onClick={() => setIsBannerOpen(false)}>
+            X 취소
+          </S.CloseBanner>
+        </S.Banner>
+      ) : (
+        <S.Margin />
+      )}
       <S.ContentsWrap>
         <S.SubNav>
           <RadioTabMenu setStatus={setStatus} status={status} />

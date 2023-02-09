@@ -16,6 +16,7 @@ export const Wrap = styled.div`
 `;
 
 export const Banner = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   padding-left: 6.25rem;
@@ -25,6 +26,19 @@ export const Banner = styled.div`
 
 export const BannerText = styled(T.D2)`
   color: ${color.gray900};
+`;
+
+export const CloseBanner = styled(T.caption)`
+  position: absolute;
+  color: ${color.gray600};
+  border-bottom: 1px solid ${color.gray600};
+  cursor: pointer;
+  right: 32px;
+  bottom: 21px;
+`;
+
+export const Margin = styled.div`
+  height: 60px;
 `;
 
 export const ContentsWrap = styled.div`
