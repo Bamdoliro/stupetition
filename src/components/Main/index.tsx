@@ -4,6 +4,7 @@ import { getBoard } from 'api/board';
 import { StatusType, GetBoardType } from 'type/board/board.type';
 import { useRecoilValue } from 'recoil';
 import { userData } from 'atom/user';
+import AddSvg from 'assets/add.svg';
 import PetitionList from './PetitionList';
 import RadioTabMenu from './RadioTabMenu';
 import * as S from './style';
@@ -30,7 +31,13 @@ const Main = () => {
         </S.BannerText>
       </S.Banner>
       <S.ContentsWrap>
-        <RadioTabMenu setStatus={setStatus} status={status} />
+        <S.SubNav>
+          <RadioTabMenu setStatus={setStatus} status={status} />
+          <S.CreatePetition>
+            <S.Img src={AddSvg} />
+            <S.CreatePetitionText>청원 추가</S.CreatePetitionText>
+          </S.CreatePetition>
+        </S.SubNav>
         <S.PetitionWrap>
           {user?.authority ? (
             data?.map((item) => {

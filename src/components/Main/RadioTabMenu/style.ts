@@ -6,11 +6,10 @@ export const Container = styled.div`
   align-items: center;
   gap: 6px;
   width: 350px;
-  height: 54px;
+  height: 100%;
   border-radius: 18px;
   padding: 0.375rem;
   background-color: ${color.gray50};
-  margin: 2.25rem 0px 3rem 0;
 `;
 
 export const TabButton = styled.div`

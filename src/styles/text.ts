@@ -87,6 +87,6 @@ export const p3 = styled.p`
 export const caption = styled.p`
   font-weight: 400;
   font-size: 0.75rem;
-  line-height: 160%;
+  line-height: 140%;
   letter-spacing: 0px;
 `;

@@ -12,6 +12,11 @@ const Join = () => {
     schoolId: 0,
     schoolName: '',
   });
+
+  /**
+   * true 일때는 회원가입 화면
+   * false 일때는 학교 찾기 화면
+   */
   const [isSchool, setIsSchool] = useState<boolean>(true);
 
   return (

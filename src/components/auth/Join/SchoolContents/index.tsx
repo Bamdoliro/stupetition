@@ -30,7 +30,7 @@ const SchoolContents = ({
     () => searchSchool(searchWord),
     {
       enabled: !!searchWord,
-      select: (data) => data.slice(0, 10), // 5개만 잘라서 가지고 옴
+      select: (data) => data.slice(0, 10),
     },
   );
 
