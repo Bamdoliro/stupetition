@@ -2,7 +2,7 @@ import Logo from 'assets/logo.svg';
 import { useNavigate } from 'react-router-dom';
 import { deleteAuthority, deleteSchoolName } from 'lib/storage/user';
 import { deleteAccessToken, deleteRefreshToken } from 'lib/storage/token';
-import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { useMutation } from 'react-query';
 import { userData } from 'atom/user';
 import { logoutUser } from 'api/auth';
@@ -12,7 +12,7 @@ import * as S from './style';
 
 const Header = () => {
   const navigate = useNavigate();
-  const [user, setUser] = useRecoilState(userData);
+  const user = useRecoilValue(userData);
   const logoutMutate = useMutation(logoutUser, {
     onSuccess: () => {
       deleteAuthority();

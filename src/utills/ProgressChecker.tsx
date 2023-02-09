@@ -11,6 +11,8 @@ export const ProgressChecker = (status: StatusType) => {
     progress = { color: '#5073F1', progress: '완료' };
   } else if (status === 'WAITING') {
     progress = { color: '#FFA000', progress: '대기' };
+  } else if (status === 'EXPIRED') {
+    progress = { color: '#F44336', progress: '만료' };
   }
   return progress;
 };

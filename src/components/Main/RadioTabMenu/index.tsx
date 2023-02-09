@@ -37,6 +37,17 @@ const RadioTabMenu = ({ status, setStatus }: RadioPropsType) => {
         />
         <S.RadioLabel htmlFor="ANSWERED">완료</S.RadioLabel>
       </S.TabButton>
+      <S.TabButton>
+        <S.RadioInput
+          type="radio"
+          name="filtering-radio"
+          id="EXPIRED"
+          value="EXPIRED"
+          onChange={() => setStatus('EXPIRED')}
+          checked={status === 'EXPIRED'}
+        />
+        <S.RadioLabel htmlFor="EXPIRED">만료</S.RadioLabel>
+      </S.TabButton>
     </S.Container>
   );
 };
