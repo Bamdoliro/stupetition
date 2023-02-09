@@ -32,7 +32,7 @@ const Main = () => {
             학생들의 목소리를 듣다
           </S.BannerText>
           <S.CloseBanner onClick={() => setIsBannerOpen(false)}>
-            X 취소
+            X 닫기
           </S.CloseBanner>
         </S.Banner>
       ) : (
