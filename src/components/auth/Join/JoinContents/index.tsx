@@ -1,28 +1,28 @@
-import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { JoinType } from 'type/auth/auth.type';
+import { JoinContentsPropsType } from 'type/auth/auth.type';
 import { useMutation } from 'react-query';
 import { joinUser } from 'api/auth';
-import { useRecoilState } from 'recoil';
-import { joinData } from 'atom/join';
 import Input from 'components/common/Input';
 import SearchInput from 'components/common/SearchInput';
 import Button from 'components/common/Button';
 import * as S from './style';
 
-const JoinContents = () => {
+const JoinContents = ({
+  setIsSchool,
+  setJoinData,
+  joinData,
+}: JoinContentsPropsType) => {
   const navigate = useNavigate();
-  const [userData, setUserData] = useRecoilState<JoinType>(joinData);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setUserData({ ...userData, [name]: value });
+    setJoinData({ ...joinData, [name]: value });
   };
 
   const { mutate } = useMutation(joinUser, {
     onSuccess: () => {
       alert('회원가입 성공 !!');
-      navigate('/');
+      navigate('/login');
     },
     onError: (err) => {
       console.log(err);
@@ -30,13 +30,17 @@ const JoinContents = () => {
   });
 
   const submit = () => {
-    const { password, rePassword, schoolId } = userData;
-    if (password === rePassword && schoolId !== 0) {
-      mutate(userData);
+    const { password, rePassword, schoolId } = joinData;
+    if (password === rePassword) {
+      if (schoolId !== 0) {
+        mutate(joinData);
+      } else {
+        alert('학교 선택을 해주세요');
+      }
     } else {
       alert('비밀번호가 맞지 않습니다');
     }
-    setUserData({
+    setJoinData({
       email: '',
       password: '',
       rePassword: '',
@@ -55,7 +59,7 @@ const JoinContents = () => {
             placeholder="학교 이메일 주소를 입력해주세요"
             type="email"
             name="email"
-            value={userData.email}
+            value={joinData.email}
             onChange={onChange}
           />
           <Input
@@ -63,7 +67,7 @@ const JoinContents = () => {
             placeholder="비밀번호를 입력해주세요"
             type="password"
             name="password"
-            value={userData.password}
+            value={joinData.password}
             onChange={onChange}
           />
           <Input
@@ -71,7 +75,7 @@ const JoinContents = () => {
             placeholder="비밀번호를 다시 입력해주세요"
             type="password"
             name="rePassword"
-            value={userData.rePassword}
+            value={joinData.rePassword}
             onChange={onChange}
           />
           <SearchInput
@@ -80,8 +84,8 @@ const JoinContents = () => {
             placeholder="학교를 입력해주세요"
             type="text"
             name="schoolId"
-            value={userData.schoolName}
-            onFocus={() => navigate('/join/school')}
+            value={joinData.schoolName}
+            onFocus={() => setIsSchool(false)}
           />
         </S.InputWrap>
         <Button

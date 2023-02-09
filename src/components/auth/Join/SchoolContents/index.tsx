@@ -4,23 +4,21 @@ import { SchoolType } from 'type/school/search.type';
 import { useQuery } from 'react-query';
 import { searchSchool } from 'api/school';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { joinData } from 'atom/join';
-import { useRecoilState } from 'recoil';
-import { JoinType } from 'type/auth/auth.type';
+import { JoinContentsPropsType } from 'type/auth/auth.type';
 import SchoolList from './SchoolList';
 import * as S from './style';
 
-const SchoolContents = () => {
-  const navigate = useNavigate();
-
+const SchoolContents = ({
+  setIsSchool,
+  setJoinData,
+  joinData,
+}: JoinContentsPropsType) => {
   const [searchWord, setSearchWord] = useState('');
-  const [userData, setUserData] = useRecoilState<JoinType>(joinData);
 
   const handleClickRadio = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.id;
     const id = Number(e.target.value);
-    setUserData({ ...userData, schoolName: name, schoolId: id });
+    setJoinData({ ...joinData, schoolName: name, schoolId: id });
   };
 
   const onChage = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -66,8 +64,8 @@ const SchoolContents = () => {
             option="UNFILLED"
             width="50%"
             onClick={() => {
-              navigate('/join');
-              setUserData({
+              setIsSchool(true);
+              setJoinData({
                 email: '',
                 password: '',
                 rePassword: '',
@@ -78,7 +76,7 @@ const SchoolContents = () => {
           />
           <Button
             value="완료"
-            onClick={() => navigate('/join')}
+            onClick={() => setIsSchool(true)}
             option="FILLED"
             width="50%"
           />

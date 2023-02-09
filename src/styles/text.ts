@@ -64,7 +64,7 @@ export const btn = styled.p`
 `;
 
 export const p1 = styled.p`
-  font-weight: 500;
+  font-weight: 400;
   font-size: 1.125rem;
   line-height: 140%;
   letter-spacing: 0.15px;
