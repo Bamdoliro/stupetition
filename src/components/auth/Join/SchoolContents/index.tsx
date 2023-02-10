@@ -9,7 +9,7 @@ import SchoolList from './SchoolList';
 import * as S from './style';
 
 const SchoolContents = ({
-  setIsSchool,
+  setSearchSchoolOpen,
   setJoinData,
   joinData,
 }: JoinContentsPropsType) => {
@@ -64,7 +64,7 @@ const SchoolContents = ({
             option="UNFILLED"
             width="50%"
             onClick={() => {
-              setIsSchool(true);
+              setSearchSchoolOpen(true);
               setJoinData({
                 email: '',
                 password: '',
@@ -76,7 +76,7 @@ const SchoolContents = ({
           />
           <Button
             value="완료"
-            onClick={() => setIsSchool(true)}
+            onClick={() => setSearchSchoolOpen(true)}
             option="FILLED"
             width="50%"
           />

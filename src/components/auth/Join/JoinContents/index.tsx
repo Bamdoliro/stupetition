@@ -8,7 +8,7 @@ import Button from 'components/common/Button';
 import * as S from './style';
 
 const JoinContents = ({
-  setIsSchool,
+  setSearchSchoolOpen,
   setJoinData,
   joinData,
 }: JoinContentsPropsType) => {
@@ -85,7 +85,7 @@ const JoinContents = ({
             type="text"
             name="schoolId"
             value={joinData.schoolName}
-            onFocus={() => setIsSchool(false)}
+            onFocus={() => setSearchSchoolOpen(false)}
           />
         </S.InputWrap>
         <Button

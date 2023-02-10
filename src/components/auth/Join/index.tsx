@@ -17,21 +17,21 @@ const Join = () => {
    * true 일때는 회원가입 화면
    * false 일때는 학교 찾기 화면
    */
-  const [isSchool, setIsSchool] = useState<boolean>(true);
+  const [searchSchoolIsOpen, setSearchSchoolOpen] = useState<boolean>(true);
 
   return (
     <S.Container>
       <S.Join>
         <S.Wrap>
-          {isSchool ? (
+          {searchSchoolIsOpen ? (
             <JoinContents
-              setIsSchool={setIsSchool}
+              setSearchSchoolOpen={setSearchSchoolOpen}
               setJoinData={setJoinData}
               joinData={joinData}
             />
           ) : (
             <SchoolContents
-              setIsSchool={setIsSchool}
+              setSearchSchoolOpen={setSearchSchoolOpen}
               setJoinData={setJoinData}
               joinData={joinData}
             />

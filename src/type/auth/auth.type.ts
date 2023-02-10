@@ -14,7 +14,7 @@ export interface LoginType {
 }
 
 export interface JoinContentsPropsType {
-  setIsSchool: Dispatch<SetStateAction<boolean>>;
+  setSearchSchoolOpen: Dispatch<SetStateAction<boolean>>;
   setJoinData: Dispatch<SetStateAction<JoinType>>;
   joinData: JoinType;
 }
