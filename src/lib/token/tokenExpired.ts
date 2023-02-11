@@ -1,17 +1,17 @@
 import { customAxios } from 'lib/axios/customAxios';
-import { getRefreshToken } from '../storage/token';
+import { ACCESS_KEY, REFRESH_KEY } from 'lib/config/token.config';
 
 export const tokenExpired = async () => {
-  const refreshToken = getRefreshToken();
   try {
     const { data } = await customAxios.put('/auth', null, {
       headers: {
-        'Refresh-Token': `${refreshToken}`,
+        'Refresh-Token': `${localStorage.getItem(REFRESH_KEY)}`,
       },
     });
-    localStorage.setItem('access-token', data.accessToken);
-    alert('다시 시도해 주세요 !');
+    localStorage.setItem(ACCESS_KEY, data.accessToken);
   } catch (err) {
     console.log(err);
+    localStorage.clear();
+    alert('세션이 만료되었습니다');
   }
 };

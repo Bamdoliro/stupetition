@@ -23,12 +23,11 @@ customAxios.interceptors.response.use(
     return response;
   },
   (error) => {
-    if (error.response) {
-      if (error.response?.status === 401) {
-        tokenExpired();
-      }
-      // alert(error.request.response);
+    const { status } = error.response.data;
+    if (status === 401 && error.response) {
+      tokenExpired();
     }
+    // alert(error.request.response);
     return Promise.reject(error);
   },
 );
