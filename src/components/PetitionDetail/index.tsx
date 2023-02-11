@@ -1,5 +1,6 @@
 import { ProgressChecker } from 'utills/ProgressChecker';
 import Progressbar from 'components/common/Progressbar';
+import Comment from './Comment';
 import * as S from './style';
 
 const PetitionDetail = () => {
@@ -29,6 +30,7 @@ const PetitionDetail = () => {
           <S.CommentInput placeholder="댓글을 입력해주세요." />
           <S.CommentSendButton>댓글 작성</S.CommentSendButton>
         </S.CommentWrap>
+        <Comment />
       </S.Wrap>
     </S.Container>
   );
