@@ -16,7 +16,7 @@ const PetitionDetail = () => {
     () => getBoardDetail(Number(id)),
   );
   console.log(data?.agreerComments);
-  const { color, progress } = ProgressChecker('PETITION');
+  const { color, progress } = ProgressChecker(data?.status);
 
   return (
     <S.Container>
