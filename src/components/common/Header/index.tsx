@@ -4,8 +4,6 @@ import { useRecoilValue } from 'recoil';
 import { useMutation } from 'react-query';
 import { userData } from 'atom/user';
 import { logoutUser } from 'api/auth';
-import { ACCESS_KEY, REFRESH_KEY } from 'lib/config/token.config';
-import { AUTHORITY, SCHOOL_NAME } from 'lib/config/user.config';
 import SearchInput from '../SearchInput';
 
 import * as S from './style';
@@ -32,7 +30,7 @@ const Header = () => {
       <S.Wrap>
         <S.LogoWrap>
           <S.Img src={Logo} />
-          <S.Logo onClick={() => window.location.reload()}>학생청원</S.Logo>
+          <S.Logo onClick={() => navigate('/')}>학생청원</S.Logo>
         </S.LogoWrap>
         <S.NavWrap>
           <SearchInput

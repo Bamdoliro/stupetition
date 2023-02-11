@@ -45,6 +45,7 @@ export const Date = styled(T.p3)`
 
 export const Delete = styled(T.p3)`
   color: ${color.gray600};
+  cursor: pointer;
   &:hover {
     text-decoration-line: underline;
     text-decoration-color: ${color.gray600};
