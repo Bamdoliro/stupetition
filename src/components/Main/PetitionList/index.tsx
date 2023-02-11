@@ -22,7 +22,12 @@ const PetitionList = ({
             <S.Date>{date[0]}</S.Date>
           </S.DetailInfo>
         </S.Info>
-        <Progressbar numberOfAgreers={numberOfAgreers} />
+        <Progressbar
+          option="LIST"
+          width="96px"
+          height="96px"
+          numberOfAgreers={numberOfAgreers}
+        />
       </S.Wrap>
     </S.Container>
   );

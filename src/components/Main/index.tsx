@@ -5,11 +5,13 @@ import { StatusType, GetBoardType } from 'type/board/board.type';
 import { useRecoilValue } from 'recoil';
 import { userData } from 'atom/user';
 import AddSvg from 'assets/add.svg';
+import { useNavigate } from 'react-router-dom';
 import PetitionList from './PetitionList';
 import RadioTabMenu from './RadioTabMenu';
 import * as S from './style';
 
 const Main = () => {
+  const navigate = useNavigate();
   const [status, setStatus] = useState<StatusType>('PETITION');
   const user = useRecoilValue(userData);
   const [isBannerOpen, setIsBannerOpen] = useState(true);
@@ -43,7 +45,9 @@ const Main = () => {
           <RadioTabMenu setStatus={setStatus} status={status} />
           <S.CreatePetition>
             <S.Img src={AddSvg} />
-            <S.CreatePetitionText>청원 추가</S.CreatePetitionText>
+            <S.CreatePetitionText onClick={() => navigate('/createPetition')}>
+              청원 추가
+            </S.CreatePetitionText>
           </S.CreatePetition>
         </S.SubNav>
         <S.PetitionWrap>

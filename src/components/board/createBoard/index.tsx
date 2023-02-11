@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { CreateBoardType } from 'type/board/board.type';
 import { createBoard } from 'api/board';
 import { useMutation } from 'react-query';
+import { useNavigate } from 'react-router-dom';
 import * as S from './style';
 
 const CreateBoard = () => {
+  const navigate = useNavigate();
   const [boardData, setBoardData] = useState<CreateBoardType>({
     title: '',
     content: '',
@@ -13,6 +15,7 @@ const CreateBoard = () => {
   const { mutate } = useMutation(createBoard, {
     onSuccess: () => {
       alert('게시글 작성 성공 !!');
+      navigate('/');
     },
     onError: (err) => {
       console.log(err);

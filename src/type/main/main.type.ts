@@ -15,4 +15,7 @@ export interface RadioPropsType {
 
 export interface ProgressbarPropsType {
   numberOfAgreers: number;
+  width: string;
+  height: string;
+  option: 'LIST' | 'DETAIL';
 }
