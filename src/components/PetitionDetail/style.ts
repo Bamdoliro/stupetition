@@ -43,6 +43,7 @@ export const Progress = styled.div`
 
 export const InfoWrap = styled.div`
   display: flex;
+  justify-content: space-between;
   width: 100%;
   border-bottom: 1px solid ${color.gray200};
   padding-bottom: 36px;
@@ -51,12 +52,13 @@ export const InfoWrap = styled.div`
 export const ItemWrap = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  width: 100%;
 `;
 
 export const Title = styled(T.H1)`
   color: ${color.gray900};
-  max-width: 60%;
+  max-width: 80%;
+  margin-bottom: 1.5rem;
 `;
 
 export const Date = styled(T.p2)`

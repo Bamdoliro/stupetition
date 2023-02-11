@@ -12,8 +12,13 @@ export interface GetBoardType {
 
 export type StatusType = 'PETITION' | 'EXPIRED' | 'WAITING' | 'ANSWERED';
 
+export interface CommentType {
+  comment: string;
+  createdAt: string;
+}
+
 export interface GetBoardDetailType {
-  agreerComments: string[];
+  agreerComments: CommentType[];
   content: string;
   id: number;
   numberOfAgreers: number;
