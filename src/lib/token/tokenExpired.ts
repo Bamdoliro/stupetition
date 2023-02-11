@@ -9,9 +9,9 @@ export const tokenExpired = async () => {
       },
     });
     localStorage.setItem(ACCESS_KEY, data.accessToken);
-    localStorage.setItem(REFRESH_KEY, data.refreshToken);
-    alert('다시 시도해 주세요 !');
   } catch (err) {
     console.log(err);
+    localStorage.clear();
+    alert('세션이 만료되었습니다');
   }
 };

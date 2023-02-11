@@ -15,10 +15,7 @@ const Header = () => {
   const user = useRecoilValue(userData);
   const logoutMutate = useMutation(logoutUser, {
     onSuccess: () => {
-      localStorage.removeItem(ACCESS_KEY);
-      localStorage.removeItem(REFRESH_KEY);
-      localStorage.removeItem(AUTHORITY);
-      localStorage.removeItem(SCHOOL_NAME);
+      localStorage.clear();
       alert('로그아웃 성공 !!');
       window.location.reload();
     },
