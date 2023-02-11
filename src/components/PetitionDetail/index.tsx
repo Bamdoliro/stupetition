@@ -32,7 +32,7 @@ const PetitionDetail = () => {
               option="DETAIL"
               width="9.375rem"
               height="9.375rem"
-              numberOfAgreers={10}
+              numberOfAgreers={Number(data?.numberOfAgreers)}
             />
           </S.InfoWrap>
         </S.Info>
