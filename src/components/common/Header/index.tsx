@@ -1,11 +1,11 @@
 import Logo from 'assets/logo.svg';
 import { useNavigate } from 'react-router-dom';
-import { deleteAuthority, deleteSchoolName } from 'lib/storage/user';
-import { deleteAccessToken, deleteRefreshToken } from 'lib/storage/token';
 import { useRecoilValue } from 'recoil';
 import { useMutation } from 'react-query';
 import { userData } from 'atom/user';
 import { logoutUser } from 'api/auth';
+import { ACCESS_KEY, REFRESH_KEY } from 'lib/config/token.config';
+import { AUTHORITY, SCHOOL_NAME } from 'lib/config/user.config';
 import SearchInput from '../SearchInput';
 
 import * as S from './style';
@@ -15,10 +15,10 @@ const Header = () => {
   const user = useRecoilValue(userData);
   const logoutMutate = useMutation(logoutUser, {
     onSuccess: () => {
-      deleteAuthority();
-      deleteSchoolName();
-      deleteAccessToken();
-      deleteRefreshToken();
+      localStorage.removeItem(ACCESS_KEY);
+      localStorage.removeItem(REFRESH_KEY);
+      localStorage.removeItem(AUTHORITY);
+      localStorage.removeItem(SCHOOL_NAME);
       alert('로그아웃 성공 !!');
       window.location.reload();
     },

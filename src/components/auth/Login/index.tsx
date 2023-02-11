@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { LoginType } from 'type/auth/auth.type';
 import Input from 'components/common/Input';
 import Button from 'components/common/Button';
-import { setAccessToken, setRefreshToken } from 'lib/storage/token';
 import { useMutation } from 'react-query';
 import { loginUser } from 'api/auth';
 import { useNavigate } from 'react-router-dom';
-import { setAuthority, setSchoolName } from 'lib/storage/user';
 import { useSetRecoilState } from 'recoil';
 import { userData } from 'atom/user';
+import { AUTHORITY, SCHOOL_NAME } from 'lib/config/user.config';
+import { ACCESS_KEY, REFRESH_KEY } from 'lib/config/token.config';
 import * as S from './style';
 
 const Login = () => {
@@ -26,10 +26,10 @@ const Login = () => {
 
   const loginMutate = useMutation(loginUser, {
     onSuccess: (res) => {
-      setAuthority(res.user.authority);
-      setSchoolName(res.user.schoolName);
-      setAccessToken(res.accessToken);
-      setRefreshToken(res.refreshToken);
+      localStorage.setItem(AUTHORITY, res.user.authority);
+      localStorage.setItem(SCHOOL_NAME, res.user.schoolName);
+      localStorage.setItem(ACCESS_KEY, res.accessToken);
+      localStorage.setItem(REFRESH_KEY, res.refreshToken);
       setUserData({
         accessToken: res.accessToken,
         refreshToken: res.refreshToken,
