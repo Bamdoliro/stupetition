@@ -11,6 +11,9 @@ export const Container = styled.div`
 `;
 
 export const Wrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 56.6%;
   height: 100%;
 `;
@@ -21,6 +24,7 @@ export const Info = styled.div`
   justify-content: center;
   height: 232px;
   width: 100%;
+  gap: 16px;
 `;
 
 export const Progress = styled.div`
@@ -35,14 +39,13 @@ export const Progress = styled.div`
   font-weight: 400;
   font-size: 14px;
   line-height: 160%;
-  margin-bottom: 16px;
 `;
 
 export const InfoWrap = styled.div`
   display: flex;
   width: 100%;
-  padding-bottom: 36px;
   border-bottom: 1px solid ${color.gray200};
+  padding-bottom: 36px;
 `;
 
 export const ItemWrap = styled.div`
@@ -58,4 +61,56 @@ export const Title = styled(T.H1)`
 
 export const Date = styled(T.p2)`
   color: ${color.gray500};
+`;
+
+export const Content = styled(T.p2)`
+  padding-top: 3rem;
+  text-align: left;
+  color: ${color.gray900};
+  width: 100%;
+  word-break: break-all;
+  max-width: 100%;
+  min-height: 50%;
+`;
+
+export const AreeButton = styled.button`
+  width: 99px;
+  height: 49px;
+  padding: 12px 18px;
+  background: ${color.main};
+  border-radius: 12px;
+  font-size: 1.125rem;
+  line-height: 140%;
+  letter-spacing: 0.15px;
+  color: ${color.white};
+`;
+
+export const CommentWrap = styled.div`
+  margin-top: 3.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+`;
+
+export const CommentInput = styled.textarea`
+  padding: 16px 12px;
+  resize: none;
+  width: 100%;
+  height: 90px;
+  border: 1px solid ${color.gray300};
+  border-radius: 12px;
+`;
+
+export const CommentSendButton = styled.button`
+  margin-top: 0.75rem;
+  width: 104px;
+  height: 49px;
+  border-radius: 12px;
+  background-color: ${color.white};
+  border: 1px solid ${color.main};
+  color: ${color.main};
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 140%;
 `;

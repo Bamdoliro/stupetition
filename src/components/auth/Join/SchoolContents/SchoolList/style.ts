@@ -42,7 +42,7 @@ export const RadioLabel = styled.label`
   background-color: ${color.main};
   color: ${color.white};
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 160%;
   cursor: pointer;
   &:before {

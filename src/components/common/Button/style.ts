@@ -10,7 +10,7 @@ export const FilledButton = styled.button`
   border-radius: 12px;
   background-color: ${color.main};
   font-weight: 600;
-  font-size: 16px;
+  font-size: 1rem;
   color: ${color.white};
 `;
 
@@ -23,7 +23,7 @@ export const UnfilledButton = styled.button`
   border-radius: 12px;
   background-color: ${color.white};
   font-weight: 600;
-  font-size: 16px;
+  font-size: 1rem;
   color: ${color.gray500};
   border: 1px solid ${color.gray500};
 `;

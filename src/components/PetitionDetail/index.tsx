@@ -23,6 +23,12 @@ const PetitionDetail = () => {
             />
           </S.InfoWrap>
         </S.Info>
+        <S.Content>r</S.Content>
+        <S.AreeButton>동의하기</S.AreeButton>
+        <S.CommentWrap>
+          <S.CommentInput placeholder="댓글을 입력해주세요." />
+          <S.CommentSendButton>댓글 작성</S.CommentSendButton>
+        </S.CommentWrap>
       </S.Wrap>
     </S.Container>
   );
