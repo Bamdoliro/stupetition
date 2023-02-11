@@ -3,14 +3,16 @@ import Progressbar from 'components/common/Progressbar';
 import { getBoardDetail } from 'api/board';
 import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
+import { GetBoardDetailType } from 'type/board/board.type';
 import Comment from './Comment';
 import * as S from './style';
 
 const PetitionDetail = () => {
   const { id } = useParams();
 
-  const { isLoading, isError, data } = useQuery(['id', Number(id)], () =>
-    getBoardDetail(Number(id)),
+  const { isLoading, isError, data } = useQuery<GetBoardDetailType>(
+    ['id', Number(id)],
+    () => getBoardDetail(Number(id)),
   );
   console.log(data);
   const { color, progress } = ProgressChecker('PETITION');

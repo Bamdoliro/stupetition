@@ -11,3 +11,14 @@ export interface GetBoardType {
 }
 
 export type StatusType = 'PETITION' | 'EXPIRED' | 'WAITING' | 'ANSWERED';
+
+export interface GetBoardDetailType {
+  agreerComments: string[];
+  content: string;
+  id: number;
+  numberOfAgreers: number;
+  status: StatusType;
+  studentCouncilComment: string;
+  title: string;
+  userEmail: string;
+}
