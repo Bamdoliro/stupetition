@@ -8,13 +8,15 @@ const SearchInput = ({
   type,
   name,
   value,
+  width,
+  height = '48px',
   onChange,
   onFocus,
 }: InputPropsType) => {
   return (
     <div>
-      {desc === undefined ? '' : <S.Desc>{desc}</S.Desc>}
-      <S.Wrap>
+      {desc ? <S.Desc>{desc}</S.Desc> : ''}
+      <S.Wrap style={{ width, height }}>
         <S.Img src={SearchSvg} />
         <S.Input
           placeholder={placeholder}

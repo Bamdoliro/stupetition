@@ -1,11 +1,11 @@
-import CreateBoard from 'components/board/createBoard';
-import GetBoards from 'components/board/getBoards/Index';
+import Main from 'components/Main';
+import Header from 'components/common/Header';
 
 const MainPage = () => {
   return (
     <>
-      <CreateBoard />
-      <GetBoards />
+      <Header />
+      <Main />
     </>
   );
 };

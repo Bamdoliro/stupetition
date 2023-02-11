@@ -2300,6 +2300,13 @@
   "resolved" "https://registry.npmjs.org/@types/range-parser/-/range-parser-1.2.4.tgz"
   "version" "1.2.4"
 
+"@types/react-circular-progressbar@^1.1.0":
+  "integrity" "sha512-2FXFaD8KHF6r80cgwv5giB9rAJa/dwV1DiM9Ha+TLjEk2QTo2fD2v4eRakUD/8eQaepXM+9M45MOyn8kZze43w=="
+  "resolved" "https://registry.npmjs.org/@types/react-circular-progressbar/-/react-circular-progressbar-1.1.0.tgz"
+  "version" "1.1.0"
+  dependencies:
+    "react-circular-progressbar" "*"
+
 "@types/react-dom@^18.0.0", "@types/react-dom@^18.0.10":
   "integrity" "sha512-E42GW/JA4Qv15wQdqJq8DL4JhNpB3prJgjgapN3qJT9K2zO5IIAQh4VXvCEDupoqAwnz0cY4RlXeC/ajX5SFHg=="
   "resolved" "https://registry.npmjs.org/@types/react-dom/-/react-dom-18.0.10.tgz"
@@ -11386,6 +11393,11 @@
     "regenerator-runtime" "^0.13.9"
     "whatwg-fetch" "^3.6.2"
 
+"react-circular-progressbar@*", "react-circular-progressbar@^2.1.0":
+  "integrity" "sha512-xp4THTrod4aLpGy68FX/k1Q3nzrfHUjUe5v6FsdwXBl3YVMwgeXYQKDrku7n/D6qsJA9CuunarAboC2xCiKs1g=="
+  "resolved" "https://registry.npmjs.org/react-circular-progressbar/-/react-circular-progressbar-2.1.0.tgz"
+  "version" "2.1.0"
+
 "react-dev-utils@^12.0.1":
   "integrity" "sha512-84Ivxmr17KjUupyqzFode6xKhjwuEJDROWKJy/BthkL7Wn6NJ8h4WE6k/exAv6ImS+0oZLRRW5j/aINMHyeGeQ=="
   "resolved" "https://registry.npmjs.org/react-dev-utils/-/react-dev-utils-12.0.1.tgz"
@@ -11538,7 +11550,7 @@
   optionalDependencies:
     "fsevents" "^2.3.2"
 
-"react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^18.0.0", "react@^18.2.0", "react@>= 16", "react@>= 16.8.0", "react@>=16.13.1", "react@>=16.8":
+"react@^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^18.0.0", "react@^18.2.0", "react@>= 16", "react@>= 16.8.0", "react@>=16.13.1", "react@>=16.8":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"

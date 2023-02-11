@@ -17,7 +17,7 @@ export const ListWrap = styled.div`
   flex-direction: column;
 `;
 
-export const SchoolName = styled(T.p)`
+export const SchoolName = styled(T.p2)`
   color: ${color.gray900};
 `;
 
@@ -28,8 +28,7 @@ export const Email = styled(T.caption)`
 export const Button = styled.div``;
 
 export const RadioInput = styled.input`
-  position: absolute;
-  opacity: 0;
+  display: none;
 `;
 
 export const RadioLabel = styled.label`
