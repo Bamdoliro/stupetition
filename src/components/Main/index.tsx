@@ -56,6 +56,7 @@ const Main = () => {
               return (
                 <PetitionList
                   key={item.id}
+                  id={item.id}
                   createdAt={item.createdAt}
                   title={item.title}
                   numberOfAgreers={item.numberOfAgreers}

@@ -5,6 +5,7 @@ export interface PetitionListPropsType {
   createdAt: string;
   title: string;
   numberOfAgreers: number;
+  id: number;
   status: 'PETITION' | 'EXPIRED' | 'WAITING' | 'ANSWERED';
 }
 

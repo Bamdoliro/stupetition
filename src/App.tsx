@@ -9,7 +9,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/petition" element={<PetitionDetail />} />
+        <Route path="/petition/:id" element={<PetitionDetail />} />
         <Route path="/createPetition" element={<CreateBoard />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/join" element={<JoinPage />} />

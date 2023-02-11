@@ -9,6 +9,7 @@ export const Container = styled.div`
   border: 1px solid black;
   border: 1px solid ${color.gray200};
   border-radius: 16px;
+  cursor: pointer;
 `;
 
 export const Wrap = styled.div`

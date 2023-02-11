@@ -13,3 +13,8 @@ export const getBoard = async (status: StatusType) => {
   );
   return data;
 };
+
+export const getBoardDetail = async (id: number) => {
+  const { data } = await customAxios.get(`/board/${id}`, authorization());
+  return data;
+};

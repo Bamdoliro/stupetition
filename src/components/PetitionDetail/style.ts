@@ -70,7 +70,7 @@ export const Content = styled(T.p2)`
   width: 100%;
   word-break: break-all;
   max-width: 100%;
-  min-height: 50%;
+  min-height: 20%;
 `;
 
 export const AreeButton = styled.button`
@@ -85,7 +85,7 @@ export const AreeButton = styled.button`
   color: ${color.white};
 `;
 
-export const CommentWrap = styled.div`
+export const CommentSendWrap = styled.div`
   margin-top: 3.75rem;
   display: flex;
   flex-direction: column;
@@ -93,7 +93,7 @@ export const CommentWrap = styled.div`
   width: 100%;
 `;
 
-export const CommentInput = styled.textarea`
+export const CommentSendInput = styled.textarea`
   padding: 16px 12px;
   resize: none;
   width: 100%;
@@ -113,4 +113,9 @@ export const CommentSendButton = styled.button`
   font-weight: 600;
   font-size: 18px;
   line-height: 140%;
+`;
+
+export const CommentWrap = styled.div`
+  display: flex;
+  flex-direction: column;
 `;

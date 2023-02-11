@@ -1,9 +1,18 @@
 import { ProgressChecker } from 'utills/ProgressChecker';
 import Progressbar from 'components/common/Progressbar';
+import { getBoardDetail } from 'api/board';
+import { useParams } from 'react-router-dom';
+import { useQuery } from 'react-query';
 import Comment from './Comment';
 import * as S from './style';
 
 const PetitionDetail = () => {
+  const { id } = useParams();
+
+  const { isLoading, isError, data } = useQuery(['id', Number(id)], () =>
+    getBoardDetail(Number(id)),
+  );
+  console.log(data);
   const { color, progress } = ProgressChecker('PETITION');
 
   return (
@@ -26,11 +35,11 @@ const PetitionDetail = () => {
         </S.Info>
         <S.Content>r</S.Content>
         <S.AreeButton>동의하기</S.AreeButton>
-        <S.CommentWrap>
-          <S.CommentInput placeholder="댓글을 입력해주세요." />
+        <S.CommentSendWrap>
+          <S.CommentSendInput placeholder="댓글을 입력해주세요." />
           <S.CommentSendButton>댓글 작성</S.CommentSendButton>
-        </S.CommentWrap>
-        <Comment />
+        </S.CommentSendWrap>
+        <S.CommentWrap />
       </S.Wrap>
     </S.Container>
   );
