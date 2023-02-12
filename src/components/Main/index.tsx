@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
-import { getBoard } from 'api/board';
-import { StatusType, GetBoardType } from 'type/board/board.type';
+import { getPetition } from 'api/petition';
+import { StatusType, GetPetitionType } from 'type/petition/petition.type';
 import { useRecoilValue } from 'recoil';
 import { userData } from 'atom/user';
 import AddSvg from 'assets/add.svg';
@@ -16,9 +16,9 @@ const Main = () => {
   const user = useRecoilValue(userData);
   const [isBannerOpen, setIsBannerOpen] = useState(true);
 
-  const { isLoading, isError, data } = useQuery<GetBoardType[]>(
+  const { isLoading, isError, data } = useQuery<GetPetitionType[]>(
     ['status', status],
-    () => getBoard(status),
+    () => getPetition(status),
     {
       enabled: !!user?.authority,
     },

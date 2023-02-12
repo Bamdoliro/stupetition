@@ -1,18 +1,18 @@
 import { useState } from 'react';
-import { CreateBoardType } from 'type/board/board.type';
-import { createBoard } from 'api/board';
+import { CreatePetitionType } from 'type/petition/petition.type';
+import { createPetition } from 'api/petition';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import * as S from './style';
 
 const CreateBoard = () => {
   const navigate = useNavigate();
-  const [boardData, setBoardData] = useState<CreateBoardType>({
+  const [petitionData, setPetitionData] = useState<CreatePetitionType>({
     title: '',
     content: '',
   });
 
-  const { mutate } = useMutation(createBoard, {
+  const { mutate } = useMutation(createPetition, {
     onSuccess: () => {
       alert('게시글 작성 성공 !!');
       navigate('/');
@@ -24,11 +24,11 @@ const CreateBoard = () => {
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setBoardData({ ...boardData, [name]: value });
+    setPetitionData({ ...petitionData, [name]: value });
   };
 
   const submit = () => {
-    mutate(boardData);
+    mutate(petitionData);
   };
 
   return (

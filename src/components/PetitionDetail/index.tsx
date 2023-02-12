@@ -1,23 +1,22 @@
 /* eslint-disable react/jsx-key */
 import { ProgressChecker } from 'utills/ProgressChecker';
 import Progressbar from 'components/common/Progressbar';
-import { getBoardDetail } from 'api/board';
+import { getPetitionDetail } from 'api/petition';
 import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
-import { GetBoardDetailType } from 'type/board/board.type';
+import { GetPetitionDetailType } from 'type/petition/petition.type';
 import { useState } from 'react';
 import Comment from './Comment';
 import * as S from './style';
 
 const PetitionDetail = () => {
   const { id } = useParams();
-  const { isLoading, isError, data } = useQuery<GetBoardDetailType>(
+  const { isLoading, isError, data } = useQuery<GetPetitionDetailType>(
     ['id', Number(id)],
-    () => getBoardDetail(Number(id)),
+    () => getPetitionDetail(Number(id)),
   );
   const { color, progress } = ProgressChecker(data?.status);
   const [isAgreePetition, setIsAgreePetition] = useState<boolean>(false);
-
   return (
     <S.Container>
       <S.Wrap>

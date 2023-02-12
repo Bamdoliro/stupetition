@@ -1,9 +1,9 @@
-export interface CreateBoardType {
+export interface CreatePetitionType {
   title: string;
   content: string;
 }
 
-export interface GetBoardType {
+export interface GetPetitionType {
   createdAt: string;
   id: number;
   numberOfAgreers: number;
@@ -17,7 +17,7 @@ export interface CommentType {
   createdAt: string;
 }
 
-export interface GetBoardDetailType {
+export interface GetPetitionDetailType {
   agreerComments: CommentType[];
   content: string;
   id: number;

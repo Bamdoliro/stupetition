@@ -1,5 +1,5 @@
 import ProfileSvg from 'assets/profile.svg';
-import { CommentType } from 'type/board/board.type';
+import { CommentType } from 'type/petition/petition.type';
 import * as S from './style';
 
 const Comment = ({ comment, createdAt }: CommentType) => {

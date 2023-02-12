@@ -103,6 +103,7 @@ export const AgreedButton = styled.button`
   line-height: 140%;
   letter-spacing: 0.15px;
   color: ${color.white};
+  cursor: default;
 `;
 
 export const CommentSendWrap = styled.div`

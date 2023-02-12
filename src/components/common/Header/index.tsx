@@ -14,7 +14,6 @@ const Header = () => {
   const logoutMutate = useMutation(logoutUser, {
     onSuccess: () => {
       localStorage.clear();
-      alert('로그아웃 성공 !!');
       window.location.reload();
     },
     onError: (err) => {
