@@ -3,7 +3,7 @@ import { color } from 'styles/theme';
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  position: fixed;
+  position: sticky;
   left: 0;
   top: 0;
   display: flex;

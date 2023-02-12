@@ -3,6 +3,8 @@ import { CommentType } from 'type/board/board.type';
 import * as S from './style';
 
 const Comment = ({ comment, createdAt }: CommentType) => {
+  const date = createdAt.split('T');
+
   return (
     <S.Container>
       <S.Info>
@@ -11,7 +13,7 @@ const Comment = ({ comment, createdAt }: CommentType) => {
             <S.Profile src={ProfileSvg} />
             <S.ItemWrap>
               <S.Name>익명</S.Name>
-              <S.Date>{createdAt}</S.Date>
+              <S.Date>{`${date[0]} ${date[1]}`}</S.Date>
             </S.ItemWrap>
           </S.ProfileWrap>
           <S.Delete>삭제</S.Delete>
