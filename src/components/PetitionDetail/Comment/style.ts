@@ -5,6 +5,7 @@ import { color } from 'styles/theme';
 export const Container = styled.div`
   width: 100%;
   border-bottom: 1px solid ${color.gray200};
+  margin-bottom: 1.75rem;
 `;
 
 export const Info = styled.div`

@@ -6,7 +6,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: ${color.white};
 `;
 
@@ -107,7 +107,7 @@ export const ApprovedButton = styled.button`
 `;
 
 export const CommentSendWrap = styled.div`
-  margin-top: 3.75rem;
+  margin: 3.75rem 0rem 2.5rem 0rem;
   display: flex;
   flex-direction: column;
   align-items: flex-end;

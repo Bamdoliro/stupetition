@@ -15,7 +15,7 @@ import * as S from './style';
 const PetitionDetail = () => {
   const { id } = useParams();
 
-  const { isLoading, isError, data } = useQuery<GetPetitionDetailType>(
+  const { isLoading, isError, data, refetch } = useQuery<GetPetitionDetailType>(
     ['id', Number(id)],
     () => getPetitionDetail(Number(id)),
   );
@@ -30,6 +30,7 @@ const PetitionDetail = () => {
   const approveMutate = useMutation(approvePetition, {
     onSuccess: () => {
       alert('동의 완료 !!');
+      refetch();
     },
     onError: (err) => {
       console.log(err);
@@ -39,6 +40,7 @@ const PetitionDetail = () => {
   const commentMutate = useMutation(commentPetition, {
     onSuccess: () => {
       setComment('');
+      refetch();
     },
     onError: (err) => {
       console.log(err);
