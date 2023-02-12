@@ -1,6 +1,6 @@
 import { StatusType } from 'type/board/board.type';
 
-export const ProgressChecker = (status: StatusType) => {
+export const ProgressChecker = (status: StatusType | undefined) => {
   let progress = {
     color: '',
     progress: '',

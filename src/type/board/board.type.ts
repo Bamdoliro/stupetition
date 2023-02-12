@@ -22,7 +22,7 @@ export interface GetBoardDetailType {
   content: string;
   id: number;
   numberOfAgreers: number;
-  status: StatusType;
+  status: StatusType | undefined;
   studentCouncilComment: string;
   title: string;
   userEmail: string;

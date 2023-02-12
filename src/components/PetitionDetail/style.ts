@@ -3,7 +3,7 @@ import * as T from 'styles/text';
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin-top: 6.25rem;
+  padding-top: 6.25rem;
   display: flex;
   justify-content: center;
   width: 100vw;

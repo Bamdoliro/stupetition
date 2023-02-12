@@ -4,7 +4,7 @@ import Progressbar from 'components/common/Progressbar';
 import { getBoardDetail } from 'api/board';
 import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
-import { GetBoardDetailType } from 'type/board/board.type';
+import { GetBoardDetailType, StatusType } from 'type/board/board.type';
 import Comment from './Comment';
 import * as S from './style';
 
@@ -15,7 +15,6 @@ const PetitionDetail = () => {
     ['id', Number(id)],
     () => getBoardDetail(Number(id)),
   );
-  console.log(data?.agreerComments);
   const { color, progress } = ProgressChecker(data?.status);
 
   return (
@@ -30,8 +29,8 @@ const PetitionDetail = () => {
             </S.ItemWrap>
             <Progressbar
               option="DETAIL"
-              width="9.375rem"
-              height="9.375rem"
+              width="150px"
+              height="150px"
               numberOfAgreers={Number(data?.numberOfAgreers)}
             />
           </S.InfoWrap>
