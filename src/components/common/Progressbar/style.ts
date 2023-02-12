@@ -2,7 +2,11 @@ import * as T from 'styles/text';
 import { color } from 'styles/theme';
 import styled from 'styled-components';
 
-export const ProgressBarWrap = styled.div``;
+export const ProgressBarWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
 
 export const PercentSmall = styled(T.H5)`
   color: ${color.gray600};
