@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import { ProgressChecker } from 'utills/ProgressChecker';
 import Progressbar from 'components/common/Progressbar';
 import { getPetitionDetail } from 'api/petition';
@@ -16,7 +15,10 @@ const PetitionDetail = () => {
     () => getPetitionDetail(Number(id)),
   );
   const { color, progress } = ProgressChecker(data?.status);
-  const [isAgreePetition, setIsAgreePetition] = useState<boolean>(false);
+  const [isAgreePetition, setIsAgreePetition] = useState<boolean | undefined>(
+    data?.approved,
+  );
+  const date = data?.createdAt?.split('T');
   return (
     <S.Container>
       <S.Wrap>
@@ -25,7 +27,7 @@ const PetitionDetail = () => {
             <S.ItemWrap>
               <S.Progress color={color}>{progress}</S.Progress>
               <S.Title>{data?.title}</S.Title>
-              <S.Date>2023-02-07 13:35</S.Date>
+              <S.Date>{`${date?.[0]} ${date?.[1]}`}</S.Date>
             </S.ItemWrap>
             <Progressbar
               option="DETAIL"
@@ -47,10 +49,14 @@ const PetitionDetail = () => {
           <S.CommentSendInput placeholder="댓글을 입력해주세요." />
           <S.CommentSendButton>댓글 작성</S.CommentSendButton>
         </S.CommentSendWrap>
-        {data?.agreerComments.map((item) => {
+        {data?.comments.map((item) => {
           return (
-            // 백엔드가 id 추가하면 id 넣자
-            <Comment comment={item.comment} createdAt={item.createdAt} />
+            <Comment
+              key={item.id}
+              id={item.id}
+              comment={item.comment}
+              createdAt={item.createdAt}
+            />
           );
         })}
       </S.Wrap>

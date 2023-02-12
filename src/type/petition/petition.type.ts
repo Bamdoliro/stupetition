@@ -13,17 +13,20 @@ export interface GetPetitionType {
 export type StatusType = 'PETITION' | 'EXPIRED' | 'WAITING' | 'ANSWERED';
 
 export interface CommentType {
+  id: number;
   comment: string;
   createdAt: string;
 }
 
 export interface GetPetitionDetailType {
-  agreerComments: CommentType[];
+  comments: CommentType[];
   content: string;
   id: number;
   numberOfAgreers: number;
-  status: StatusType | undefined;
-  studentCouncilComment: string;
+  status: StatusType;
+  answer: string | null;
   title: string;
   userEmail: string;
+  createdAt: string;
+  approved: boolean;
 }
