@@ -82,10 +82,22 @@ export const Content = styled(T.p2)`
 `;
 
 export const AgreeButton = styled.button`
-  width: 99px;
+  width: 104px;
   height: 49px;
   padding: 12px 18px;
   background: ${color.main};
+  border-radius: 12px;
+  font-size: 1.125rem;
+  line-height: 140%;
+  letter-spacing: 0.15px;
+  color: ${color.white};
+`;
+
+export const AgreedButton = styled.button`
+  width: 104px;
+  height: 49px;
+  padding: 12px 18px;
+  background: ${color.gray400};
   border-radius: 12px;
   font-size: 1.125rem;
   line-height: 140%;
