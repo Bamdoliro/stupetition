@@ -14,18 +14,20 @@ import * as S from './style';
 
 const PetitionDetail = () => {
   const { id } = useParams();
+
   const { isLoading, isError, data } = useQuery<GetPetitionDetailType>(
     ['id', Number(id)],
     () => getPetitionDetail(Number(id)),
   );
   const { color, progress } = ProgressChecker(data?.status);
-  const [isAgreePetition, setIsAgreePetition] = useState<boolean | undefined>(
-    data?.approved,
-  );
   const date = data?.createdAt?.split('T');
-  const [isComment, setComment] = useState('');
 
-  const approve = useMutation(approvePetition, {
+  const [isApprovePetition, setIsApprovePetition] = useState<
+    boolean | undefined
+  >(data?.approved);
+  const [comment, setComment] = useState('');
+
+  const approveMutate = useMutation(approvePetition, {
     onSuccess: () => {
       alert('동의 완료 !!');
     },
@@ -34,22 +36,22 @@ const PetitionDetail = () => {
     },
   });
 
-  const approveSubmit = () => {
-    approve.mutate(Number(id));
-  };
-
-  const comment = useMutation(commentPetition, {
+  const commentMutate = useMutation(commentPetition, {
     onSuccess: () => {
-      alert('댓글 써짐 !!');
+      setComment('');
     },
     onError: (err) => {
       console.log(err);
     },
   });
 
+  const approveSubmit = () => {
+    approveMutate.mutate(Number(id));
+  };
+
   const commentSubmit = () => {
-    comment.mutate({
-      comment: isComment,
+    commentMutate.mutate({
+      comment,
       petitionId: Number(id),
     });
   };
@@ -73,14 +75,15 @@ const PetitionDetail = () => {
           </S.InfoWrap>
         </S.Info>
         <S.Content>{data?.content}</S.Content>
-        {isAgreePetition ? (
-          <S.AgreedButton>동의 완료</S.AgreedButton>
+        {isApprovePetition ? (
+          <S.ApprovedButton>동의 완료</S.ApprovedButton>
         ) : (
-          <S.AgreeButton onClick={approveSubmit}>동의하기</S.AgreeButton>
+          <S.ApproveButton onClick={approveSubmit}>동의하기</S.ApproveButton>
         )}
         <S.CommentSendWrap>
           <S.CommentSendInput
             placeholder="댓글을 입력해주세요."
+            value={comment}
             onChange={(e) => setComment(e.target.value)}
           />
           <S.CommentSendButton onClick={commentSubmit}>

@@ -81,7 +81,7 @@ export const Content = styled(T.p2)`
   margin-bottom: 7.5rem;
 `;
 
-export const AgreeButton = styled.button`
+export const ApproveButton = styled.button`
   width: 104px;
   height: 49px;
   padding: 12px 18px;
@@ -93,7 +93,7 @@ export const AgreeButton = styled.button`
   color: ${color.white};
 `;
 
-export const AgreedButton = styled.button`
+export const ApprovedButton = styled.button`
   width: 104px;
   height: 49px;
   padding: 12px 18px;

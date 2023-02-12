@@ -24,14 +24,13 @@ export const getPetitionDetail = async (id: number) => {
 };
 
 export const approvePetition = async (petitionId: number) => {
-  await customAxios.post(`/petition/${petitionId}/approve`, authorization());
-};
-
-export const commentPetition = async (commentData: PostPetitionType) => {
   const { data } = await customAxios.post(
-    `/comment`,
-    commentData,
+    `/petition/${petitionId}/approve`,
     authorization(),
   );
   return data;
+};
+
+export const commentPetition = async (commentData: PostPetitionType) => {
+  await customAxios.post(`/comment`, commentData, authorization());
 };
