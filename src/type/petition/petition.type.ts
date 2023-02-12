@@ -30,3 +30,8 @@ export interface GetPetitionDetailType {
   createdAt: string;
   approved: boolean;
 }
+
+export interface PostPetitionType {
+  comment?: string;
+  petitionId: number;
+}

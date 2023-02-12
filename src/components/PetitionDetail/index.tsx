@@ -1,6 +1,10 @@
 import { ProgressChecker } from 'utills/ProgressChecker';
 import Progressbar from 'components/common/Progressbar';
-import { approvePetition, getPetitionDetail } from 'api/petition';
+import {
+  approvePetition,
+  commentPetition,
+  getPetitionDetail,
+} from 'api/petition';
 import { useParams } from 'react-router-dom';
 import { useMutation, useQuery } from 'react-query';
 import { GetPetitionDetailType } from 'type/petition/petition.type';
@@ -19,6 +23,7 @@ const PetitionDetail = () => {
     data?.approved,
   );
   const date = data?.createdAt?.split('T');
+  const [isComment, setComment] = useState('');
 
   const approve = useMutation(approvePetition, {
     onSuccess: () => {
@@ -30,7 +35,23 @@ const PetitionDetail = () => {
   });
 
   const approveSubmit = () => {
-    approve.mutate(Number(data?.id));
+    approve.mutate(Number(id));
+  };
+
+  const comment = useMutation(commentPetition, {
+    onSuccess: () => {
+      alert('댓글 써짐 !!');
+    },
+    onError: (err) => {
+      console.log(err);
+    },
+  });
+
+  const commentSubmit = () => {
+    comment.mutate({
+      comment: isComment,
+      petitionId: Number(id),
+    });
   };
 
   return (
@@ -58,8 +79,13 @@ const PetitionDetail = () => {
           <S.AgreeButton onClick={approveSubmit}>동의하기</S.AgreeButton>
         )}
         <S.CommentSendWrap>
-          <S.CommentSendInput placeholder="댓글을 입력해주세요." />
-          <S.CommentSendButton>댓글 작성</S.CommentSendButton>
+          <S.CommentSendInput
+            placeholder="댓글을 입력해주세요."
+            onChange={(e) => setComment(e.target.value)}
+          />
+          <S.CommentSendButton onClick={commentSubmit}>
+            댓글 작성
+          </S.CommentSendButton>
         </S.CommentSendWrap>
         {data?.comments.map((item) => {
           return (
