@@ -18,3 +18,15 @@ export const getPetitionDetail = async (id: number) => {
   const { data } = await customAxios.get(`/petition/${id}`, authorization());
   return data;
 };
+
+export const approvePetition = async (petitionId: number) => {
+  await customAxios.post(`/petition/${petitionId}/approve`, authorization());
+};
+
+export const answerPetition = async (petitionId: number) => {
+  const { data } = await customAxios.post(
+    `/petition/${petitionId}/answer`,
+    authorization(),
+  );
+  return data;
+};

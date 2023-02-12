@@ -1,8 +1,8 @@
 import { ProgressChecker } from 'utills/ProgressChecker';
 import Progressbar from 'components/common/Progressbar';
-import { getPetitionDetail } from 'api/petition';
+import { approvePetition, getPetitionDetail } from 'api/petition';
 import { useParams } from 'react-router-dom';
-import { useQuery } from 'react-query';
+import { useMutation, useQuery } from 'react-query';
 import { GetPetitionDetailType } from 'type/petition/petition.type';
 import { useState } from 'react';
 import Comment from './Comment';
@@ -19,6 +19,20 @@ const PetitionDetail = () => {
     data?.approved,
   );
   const date = data?.createdAt?.split('T');
+
+  const approve = useMutation(approvePetition, {
+    onSuccess: () => {
+      alert('동의 완료 !!');
+    },
+    onError: (err) => {
+      console.log(err);
+    },
+  });
+
+  const approveSubmit = () => {
+    approve.mutate(Number(data?.id));
+  };
+
   return (
     <S.Container>
       <S.Wrap>
@@ -41,9 +55,7 @@ const PetitionDetail = () => {
         {isAgreePetition ? (
           <S.AgreedButton>동의 완료</S.AgreedButton>
         ) : (
-          <S.AgreeButton onClick={() => setIsAgreePetition(true)}>
-            동의하기
-          </S.AgreeButton>
+          <S.AgreeButton onClick={approveSubmit}>동의하기</S.AgreeButton>
         )}
         <S.CommentSendWrap>
           <S.CommentSendInput placeholder="댓글을 입력해주세요." />
