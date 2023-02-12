@@ -4,7 +4,7 @@ import Progressbar from 'components/common/Progressbar';
 import { getBoardDetail } from 'api/board';
 import { useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
-import { GetBoardDetailType, StatusType } from 'type/board/board.type';
+import { GetBoardDetailType } from 'type/board/board.type';
 import Comment from './Comment';
 import * as S from './style';
 
@@ -21,9 +21,9 @@ const PetitionDetail = () => {
     <S.Container>
       <S.Wrap>
         <S.Info>
-          <S.Progress color={color}>{progress}</S.Progress>
           <S.InfoWrap>
             <S.ItemWrap>
+              <S.Progress color={color}>{progress}</S.Progress>
               <S.Title>{data?.title}</S.Title>
               <S.Date>2023-02-07 13:35</S.Date>
             </S.ItemWrap>
@@ -36,7 +36,7 @@ const PetitionDetail = () => {
           </S.InfoWrap>
         </S.Info>
         <S.Content>{data?.content}</S.Content>
-        <S.AreeButton>동의하기</S.AreeButton>
+        <S.AgreeButton>동의하기</S.AgreeButton>
         <S.CommentSendWrap>
           <S.CommentSendInput placeholder="댓글을 입력해주세요." />
           <S.CommentSendButton>댓글 작성</S.CommentSendButton>

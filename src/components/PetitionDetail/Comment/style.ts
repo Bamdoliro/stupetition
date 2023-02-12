@@ -16,7 +16,7 @@ export const InfoWrap = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 `;
 
 export const ProfileWrap = styled.div`

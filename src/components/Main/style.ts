@@ -37,10 +37,6 @@ export const CloseBanner = styled(T.caption)`
   bottom: 21px;
 `;
 
-export const Margin = styled.div`
-  height: 60px;
-`;
-
 export const ContentsWrap = styled.div`
   display: flex;
   flex-direction: column;

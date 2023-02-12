@@ -24,7 +24,14 @@ export const Info = styled.div`
   justify-content: center;
   height: 232px;
   width: 100%;
-  gap: 16px;
+`;
+
+export const InfoWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid ${color.gray200};
 `;
 
 export const Progress = styled.div`
@@ -41,24 +48,22 @@ export const Progress = styled.div`
   line-height: 160%;
 `;
 
-export const InfoWrap = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  border-bottom: 1px solid ${color.gray200};
-  padding-bottom: 36px;
-`;
-
 export const ItemWrap = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 16px;
   width: 100%;
 `;
 
 export const Title = styled(T.H1)`
   color: ${color.gray900};
   max-width: 80%;
-  margin-bottom: 1.5rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 `;
 
 export const Date = styled(T.p2)`
@@ -73,9 +78,10 @@ export const Content = styled(T.p2)`
   word-break: break-all;
   max-width: 100%;
   min-height: 20%;
+  margin-bottom: 7.5rem;
 `;
 
-export const AreeButton = styled.button`
+export const AgreeButton = styled.button`
   width: 99px;
   height: 49px;
   padding: 12px 18px;
@@ -102,6 +108,10 @@ export const CommentSendInput = styled.textarea`
   height: 90px;
   border: 1px solid ${color.gray300};
   border-radius: 12px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 160%;
+  color: ${color.gray500};
 `;
 
 export const CommentSendButton = styled.button`

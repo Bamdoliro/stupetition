@@ -38,7 +38,7 @@ const Main = () => {
           </S.CloseBanner>
         </S.Banner>
       ) : (
-        <S.Margin />
+        ''
       )}
       <S.ContentsWrap>
         <S.SubNav>
