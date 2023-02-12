@@ -17,7 +17,12 @@ const Comment = ({ comment, createdAt, id }: CommentType) => {
   });
 
   const deleteSubmit = () => {
-    deleteMutate.mutate(id);
+    // 임시 confirm
+    if (window.confirm('진짜 댓글을 삭제할거냐 닝겐')) {
+      deleteMutate.mutate(id);
+    } else {
+      alert('삭제 취소');
+    }
   };
 
   return (
