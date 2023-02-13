@@ -38,7 +38,7 @@ export const RadioLabel = styled.label`
   width: 56px;
   height: 36px;
   padding: 9px;
-  border-radius: 10px;
+  border-radius: 8px;
   background-color: ${color.main};
   color: ${color.white};
   font-weight: 500;

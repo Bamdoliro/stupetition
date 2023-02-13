@@ -11,7 +11,7 @@ export const Desc = styled.div`
 export const Wrap = styled.div`
   display: flex;
   align-items: center;
-  border-radius: 12px;
+  border-radius: 8px;
   background-color: ${color.gray100};
   padding: 0px 0px 0px 16px;
 `;
@@ -23,7 +23,7 @@ export const Img = styled.img`
 `;
 
 export const Input = styled.input`
-  border-radius: 0px 12px 12px 0px;
+  border-radius: 0px 8px 8px 0px;
   background-color: ${color.gray100};
   width: 100%;
   height: 100%;

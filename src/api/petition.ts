@@ -24,11 +24,7 @@ export const getPetitionDetail = async (id: number) => {
 };
 
 export const approvePetition = async (petitionId: number) => {
-  const { data } = await customAxios.post(
-    `/petition/${petitionId}/approve`,
-    authorization(),
-  );
-  return data;
+  await customAxios.post(`/petition/${petitionId}/approve`, authorization());
 };
 
 export const commentPetition = async (commentData: PostPetitionType) => {

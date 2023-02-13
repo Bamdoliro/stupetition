@@ -7,7 +7,7 @@ export const FilledButton = styled.button`
   justify-content: center;
   height: 48px;
   padding: 0px 22px;
-  border-radius: 12px;
+  border-radius: 8px;
   background-color: ${color.main};
   font-weight: 600;
   font-size: 1rem;
@@ -20,7 +20,7 @@ export const UnfilledButton = styled.button`
   justify-content: center;
   height: 48px;
   padding: 0px 22px;
-  border-radius: 12px;
+  border-radius: 8px;
   background-color: ${color.white};
   font-weight: 600;
   font-size: 1rem;

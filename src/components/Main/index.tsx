@@ -43,11 +43,9 @@ const Main = () => {
       <S.ContentsWrap>
         <S.SubNav>
           <RadioTabMenu setStatus={setStatus} status={status} />
-          <S.CreatePetition>
+          <S.CreatePetition onClick={() => navigate('/createPetition')}>
             <S.Img src={AddSvg} />
-            <S.CreatePetitionText onClick={() => navigate('/createPetition')}>
-              청원 추가
-            </S.CreatePetitionText>
+            <S.CreatePetitionText>청원 추가</S.CreatePetitionText>
           </S.CreatePetition>
         </S.SubNav>
         <S.PetitionWrap>

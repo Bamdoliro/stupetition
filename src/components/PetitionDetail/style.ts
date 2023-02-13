@@ -86,7 +86,7 @@ export const ApproveButton = styled.button`
   height: 49px;
   padding: 12px 18px;
   background: ${color.main};
-  border-radius: 12px;
+  border-radius: 8px;
   font-size: 1.125rem;
   line-height: 140%;
   letter-spacing: 0.15px;
@@ -98,7 +98,7 @@ export const ApprovedButton = styled.button`
   height: 49px;
   padding: 12px 18px;
   background: ${color.gray400};
-  border-radius: 12px;
+  border-radius: 8px;
   font-size: 1.125rem;
   line-height: 140%;
   letter-spacing: 0.15px;
@@ -120,7 +120,7 @@ export const CommentSendInput = styled.textarea`
   width: 100%;
   height: 90px;
   border: 1px solid ${color.gray300};
-  border-radius: 12px;
+  border-radius: 8px;
   font-weight: 400;
   font-size: 16px;
   line-height: 160%;
@@ -131,7 +131,7 @@ export const CommentSendButton = styled.button`
   margin-top: 0.75rem;
   width: 104px;
   height: 49px;
-  border-radius: 12px;
+  border-radius: 8px;
   background-color: ${color.white};
   border: 1px solid ${color.main};
   color: ${color.main};

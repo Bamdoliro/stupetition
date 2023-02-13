@@ -24,7 +24,7 @@ export const LoginBox = styled.div`
   width: 42.9%;
   height: 60%;
   background-color: ${color.white};
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 5rem;
 `;
 

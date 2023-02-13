@@ -7,7 +7,7 @@ export const Container = styled.div`
   gap: 6px;
   width: 350px;
   height: 100%;
-  border-radius: 18px;
+  border-radius: 8px;
   padding: 0.375rem;
   background-color: ${color.gray50};
 `;
@@ -27,7 +27,7 @@ export const RadioLabel = styled.label`
   align-items: center;
   width: 100%;
   height: 100%;
-  border-radius: 12px;
+  border-radius: 8px;
   font-weight: 400;
   font-size: 16px;
   line-height: 160%;
