@@ -1,7 +1,7 @@
 import { deleteCommentPetition } from 'api/petition';
 import ProfileSvg from 'assets/profile.svg';
 import { useMutation } from 'react-query';
-import { CommentType } from 'type/petition/petition.type';
+import { CommentType } from 'types/petition/petition.type';
 import * as S from './style';
 
 const Comment = ({ comment, createdAt, id }: CommentType) => {

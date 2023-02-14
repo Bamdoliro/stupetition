@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { LoginType } from 'type/auth/auth.type';
-import Input from 'components/common/Input';
-import Button from 'components/common/Button';
+import { LoginType } from 'types/auth/auth.type';
+import Input from 'components/Common/Input';
+import Button from 'components/Common/Button';
 import { useMutation } from 'react-query';
 import { loginUser } from 'api/auth';
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
-import { userData } from 'atom/user';
+import { userData } from 'atoms/user';
 import { AUTHORITY, SCHOOL_NAME } from 'lib/config/user.config';
 import { ACCESS_KEY, REFRESH_KEY } from 'lib/config/token.config';
 import * as S from './style';

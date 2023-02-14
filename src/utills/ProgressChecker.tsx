@@ -1,4 +1,4 @@
-import { StatusType } from 'type/petition/petition.type';
+import { StatusType } from 'types/petition/petition.type';
 
 export const ProgressChecker = (status: StatusType | undefined) => {
   let progress = {

@@ -2,7 +2,7 @@ import { createPetition } from 'api/petition';
 import { useState } from 'react';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-import { CreatePetitionType } from 'type/petition/petition.type';
+import { CreatePetitionType } from 'types/petition/petition.type';
 import * as S from './style';
 
 const CreatePetition = () => {

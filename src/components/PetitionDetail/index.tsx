@@ -1,5 +1,5 @@
 import { ProgressChecker } from 'utills/ProgressChecker';
-import Progressbar from 'components/common/Progressbar';
+import Progressbar from 'components/Common/Progressbar';
 import {
   approvePetition,
   commentPetition,
@@ -7,7 +7,7 @@ import {
 } from 'api/petition';
 import { useParams } from 'react-router-dom';
 import { useMutation, useQuery } from 'react-query';
-import { GetPetitionDetailType } from 'type/petition/petition.type';
+import { GetPetitionDetailType } from 'types/petition/petition.type';
 import { useState } from 'react';
 import Comment from './Comment';
 import * as S from './style';

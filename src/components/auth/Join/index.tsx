@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { JoinType } from 'type/auth/auth.type';
+import { JoinType } from 'types/auth/auth.type';
 import JoinContents from './JoinContents';
 import SchoolContents from './SchoolContents';
 import * as S from './style';

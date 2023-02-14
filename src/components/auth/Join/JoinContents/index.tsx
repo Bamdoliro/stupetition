@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
-import { JoinContentsPropsType } from 'type/auth/auth.type';
+import { JoinContentsPropsType } from 'types/auth/auth.type';
 import { useMutation } from 'react-query';
 import { joinUser } from 'api/auth';
-import Input from 'components/common/Input';
-import SearchInput from 'components/common/SearchInput';
-import Button from 'components/common/Button';
+import Input from 'components/Common/Input';
+import SearchInput from 'components/Common/SearchInput';
+import Button from 'components/Common/Button';
 import * as S from './style';
 
 const JoinContents = ({

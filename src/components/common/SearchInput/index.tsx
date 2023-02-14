@@ -1,4 +1,4 @@
-import { InputPropsType } from 'type/common/input.type';
+import { InputPropsType } from 'types/common/input.type';
 import SearchSvg from 'assets/search.svg';
 import * as S from './style';
 

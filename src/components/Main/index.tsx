@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import { getPetition } from 'api/petition';
-import { StatusType, GetPetitionType } from 'type/petition/petition.type';
+import { StatusType, GetPetitionType } from 'types/petition/petition.type';
 import { useRecoilValue } from 'recoil';
-import { userData } from 'atom/user';
+import { userData } from 'atoms/user';
 import AddSvg from 'assets/add.svg';
 import { useNavigate } from 'react-router-dom';
 import PetitionList from './PetitionList';

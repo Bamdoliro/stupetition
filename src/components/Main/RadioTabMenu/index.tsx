@@ -1,4 +1,4 @@
-import { RadioPropsType } from 'type/main/main.type';
+import { RadioPropsType } from 'types/main/main.type';
 import * as S from './style';
 
 const RadioTabMenu = ({ status, setStatus }: RadioPropsType) => {
