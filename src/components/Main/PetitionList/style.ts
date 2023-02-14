@@ -9,6 +9,7 @@ export const Container = styled.div`
   border: 1px solid black;
   border: 1px solid ${color.gray200};
   border-radius: 16px;
+  cursor: pointer;
 `;
 
 export const Wrap = styled.div`
@@ -54,6 +55,6 @@ export const Progress = styled.div`
   border-radius: 50px;
   color: ${(props) => props.color};
   font-weight: 500;
-  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 160%;
 `;

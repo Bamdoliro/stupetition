@@ -1,22 +1,24 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
-import { getBoard } from 'api/board';
-import { StatusType, GetBoardType } from 'type/board/board.type';
+import { getPetition } from 'api/petition';
+import { StatusType, GetPetitionType } from 'type/petition/petition.type';
 import { useRecoilValue } from 'recoil';
 import { userData } from 'atom/user';
 import AddSvg from 'assets/add.svg';
+import { useNavigate } from 'react-router-dom';
 import PetitionList from './PetitionList';
 import RadioTabMenu from './RadioTabMenu';
 import * as S from './style';
 
 const Main = () => {
+  const navigate = useNavigate();
   const [status, setStatus] = useState<StatusType>('PETITION');
   const user = useRecoilValue(userData);
   const [isBannerOpen, setIsBannerOpen] = useState(true);
 
-  const { isLoading, isError, data } = useQuery<GetBoardType[]>(
+  const { isLoading, isError, data } = useQuery<GetPetitionType[]>(
     ['status', status],
-    () => getBoard(status),
+    () => getPetition(status),
     {
       enabled: !!user?.authority,
     },
@@ -36,33 +38,35 @@ const Main = () => {
           </S.CloseBanner>
         </S.Banner>
       ) : (
-        <S.Margin />
+        ''
       )}
       <S.ContentsWrap>
-        <S.SubNav>
-          <RadioTabMenu setStatus={setStatus} status={status} />
-          <S.CreatePetition>
-            <S.Img src={AddSvg} />
-            <S.CreatePetitionText>청원 추가</S.CreatePetitionText>
-          </S.CreatePetition>
-        </S.SubNav>
-        <S.PetitionWrap>
-          {user?.authority ? (
-            data?.map((item) => {
-              return (
-                <PetitionList
-                  key={item.id}
-                  createdAt={item.createdAt}
-                  title={item.title}
-                  numberOfAgreers={item.numberOfAgreers}
-                  status={status}
-                />
-              );
-            })
-          ) : (
-            <div>로그인을 해야지 청원을 하지 ;;</div>
-          )}
-        </S.PetitionWrap>
+        <S.ContentsInnerWrap>
+          <S.SubNav>
+            <RadioTabMenu setStatus={setStatus} status={status} />
+            <S.CreatePetition onClick={() => navigate('/createPetition')}>
+              <S.CreatePetitionText>청원 추가</S.CreatePetitionText>
+            </S.CreatePetition>
+          </S.SubNav>
+          <S.PetitionWrap>
+            {user?.authority ? (
+              data?.map((item) => {
+                return (
+                  <PetitionList
+                    key={item.id}
+                    id={item.id}
+                    createdAt={item.createdAt}
+                    title={item.title}
+                    numberOfAgreers={item.numberOfAgreers}
+                    status={status}
+                  />
+                );
+              })
+            ) : (
+              <div>로그인을 해야지 청원을 하지 ;;</div>
+            )}
+          </S.PetitionWrap>
+        </S.ContentsInnerWrap>
       </S.ContentsWrap>
     </S.Container>
   );

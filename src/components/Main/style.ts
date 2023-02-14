@@ -6,6 +6,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100vw;
   height: 100vh;
+  min-height: 100vh;
   background-color: ${color.white};
 `;
 
@@ -19,9 +20,9 @@ export const Banner = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  padding-left: 6.25rem;
+  padding-left: 100px;
   background-image: url(${BannerImg});
-  height: 70%;
+  height: 50%;
 `;
 
 export const BannerText = styled(T.D2)`
@@ -37,10 +38,6 @@ export const CloseBanner = styled(T.caption)`
   bottom: 21px;
 `;
 
-export const Margin = styled.div`
-  height: 60px;
-`;
-
 export const ContentsWrap = styled.div`
   display: flex;
   flex-direction: column;
@@ -48,35 +45,38 @@ export const ContentsWrap = styled.div`
   width: 100%;
 `;
 
+export const ContentsInnerWrap = styled.div`
+  width: 74.4%;
+`;
+
 export const SubNav = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 74.4%;
+  width: 100%;
   height: 54px;
-  margin: 3.75rem 2rem;
+  margin: 60px 0px 32px 0px;
 `;
 
 export const PetitionWrap = styled.div`
   display: grid;
-  grid-template-columns: 50% 50%;
-  gap: 30px;
-  width: 74.4%;
+  grid-template-columns: 48.5% 48.5%;
+  gap: 3%;
+  width: 100%;
 `;
 
 export const CreatePetition = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  width: 115px;
-  height: 100%;
-  border: 1px solid ${color.gray200};
-  border-radius: 12px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background-color: ${color.main};
+  &:hover {
+    background-color: ${color.hover};
+  }
 `;
 
-export const Img = styled.img``;
-
-export const CreatePetitionText = styled(T.p2)`
-  color: ${color.gray900};
+export const CreatePetitionText = styled(T.btn2)`
+  color: ${color.white};
 `;

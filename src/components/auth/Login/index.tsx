@@ -79,7 +79,8 @@ const Login = () => {
               value="로그인"
               onClick={login}
               option="FILLED"
-              width="174px"
+              padding="12px 24px"
+              width="225px"
             />
           </div>
         </S.LoginBox>

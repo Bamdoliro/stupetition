@@ -1,10 +1,11 @@
 import { Dispatch, SetStateAction } from 'react';
-import { StatusType } from 'type/board/board.type';
+import { StatusType } from 'type/petition/petition.type';
 
 export interface PetitionListPropsType {
   createdAt: string;
   title: string;
   numberOfAgreers: number;
+  id: number;
   status: 'PETITION' | 'EXPIRED' | 'WAITING' | 'ANSWERED';
 }
 
@@ -15,4 +16,7 @@ export interface RadioPropsType {
 
 export interface ProgressbarPropsType {
   numberOfAgreers: number;
+  width: string;
+  height: string;
+  option: 'LIST' | 'DETAIL';
 }
