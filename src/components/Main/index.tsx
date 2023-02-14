@@ -44,7 +44,7 @@ const Main = () => {
         <S.ContentsInnerWrap>
           <S.SubNav>
             <RadioTabMenu setStatus={setStatus} status={status} />
-            <S.CreatePetition onClick={() => navigate('/createPetition')}>
+            <S.CreatePetition onClick={() => navigate('/petition/create')}>
               <S.CreatePetitionText>청원 추가</S.CreatePetitionText>
             </S.CreatePetition>
           </S.SubNav>
