@@ -41,31 +41,32 @@ const Main = () => {
         ''
       )}
       <S.ContentsWrap>
-        <S.SubNav>
-          <RadioTabMenu setStatus={setStatus} status={status} />
-          <S.CreatePetition onClick={() => navigate('/createPetition')}>
-            <S.Img src={AddSvg} />
-            <S.CreatePetitionText>청원 추가</S.CreatePetitionText>
-          </S.CreatePetition>
-        </S.SubNav>
-        <S.PetitionWrap>
-          {user?.authority ? (
-            data?.map((item) => {
-              return (
-                <PetitionList
-                  key={item.id}
-                  id={item.id}
-                  createdAt={item.createdAt}
-                  title={item.title}
-                  numberOfAgreers={item.numberOfAgreers}
-                  status={status}
-                />
-              );
-            })
-          ) : (
-            <div>로그인을 해야지 청원을 하지 ;;</div>
-          )}
-        </S.PetitionWrap>
+        <S.ContentsInnerWrap>
+          <S.SubNav>
+            <RadioTabMenu setStatus={setStatus} status={status} />
+            <S.CreatePetition onClick={() => navigate('/createPetition')}>
+              <S.CreatePetitionText>청원 추가</S.CreatePetitionText>
+            </S.CreatePetition>
+          </S.SubNav>
+          <S.PetitionWrap>
+            {user?.authority ? (
+              data?.map((item) => {
+                return (
+                  <PetitionList
+                    key={item.id}
+                    id={item.id}
+                    createdAt={item.createdAt}
+                    title={item.title}
+                    numberOfAgreers={item.numberOfAgreers}
+                    status={status}
+                  />
+                );
+              })
+            ) : (
+              <div>로그인을 해야지 청원을 하지 ;;</div>
+            )}
+          </S.PetitionWrap>
+        </S.ContentsInnerWrap>
       </S.ContentsWrap>
     </S.Container>
   );

@@ -90,3 +90,17 @@ export const caption = styled.p`
   line-height: 140%;
   letter-spacing: 0px;
 `;
+
+export const btn1 = styled.p`
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 130%;
+  letter-spacing: 0px;
+`;
+
+export const btn2 = styled.p`
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 130%;
+  letter-spacing: 0px;
+`;

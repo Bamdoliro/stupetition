@@ -45,35 +45,35 @@ export const ContentsWrap = styled.div`
   width: 100%;
 `;
 
+export const ContentsInnerWrap = styled.div`
+  width: 74.4%;
+`;
+
 export const SubNav = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 74.4%;
+  width: 100%;
   height: 54px;
-  margin: 3.75rem 2rem;
+  margin: 3.75rem 0rem 2rem 0rem;
 `;
 
 export const PetitionWrap = styled.div`
   display: grid;
-  grid-template-columns: 50% 50%;
-  gap: 30px;
-  width: 74.4%;
+  grid-template-columns: 48.5% 48.5%;
+  gap: 3%;
+  width: 100%;
 `;
 
 export const CreatePetition = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  width: 115px;
-  height: 100%;
-  border: 1px solid ${color.gray200};
+  padding: 10px 16px;
   border-radius: 8px;
+  background-color: ${color.main};
 `;
 
-export const Img = styled.img``;
-
-export const CreatePetitionText = styled(T.p2)`
-  color: ${color.gray900};
+export const CreatePetitionText = styled(T.btn2)`
+  color: ${color.white};
 `;
