@@ -43,7 +43,7 @@ export const UnfilledButton = styled.button`
   border-radius: 8px;
   padding: 10px 16px;
   background-color: ${color.white};
-  border: 1px solid ${color.gray500};
+  border: 1px solid ${color.gray200};
 `;
 
 export const ScarceFilledButton = styled.button`

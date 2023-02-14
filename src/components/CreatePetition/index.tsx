@@ -31,11 +31,24 @@ const CreatePetition = () => {
     mutate(petitionData);
   };
 
+  const cancel = () => {
+    // 임시 confirm
+    if (petitionData.content || petitionData.title) {
+      if (
+        window.confirm('변경된 사항은 저장되지 않습니다 진짜 나갈거냐 닝겐')
+      ) {
+        navigate('/');
+      }
+    } else {
+      navigate('/');
+    }
+  };
+
   return (
     <S.Container>
       <S.Header>
         <S.HeaderWrap>
-          <S.UnfilledButton onClick={() => navigate('/')}>
+          <S.UnfilledButton onClick={cancel}>
             <S.UnfilledButtonText>취소</S.UnfilledButtonText>
           </S.UnfilledButton>
           {petitionData.content.length <= 0 ||
