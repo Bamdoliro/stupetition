@@ -10,7 +10,7 @@ export const Container = styled.div`
   justify-content: center;
   z-index: 1;
   width: 100vw;
-  height: 56px;
+  height: 72px;
   background-color: ${color.white};
 `;
 
@@ -29,15 +29,28 @@ export const LogoWrap = styled.div`
   gap: 6px;
 `;
 
-export const Img = styled.img``;
+export const Logo = styled.img``;
 
-export const Logo = styled(T.H5)`
+export const LogoText = styled(T.H5)`
   color: ${color.black};
   cursor: pointer;
 `;
 
-export const Login = styled(T.H5)`
-  color: ${color.black};
+export const Login = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid ${color.gray200};
+`;
+
+export const LoginText = styled(T.btn2)`
+  color: ${color.gray900};
+  cursor: pointer;
+`;
+
+export const Profile = styled.img`
   cursor: pointer;
 `;
 

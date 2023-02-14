@@ -1,4 +1,5 @@
 import Logo from 'assets/logo.svg';
+import Profile from 'assets/loginProfile.svg';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { useMutation } from 'react-query';
@@ -28,8 +29,8 @@ const Header = () => {
     <S.Container>
       <S.Wrap>
         <S.LogoWrap>
-          <S.Img src={Logo} />
-          <S.Logo onClick={() => navigate('/')}>학생청원</S.Logo>
+          <S.Logo src={Logo} />
+          <S.LogoText onClick={() => navigate('/')}>학생청원</S.LogoText>
         </S.LogoWrap>
         <S.NavWrap>
           <SearchInput
@@ -40,9 +41,13 @@ const Header = () => {
             name="stupetitionSearch"
           />
           {user?.authority ? (
-            <S.Logout onClick={logout}>로그아웃</S.Logout>
+            <S.Profile src={Profile} onClick={logout} />
           ) : (
-            <S.Login onClick={() => navigate('/login')}>로그인</S.Login>
+            <S.Login>
+              <S.LoginText onClick={() => navigate('/login')}>
+                로그인
+              </S.LoginText>
+            </S.Login>
           )}
         </S.NavWrap>
       </S.Wrap>
