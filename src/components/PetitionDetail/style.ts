@@ -71,14 +71,14 @@ export const Date = styled(T.p2)`
 `;
 
 export const Content = styled(T.p2)`
-  padding-top: 3rem;
+  padding-top: 48px;
   text-align: left;
   color: ${color.gray900};
   width: 100%;
   word-break: break-all;
   max-width: 100%;
   min-height: 20%;
-  margin-bottom: 7.5rem;
+  margin-bottom: 120px;
 `;
 
 export const ApproveButton = styled.button`
@@ -107,7 +107,7 @@ export const ApproveText = styled(T.H5)`
 `;
 
 export const CommentSendWrap = styled.div`
-  margin: 3.75rem 0rem 2.5rem 0rem;
+  margin: 60px 0px 40px 0px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -131,7 +131,7 @@ export const CommentSendButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 0.75rem;
+  margin-top: 12px;
   border-radius: 8px;
   background-color: ${color.white};
   border: 1px solid ${color.main};

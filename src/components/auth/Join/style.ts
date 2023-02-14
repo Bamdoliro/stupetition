@@ -18,7 +18,7 @@ export const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 9.125rem;
+  padding-left: 146px;
   width: 56%;
   height: 100%;
   background-color: ${color.white};

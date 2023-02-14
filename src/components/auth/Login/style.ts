@@ -14,7 +14,7 @@ export const Wrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding-right: 13.4375rem;
+  padding-right: 215px;
 `;
 
 export const LoginBox = styled.div`
@@ -25,7 +25,7 @@ export const LoginBox = styled.div`
   height: 60%;
   background-color: ${color.white};
   border-radius: 8px;
-  padding: 5rem;
+  padding: 80px;
 `;
 
 export const Title = styled(T.H1)`

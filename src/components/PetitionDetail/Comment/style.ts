@@ -5,7 +5,7 @@ import { color } from 'styles/theme';
 export const Container = styled.div`
   width: 100%;
   border-bottom: 1px solid ${color.gray200};
-  margin-bottom: 1.75rem;
+  margin-bottom: 28px;
 `;
 
 export const Info = styled.div`
@@ -17,7 +17,7 @@ export const InfoWrap = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 1.5rem;
+  margin-bottom: 24px;
 `;
 
 export const ProfileWrap = styled.div`
@@ -58,5 +58,5 @@ export const Comment = styled(T.p2)`
   width: 87%;
   word-break: break-all;
   max-width: 87%;
-  margin-bottom: 1.75rem;
+  margin-bottom: 28px;
 `;

@@ -34,7 +34,7 @@ const Header = () => {
         </S.LogoWrap>
         <S.NavWrap>
           <SearchInput
-            height="40px"
+            height="46px"
             width="240px"
             placeholder="청원 검색"
             type="text"
@@ -43,10 +43,8 @@ const Header = () => {
           {user?.authority ? (
             <S.Profile src={Profile} onClick={logout} />
           ) : (
-            <S.Login>
-              <S.LoginText onClick={() => navigate('/login')}>
-                로그인
-              </S.LoginText>
+            <S.Login onClick={() => navigate('/login')}>
+              <S.LoginText>로그인</S.LoginText>
             </S.Login>
           )}
         </S.NavWrap>
