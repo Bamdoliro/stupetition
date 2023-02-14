@@ -26,6 +26,18 @@ export const HeaderWrap = styled.div`
   align-items: flex-end;
 `;
 
+export const FilledButtonText = styled(T.btn2)`
+  color: ${color.white};
+`;
+
+export const UnfilledButtonText = styled(T.btn2)`
+  color: ${color.gray600};
+`;
+
+export const ScarceFilledButtonText = styled(T.btn2)`
+  color: ${color.white};
+`;
+
 export const FilledButton = styled.button`
   display: flex;
   align-items: center;
@@ -44,6 +56,12 @@ export const UnfilledButton = styled.button`
   padding: 10px 16px;
   background-color: ${color.white};
   border: 1px solid ${color.gray200};
+  &:hover {
+    border: 1px solid ${color.gray300};
+    ${UnfilledButtonText} {
+      color: ${color.gray900};
+    }
+  }
 `;
 
 export const ScarceFilledButton = styled.button`
@@ -54,18 +72,6 @@ export const ScarceFilledButton = styled.button`
   border-radius: 8px;
   padding: 10px 16px;
   background-color: #b4d2ff;
-  color: ${color.white};
-`;
-
-export const FilledButtonText = styled(T.btn2)`
-  color: ${color.white};
-`;
-
-export const UnfilledButtonText = styled(T.btn2)`
-  color: ${color.gray900};
-`;
-
-export const ScarceFilledButtonText = styled(T.btn2)`
   color: ${color.white};
 `;
 
