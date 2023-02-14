@@ -124,7 +124,10 @@ export const CommentSendInput = styled.textarea`
   font-weight: 400;
   font-size: 1rem;
   line-height: 160%;
-  color: ${color.gray500};
+  color: ${color.gray900};
+  &::placeholder {
+    color: ${color.gray400};
+  }
 `;
 
 export const CommentSendButton = styled.button`

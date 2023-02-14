@@ -25,7 +25,11 @@ export const Img = styled.img`
 export const Input = styled.input`
   border-radius: 0px 8px 8px 0px;
   background-color: ${color.gray100};
+  color: ${color.gray900};
   width: 100%;
   height: 100%;
   font-size: 1rem;
+  &::placeholder {
+    color: ${color.gray500};
+  }
 `;
