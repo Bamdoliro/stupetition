@@ -46,12 +46,27 @@ export const UnfilledButton = styled.button`
   border: 1px solid ${color.gray500};
 `;
 
+export const ScarceFilledButton = styled.button`
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 10px 16px;
+  background-color: #b4d2ff;
+  color: ${color.white};
+`;
+
 export const FilledButtonText = styled(T.btn2)`
   color: ${color.white};
 `;
 
 export const UnfilledButtonText = styled(T.btn2)`
   color: ${color.gray900};
+`;
+
+export const ScarceFilledButtonText = styled(T.btn2)`
+  color: ${color.white};
 `;
 
 export const ContentsWrap = styled.div`

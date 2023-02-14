@@ -1,21 +1,67 @@
+import { createPetition } from 'api/petition';
+import { useState } from 'react';
+import { useMutation } from 'react-query';
+import { useNavigate } from 'react-router-dom';
+import { CreatePetitionType } from 'type/petition/petition.type';
 import * as S from './style';
 
 const CreatePetition = () => {
+  const navigate = useNavigate();
+  const [petitionData, setPetitionData] = useState<CreatePetitionType>({
+    title: '',
+    content: '',
+  });
+
+  const { mutate } = useMutation(createPetition, {
+    onSuccess: () => {
+      alert('게시글 작성 성공 !!');
+      navigate('/');
+    },
+    onError: (err) => {
+      console.log(err);
+    },
+  });
+
+  const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setPetitionData({ ...petitionData, [name]: value });
+  };
+
+  const submit = () => {
+    mutate(petitionData);
+  };
+
   return (
     <S.Container>
       <S.Header>
         <S.HeaderWrap>
-          <S.UnfilledButton>
+          <S.UnfilledButton onClick={() => navigate('/')}>
             <S.UnfilledButtonText>취소</S.UnfilledButtonText>
           </S.UnfilledButton>
-          <S.FilledButton>
-            <S.FilledButtonText>확인</S.FilledButtonText>
-          </S.FilledButton>
+          {petitionData.content.length <= 0 ||
+          petitionData.title.length <= 0 ? (
+            <S.ScarceFilledButton>
+              <S.ScarceFilledButtonText>다음</S.ScarceFilledButtonText>
+            </S.ScarceFilledButton>
+          ) : (
+            <S.FilledButton onClick={submit}>
+              <S.FilledButtonText>다음</S.FilledButtonText>
+            </S.FilledButton>
+          )}
         </S.HeaderWrap>
       </S.Header>
       <S.ContentsWrap>
-        <S.TitleInput placeholder="제목을 입력해 주세요." maxLength={40} />
-        <S.ContentInput placeholder="청원 내용을 입력하세요." />
+        <S.TitleInput
+          onChange={onChange}
+          name="title"
+          placeholder="제목을 입력해 주세요."
+          maxLength={40}
+        />
+        <S.ContentInput
+          onChange={onChange}
+          name="content"
+          placeholder="청원 내용을 입력하세요."
+        />
       </S.ContentsWrap>
     </S.Container>
   );
