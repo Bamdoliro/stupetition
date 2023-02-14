@@ -74,13 +74,13 @@ export const ContentsWrap = styled.div`
   height: 70%;
 `;
 
-export const TitleInput = styled.textarea`
+export const TitleInput = styled.input`
   font-weight: 700;
   font-size: 36px;
   line-height: 140%;
   letter-spacing: 0.25px;
   width: 100%;
-  resize: none;
+  margin-bottom: 39px;
   &::placeholder {
     color: ${color.gray200};
   }

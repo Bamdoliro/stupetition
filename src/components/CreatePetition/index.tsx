@@ -22,7 +22,11 @@ const CreatePetition = () => {
     },
   });
 
-  const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const onChange = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
     setPetitionData({ ...petitionData, [name]: value });
   };
@@ -68,7 +72,8 @@ const CreatePetition = () => {
           onChange={onChange}
           name="title"
           placeholder="제목을 입력해 주세요."
-          maxLength={40}
+          minLength={2}
+          maxLength={20}
         />
         <S.ContentInput
           onChange={onChange}
