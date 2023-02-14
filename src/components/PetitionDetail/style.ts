@@ -44,7 +44,7 @@ export const Progress = styled.div`
   border-radius: 50px;
   color: ${(props) => props.color};
   font-weight: 400;
-  font-size: 14px;
+  font-size: 0.875rem;
   line-height: 160%;
 `;
 
@@ -82,28 +82,28 @@ export const Content = styled(T.p2)`
 `;
 
 export const ApproveButton = styled.button`
-  width: 104px;
-  height: 49px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 12px 18px;
   background: ${color.main};
   border-radius: 8px;
-  font-size: 1.125rem;
-  line-height: 140%;
-  letter-spacing: 0.15px;
   color: ${color.white};
 `;
 
 export const ApprovedButton = styled.button`
-  width: 104px;
-  height: 49px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 12px 18px;
   background: ${color.gray400};
   border-radius: 8px;
-  font-size: 1.125rem;
-  line-height: 140%;
-  letter-spacing: 0.15px;
   color: ${color.white};
   cursor: default;
+`;
+
+export const ApproveText = styled(T.H5)`
+  color: ${color.white};
 `;
 
 export const CommentSendWrap = styled.div`
@@ -122,22 +122,25 @@ export const CommentSendInput = styled.textarea`
   border: 1px solid ${color.gray300};
   border-radius: 8px;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 160%;
   color: ${color.gray500};
 `;
 
 export const CommentSendButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 0.75rem;
-  width: 104px;
-  height: 49px;
   border-radius: 8px;
   background-color: ${color.white};
   border: 1px solid ${color.main};
   color: ${color.main};
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 140%;
+  padding: 10px 16px;
+`;
+
+export const CommentSendText = styled(T.btn1)`
+  color: ${color.main};
 `;
 
 export const CommentWrap = styled.div`

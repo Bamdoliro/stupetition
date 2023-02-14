@@ -63,6 +63,7 @@ const SchoolContents = ({
             value="취소"
             option="UNFILLED"
             width="50%"
+            padding="12px 22px"
             onClick={() => {
               setSearchSchoolOpen(true);
               setJoinData({
@@ -79,6 +80,7 @@ const SchoolContents = ({
             onClick={() => setSearchSchoolOpen(true)}
             option="FILLED"
             width="50%"
+            padding="12px 22px"
           />
         </S.ButtonWrap>
       </S.Wrap>

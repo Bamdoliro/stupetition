@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { color } from 'styles/theme';
 
 export const Desc = styled.div`
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 400;
   color: ${color.gray500};
   padding-bottom: 12px;
@@ -27,5 +27,5 @@ export const Input = styled.input`
   background-color: ${color.gray100};
   width: 100%;
   height: 100%;
-  font-size: 16px;
+  font-size: 1rem;
 `;

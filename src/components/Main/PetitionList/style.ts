@@ -55,6 +55,6 @@ export const Progress = styled.div`
   border-radius: 50px;
   color: ${(props) => props.color};
   font-weight: 500;
-  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 160%;
 `;

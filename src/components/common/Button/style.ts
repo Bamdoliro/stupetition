@@ -1,16 +1,13 @@
 import styled from 'styled-components';
+import * as T from 'styles/text';
 import { color } from 'styles/theme';
 
 export const FilledButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 48px;
-  padding: 0px 22px;
   border-radius: 8px;
   background-color: ${color.main};
-  font-weight: 600;
-  font-size: 1rem;
   color: ${color.white};
 `;
 
@@ -18,12 +15,15 @@ export const UnfilledButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 48px;
-  padding: 0px 22px;
   border-radius: 8px;
   background-color: ${color.white};
-  font-weight: 600;
-  font-size: 1rem;
-  color: ${color.gray500};
   border: 1px solid ${color.gray500};
+`;
+
+export const FilledButtonText = styled(T.H5)`
+  color: ${color.white};
+`;
+
+export const UnfilledButtonText = styled(T.H5)`
+  color: ${color.gray500};
 `;

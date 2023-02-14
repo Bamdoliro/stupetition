@@ -78,9 +78,14 @@ const PetitionDetail = () => {
         </S.Info>
         <S.Content>{data?.content}</S.Content>
         {isApprovePetition ? (
-          <S.ApprovedButton>동의 완료</S.ApprovedButton>
+          <S.ApprovedButton>
+            <S.ApproveText>동의 완료</S.ApproveText>
+          </S.ApprovedButton>
         ) : (
-          <S.ApproveButton onClick={approveSubmit}>동의하기</S.ApproveButton>
+          <S.ApproveButton onClick={approveSubmit}>
+            {' '}
+            <S.ApproveText>동의 하기</S.ApproveText>
+          </S.ApproveButton>
         )}
         <S.CommentSendWrap>
           <S.CommentSendInput
@@ -89,7 +94,7 @@ const PetitionDetail = () => {
             onChange={(e) => setComment(e.target.value)}
           />
           <S.CommentSendButton onClick={commentSubmit}>
-            댓글 작성
+            <S.CommentSendText>댓글 작성</S.CommentSendText>
           </S.CommentSendButton>
         </S.CommentSendWrap>
         {data?.comments.map((item) => {

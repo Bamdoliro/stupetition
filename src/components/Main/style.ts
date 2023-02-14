@@ -72,6 +72,9 @@ export const CreatePetition = styled.button`
   padding: 10px 16px;
   border-radius: 8px;
   background-color: ${color.main};
+  &:hover {
+    background-color: ${color.hover};
+  }
 `;
 
 export const CreatePetitionText = styled(T.btn2)`
