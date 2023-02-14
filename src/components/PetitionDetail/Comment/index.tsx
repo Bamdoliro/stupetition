@@ -39,7 +39,9 @@ const Comment = ({ comment, createdAt, id }: CommentType) => {
           <S.Delete onClick={deleteSubmit}>삭제</S.Delete>
         </S.InfoWrap>
       </S.Info>
-      <S.Comment>{comment}</S.Comment>
+      <S.Comment>
+        <pre>{comment}</pre>
+      </S.Comment>
     </S.Container>
   );
 };

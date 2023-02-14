@@ -71,7 +71,6 @@ export const Date = styled(T.p2)`
 `;
 
 export const Content = styled(T.p2)`
-  padding-top: 48px;
   text-align: left;
   color: ${color.gray900};
   width: 100%;

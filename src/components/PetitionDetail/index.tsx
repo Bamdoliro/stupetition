@@ -76,7 +76,9 @@ const PetitionDetail = () => {
             />
           </S.InfoWrap>
         </S.Info>
-        <S.Content>{data?.content}</S.Content>
+        <S.Content>
+          <pre>{data?.content}</pre>
+        </S.Content>
         {isApprovePetition ? (
           <S.ApprovedButton>
             <S.ApproveText>동의 완료</S.ApproveText>
