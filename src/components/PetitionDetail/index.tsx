@@ -9,6 +9,7 @@ import { useParams } from 'react-router-dom';
 import { useMutation, useQuery } from 'react-query';
 import { GetPetitionDetailType } from 'types/petition/petition.type';
 import { useState } from 'react';
+import { DateSplit } from 'utills/DateSplit';
 import Comment from './Comment';
 import * as S from './style';
 
@@ -20,7 +21,7 @@ const PetitionDetail = () => {
     () => getPetitionDetail(Number(id)),
   );
   const { color, progress } = ProgressChecker(data?.status);
-  const date = data?.createdAt?.split('T');
+  const date = DateSplit(data?.createdAt);
 
   const [isApprovePetition, setIsApprovePetition] = useState<
     boolean | undefined

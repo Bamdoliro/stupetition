@@ -13,7 +13,7 @@ const PetitionList = ({
   status,
 }: PetitionListPropsType) => {
   const navigate = useNavigate();
-  const date = createdAt.split('T');
+  const date = DateSplit(createdAt);
   const { color, progress } = ProgressChecker(status);
   return (
     <S.Container onClick={() => navigate(`/petition/${id}`)}>
@@ -22,7 +22,7 @@ const PetitionList = ({
           <S.Title>{title}</S.Title>
           <S.DetailInfo>
             <S.Progress color={color}>{progress}</S.Progress>
-            <S.Date>{date[0]}</S.Date>
+            <S.Date>{date?.[0]}</S.Date>
           </S.DetailInfo>
         </S.Info>
         <Progressbar
