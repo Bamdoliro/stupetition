@@ -1,4 +1,3 @@
-import { openStdin } from 'process';
 import { ButtonPropsType } from 'types/common/button.type';
 import * as S from './style';
 
