@@ -10,11 +10,14 @@ import { useMutation, useQuery } from 'react-query';
 import { GetPetitionDetailType } from 'types/petition/petition.type';
 import { useState } from 'react';
 import { DateSplit } from 'utills/DateSplit';
+import { userData } from 'atoms/user';
+import { useRecoilValue } from 'recoil';
 import Comment from './Comment';
 import * as S from './style';
 
 const PetitionDetail = () => {
   const { id } = useParams();
+  const user = useRecoilValue(userData);
 
   const { isLoading, isError, data, refetch } = useQuery<GetPetitionDetailType>(
     ['id', Number(id)],
@@ -59,6 +62,16 @@ const PetitionDetail = () => {
     });
   };
 
+  const approveElement = isApprovePetition ? (
+    <S.ApprovedButton>
+      <S.ApproveText>동의 완료</S.ApproveText>
+    </S.ApprovedButton>
+  ) : (
+    <S.ApproveButton onClick={approveSubmit}>
+      <S.ApproveText>동의 하기</S.ApproveText>
+    </S.ApproveButton>
+  );
+
   return (
     <S.Container>
       <S.Wrap>
@@ -80,24 +93,23 @@ const PetitionDetail = () => {
         <S.Content>
           <pre>{data?.content}</pre>
         </S.Content>
-        {isApprovePetition ? (
-          <S.ApprovedButton>
-            <S.ApproveText>동의 완료</S.ApproveText>
-          </S.ApprovedButton>
-        ) : (
-          <S.ApproveButton onClick={approveSubmit}>
-            {' '}
-            <S.ApproveText>동의 하기</S.ApproveText>
-          </S.ApproveButton>
-        )}
+        {user.authority === 'ROLE_STUDENT_COUNCIL' ? '' : approveElement}
         <S.CommentSendWrap>
           <S.CommentSendInput
-            placeholder="댓글을 입력해주세요."
+            placeholder={
+              user.authority === 'ROLE_STUDENT_COUNCIL'
+                ? '학생회의 답변을 써주세요.'
+                : '댓글을 입력해주세요.'
+            }
             value={comment}
             onChange={(e) => setComment(e.target.value)}
           />
           <S.CommentSendButton onClick={commentSubmit}>
-            <S.CommentSendText>댓글 작성</S.CommentSendText>
+            {user.authority === 'ROLE_STUDENT_COUNCIL' ? (
+              <S.CommentSendText>답변 작성</S.CommentSendText>
+            ) : (
+              <S.CommentSendText>댓글 작성</S.CommentSendText>
+            )}
           </S.CommentSendButton>
         </S.CommentSendWrap>
         {data?.comments.map((item) => {

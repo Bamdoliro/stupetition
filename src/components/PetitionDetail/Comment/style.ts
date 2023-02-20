@@ -36,8 +36,19 @@ export const ItemWrap = styled.div`
   flex-direction: column;
 `;
 
+export const NameWrap = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+`;
+
 export const Name = styled(T.p1)`
   color: ${color.gray900};
+`;
+
+export const Check = styled.img`
+  width: 24px;
+  height: 24px;
 `;
 
 export const Date = styled(T.p3)`

@@ -57,7 +57,7 @@ const CreatePetition = () => {
             value="취소"
             option="UNFILLED"
             padding="10px 16px"
-            onClick={() => navigate('/')}
+            onClick={cancel}
           />
           {petitionData.content.length <= 0 ||
           petitionData.title.length <= 0 ? (

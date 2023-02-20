@@ -3,6 +3,7 @@ import ProfileSvg from 'assets/profile.svg';
 import { useMutation } from 'react-query';
 import { CommentType } from 'types/petition/petition.type';
 import { DateSplit } from 'utills/DateSplit';
+import CheckSvg from 'assets/check.svg';
 import * as S from './style';
 
 const Comment = ({ comment, createdAt, id }: CommentType) => {
@@ -31,7 +32,16 @@ const Comment = ({ comment, createdAt, id }: CommentType) => {
           <S.ProfileWrap>
             <S.Profile src={ProfileSvg} />
             <S.ItemWrap>
-              <S.Name>익명</S.Name>
+              <S.NameWrap>
+                <S.Name>익명</S.Name>
+
+                {/* 백 고치면 그때 해야함 */}
+                {/* {user.authority === 'ROLE_STUDENT_COUNCIL' ? (
+                  <S.Check src={CheckSvg} />
+                ) : (
+                  ''
+                )} */}
+              </S.NameWrap>
               <S.Date>{`${date?.[0]} ${date?.[1]}`}</S.Date>
             </S.ItemWrap>
           </S.ProfileWrap>
