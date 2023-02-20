@@ -7,6 +7,9 @@ export const FilledButton = styled.button`
   justify-content: center;
   border-radius: 8px;
   background-color: ${color.main};
+  &:hover {
+    background-color: ${color.hover};
+  }
 `;
 
 export const UnfilledButton = styled.button`
