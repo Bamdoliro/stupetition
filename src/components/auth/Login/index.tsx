@@ -9,6 +9,8 @@ import { useSetRecoilState } from 'recoil';
 import { userData } from 'atoms/user';
 import { AUTHORITY, SCHOOL_NAME } from 'lib/config/user.config';
 import { ACCESS_KEY, REFRESH_KEY } from 'lib/config/token.config';
+import { color } from 'styles/theme';
+import * as T from 'styles/text';
 import * as S from './style';
 
 const Login = () => {
@@ -76,11 +78,11 @@ const Login = () => {
               />
             </S.InputWrap>
             <Button
-              value="로그인"
               onClick={login}
               option="FILLED"
               padding="12px 24px"
               width="225px"
+              element={<T.H5 color={color.white}>로그인</T.H5>}
             />
           </div>
         </S.LoginBox>

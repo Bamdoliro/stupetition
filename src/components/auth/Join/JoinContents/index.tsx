@@ -5,6 +5,8 @@ import { joinUser } from 'api/auth';
 import Input from 'components/Common/Input';
 import SearchInput from 'components/Common/SearchInput';
 import Button from 'components/Common/Button';
+import { color } from 'styles/theme';
+import * as T from 'styles/text';
 import * as S from './style';
 
 const JoinContents = ({
@@ -89,11 +91,11 @@ const JoinContents = ({
           />
         </S.InputWrap>
         <Button
-          value="회원가입"
           onClick={submit}
           option="FILLED"
           padding="12px 22px"
           width="180px"
+          element={<T.H5 color={color.white}>회원가입</T.H5>}
         />
       </S.Wrap>
     </S.Container>
