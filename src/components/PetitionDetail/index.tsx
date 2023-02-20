@@ -1,6 +1,7 @@
 import { ProgressChecker } from 'utills/ProgressChecker';
 import Progressbar from 'components/Common/Progressbar';
 import {
+  answerPetition,
   approvePetition,
   commentPetition,
   getPetitionDetail,
@@ -51,12 +52,29 @@ const PetitionDetail = () => {
     },
   });
 
+  const answerMutate = useMutation(answerPetition, {
+    onSuccess: () => {
+      setComment('');
+      refetch();
+    },
+    onError: (err) => {
+      console.log(err);
+    },
+  });
+
   const approveSubmit = () => {
     approveMutate.mutate(Number(id));
   };
 
   const commentSubmit = () => {
     commentMutate.mutate({
+      comment,
+      petitionId: Number(id),
+    });
+  };
+
+  const answerSubmit = () => {
+    answerMutate.mutate({
       comment,
       petitionId: Number(id),
     });
@@ -104,13 +122,15 @@ const PetitionDetail = () => {
             value={comment}
             onChange={(e) => setComment(e.target.value)}
           />
-          <S.CommentSendButton onClick={commentSubmit}>
-            {user.authority === 'ROLE_STUDENT_COUNCIL' ? (
+          {user.authority === 'ROLE_STUDENT_COUNCIL' ? (
+            <S.CommentSendButton onClick={answerSubmit}>
               <S.CommentSendText>답변 작성</S.CommentSendText>
-            ) : (
+            </S.CommentSendButton>
+          ) : (
+            <S.CommentSendButton onClick={commentSubmit}>
               <S.CommentSendText>댓글 작성</S.CommentSendText>
-            )}
-          </S.CommentSendButton>
+            </S.CommentSendButton>
+          )}
         </S.CommentSendWrap>
         {data?.comments.map((item) => {
           return (
