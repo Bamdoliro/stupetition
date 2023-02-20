@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import { CreatePetitionType } from 'types/petition/petition.type';
+import MiniButton from 'components/Common/MiniButton';
 import * as S from './style';
 
 const CreatePetition = () => {
@@ -52,18 +53,26 @@ const CreatePetition = () => {
     <S.Container>
       <S.Header>
         <S.HeaderWrap>
-          <S.UnfilledButton onClick={cancel}>
-            <S.UnfilledButtonText>취소</S.UnfilledButtonText>
-          </S.UnfilledButton>
+          <MiniButton
+            value="취소"
+            option="UNFILLED"
+            padding="10px 16px"
+            onClick={() => navigate('/')}
+          />
           {petitionData.content.length <= 0 ||
           petitionData.title.length <= 0 ? (
-            <S.ScarceFilledButton>
-              <S.ScarceFilledButtonText>다음</S.ScarceFilledButtonText>
-            </S.ScarceFilledButton>
+            <MiniButton
+              value="다음"
+              option="SCARCE_FILLED"
+              padding="10px 16px"
+            />
           ) : (
-            <S.FilledButton onClick={submit}>
-              <S.FilledButtonText>다음</S.FilledButtonText>
-            </S.FilledButton>
+            <MiniButton
+              value="다음"
+              option="FILLED"
+              padding="10px 16px"
+              onClick={submit}
+            />
           )}
         </S.HeaderWrap>
       </S.Header>
