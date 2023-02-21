@@ -22,7 +22,7 @@ const Main = () => {
     ['status', status],
     () => getPetition(status),
     {
-      enabled: !!user?.authority,
+      enabled: !!user.authority,
     },
   );
 
@@ -46,12 +46,16 @@ const Main = () => {
         <S.ContentsInnerWrap>
           <S.SubNav>
             <RadioTabMenu setStatus={setStatus} status={status} />
-            <Button
-              onClick={() => navigate('/petition/create')}
-              option="FILLED"
-              padding="10px 16px"
-              element={<T.btn2 color={color.white}>청원 추가</T.btn2>}
-            />
+            {user.authority ? (
+              <Button
+                onClick={() => navigate('/petition/create')}
+                option="FILLED"
+                padding="10px 16px"
+                element={<T.btn2 color={color.white}>청원 추가</T.btn2>}
+              />
+            ) : (
+              ''
+            )}
           </S.SubNav>
           <S.PetitionWrap>
             {user?.authority ? (
