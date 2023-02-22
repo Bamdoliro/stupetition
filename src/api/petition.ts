@@ -31,6 +31,17 @@ export const commentPetition = async (commentData: PostPetitionType) => {
   await customAxios.post(`/comment`, commentData, authorization());
 };
 
+export const answerPetition = async ({
+  comment,
+  petitionId,
+}: PostPetitionType) => {
+  await customAxios.post(
+    `/petition/${petitionId}/approve`,
+    comment,
+    authorization(),
+  );
+};
+
 export const deleteCommentPetition = async (commentId: number) => {
   await customAxios.delete(`/comment/${commentId}`, authorization());
 };

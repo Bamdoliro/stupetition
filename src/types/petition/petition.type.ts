@@ -32,6 +32,6 @@ export interface GetPetitionDetailType {
 }
 
 export interface PostPetitionType {
-  comment?: string;
-  petitionId: number;
+  comment: string;
+  petitionId?: number;
 }
