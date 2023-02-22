@@ -1,7 +1,7 @@
 import { deleteCommentPetition } from 'api/petition';
 import ProfileSvg from 'assets/profile.svg';
 import { useMutation } from 'react-query';
-import { CommentType } from 'type/petition/petition.type';
+import { CommentType } from 'types/petition/petition.type';
 import { DateSplit } from 'utills/DateSplit';
 import * as S from './style';
 
@@ -38,7 +38,9 @@ const Comment = ({ comment, createdAt, id }: CommentType) => {
           <S.Delete onClick={deleteSubmit}>삭제</S.Delete>
         </S.InfoWrap>
       </S.Info>
-      <S.Comment>{comment}</S.Comment>
+      <S.Comment>
+        <pre>{comment}</pre>
+      </S.Comment>
     </S.Container>
   );
 };

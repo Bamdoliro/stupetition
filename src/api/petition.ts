@@ -4,7 +4,7 @@ import {
   CreatePetitionType,
   PostPetitionType,
   StatusType,
-} from 'type/petition/petition.type';
+} from 'types/petition/petition.type';
 
 export const createPetition = async (petitionData: CreatePetitionType) => {
   await customAxios.post('/petition', petitionData, authorization());

@@ -3,7 +3,7 @@ import {
   buildStyles,
 } from 'react-circular-progressbar';
 import { color } from 'styles/theme';
-import { ProgressbarPropsType } from 'type/main/main.type';
+import { ProgressbarPropsType } from 'types/main/main.type';
 import * as S from './style';
 
 const Progressbar = ({

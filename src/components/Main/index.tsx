@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import { getPetition } from 'api/petition';
-import { StatusType, GetPetitionType } from 'type/petition/petition.type';
+import { StatusType, GetPetitionType } from 'types/petition/petition.type';
 import { useRecoilValue } from 'recoil';
-import { userData } from 'atom/user';
-import AddSvg from 'assets/add.svg';
+import { userData } from 'atoms/user';
 import { useNavigate } from 'react-router-dom';
+import Button from 'components/Common/Button';
+import * as T from 'styles/text';
+import { color } from 'styles/theme';
 import PetitionList from './PetitionList';
 import RadioTabMenu from './RadioTabMenu';
 import * as S from './style';
@@ -44,9 +46,12 @@ const Main = () => {
         <S.ContentsInnerWrap>
           <S.SubNav>
             <RadioTabMenu setStatus={setStatus} status={status} />
-            <S.CreatePetition onClick={() => navigate('/createPetition')}>
-              <S.CreatePetitionText>청원 추가</S.CreatePetitionText>
-            </S.CreatePetition>
+            <Button
+              onClick={() => navigate('/petition/create')}
+              option="FILLED"
+              padding="10px 16px"
+              element={<T.btn2 color={color.white}>청원 추가</T.btn2>}
+            />
           </S.SubNav>
           <S.PetitionWrap>
             {user?.authority ? (

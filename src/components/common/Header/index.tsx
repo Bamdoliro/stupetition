@@ -3,7 +3,7 @@ import Profile from 'assets/loginProfile.svg';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { useMutation } from 'react-query';
-import { userData } from 'atom/user';
+import { userData } from 'atoms/user';
 import { logoutUser } from 'api/auth';
 import SearchInput from '../SearchInput';
 

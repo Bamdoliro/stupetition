@@ -21,8 +21,8 @@ export const LoginBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 42.9%;
-  height: 60%;
+  width: 553px;
+  height: 492px;
   background-color: ${color.white};
   border-radius: 8px;
   padding: 80px;
@@ -48,4 +48,5 @@ export const InputWrap = styled.div`
   flex-direction: column;
   margin: 42px 0px;
   gap: 18px;
+  width: 425px;
 `;

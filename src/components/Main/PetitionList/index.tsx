@@ -1,9 +1,9 @@
 import 'react-circular-progressbar/dist/styles.css';
 import { useNavigate } from 'react-router-dom';
-import { PetitionListPropsType } from 'type/main/main.type';
+import { PetitionListPropsType } from 'types/main/main.type';
 import { DateSplit } from 'utills/DateSplit';
 import { ProgressChecker } from 'utills/ProgressChecker';
-import Progressbar from '../../common/Progressbar';
+import Progressbar from '../../Common/Progressbar';
 import * as S from './style';
 
 const PetitionList = ({

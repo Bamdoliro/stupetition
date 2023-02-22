@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
-import { StatusType } from 'type/petition/petition.type';
+import { StatusType } from 'types/petition/petition.type';
 
 export interface PetitionListPropsType {
   createdAt: string;

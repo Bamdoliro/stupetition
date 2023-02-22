@@ -19,7 +19,7 @@ export const Wrap = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-left: 146px;
-  width: 56%;
+  width: 798px;
   height: 100%;
   background-color: ${color.white};
 `;

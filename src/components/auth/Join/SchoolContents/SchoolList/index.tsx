@@ -1,4 +1,4 @@
-import { SchoolListType } from 'type/school/search.type';
+import { SchoolListType } from 'types/school/search.type';
 import * as S from './style';
 
 const SchoolList = ({ name, id, emailDomain, onChange }: SchoolListType) => {

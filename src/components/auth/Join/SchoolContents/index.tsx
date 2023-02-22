@@ -1,10 +1,12 @@
-import SearchInput from 'components/common/SearchInput';
-import Button from 'components/common/Button';
-import { SchoolType } from 'type/school/search.type';
+import SearchInput from 'components/Common/SearchInput';
+import Button from 'components/Common/Button';
+import { SchoolType } from 'types/school/search.type';
 import { useQuery } from 'react-query';
 import { searchSchool } from 'api/school';
 import { useState } from 'react';
-import { JoinContentsPropsType } from 'type/auth/auth.type';
+import { JoinContentsPropsType } from 'types/auth/auth.type';
+import * as T from 'styles/text';
+import { color } from 'styles/theme';
 import SchoolList from './SchoolList';
 import * as S from './style';
 
@@ -60,10 +62,10 @@ const SchoolContents = ({
         </S.SchoolWrap>
         <S.ButtonWrap>
           <Button
-            value="취소"
             option="UNFILLED"
             width="50%"
             padding="12px 22px"
+            element={<T.H5 color={color.gray500}>취소</T.H5>}
             onClick={() => {
               setSearchSchoolOpen(true);
               setJoinData({
@@ -76,11 +78,11 @@ const SchoolContents = ({
             }}
           />
           <Button
-            value="완료"
             onClick={() => setSearchSchoolOpen(true)}
             option="FILLED"
             width="50%"
             padding="12px 22px"
+            element={<T.H5 color={color.white}>완료</T.H5>}
           />
         </S.ButtonWrap>
       </S.Wrap>

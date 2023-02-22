@@ -22,7 +22,7 @@ export const Banner = styled.div`
   align-items: center;
   padding-left: 100px;
   background-image: url(${BannerImg});
-  height: 50%;
+  height: 70%;
 `;
 
 export const BannerText = styled(T.D2)`

@@ -1,5 +1,5 @@
 import { ProgressChecker } from 'utills/ProgressChecker';
-import Progressbar from 'components/common/Progressbar';
+import Progressbar from 'components/Common/Progressbar';
 import {
   approvePetition,
   commentPetition,
@@ -7,7 +7,7 @@ import {
 } from 'api/petition';
 import { useParams } from 'react-router-dom';
 import { useMutation, useQuery } from 'react-query';
-import { GetPetitionDetailType } from 'type/petition/petition.type';
+import { GetPetitionDetailType } from 'types/petition/petition.type';
 import { useState } from 'react';
 import { DateSplit } from 'utills/DateSplit';
 import Comment from './Comment';
@@ -77,7 +77,9 @@ const PetitionDetail = () => {
             />
           </S.InfoWrap>
         </S.Info>
-        <S.Content>{data?.content}</S.Content>
+        <S.Content>
+          <pre>{data?.content}</pre>
+        </S.Content>
         {isApprovePetition ? (
           <S.ApprovedButton>
             <S.ApproveText>동의 완료</S.ApproveText>
