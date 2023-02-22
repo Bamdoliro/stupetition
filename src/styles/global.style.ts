@@ -27,6 +27,7 @@ const GlobalStyled = createGlobalStyle`
       outline: none;
     }
     button {
+      outline: none;
       border: none;
       background: none;
       padding: 0;

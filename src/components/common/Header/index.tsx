@@ -8,6 +8,7 @@ import { logoutUser } from 'api/auth';
 import SearchInput from '../SearchInput';
 
 import * as S from './style';
+import ProfileHover from './ProfileHover';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -41,7 +42,10 @@ const Header = () => {
             name="stupetitionSearch"
           />
           {user?.authority ? (
-            <S.Profile src={Profile} onClick={logout} />
+            <>
+              <S.Profile src={Profile} onClick={logout} />
+              <ProfileHover />
+            </>
           ) : (
             <S.Login onClick={() => navigate('/login')}>
               <S.LoginText>로그인</S.LoginText>
