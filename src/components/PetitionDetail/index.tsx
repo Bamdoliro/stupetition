@@ -98,7 +98,9 @@ const PetitionDetail = () => {
             <S.ItemWrap>
               <S.Progress color={color}>{progress}</S.Progress>
               <S.Title>{data?.title}</S.Title>
-              <S.Date>{`${date?.[0]} ${date?.[1]}`}</S.Date>
+              <S.Date>
+                {date?.[0]} {date?.[1]}
+              </S.Date>
             </S.ItemWrap>
             <Progressbar
               option="DETAIL"
@@ -109,7 +111,7 @@ const PetitionDetail = () => {
           </S.InfoWrap>
         </S.Info>
         <S.Content>
-          <pre>{data?.content}</pre>
+          <S.Pre>{data?.content}</S.Pre>
         </S.Content>
         {user.authority === 'ROLE_STUDENT_COUNCIL' ? '' : approveElement}
         <S.CommentSendWrap>

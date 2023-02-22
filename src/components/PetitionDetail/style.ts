@@ -80,6 +80,8 @@ export const Content = styled(T.p2)`
   margin-bottom: 120px;
 `;
 
+export const Pre = styled.pre``;
+
 export const ApproveButton = styled.button`
   display: flex;
   justify-content: center;

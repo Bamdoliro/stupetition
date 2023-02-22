@@ -71,3 +71,5 @@ export const Comment = styled(T.p2)`
   max-width: 87%;
   margin-bottom: 28px;
 `;
+
+export const Pre = styled.pre``;

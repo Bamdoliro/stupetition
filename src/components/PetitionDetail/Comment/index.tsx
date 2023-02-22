@@ -42,14 +42,16 @@ const Comment = ({ comment, createdAt, id }: CommentType) => {
                   ''
                 )} */}
               </S.NameWrap>
-              <S.Date>{`${date?.[0]} ${date?.[1]}`}</S.Date>
+              <S.Date>
+                {date?.[0]} {date?.[1]}
+              </S.Date>
             </S.ItemWrap>
           </S.ProfileWrap>
           <S.Delete onClick={deleteSubmit}>삭제</S.Delete>
         </S.InfoWrap>
       </S.Info>
       <S.Comment>
-        <pre>{comment}</pre>
+        <S.Pre>{comment}</S.Pre>
       </S.Comment>
     </S.Container>
   );
