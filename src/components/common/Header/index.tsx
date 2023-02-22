@@ -2,30 +2,18 @@ import Logo from 'assets/logo.svg';
 import Profile from 'assets/loginProfile.svg';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
-import { useMutation } from 'react-query';
 import { userData } from 'atoms/user';
-import { logoutUser } from 'api/auth';
+import { useState } from 'react';
 import SearchInput from '../SearchInput';
-
+import ProfilePopover from './ProfilePopover';
 import * as S from './style';
-import ProfileHover from './ProfileHover';
 
 const Header = () => {
   const navigate = useNavigate();
-  const user = useRecoilValue(userData);
-  const logoutMutate = useMutation(logoutUser, {
-    onSuccess: () => {
-      localStorage.clear();
-      window.location.reload();
-    },
-    onError: (err) => {
-      console.log(err);
-    },
-  });
 
-  const logout = () => {
-    logoutMutate.mutate();
-  };
+  const user = useRecoilValue(userData);
+  const [profilePopoverIsOpen, setProfilePopoverIsOpen] = useState(false);
+
   return (
     <S.Container>
       <S.Wrap>
@@ -43,8 +31,14 @@ const Header = () => {
           />
           {user?.authority ? (
             <>
-              <S.Profile src={Profile} onClick={logout} />
-              <ProfileHover />
+              <S.Profile
+                src={Profile}
+                onClick={() => setProfilePopoverIsOpen(!profilePopoverIsOpen)}
+              />
+              <ProfilePopover
+                isOpen={profilePopoverIsOpen}
+                close={() => setProfilePopoverIsOpen(false)}
+              />
             </>
           ) : (
             <S.Login onClick={() => navigate('/login')}>
