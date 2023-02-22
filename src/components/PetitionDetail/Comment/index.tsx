@@ -2,12 +2,12 @@ import { deleteCommentPetition } from 'api/petition';
 import ProfileSvg from 'assets/profile.svg';
 import { useMutation } from 'react-query';
 import { CommentType } from 'types/petition/petition.type';
-import { DateSplit } from 'utills/DateSplit';
+import { FormatDatetime } from 'utills/FormatDatetime';
 import CheckSvg from 'assets/check.svg';
 import * as S from './style';
 
 const Comment = ({ comment, createdAt, id }: CommentType) => {
-  const date = DateSplit(createdAt);
+  const { date, time } = FormatDatetime(createdAt);
 
   const deleteMutate = useMutation(deleteCommentPetition, {
     onSuccess: () => {
@@ -43,7 +43,7 @@ const Comment = ({ comment, createdAt, id }: CommentType) => {
                 )} */}
               </S.NameWrap>
               <S.Date>
-                {date?.[0]} {date?.[1]}
+                {date} {time}
               </S.Date>
             </S.ItemWrap>
           </S.ProfileWrap>

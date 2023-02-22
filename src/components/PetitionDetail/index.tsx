@@ -10,7 +10,7 @@ import { useParams } from 'react-router-dom';
 import { useMutation, useQuery } from 'react-query';
 import { GetPetitionDetailType } from 'types/petition/petition.type';
 import { useState } from 'react';
-import { DateSplit } from 'utills/DateSplit';
+import { FormatDatetime } from 'utills/FormatDatetime';
 import { userData } from 'atoms/user';
 import { useRecoilValue } from 'recoil';
 import Comment from './Comment';
@@ -25,7 +25,7 @@ const PetitionDetail = () => {
     () => getPetitionDetail(Number(id)),
   );
   const { color, progress } = ProgressChecker(data?.status);
-  const date = DateSplit(data?.createdAt);
+  const { date, time } = FormatDatetime(data?.createdAt);
 
   const [isApprovePetition, setIsApprovePetition] = useState<
     boolean | undefined
@@ -99,7 +99,7 @@ const PetitionDetail = () => {
               <S.Progress color={color}>{progress}</S.Progress>
               <S.Title>{data?.title}</S.Title>
               <S.Date>
-                {date?.[0]} {date?.[1]}
+                {date} {time}
               </S.Date>
             </S.ItemWrap>
             <Progressbar
