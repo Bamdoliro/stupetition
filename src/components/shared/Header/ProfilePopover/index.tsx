@@ -1,23 +1,9 @@
-import { useMutation } from 'react-query';
-import { logoutUser } from 'apis/auth.api';
+import { LogoutFeature } from 'features/home/main/logout.feature';
 import { ProfilePopoverPropsType } from 'types/common/header.type';
 import * as S from './style';
 
 const ProfilePopover = ({ isOpen, close }: ProfilePopoverPropsType) => {
-  const logoutMutate = useMutation(logoutUser, {
-    onSuccess: () => {
-      localStorage.clear();
-      window.location.reload();
-    },
-    onError: (err) => {
-      console.log(err);
-    },
-  });
-
-  const logout = () => {
-    logoutMutate.mutate();
-  };
-
+  const { logout } = LogoutFeature();
   return (
     <S.ProfilePopover style={{ display: `${isOpen ? '' : 'none'}` }}>
       <S.Button>
