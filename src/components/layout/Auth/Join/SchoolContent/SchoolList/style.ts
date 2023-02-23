@@ -55,4 +55,7 @@ export const RadioLabel = styled.label`
     background-color: ${color.gray400};
     content: '선택됨';
   }
+  &:hover {
+    background-color: ${color.hover};
+  }
 `;
