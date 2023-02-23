@@ -6,7 +6,7 @@ import { color } from 'styles/theme.style';
 import { ProgressBarOption } from 'types/common/progress.type';
 import * as S from './style';
 
-export interface ProgressbarPropsType {
+interface ProgressbarPropsType {
   numberOfAgreers: number;
   width: string;
   height: string;

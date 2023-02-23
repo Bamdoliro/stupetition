@@ -2,7 +2,7 @@ import { getPetitionDetail } from 'apis/petition.api';
 import { useQuery } from 'react-query';
 import { CommentType, StatusType, Writer } from 'types/petition.type';
 
-export interface GetPetitionDetailType {
+interface GetPetitionDetailType {
   comments: CommentType[];
   content: string;
   id: number;

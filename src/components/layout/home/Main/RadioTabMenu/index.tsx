@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from 'react';
 import { StatusType } from 'types/petition.type';
 import * as S from './style';
 
-export interface RadioPropsType {
+interface RadioPropsType {
   status: string;
   setStatus: Dispatch<SetStateAction<StatusType>>;
 }

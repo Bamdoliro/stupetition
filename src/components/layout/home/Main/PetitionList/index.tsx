@@ -6,7 +6,7 @@ import Progressbar from 'components/shared/Progressbar';
 import { StatusType } from 'types/petition.type';
 import * as S from './style';
 
-export interface PetitionListPropsType {
+interface PetitionListPropsType {
   createdAt: string;
   title: string;
   numberOfAgreers: number;

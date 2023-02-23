@@ -2,7 +2,7 @@ import { commentPetition } from 'apis/petition.api';
 import { useMutation, useQueryClient } from 'react-query';
 import { Dispatch, SetStateAction } from 'react';
 
-export interface CommentFeatureType {
+interface CommentFeatureType {
   detailId: number;
   setComment: Dispatch<SetStateAction<string>>;
   comment: string;

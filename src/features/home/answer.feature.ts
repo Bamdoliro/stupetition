@@ -2,7 +2,7 @@ import { answerPetition } from 'apis/petition.api';
 import { useMutation, useQueryClient } from 'react-query';
 import { Dispatch, SetStateAction } from 'react';
 
-export interface AnswerFeatureType {
+interface AnswerFeatureType {
   detailId: number;
   setComment: Dispatch<SetStateAction<string>>;
   comment: string;

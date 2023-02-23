@@ -1,7 +1,7 @@
 import { ChangeEventHandler } from 'react';
 import * as S from './style';
 
-export interface SchoolListType {
+interface SchoolListType {
   name: string;
   id: number;
   emailDomain: string;

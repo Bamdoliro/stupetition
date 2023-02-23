@@ -1,11 +1,11 @@
 import { useQuery } from 'react-query';
 import { searchSchool } from 'apis/school.api';
 
-export interface SchoolFeatureType {
+interface SchoolFeatureType {
   searchWord: string;
 }
 
-export interface SchoolType {
+interface SchoolType {
   name: string;
   id: number;
   emailDomain: string;

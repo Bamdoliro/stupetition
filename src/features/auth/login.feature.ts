@@ -7,7 +7,7 @@ import { useSetRecoilState } from 'recoil';
 import { userData } from 'atoms/user.atom';
 import { LoginType } from 'types/auth.type';
 
-export interface LoginFeatureType {
+interface LoginFeatureType {
   loginData: LoginType;
 }
 
