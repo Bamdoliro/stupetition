@@ -1,9 +1,14 @@
-import { SchoolType } from 'types/school/search.type';
 import { useQuery } from 'react-query';
 import { searchSchool } from 'apis/school.api';
 
 export interface SchoolFeatureType {
   searchWord: string;
+}
+
+export interface SchoolType {
+  name: string;
+  id: number;
+  emailDomain: string;
 }
 
 export const SchoolFeature = ({ searchWord }: SchoolFeatureType) => {

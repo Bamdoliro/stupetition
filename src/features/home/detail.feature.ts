@@ -1,6 +1,20 @@
 import { getPetitionDetail } from 'apis/petition.api';
 import { useQuery } from 'react-query';
-import { GetPetitionDetailType } from 'types/petition/petition.type';
+import { CommentType, StatusType, Writer } from 'types/petition.type';
+
+export interface GetPetitionDetailType {
+  comments: CommentType[];
+  content: string;
+  id: number;
+  numberOfApprover: number;
+  status: StatusType;
+  answer: string;
+  title: string;
+  userEmail: string;
+  createdAt: string;
+  approved: boolean;
+  writer: Writer;
+}
 
 export const DetailFeature = (detailId: number) => {
   const { isLoading, isError, data } = useQuery<GetPetitionDetailType>(

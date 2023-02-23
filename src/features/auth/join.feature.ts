@@ -2,7 +2,7 @@ import { useMutation } from 'react-query';
 import { joinUser } from 'apis/auth.api';
 import { useNavigate } from 'react-router-dom';
 import { Dispatch, SetStateAction } from 'react';
-import { JoinType } from 'types/auth/auth.type';
+import { JoinType } from 'types/auth.type';
 
 export interface JoinFeatureType {
   setJoinData: Dispatch<SetStateAction<JoinType>>;

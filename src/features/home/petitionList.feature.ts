@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query';
 import { getPetition } from 'apis/petition.api';
-import { GetPetitionType, StatusType } from 'types/petition/petition.type';
+import { GetPetitionType, StatusType } from 'types/petition.type';
 import { useRecoilValue } from 'recoil';
 import { userData } from 'atoms/user.atom';
 

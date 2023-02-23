@@ -1,4 +1,4 @@
-import { StatusType } from 'types/petition/petition.type';
+import { StatusType } from 'types/petition.type';
 
 export const ProgressChecker = (status: StatusType | undefined) => {
   if (status === 'PETITION') return { color: '#66BB6A', progress: '진행' };

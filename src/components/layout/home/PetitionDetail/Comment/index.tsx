@@ -1,7 +1,7 @@
 import { deleteCommentPetition } from 'apis/petition.api';
 import ProfileSvg from 'assets/profile.svg';
 import { useMutation } from 'react-query';
-import { CommentType } from 'types/petition/petition.type';
+import { CommentType } from 'types/petition.type';
 import { FormatDatetime } from 'utils/FormatDatetime';
 import CheckSvg from 'assets/check.svg';
 import { USER_ID } from 'constants/user.constant';

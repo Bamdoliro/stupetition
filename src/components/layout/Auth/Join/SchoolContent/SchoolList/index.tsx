@@ -1,5 +1,12 @@
-import { SchoolListType } from 'types/school/search.type';
+import { ChangeEventHandler } from 'react';
 import * as S from './style';
+
+export interface SchoolListType {
+  name: string;
+  id: number;
+  emailDomain: string;
+  onChange: ChangeEventHandler<HTMLInputElement>;
+}
 
 const SchoolList = ({ name, id, emailDomain, onChange }: SchoolListType) => {
   return (

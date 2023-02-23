@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from 'react';
-import { WritePetitionType } from 'types/petition/petition.type';
+import { WritePetitionType } from 'types/petition.type';
 import MiniButton from 'components/shared/MiniButton';
 import { WriteFeature } from 'features/home/write.feature';
 import * as S from './style';

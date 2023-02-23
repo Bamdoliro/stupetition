@@ -1,7 +1,7 @@
 import SearchInput from 'components/shared/SearchInput';
 import Button from 'components/shared/Button';
 import { ChangeEvent, useState } from 'react';
-import { JoinContentsPropsType } from 'types/auth/auth.type';
+import { JoinContentsPropsType } from 'types/auth.type';
 import { SchoolFeature } from 'features/auth/school.feature';
 import SchoolList from './SchoolList';
 import * as S from './style';

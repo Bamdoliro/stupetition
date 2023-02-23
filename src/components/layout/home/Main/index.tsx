@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StatusType } from 'types/petition/petition.type';
+import { StatusType } from 'types/petition.type';
 import { useRecoilValue } from 'recoil';
 import { userData } from 'atoms/user.atom';
 import { useNavigate } from 'react-router-dom';

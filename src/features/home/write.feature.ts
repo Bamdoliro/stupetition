@@ -1,7 +1,7 @@
 import { writePetition } from 'apis/petition.api';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-import { WritePetitionType } from 'types/petition/petition.type';
+import { WritePetitionType } from 'types/petition.type';
 
 export const WriteFeature = (petitionData: WritePetitionType) => {
   const navigate = useNavigate();

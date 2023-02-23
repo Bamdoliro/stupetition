@@ -1,4 +1,4 @@
-import { JoinContentsPropsType } from 'types/auth/auth.type';
+import { JoinContentsPropsType } from 'types/auth.type';
 import Input from 'components/shared/Input';
 import SearchInput from 'components/shared/SearchInput';
 import Button from 'components/shared/Button';

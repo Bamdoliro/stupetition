@@ -1,5 +1,11 @@
-import { RadioPropsType } from 'types/main/main.type';
+import { Dispatch, SetStateAction } from 'react';
+import { StatusType } from 'types/petition.type';
 import * as S from './style';
+
+export interface RadioPropsType {
+  status: string;
+  setStatus: Dispatch<SetStateAction<StatusType>>;
+}
 
 const RadioTabMenu = ({ status, setStatus }: RadioPropsType) => {
   return (
