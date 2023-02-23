@@ -1,4 +1,4 @@
-export interface CreatePetitionType {
+export interface WritePetitionType {
   title: string;
   content: string;
 }

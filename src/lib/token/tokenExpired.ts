@@ -1,5 +1,5 @@
 import { customAxios } from 'lib/axios/customAxios';
-import { ACCESS_KEY, REFRESH_KEY } from 'lib/config/token.config';
+import { ACCESS_KEY, REFRESH_KEY } from 'constants/token.constant';
 
 export const tokenExpired = async () => {
   try {

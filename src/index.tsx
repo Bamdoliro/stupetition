@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import GlobalStyled from 'styles/global.style';
 import { RecoilRoot } from 'recoil';
 import { BrowserRouter } from 'react-router-dom';
-import ScrollTop from 'utills/ScrollTop';
+import ScrollTop from 'utils/ScrollTop';
 import App from './App';
 
 const queryClient = new QueryClient();

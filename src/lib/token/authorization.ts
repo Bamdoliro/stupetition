@@ -1,4 +1,4 @@
-import { ACCESS_KEY, REQUEST_KEY } from 'lib/config/token.config';
+import { ACCESS_KEY, REQUEST_KEY } from 'constants/token.constant';
 
 export const authorization = () => {
   return {

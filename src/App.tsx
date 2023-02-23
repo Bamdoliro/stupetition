@@ -1,15 +1,15 @@
 import LoginPage from 'pages/Login';
-import MainLayout from 'components/Layout/main.layout';
+import MainOutlet from 'components/shared/Outlet/main.outlet';
 import JoinPage from 'pages/Join';
 import MainPage from 'pages/Main';
-import PetitionDetail from 'components/PetitionDetail';
+import PetitionDetail from 'components/layout/home/PetitionDetail';
 import { Route, Routes } from 'react-router-dom';
-import CreatePetition from 'components/CreatePetition';
+import CreatePetition from 'components/layout/home/WritePetition';
 
 const App = () => {
   return (
     <Routes>
-      <Route element={<MainLayout />}>
+      <Route element={<MainOutlet />}>
         <Route path="/" element={<MainPage />} />
         <Route path="/petition/:id" element={<PetitionDetail />} />
       </Route>
