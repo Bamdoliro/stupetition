@@ -9,7 +9,7 @@ const SearchInput = ({
   name,
   value,
   width,
-  height = '48px',
+  height,
   onChange,
   onFocus,
 }: InputPropsType) => {
