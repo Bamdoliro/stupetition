@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { ACCESS_KEY } from 'constants/token.constant';
 import { tokenExpired } from 'lib/token/tokenExpired';
 
 const customAxios = axios.create({
@@ -23,11 +24,10 @@ customAxios.interceptors.response.use(
     return response;
   },
   (error) => {
-    const { status } = error.response.data;
-    if (status === 401 && error.response) {
+    const { status, code } = error.response.data;
+    if (status === 401 && code === 'EXPIRED_TOKEN') {
       tokenExpired();
     }
-    // alert(error.request.response);
     return Promise.reject(error);
   },
 );

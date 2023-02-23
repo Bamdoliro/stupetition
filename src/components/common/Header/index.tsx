@@ -30,7 +30,7 @@ const Header = () => {
             type="text"
             name="stupetitionSearch"
           />
-          {user?.authority ? (
+          {user.authority ? (
             <>
               <S.Profile
                 src={Profile}
