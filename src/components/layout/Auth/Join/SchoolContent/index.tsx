@@ -12,7 +12,6 @@ const SchoolContent = ({
   joinData,
 }: JoinContentsPropsType) => {
   const [searchWord, setSearchWord] = useState('');
-
   const { data } = SchoolFeature({ searchWord });
 
   const handleClickRadio = (e: React.ChangeEvent<HTMLInputElement>) => {

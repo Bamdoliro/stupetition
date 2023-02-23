@@ -9,7 +9,7 @@ const WritePetition = () => {
     title: '',
     content: '',
   });
-  const { submit, cancel } = WriteFeature(petitionData);
+  const { write, cancel } = WriteFeature(petitionData);
 
   const onChange = (
     e:
@@ -42,7 +42,7 @@ const WritePetition = () => {
               value="다음"
               option="FILLED"
               padding="10px 16px"
-              onClick={submit}
+              onClick={write}
             />
           )}
         </S.HeaderWrap>

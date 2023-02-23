@@ -10,7 +10,7 @@ const JoinContent = ({
   setJoinData,
   joinData,
 }: JoinContentsPropsType) => {
-  const { submit } = JoinFeature({ setJoinData, joinData });
+  const { join } = JoinFeature({ setJoinData, joinData });
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -57,7 +57,7 @@ const JoinContent = ({
           />
         </S.InputWrap>
         <Button
-          onClick={submit}
+          onClick={join}
           option="FILLED"
           padding="12px 22px"
           width="180px"

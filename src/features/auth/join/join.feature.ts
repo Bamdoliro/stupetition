@@ -6,7 +6,7 @@ import { JoinFeatureType } from './join.props';
 export const JoinFeature = ({ setJoinData, joinData }: JoinFeatureType) => {
   const navigate = useNavigate();
 
-  const joinMutate = useMutation(joinUser, {
+  const { mutate } = useMutation(joinUser, {
     onSuccess: () => {
       alert('회원가입 성공 !!');
       navigate('/login');
@@ -16,11 +16,11 @@ export const JoinFeature = ({ setJoinData, joinData }: JoinFeatureType) => {
     },
   });
 
-  const submit = () => {
+  const join = () => {
     const { password, rePassword, schoolId } = joinData;
     if (password === rePassword) {
       if (schoolId !== 0) {
-        joinMutate.mutate(joinData);
+        mutate(joinData);
       } else {
         alert('학교 선택을 해주세요');
       }
@@ -36,5 +36,5 @@ export const JoinFeature = ({ setJoinData, joinData }: JoinFeatureType) => {
     });
   };
 
-  return { submit };
+  return { join };
 };

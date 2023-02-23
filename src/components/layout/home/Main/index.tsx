@@ -11,10 +11,10 @@ import * as S from './style';
 
 const Main = () => {
   const navigate = useNavigate();
-  const [status, setStatus] = useState<StatusType>('PETITION');
-  const { isLoading, isError, data } = PetitionListFeature(status);
   const user = useRecoilValue(userData);
-  const [isBannerOpen, setIsBannerOpen] = useState(true);
+  const [status, setStatus] = useState<StatusType>('PETITION');
+  const [isBannerOpen, setIsBannerOpen] = useState<boolean>(true);
+  const { isLoading, isError, data } = PetitionListFeature(status);
 
   return (
     <S.MainLayout>

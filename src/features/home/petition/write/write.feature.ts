@@ -15,7 +15,7 @@ export const WriteFeature = (petitionData: WritePetitionType) => {
     },
   });
 
-  const submit = () => {
+  const write = () => {
     mutate(petitionData);
   };
 
@@ -32,5 +32,5 @@ export const WriteFeature = (petitionData: WritePetitionType) => {
     }
   };
 
-  return { submit, cancel };
+  return { write, cancel };
 };
