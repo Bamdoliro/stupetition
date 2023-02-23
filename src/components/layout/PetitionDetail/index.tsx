@@ -1,11 +1,11 @@
 import { ProgressChecker } from 'utills/ProgressChecker';
-import Progressbar from 'components/Common/Progressbar';
+import Progressbar from 'components/shared/Progressbar';
 import {
   answerPetition,
   approvePetition,
   commentPetition,
   getPetitionDetail,
-} from 'api/petition';
+} from 'apis/petition.api';
 import { useParams } from 'react-router-dom';
 import { useMutation, useQuery } from 'react-query';
 import { GetPetitionDetailType } from 'types/petition/petition.type';

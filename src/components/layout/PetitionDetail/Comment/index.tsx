@@ -1,4 +1,4 @@
-import { deleteCommentPetition } from 'api/petition';
+import { deleteCommentPetition } from 'apis/petition.api';
 import ProfileSvg from 'assets/profile.svg';
 import { useMutation } from 'react-query';
 import { CommentType } from 'types/petition/petition.type';

@@ -1,9 +1,9 @@
-import { createPetition } from 'api/petition';
+import { createPetition } from 'apis/petition.api';
 import { useState } from 'react';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import { CreatePetitionType } from 'types/petition/petition.type';
-import MiniButton from 'components/Common/MiniButton';
+import MiniButton from 'components/shared/MiniButton';
 import * as S from './style';
 
 const CreatePetition = () => {

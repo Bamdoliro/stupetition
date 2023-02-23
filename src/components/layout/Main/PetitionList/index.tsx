@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { PetitionListPropsType } from 'types/main/main.type';
 import { FormatDatetime } from 'utills/FormatDatetime';
 import { ProgressChecker } from 'utills/ProgressChecker';
-import Progressbar from '../../Common/Progressbar';
+import Progressbar from '../../../shared/Progressbar';
 import * as S from './style';
 
 const PetitionList = ({

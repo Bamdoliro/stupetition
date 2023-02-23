@@ -1,8 +1,8 @@
-import SearchInput from 'components/Common/SearchInput';
-import Button from 'components/Common/Button';
+import SearchInput from 'components/shared/SearchInput';
+import Button from 'components/shared/Button';
 import { SchoolType } from 'types/school/search.type';
 import { useQuery } from 'react-query';
-import { searchSchool } from 'api/school';
+import { searchSchool } from 'apis/school.api';
 import { useState } from 'react';
 import { JoinContentsPropsType } from 'types/auth/auth.type';
 import * as T from 'styles/text';

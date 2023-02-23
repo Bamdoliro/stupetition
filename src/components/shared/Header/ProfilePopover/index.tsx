@@ -1,5 +1,5 @@
 import { useMutation } from 'react-query';
-import { logoutUser } from 'api/auth';
+import { logoutUser } from 'apis/auth.api';
 import { ProfilePopoverPropsType } from 'types/common/header.type';
 import * as S from './style';
 

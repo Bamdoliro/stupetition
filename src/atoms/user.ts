@@ -1,5 +1,5 @@
-import { ACCESS_KEY, REFRESH_KEY } from 'lib/config/token.config';
-import { AUTHORITY, SCHOOL_NAME } from 'lib/config/user.config';
+import { ACCESS_KEY, REFRESH_KEY } from 'constants/token.constant';
+import { AUTHORITY, SCHOOL_NAME } from 'constants/user.constant';
 import { atom } from 'recoil';
 
 export const userData = atom({

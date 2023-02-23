@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useQuery } from 'react-query';
-import { getPetition } from 'api/petition';
+import { getPetition } from 'apis/petition.api';
 import { StatusType, GetPetitionType } from 'types/petition/petition.type';
 import { useRecoilValue } from 'recoil';
 import { userData } from 'atoms/user';
 import { useNavigate } from 'react-router-dom';
-import Button from 'components/Common/Button';
+import Button from 'components/shared/Button';
 import * as T from 'styles/text';
 import { color } from 'styles/theme';
 import PetitionList from './PetitionList';
