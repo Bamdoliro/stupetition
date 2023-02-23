@@ -1,8 +1,8 @@
 import 'react-circular-progressbar/dist/styles.css';
 import { useNavigate } from 'react-router-dom';
 import { PetitionListPropsType } from 'types/main/main.type';
-import { FormatDatetime } from 'utills/FormatDatetime';
-import { ProgressChecker } from 'utills/ProgressChecker';
+import { FormatDatetime } from 'utils/FormatDatetime';
+import { ProgressChecker } from 'utils/ProgressChecker';
 import Progressbar from '../../../shared/Progressbar';
 import * as S from './style';
 

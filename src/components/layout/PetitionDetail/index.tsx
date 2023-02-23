@@ -1,4 +1,4 @@
-import { ProgressChecker } from 'utills/ProgressChecker';
+import { ProgressChecker } from 'utils/ProgressChecker';
 import Progressbar from 'components/shared/Progressbar';
 import {
   answerPetition,
@@ -10,7 +10,7 @@ import { useParams } from 'react-router-dom';
 import { useMutation, useQuery } from 'react-query';
 import { GetPetitionDetailType } from 'types/petition/petition.type';
 import { useState } from 'react';
-import { FormatDatetime } from 'utills/FormatDatetime';
+import { FormatDatetime } from 'utils/FormatDatetime';
 import { userData } from 'atoms/user';
 import { useRecoilValue } from 'recoil';
 import Comment from './Comment';
