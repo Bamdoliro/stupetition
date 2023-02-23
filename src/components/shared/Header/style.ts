@@ -45,6 +45,6 @@ export const Logout = styled(T.H5)`
 export const NavWrap = styled.div`
   display: flex;
   align-items: center;
-  gap: 24px;
-  padding: 5.5px 0px;
+  gap: 32px;
+  height: 40px;
 `;
