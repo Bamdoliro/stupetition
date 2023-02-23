@@ -17,7 +17,6 @@ export const LoginFeature = ({ loginData }: LoginFeatureType) => {
 
   const loginMutate = useMutation(loginUser, {
     onSuccess: (res) => {
-      console.log(res);
       localStorage.setItem(AUTHORITY, res.user.authority);
       localStorage.setItem(SCHOOL_NAME, res.user.schoolName);
       localStorage.setItem(ACCESS_KEY, res.accessToken);
