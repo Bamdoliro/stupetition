@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from 'react';
 import { LoginType } from 'types/auth.type';
-import Input from 'components/shared/Input';
-import Button from 'components/shared/Button';
+import Input from 'components/common/Input';
+import Button from 'components/common/Button';
 import { useNavigate } from 'react-router-dom';
 import { LoginFeature } from 'features/auth/login.feature';
 import * as S from './style';

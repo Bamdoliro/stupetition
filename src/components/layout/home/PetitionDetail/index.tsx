@@ -1,5 +1,5 @@
 import { ProgressChecker } from 'utils/ProgressChecker';
-import Progressbar from 'components/shared/Progressbar';
+import Progressbar from 'components/common/Progressbar';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { FormatDatetime } from 'utils/FormatDatetime';

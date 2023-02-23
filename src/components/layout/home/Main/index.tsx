@@ -3,7 +3,7 @@ import { StatusType } from 'types/petition.type';
 import { useRecoilValue } from 'recoil';
 import { userData } from 'atoms/user.atom';
 import { useNavigate } from 'react-router-dom';
-import MiniButton from 'components/shared/MiniButton';
+import MiniButton from 'components/common/MiniButton';
 import { PetitionListFeature } from 'features/home/petitionList.feature';
 import PetitionList from './PetitionList';
 import RadioTabMenu from './RadioTabMenu';

@@ -1,5 +1,5 @@
-import SearchInput from 'components/shared/SearchInput';
-import Button from 'components/shared/Button';
+import SearchInput from 'components/common/SearchInput';
+import Button from 'components/common/Button';
 import { ChangeEvent, useState } from 'react';
 import { JoinContentsPropsType } from 'types/auth.type';
 import { SchoolFeature } from 'features/auth/school.feature';
