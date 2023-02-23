@@ -5,10 +5,10 @@ import { useState } from 'react';
 import { FormatDatetime } from 'utils/FormatDatetime';
 import { userData } from 'atoms/user.atom';
 import { useRecoilValue } from 'recoil';
-import { DetailFeature } from 'features/home/petition/detail/detail.feature';
-import { CommentFeature } from 'features/home/petition/comment/commnet.feature';
-import { AnswerFeature } from 'features/home/petition/answer/answer.feature';
-import { ApproveFeature } from 'features/home/petition/approve/approve.feature';
+import { DetailFeature } from 'features/home/detail.feature';
+import { CommentFeature } from 'features/home/commnet.feature';
+import { AnswerFeature } from 'features/home/answer.feature';
+import { ApproveFeature } from 'features/home/approve.feature';
 import Comment from './Comment';
 import * as S from './style';
 

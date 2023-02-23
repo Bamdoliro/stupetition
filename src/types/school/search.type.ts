@@ -1,3 +1,5 @@
+import { ChangeEventHandler } from 'react';
+
 export interface SchoolType {
   name: string;
   id: number;
@@ -8,5 +10,5 @@ export interface SchoolListType {
   name: string;
   id: number;
   emailDomain?: string;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
+  onChange: ChangeEventHandler<HTMLInputElement>;
 }

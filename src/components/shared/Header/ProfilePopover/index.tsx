@@ -1,4 +1,4 @@
-import { LogoutFeature } from 'features/home/main/logout/logout.feature';
+import { LogoutFeature } from 'features/home/logout.feature';
 import { ProfilePopoverPropsType } from 'types/common/header.type';
 import * as S from './style';
 

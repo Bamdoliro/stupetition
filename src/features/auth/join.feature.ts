@@ -1,7 +1,13 @@
 import { useMutation } from 'react-query';
 import { joinUser } from 'apis/auth.api';
 import { useNavigate } from 'react-router-dom';
-import { JoinFeatureType } from './join.props';
+import { Dispatch, SetStateAction } from 'react';
+import { JoinType } from 'types/auth/auth.type';
+
+export interface JoinFeatureType {
+  setJoinData: Dispatch<SetStateAction<JoinType>>;
+  joinData: JoinType;
+}
 
 export const JoinFeature = ({ setJoinData, joinData }: JoinFeatureType) => {
   const navigate = useNavigate();

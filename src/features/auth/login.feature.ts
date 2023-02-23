@@ -5,7 +5,11 @@ import { useMutation } from 'react-query';
 import { loginUser } from 'apis/auth.api';
 import { useSetRecoilState } from 'recoil';
 import { userData } from 'atoms/user.atom';
-import { LoginFeatureType } from './login.props';
+import { LoginType } from 'types/auth/auth.type';
+
+export interface LoginFeatureType {
+  loginData: LoginType;
+}
 
 export const LoginFeature = ({ loginData }: LoginFeatureType) => {
   const navigate = useNavigate();

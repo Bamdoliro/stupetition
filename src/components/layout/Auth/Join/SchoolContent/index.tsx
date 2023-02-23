@@ -1,8 +1,8 @@
 import SearchInput from 'components/shared/SearchInput';
 import Button from 'components/shared/Button';
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { JoinContentsPropsType } from 'types/auth/auth.type';
-import { SchoolFeature } from 'features/auth/school/school.feature';
+import { SchoolFeature } from 'features/auth/school.feature';
 import SchoolList from './SchoolList';
 import * as S from './style';
 
@@ -14,13 +14,13 @@ const SchoolContent = ({
   const [searchWord, setSearchWord] = useState('');
   const { data } = SchoolFeature({ searchWord });
 
-  const handleClickRadio = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleClickRadio = (e: ChangeEvent<HTMLInputElement>) => {
     const name = e.target.id;
     const id = Number(e.target.value);
     setJoinData({ ...joinData, schoolName: name, schoolId: id });
   };
 
-  const onChage = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChage = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchWord(e.target.value);
   };
 

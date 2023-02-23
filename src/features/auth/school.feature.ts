@@ -1,7 +1,10 @@
 import { SchoolType } from 'types/school/search.type';
 import { useQuery } from 'react-query';
 import { searchSchool } from 'apis/school.api';
-import { SchoolFeatureType } from './school.props';
+
+export interface SchoolFeatureType {
+  searchWord: string;
+}
 
 export const SchoolFeature = ({ searchWord }: SchoolFeatureType) => {
   const { data } = useQuery<SchoolType[]>(

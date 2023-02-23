@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { StatusType } from 'types/petition/petition.type';
 import { useRecoilValue } from 'recoil';
 import { userData } from 'atoms/user.atom';
 import { useNavigate } from 'react-router-dom';
 import MiniButton from 'components/shared/MiniButton';
-import { PetitionListFeature } from 'features/home/main/petitionList/petitionList.feature';
+import { PetitionListFeature } from 'features/home/petitionList.feature';
 import PetitionList from './PetitionList';
 import RadioTabMenu from './RadioTabMenu';
 import * as S from './style';
@@ -44,7 +44,7 @@ const Main = () => {
             )}
           </S.SubNav>
           <S.PetitionWrap>
-            {user?.authority ? (
+            {user.authority ? (
               data?.map((item) => {
                 return (
                   <PetitionList

@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { WritePetitionType } from 'types/petition/petition.type';
 import MiniButton from 'components/shared/MiniButton';
-import { WriteFeature } from 'features/home/petition/write/write.feature';
+import { WriteFeature } from 'features/home/write.feature';
 import * as S from './style';
 
 const WritePetition = () => {
@@ -12,9 +12,7 @@ const WritePetition = () => {
   const { write, cancel } = WriteFeature(petitionData);
 
   const onChange = (
-    e:
-      | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLTextAreaElement>,
+    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setPetitionData({ ...petitionData, [name]: value });

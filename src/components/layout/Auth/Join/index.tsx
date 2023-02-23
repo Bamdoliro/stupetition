@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { JoinType } from 'types/auth/auth.type';
 import JoinContent from './JoinContent';
 import SchoolContent from './SchoolContent';

@@ -1,6 +1,12 @@
 import { answerPetition } from 'apis/petition.api';
 import { useMutation, useQueryClient } from 'react-query';
-import { AnswerFeatureType } from './answer.props';
+import { Dispatch, SetStateAction } from 'react';
+
+export interface AnswerFeatureType {
+  detailId: number;
+  setComment: Dispatch<SetStateAction<string>>;
+  comment: string;
+}
 
 export const AnswerFeature = ({
   detailId,
