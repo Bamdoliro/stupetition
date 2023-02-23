@@ -18,6 +18,7 @@ const Input = ({
         name={name}
         value={value}
         onChange={onChange}
+        autoComplete="false"
       />
     </div>
   );

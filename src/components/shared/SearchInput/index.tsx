@@ -25,6 +25,7 @@ const SearchInput = ({
           value={value}
           onChange={onChange}
           onFocus={onFocus}
+          autoComplete="false"
         />
       </S.SearchInput>
     </div>
