@@ -18,7 +18,7 @@ const Main = () => {
 
   return (
     <S.MainLayout>
-      {isBannerOpen ? (
+      {isBannerOpen && (
         <S.Banner>
           <S.BannerText>
             학생청원,
@@ -29,22 +29,18 @@ const Main = () => {
             X 닫기
           </S.CloseBanner>
         </S.Banner>
-      ) : (
-        ''
       )}
       <S.ContentsWrap>
         <S.ContentsInnerWrap>
           <S.SubNav>
             <RadioTabMenu setStatus={setStatus} status={status} />
-            {user.authority ? (
+            {user.authority && (
               <MiniButton
                 onClick={() => navigate('/petition/write')}
                 option="FILLED"
                 padding="10px 16px"
                 value="청원 추가"
               />
-            ) : (
-              ''
             )}
           </S.SubNav>
           <S.PetitionWrap>

@@ -35,10 +35,8 @@ const Comment = ({ comment, createdAt, id, writer }: CommentType) => {
             <S.ItemWrap>
               <S.NameWrap>
                 <S.Name>익명</S.Name>
-                {writer.authority === 'ROLE_STUDENT_COUNCIL' ? (
+                {writer.authority === 'ROLE_STUDENT_COUNCIL' && (
                   <S.Check src={CheckSvg} />
-                ) : (
-                  ''
                 )}
               </S.NameWrap>
               <S.Date>
@@ -46,10 +44,8 @@ const Comment = ({ comment, createdAt, id, writer }: CommentType) => {
               </S.Date>
             </S.ItemWrap>
           </S.ProfileWrap>
-          {Number(userId) === writer?.userId ? (
+          {Number(userId) === writer?.userId && (
             <S.Delete onClick={deleteSubmit}>삭제</S.Delete>
-          ) : (
-            ''
           )}
         </S.InfoWrap>
       </S.Info>

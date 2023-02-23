@@ -15,7 +15,7 @@ const SearchInput = ({
 }: InputPropsType) => {
   return (
     <div>
-      {desc ? <S.Desc>{desc}</S.Desc> : ''}
+      {desc && <S.Desc>{desc}</S.Desc>}
       <S.SearchInput style={{ width, height }}>
         <S.Img src={SearchSvg} />
         <S.Input
