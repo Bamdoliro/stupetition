@@ -4,7 +4,7 @@ import { GetPetitionType, StatusType } from 'types/petition/petition.type';
 import { useRecoilValue } from 'recoil';
 import { userData } from 'atoms/user.atom';
 
-export const MainFeature = (status: StatusType) => {
+export const PetitionListFeature = (status: StatusType) => {
   const user = useRecoilValue(userData);
   const { isLoading, isError, data } = useQuery<GetPetitionType[]>(
     ['status', status],

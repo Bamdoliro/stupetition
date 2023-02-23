@@ -4,7 +4,7 @@ import { useRecoilValue } from 'recoil';
 import { userData } from 'atoms/user.atom';
 import { useNavigate } from 'react-router-dom';
 import MiniButton from 'components/shared/MiniButton';
-import { MainFeature } from 'features/home/main/main.feature';
+import { PetitionListFeature } from 'features/home/main/petitionList/petitionList.feature';
 import PetitionList from './PetitionList';
 import RadioTabMenu from './RadioTabMenu';
 import * as S from './style';
@@ -12,7 +12,7 @@ import * as S from './style';
 const Main = () => {
   const navigate = useNavigate();
   const [status, setStatus] = useState<StatusType>('PETITION');
-  const { isLoading, isError, data } = MainFeature(status);
+  const { isLoading, isError, data } = PetitionListFeature(status);
   const user = useRecoilValue(userData);
   const [isBannerOpen, setIsBannerOpen] = useState(true);
 
