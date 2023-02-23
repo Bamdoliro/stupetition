@@ -4,8 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { userData } from 'atoms/user.atom';
 import { useState } from 'react';
-import MiniButton from '../MiniButton';
-import SearchInput from '../SearchInput';
+import MiniButton from 'components/shared/MiniButton';
+import SearchInput from 'components/shared/SearchInput';
 import ProfilePopover from './ProfilePopover';
 import * as S from './style';
 
