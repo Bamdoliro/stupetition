@@ -13,16 +13,16 @@ import Comment from './Comment';
 import * as S from './style';
 
 const PetitionDetail = () => {
-  const { detailId } = useParams();
-  const id = Number(detailId);
+  const { id } = useParams();
+  const detailId = Number(id);
   const user = useRecoilValue(userData);
   const [comment, setComment] = useState('');
 
   // 쿼리
-  const { isLoading, isError, data, refetch } = DetailFeature(id);
-  const { commentSubmit } = CommentFeature({ id, setComment, comment });
-  const { answerSubmit } = AnswerFeature({ id, setComment, comment });
-  const { approveSubmit } = ApproveFeature(id);
+  const { isLoading, isError, data, refetch } = DetailFeature(detailId);
+  const { commentSubmit } = CommentFeature({ detailId, setComment, comment });
+  const { answerSubmit } = AnswerFeature({ detailId, setComment, comment });
+  const { approveSubmit } = ApproveFeature(detailId);
 
   const { color, progress } = ProgressChecker(data?.status);
   const { date, time } = FormatDatetime(data?.createdAt);

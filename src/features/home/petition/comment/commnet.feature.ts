@@ -3,7 +3,7 @@ import { useMutation } from 'react-query';
 import { CommentFeatureType } from './comment.props';
 
 export const CommentFeature = ({
-  id,
+  detailId,
   setComment,
   comment,
 }: CommentFeatureType) => {
@@ -20,7 +20,7 @@ export const CommentFeature = ({
   const commentSubmit = () => {
     commentMutate.mutate({
       comment,
-      petitionId: Number(id),
+      petitionId: detailId,
     });
   };
 

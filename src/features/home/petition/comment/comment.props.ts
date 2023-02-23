@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
 
 export interface CommentFeatureType {
-  id: number;
+  detailId: number;
   setComment: Dispatch<SetStateAction<string>>;
   comment: string;
 }
