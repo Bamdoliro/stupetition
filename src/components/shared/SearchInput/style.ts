@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { color } from 'styles/theme';
 
 export const SearchInput = styled.div`
-  width: 100%;
   height: 100%;
 `;
 

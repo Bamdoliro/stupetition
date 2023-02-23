@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { userData } from 'atoms/user';
 import { useState } from 'react';
+import MiniButton from '../MiniButton';
 import SearchInput from '../SearchInput';
 import ProfilePopover from './ProfilePopover';
 import * as S from './style';
@@ -41,9 +42,12 @@ const Header = () => {
               />
             </>
           ) : (
-            <S.Login onClick={() => navigate('/login')}>
-              <S.LoginText>로그인</S.LoginText>
-            </S.Login>
+            <MiniButton
+              value="로그인"
+              option="UNFILLED"
+              padding="10px 16px"
+              onClick={() => navigate('/login')}
+            />
           )}
         </S.NavWrap>
       </S.Wrap>

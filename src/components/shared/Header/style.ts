@@ -33,20 +33,6 @@ export const LogoText = styled(T.H5)`
   cursor: pointer;
 `;
 
-export const Login = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 16px;
-  border-radius: 8px;
-  border: 1px solid ${color.gray200};
-`;
-
-export const LoginText = styled(T.btn2)`
-  color: ${color.gray900};
-  cursor: pointer;
-`;
-
 export const Profile = styled.img`
   cursor: pointer;
 `;
