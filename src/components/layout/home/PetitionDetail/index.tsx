@@ -19,7 +19,7 @@ const PetitionDetail = () => {
   const [comment, setComment] = useState('');
 
   // 쿼리
-  const { isLoading, isError, data, refetch } = DetailFeature(detailId);
+  const { isLoading, isError, data } = DetailFeature(detailId);
   const { commentSubmit } = CommentFeature({ detailId, setComment, comment });
   const { answerSubmit } = AnswerFeature({ detailId, setComment, comment });
   const { approveSubmit } = ApproveFeature(detailId);

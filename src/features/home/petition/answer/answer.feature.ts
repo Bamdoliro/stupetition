@@ -1,5 +1,5 @@
 import { answerPetition } from 'apis/petition.api';
-import { useMutation } from 'react-query';
+import { useMutation, useQueryClient } from 'react-query';
 import { AnswerFeatureType } from './answer.props';
 
 export const AnswerFeature = ({
@@ -7,10 +7,12 @@ export const AnswerFeature = ({
   setComment,
   comment,
 }: AnswerFeatureType) => {
+  const queryClient = useQueryClient();
+
   const answerMutate = useMutation(answerPetition, {
     onSuccess: () => {
       setComment('');
-      //   refetch();
+      queryClient.invalidateQueries(['detailDatas']);
     },
     onError: (err) => {
       console.log(err);

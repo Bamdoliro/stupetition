@@ -3,10 +3,10 @@ import { useQuery } from 'react-query';
 import { GetPetitionDetailType } from 'types/petition/petition.type';
 
 export const DetailFeature = (detailId: number) => {
-  const { isLoading, isError, data, refetch } = useQuery<GetPetitionDetailType>(
-    ['id', detailId],
+  const { isLoading, isError, data } = useQuery<GetPetitionDetailType>(
+    ['detailDatas', detailId],
     () => getPetitionDetail(detailId),
   );
 
-  return { isLoading, isError, data, refetch };
+  return { isLoading, isError, data };
 };
