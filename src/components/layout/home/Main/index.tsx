@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { useQuery } from 'react-query';
-import { getPetition } from 'apis/petition.api';
-import { StatusType, GetPetitionType } from 'types/petition/petition.type';
+import { StatusType } from 'types/petition/petition.type';
 import { useRecoilValue } from 'recoil';
 import { userData } from 'atoms/user.atom';
 import { useNavigate } from 'react-router-dom';
 import MiniButton from 'components/shared/MiniButton';
+import { MainFeature } from 'features/home/main/main.feature';
 import PetitionList from './PetitionList';
 import RadioTabMenu from './RadioTabMenu';
 import * as S from './style';
@@ -13,16 +12,9 @@ import * as S from './style';
 const Main = () => {
   const navigate = useNavigate();
   const [status, setStatus] = useState<StatusType>('PETITION');
+  const { isLoading, isError, data } = MainFeature(status);
   const user = useRecoilValue(userData);
   const [isBannerOpen, setIsBannerOpen] = useState(true);
-
-  const { isLoading, isError, data } = useQuery<GetPetitionType[]>(
-    ['status', status],
-    () => getPetition(status),
-    {
-      enabled: !!user.authority,
-    },
-  );
 
   return (
     <S.MainLayout>

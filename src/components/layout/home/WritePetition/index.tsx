@@ -1,27 +1,15 @@
-import { writePetition } from 'apis/petition.api';
 import { useState } from 'react';
-import { useMutation } from 'react-query';
-import { useNavigate } from 'react-router-dom';
 import { WritePetitionType } from 'types/petition/petition.type';
 import MiniButton from 'components/shared/MiniButton';
+import { WriteFeature } from 'features/home/petition/write/write.feature';
 import * as S from './style';
 
 const WritePetition = () => {
-  const navigate = useNavigate();
   const [petitionData, setPetitionData] = useState<WritePetitionType>({
     title: '',
     content: '',
   });
-
-  const { mutate } = useMutation(writePetition, {
-    onSuccess: () => {
-      alert('게시글 작성 성공 !!');
-      navigate('/');
-    },
-    onError: (err) => {
-      console.log(err);
-    },
-  });
+  const { submit, cancel } = WriteFeature(petitionData);
 
   const onChange = (
     e:
@@ -30,23 +18,6 @@ const WritePetition = () => {
   ) => {
     const { name, value } = e.target;
     setPetitionData({ ...petitionData, [name]: value });
-  };
-
-  const submit = () => {
-    mutate(petitionData);
-  };
-
-  const cancel = () => {
-    // 임시 confirm
-    if (petitionData.content || petitionData.title) {
-      if (
-        window.confirm('변경된 사항은 저장되지 않습니다 진짜 나갈거냐 닝겐')
-      ) {
-        navigate('/');
-      }
-    } else {
-      navigate('/');
-    }
   };
 
   return (

@@ -1,84 +1,35 @@
 import { ProgressChecker } from 'utils/ProgressChecker';
 import Progressbar from 'components/shared/Progressbar';
-import {
-  answerPetition,
-  approvePetition,
-  commentPetition,
-  getPetitionDetail,
-} from 'apis/petition.api';
 import { useParams } from 'react-router-dom';
-import { useMutation, useQuery } from 'react-query';
-import { GetPetitionDetailType } from 'types/petition/petition.type';
 import { useState } from 'react';
 import { FormatDatetime } from 'utils/FormatDatetime';
 import { userData } from 'atoms/user.atom';
 import { useRecoilValue } from 'recoil';
+import { DetailFeature } from 'features/home/petition/detail/detail.feature';
+import { CommentFeature } from 'features/home/petition/comment/commnet.feature';
+import { AnswerFeature } from 'features/home/petition/answer/answer.feature';
+import { ApproveFeature } from 'features/home/petition/approve/approve.feature';
 import Comment from './Comment';
 import * as S from './style';
 
 const PetitionDetail = () => {
-  const { id } = useParams();
+  const { detailId } = useParams();
+  const id = Number(detailId);
   const user = useRecoilValue(userData);
+  const [comment, setComment] = useState('');
 
-  const { isLoading, isError, data, refetch } = useQuery<GetPetitionDetailType>(
-    ['id', Number(id)],
-    () => getPetitionDetail(Number(id)),
-  );
+  // 쿼리
+  const { isLoading, isError, data, refetch } = DetailFeature(id);
+  const { commentSubmit } = CommentFeature({ id, setComment, comment });
+  const { answerSubmit } = AnswerFeature({ id, setComment, comment });
+  const { approveSubmit } = ApproveFeature(id);
+
   const { color, progress } = ProgressChecker(data?.status);
   const { date, time } = FormatDatetime(data?.createdAt);
 
   const [isApprovePetition, setIsApprovePetition] = useState<
     boolean | undefined
   >(data?.approved);
-  const [comment, setComment] = useState('');
-
-  const approveMutate = useMutation(approvePetition, {
-    onSuccess: () => {
-      alert('동의 완료 !!');
-      refetch();
-    },
-    onError: (err) => {
-      console.log(err);
-    },
-  });
-
-  const commentMutate = useMutation(commentPetition, {
-    onSuccess: () => {
-      setComment('');
-      refetch();
-    },
-    onError: (err) => {
-      console.log(err);
-    },
-  });
-
-  const answerMutate = useMutation(answerPetition, {
-    onSuccess: () => {
-      setComment('');
-      refetch();
-    },
-    onError: (err) => {
-      console.log(err);
-    },
-  });
-
-  const approveSubmit = () => {
-    approveMutate.mutate(Number(id));
-  };
-
-  const commentSubmit = () => {
-    commentMutate.mutate({
-      comment,
-      petitionId: Number(id),
-    });
-  };
-
-  const answerSubmit = () => {
-    answerMutate.mutate({
-      comment,
-      petitionId: Number(id),
-    });
-  };
 
   const approveElement = isApprovePetition ? (
     <S.ApprovedButton>
