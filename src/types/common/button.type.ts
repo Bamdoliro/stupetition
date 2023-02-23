@@ -6,5 +6,4 @@ export interface ButtonPropsType {
   width?: string;
   option: 'UNFILLED' | 'FILLED' | 'SCARCE_FILLED';
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  element?: React.ReactNode;
 }

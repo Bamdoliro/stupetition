@@ -95,7 +95,7 @@ const JoinContent = ({
           option="FILLED"
           padding="12px 22px"
           width="180px"
-          element={<T.H5 color={color.white}>회원가입</T.H5>}
+          value="회원가입"
         />
       </S.Wrap>
     </S.JoinContent>

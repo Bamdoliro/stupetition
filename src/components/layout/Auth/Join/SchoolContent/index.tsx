@@ -65,7 +65,7 @@ const SchoolContent = ({
             option="UNFILLED"
             width="50%"
             padding="12px 22px"
-            element={<T.H5 color={color.gray500}>취소</T.H5>}
+            value="취소"
             onClick={() => {
               setSearchSchoolOpen(true);
               setJoinData({
@@ -82,7 +82,7 @@ const SchoolContent = ({
             option="FILLED"
             width="50%"
             padding="12px 22px"
-            element={<T.H5 color={color.white}>완료</T.H5>}
+            value="완료"
           />
         </S.ButtonWrap>
       </S.Wrap>

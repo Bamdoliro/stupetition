@@ -1,5 +1,14 @@
 import styled from 'styled-components';
+import * as T from 'styles/text';
 import { color } from 'styles/theme';
+
+export const FilledButtonText = styled(T.H5)`
+  color: ${color.white};
+`;
+
+export const UnfilledButtonText = styled(T.H5)`
+  color: ${color.gray600};
+`;
 
 export const FilledButton = styled.button`
   display: flex;
@@ -18,5 +27,11 @@ export const UnfilledButton = styled.button`
   justify-content: center;
   border-radius: 8px;
   background-color: ${color.white};
-  border: 1px solid ${color.gray500};
+  border: 1px solid ${color.gray200};
+  &:hover {
+    border: 1px solid ${color.gray300};
+    ${UnfilledButtonText} {
+      color: ${color.gray900};
+    }
+  }
 `;

@@ -5,7 +5,7 @@ import { StatusType, GetPetitionType } from 'types/petition/petition.type';
 import { useRecoilValue } from 'recoil';
 import { userData } from 'atoms/user';
 import { useNavigate } from 'react-router-dom';
-import Button from 'components/shared/Button';
+import MiniButton from 'components/shared/MiniButton';
 import * as T from 'styles/text';
 import { color } from 'styles/theme';
 import PetitionList from './PetitionList';
@@ -47,11 +47,11 @@ const Main = () => {
           <S.SubNav>
             <RadioTabMenu setStatus={setStatus} status={status} />
             {user.authority ? (
-              <Button
+              <MiniButton
                 onClick={() => navigate('/petition/write')}
                 option="FILLED"
                 padding="10px 16px"
-                element={<T.btn2 color={color.white}>청원 추가</T.btn2>}
+                value="청원 추가"
               />
             ) : (
               ''

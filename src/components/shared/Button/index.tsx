@@ -6,15 +6,15 @@ const Button = ({
   padding,
   width,
   option,
-  element,
+  value,
 }: ButtonPropsType) => {
   return option === 'FILLED' ? (
     <S.FilledButton style={{ padding, width }} onClick={onClick}>
-      {element}
+      <S.FilledButtonText>{value}</S.FilledButtonText>
     </S.FilledButton>
   ) : (
     <S.UnfilledButton style={{ padding, width }} onClick={onClick}>
-      {element}
+      <S.UnfilledButtonText>{value}</S.UnfilledButtonText>
     </S.UnfilledButton>
   );
 };

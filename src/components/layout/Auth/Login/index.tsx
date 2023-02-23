@@ -81,7 +81,7 @@ const Login = () => {
             option="FILLED"
             padding="12px 24px"
             width="225px"
-            element={<T.H5 color={color.white}>로그인</T.H5>}
+            value="로그인"
           />
         </S.LoginBox>
       </S.Wrap>
