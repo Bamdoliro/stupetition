@@ -6,8 +6,6 @@ import { useRecoilValue } from 'recoil';
 import { userData } from 'atoms/user.atom';
 import { useNavigate } from 'react-router-dom';
 import MiniButton from 'components/shared/MiniButton';
-import * as T from 'styles/text.style';
-import { color } from 'styles/theme.style';
 import PetitionList from './PetitionList';
 import RadioTabMenu from './RadioTabMenu';
 import * as S from './style';
