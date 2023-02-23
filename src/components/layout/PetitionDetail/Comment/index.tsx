@@ -26,7 +26,7 @@ const Comment = ({ comment, createdAt, id }: CommentType) => {
   };
 
   return (
-    <S.Container>
+    <S.Comment>
       <S.Info>
         <S.InfoWrap>
           <S.ProfileWrap>
@@ -50,10 +50,10 @@ const Comment = ({ comment, createdAt, id }: CommentType) => {
           <S.Delete onClick={deleteSubmit}>삭제</S.Delete>
         </S.InfoWrap>
       </S.Info>
-      <S.Comment>
+      <S.Content>
         <S.Pre>{comment}</S.Pre>
-      </S.Comment>
-    </S.Container>
+      </S.Content>
+    </S.Comment>
   );
 };
 

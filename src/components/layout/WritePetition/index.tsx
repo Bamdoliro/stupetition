@@ -1,19 +1,19 @@
-import { createPetition } from 'apis/petition.api';
+import { writePetition } from 'apis/petition.api';
 import { useState } from 'react';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-import { CreatePetitionType } from 'types/petition/petition.type';
+import { WritePetitionType } from 'types/petition/petition.type';
 import MiniButton from 'components/shared/MiniButton';
 import * as S from './style';
 
-const CreatePetition = () => {
+const WritePetition = () => {
   const navigate = useNavigate();
-  const [petitionData, setPetitionData] = useState<CreatePetitionType>({
+  const [petitionData, setPetitionData] = useState<WritePetitionType>({
     title: '',
     content: '',
   });
 
-  const { mutate } = useMutation(createPetition, {
+  const { mutate } = useMutation(writePetition, {
     onSuccess: () => {
       alert('게시글 작성 성공 !!');
       navigate('/');
@@ -50,7 +50,7 @@ const CreatePetition = () => {
   };
 
   return (
-    <S.Container>
+    <S.WritePetitionLayout>
       <S.Header>
         <S.HeaderWrap>
           <MiniButton
@@ -90,8 +90,8 @@ const CreatePetition = () => {
           placeholder="청원 내용을 입력하세요."
         />
       </S.ContentsWrap>
-    </S.Container>
+    </S.WritePetitionLayout>
   );
 };
 
-export default CreatePetition;
+export default WritePetition;

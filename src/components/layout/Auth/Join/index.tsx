@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { JoinType } from 'types/auth/auth.type';
-import JoinContents from './JoinContents';
-import SchoolContents from './SchoolContents';
+import JoinContent from './JoinContent';
+import SchoolContent from './SchoolContent';
 import * as S from './style';
 
 const Join = () => {
@@ -20,25 +20,25 @@ const Join = () => {
   const [searchSchoolIsOpen, setSearchSchoolOpen] = useState<boolean>(true);
 
   return (
-    <S.Container>
-      <S.Join>
-        <S.Wrap>
+    <S.JoinLayout>
+      <S.Wrap>
+        <S.JoinBox>
           {searchSchoolIsOpen ? (
-            <JoinContents
+            <JoinContent
               setSearchSchoolOpen={setSearchSchoolOpen}
               setJoinData={setJoinData}
               joinData={joinData}
             />
           ) : (
-            <SchoolContents
+            <SchoolContent
               setSearchSchoolOpen={setSearchSchoolOpen}
               setJoinData={setJoinData}
               joinData={joinData}
             />
           )}
-        </S.Wrap>
-      </S.Join>
-    </S.Container>
+        </S.JoinBox>
+      </S.Wrap>
+    </S.JoinLayout>
   );
 };
 

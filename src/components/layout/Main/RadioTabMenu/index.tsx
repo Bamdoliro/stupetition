@@ -3,7 +3,7 @@ import * as S from './style';
 
 const RadioTabMenu = ({ status, setStatus }: RadioPropsType) => {
   return (
-    <S.Container>
+    <S.RadioTabMenu>
       <S.TabButton>
         <S.RadioInput
           type="radio"
@@ -48,7 +48,7 @@ const RadioTabMenu = ({ status, setStatus }: RadioPropsType) => {
         />
         <S.RadioLabel htmlFor="EXPIRED">만료</S.RadioLabel>
       </S.TabButton>
-    </S.Container>
+    </S.RadioTabMenu>
   );
 };
 

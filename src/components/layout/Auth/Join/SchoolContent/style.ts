@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import * as T from 'styles/text';
 import { color } from 'styles/theme';
 
-export const Container = styled.div`
+export const SchoolContent = styled.div`
   width: 64%;
   height: 75.5%;
 `;
@@ -20,9 +20,14 @@ export const Title = styled(T.H1)`
   color: ${color.gray900};
 `;
 
-export const InputWrap = styled.div`
+export const SchoolWrap = styled.ul`
+  height: 100%;
+  max-height: 100%;
+  overflow: auto;
+`;
+
+export const ButtonWrap = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 28px;
-  width: 100%;
+  align-items: center;
+  gap: 12px;
 `;

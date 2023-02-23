@@ -2,7 +2,7 @@ import * as T from 'styles/text';
 import styled from 'styled-components';
 import { color } from 'styles/theme';
 
-export const Container = styled.div`
+export const Comment = styled.div`
   width: 100%;
   border-bottom: 1px solid ${color.gray200};
   margin-bottom: 28px;
@@ -64,7 +64,7 @@ export const Delete = styled(T.p3)`
   }
 `;
 
-export const Comment = styled(T.p2)`
+export const Content = styled(T.p2)`
   color: ${color.gray900};
   width: 87%;
   word-break: break-all;

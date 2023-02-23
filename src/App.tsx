@@ -4,7 +4,7 @@ import JoinPage from 'pages/Join';
 import MainPage from 'pages/Main';
 import PetitionDetail from 'components/layout/PetitionDetail';
 import { Route, Routes } from 'react-router-dom';
-import CreatePetition from 'components/layout/CreatePetition';
+import CreatePetition from 'components/layout/WritePetition';
 
 const App = () => {
   return (

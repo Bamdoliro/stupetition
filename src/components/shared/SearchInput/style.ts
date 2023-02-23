@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 import { color } from 'styles/theme';
 
+export const SearchInput = styled.div`
+  width: 100%;
+  height: 100%;
+`;
+
 export const Desc = styled.div`
   font-size: 0.75rem;
   font-weight: 400;
@@ -9,6 +14,8 @@ export const Desc = styled.div`
 `;
 
 export const Wrap = styled.div`
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   border-radius: 8px;

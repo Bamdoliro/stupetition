@@ -91,7 +91,7 @@ const PetitionDetail = () => {
   );
 
   return (
-    <S.Container>
+    <S.PetitionDetailLayout>
       <S.Wrap>
         <S.Info>
           <S.InfoWrap>
@@ -145,7 +145,7 @@ const PetitionDetail = () => {
           );
         })}
       </S.Wrap>
-    </S.Container>
+    </S.PetitionDetailLayout>
   );
 };
 

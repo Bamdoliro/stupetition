@@ -1,7 +1,7 @@
 import { color } from 'styles/theme';
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const RadioTabMenu = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;

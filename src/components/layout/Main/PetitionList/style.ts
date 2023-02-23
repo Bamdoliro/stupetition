@@ -2,7 +2,7 @@ import * as T from 'styles/text';
 import { color } from 'styles/theme';
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const PetitionList = styled.div`
   display: flex;
   height: 140px;
   width: 100%;

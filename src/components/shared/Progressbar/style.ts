@@ -2,7 +2,7 @@ import * as T from 'styles/text';
 import { color } from 'styles/theme';
 import styled from 'styled-components';
 
-export const ProgressBarWrap = styled.div`
+export const ProgressBar = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -9,7 +9,7 @@ import { color } from 'styles/theme';
 import * as T from 'styles/text';
 import * as S from './style';
 
-const JoinContents = ({
+const JoinContent = ({
   setSearchSchoolOpen,
   setJoinData,
   joinData,
@@ -52,7 +52,7 @@ const JoinContents = ({
   };
 
   return (
-    <S.Container>
+    <S.JoinContent>
       <S.Wrap>
         <S.Title>회원가입</S.Title>
         <S.InputWrap>
@@ -98,8 +98,8 @@ const JoinContents = ({
           element={<T.H5 color={color.white}>회원가입</T.H5>}
         />
       </S.Wrap>
-    </S.Container>
+    </S.JoinContent>
   );
 };
 
-export default JoinContents;
+export default JoinContent;

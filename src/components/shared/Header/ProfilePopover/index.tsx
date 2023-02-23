@@ -19,7 +19,7 @@ const ProfilePopover = ({ isOpen, close }: ProfilePopoverPropsType) => {
   };
 
   return (
-    <S.Container style={{ display: `${isOpen ? '' : 'none'}` }}>
+    <S.ProfilePopover style={{ display: `${isOpen ? '' : 'none'}` }}>
       <S.Button>
         <S.ButtonText>동의한 청원</S.ButtonText>
       </S.Button>
@@ -30,7 +30,7 @@ const ProfilePopover = ({ isOpen, close }: ProfilePopoverPropsType) => {
       <S.Button onClick={logout}>
         <S.ButtonText>로그아웃</S.ButtonText>
       </S.Button>
-    </S.Container>
+    </S.ProfilePopover>
   );
 };
 

@@ -52,42 +52,40 @@ const Login = () => {
   };
 
   return (
-    <S.Container>
+    <S.LoginLayout>
       <S.Wrap>
         <S.LoginBox>
-          <div>
-            <S.Title>로그인</S.Title>
-            <S.SubTitle>
-              신규 사용자이신가요?{' '}
-              <S.Join onClick={() => navigate('/join')}>계정만들기</S.Join>
-            </S.SubTitle>
-            <S.InputWrap>
-              <Input
-                desc="학교 이메일 주소"
-                placeholder="학교 이메일 주소를 입력해주세요"
-                type="email"
-                name="email"
-                onChange={onChange}
-              />
-              <Input
-                desc="비밀번호"
-                placeholder="아이디를 입력해주세요"
-                type="password"
-                name="password"
-                onChange={onChange}
-              />
-            </S.InputWrap>
-            <Button
-              onClick={login}
-              option="FILLED"
-              padding="12px 24px"
-              width="225px"
-              element={<T.H5 color={color.white}>로그인</T.H5>}
+          <S.Title>로그인</S.Title>
+          <S.SubTitle>
+            신규 사용자이신가요?{' '}
+            <S.Join onClick={() => navigate('/join')}>계정만들기</S.Join>
+          </S.SubTitle>
+          <S.InputWrap>
+            <Input
+              desc="학교 이메일 주소"
+              placeholder="학교 이메일 주소를 입력해주세요"
+              type="email"
+              name="email"
+              onChange={onChange}
             />
-          </div>
+            <Input
+              desc="비밀번호"
+              placeholder="아이디를 입력해주세요"
+              type="password"
+              name="password"
+              onChange={onChange}
+            />
+          </S.InputWrap>
+          <Button
+            onClick={login}
+            option="FILLED"
+            padding="12px 24px"
+            width="225px"
+            element={<T.H5 color={color.white}>로그인</T.H5>}
+          />
         </S.LoginBox>
       </S.Wrap>
-    </S.Container>
+    </S.LoginLayout>
   );
 };
 

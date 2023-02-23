@@ -2,7 +2,7 @@ import * as T from 'styles/text';
 import { color } from 'styles/theme';
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Header = styled.div`
   display: flex;
   justify-content: center;
   z-index: 1;

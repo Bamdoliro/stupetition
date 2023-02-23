@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import * as T from 'styles/text';
 import { color } from 'styles/theme';
 
-export const Container = styled.div`
+export const LoginLayout = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: ${color.gray300};

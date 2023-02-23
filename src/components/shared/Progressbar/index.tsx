@@ -15,7 +15,7 @@ const Progressbar = ({
   const percentage = (numberOfAgreers / 20) * 100;
 
   return (
-    <S.ProgressBarWrap style={{ width, height }}>
+    <S.ProgressBar style={{ width, height }}>
       <CircularProgressbarWithChildren
         value={numberOfAgreers}
         maxValue={20}
@@ -36,7 +36,7 @@ const Progressbar = ({
           </>
         )}
       </CircularProgressbarWithChildren>
-    </S.ProgressBarWrap>
+    </S.ProgressBar>
   );
 };
 

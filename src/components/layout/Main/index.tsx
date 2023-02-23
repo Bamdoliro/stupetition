@@ -27,7 +27,7 @@ const Main = () => {
   );
 
   return (
-    <S.Container>
+    <S.MainLayout>
       {isBannerOpen ? (
         <S.Banner>
           <S.BannerText>
@@ -48,7 +48,7 @@ const Main = () => {
             <RadioTabMenu setStatus={setStatus} status={status} />
             {user.authority ? (
               <Button
-                onClick={() => navigate('/petition/create')}
+                onClick={() => navigate('/petition/write')}
                 option="FILLED"
                 padding="10px 16px"
                 element={<T.btn2 color={color.white}>청원 추가</T.btn2>}
@@ -77,7 +77,7 @@ const Main = () => {
           </S.PetitionWrap>
         </S.ContentsInnerWrap>
       </S.ContentsWrap>
-    </S.Container>
+    </S.MainLayout>
   );
 };
 

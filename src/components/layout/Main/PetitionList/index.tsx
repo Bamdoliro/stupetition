@@ -17,7 +17,7 @@ const PetitionList = ({
   const { date } = FormatDatetime(createdAt);
   const { color, progress } = ProgressChecker(status);
   return (
-    <S.Container onClick={() => navigate(`/petition/${id}`)}>
+    <S.PetitionList onClick={() => navigate(`/petition/${id}`)}>
       <S.Wrap>
         <S.Info>
           <S.Title>{title}</S.Title>
@@ -33,7 +33,7 @@ const PetitionList = ({
           numberOfAgreers={numberOfAgreers}
         />
       </S.Wrap>
-    </S.Container>
+    </S.PetitionList>
   );
 };
 

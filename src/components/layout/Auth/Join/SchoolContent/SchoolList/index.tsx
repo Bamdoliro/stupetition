@@ -3,7 +3,7 @@ import * as S from './style';
 
 const SchoolList = ({ name, id, emailDomain, onChange }: SchoolListType) => {
   return (
-    <S.List>
+    <S.SchoolList>
       <S.ListWrap>
         <S.SchoolName>{name}</S.SchoolName>
         <S.Email>@{emailDomain}</S.Email>
@@ -18,7 +18,7 @@ const SchoolList = ({ name, id, emailDomain, onChange }: SchoolListType) => {
         />
         <S.RadioLabel htmlFor={name} />
       </S.Button>
-    </S.List>
+    </S.SchoolList>
   );
 };
 

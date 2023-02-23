@@ -3,7 +3,7 @@ import { color } from 'styles/theme';
 import * as T from 'styles/text';
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const MainLayout = styled.div`
   width: 100vw;
   height: 100vh;
   min-height: 100vh;

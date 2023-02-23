@@ -1,12 +1,12 @@
 import { customAxios } from 'lib/axios/customAxios';
 import { authorization } from 'lib/token/authorization';
 import {
-  CreatePetitionType,
+  WritePetitionType,
   PostPetitionType,
   StatusType,
 } from 'types/petition/petition.type';
 
-export const createPetition = async (petitionData: CreatePetitionType) => {
+export const writePetition = async (petitionData: WritePetitionType) => {
   await customAxios.post('/petition', petitionData, authorization());
 };
 

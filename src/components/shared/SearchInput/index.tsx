@@ -14,7 +14,7 @@ const SearchInput = ({
   onFocus,
 }: InputPropsType) => {
   return (
-    <div>
+    <S.SearchInput>
       {desc ? <S.Desc>{desc}</S.Desc> : ''}
       <S.Wrap style={{ width, height }}>
         <S.Img src={SearchSvg} />
@@ -27,7 +27,7 @@ const SearchInput = ({
           onFocus={onFocus}
         />
       </S.Wrap>
-    </div>
+    </S.SearchInput>
   );
 };
 

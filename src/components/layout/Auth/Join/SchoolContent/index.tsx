@@ -10,7 +10,7 @@ import { color } from 'styles/theme';
 import SchoolList from './SchoolList';
 import * as S from './style';
 
-const SchoolContents = ({
+const SchoolContent = ({
   setSearchSchoolOpen,
   setJoinData,
   joinData,
@@ -37,7 +37,7 @@ const SchoolContents = ({
   );
 
   return (
-    <S.Container>
+    <S.SchoolContent>
       <S.Wrap>
         <S.Title>학교 검색</S.Title>
         <SearchInput
@@ -86,8 +86,8 @@ const SchoolContents = ({
           />
         </S.ButtonWrap>
       </S.Wrap>
-    </S.Container>
+    </S.SchoolContent>
   );
 };
 
-export default SchoolContents;
+export default SchoolContent;

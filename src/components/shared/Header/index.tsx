@@ -15,7 +15,7 @@ const Header = () => {
   const [profilePopoverIsOpen, setProfilePopoverIsOpen] = useState(false);
 
   return (
-    <S.Container>
+    <S.Header>
       <S.Wrap>
         <S.LogoWrap>
           <S.Logo src={Logo} />
@@ -47,7 +47,7 @@ const Header = () => {
           )}
         </S.NavWrap>
       </S.Wrap>
-    </S.Container>
+    </S.Header>
   );
 };
 

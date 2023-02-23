@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import * as T from 'styles/text';
 import { color } from 'styles/theme';
 
-export const List = styled.li`
+export const SchoolList = styled.li`
   display: flex;
   justify-content: space-between;
   padding: 18px 16px;
