@@ -1,6 +1,6 @@
 import BannerImg from 'assets/banner.svg';
-import { color } from 'styles/theme';
-import * as T from 'styles/text';
+import { color } from 'styles/theme.style';
+import * as T from 'styles/text.style';
 import styled from 'styled-components';
 
 export const MainLayout = styled.div`

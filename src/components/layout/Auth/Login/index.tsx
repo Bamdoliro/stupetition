@@ -6,11 +6,11 @@ import { useMutation } from 'react-query';
 import { loginUser } from 'apis/auth.api';
 import { useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
-import { userData } from 'atoms/user';
+import { userData } from 'atoms/user.atom';
 import { AUTHORITY, SCHOOL_NAME } from 'constants/user.constant';
 import { ACCESS_KEY, REFRESH_KEY } from 'constants/token.constant';
-import { color } from 'styles/theme';
-import * as T from 'styles/text';
+import { color } from 'styles/theme.style';
+import * as T from 'styles/text.style';
 import * as S from './style';
 
 const Login = () => {

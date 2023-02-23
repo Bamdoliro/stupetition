@@ -2,7 +2,7 @@ import {
   CircularProgressbarWithChildren,
   buildStyles,
 } from 'react-circular-progressbar';
-import { color } from 'styles/theme';
+import { color } from 'styles/theme.style';
 import { ProgressbarPropsType } from 'types/main/main.type';
 import * as S from './style';
 

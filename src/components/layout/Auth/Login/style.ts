@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import * as T from 'styles/text';
-import { color } from 'styles/theme';
+import * as T from 'styles/text.style';
+import { color } from 'styles/theme.style';
 
 export const LoginLayout = styled.div`
   width: 100vw;

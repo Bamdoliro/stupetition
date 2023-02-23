@@ -1,4 +1,4 @@
-import { color } from 'styles/theme';
+import { color } from 'styles/theme.style';
 import styled from 'styled-components';
 
 export const RadioTabMenu = styled.div`

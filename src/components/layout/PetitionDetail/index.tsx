@@ -11,7 +11,7 @@ import { useMutation, useQuery } from 'react-query';
 import { GetPetitionDetailType } from 'types/petition/petition.type';
 import { useState } from 'react';
 import { FormatDatetime } from 'utils/FormatDatetime';
-import { userData } from 'atoms/user';
+import { userData } from 'atoms/user.atom';
 import { useRecoilValue } from 'recoil';
 import Comment from './Comment';
 import * as S from './style';

@@ -5,8 +5,8 @@ import { useQuery } from 'react-query';
 import { searchSchool } from 'apis/school.api';
 import { useState } from 'react';
 import { JoinContentsPropsType } from 'types/auth/auth.type';
-import * as T from 'styles/text';
-import { color } from 'styles/theme';
+import * as T from 'styles/text.style';
+import { color } from 'styles/theme.style';
 import SchoolList from './SchoolList';
 import * as S from './style';
 

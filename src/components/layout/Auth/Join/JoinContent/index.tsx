@@ -5,8 +5,8 @@ import { joinUser } from 'apis/auth.api';
 import Input from 'components/shared/Input';
 import SearchInput from 'components/shared/SearchInput';
 import Button from 'components/shared/Button';
-import { color } from 'styles/theme';
-import * as T from 'styles/text';
+import { color } from 'styles/theme.style';
+import * as T from 'styles/text.style';
 import * as S from './style';
 
 const JoinContent = ({

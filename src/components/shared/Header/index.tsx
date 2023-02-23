@@ -2,7 +2,7 @@ import Logo from 'assets/logo.svg';
 import Profile from 'assets/loginProfile.svg';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
-import { userData } from 'atoms/user';
+import { userData } from 'atoms/user.atom';
 import { useState } from 'react';
 import MiniButton from '../MiniButton';
 import SearchInput from '../SearchInput';
