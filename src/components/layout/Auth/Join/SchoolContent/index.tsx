@@ -1,12 +1,8 @@
 import SearchInput from 'components/shared/SearchInput';
 import Button from 'components/shared/Button';
-import { SchoolType } from 'types/school/search.type';
-import { useQuery } from 'react-query';
-import { searchSchool } from 'apis/school.api';
 import { useState } from 'react';
 import { JoinContentsPropsType } from 'types/auth/auth.type';
-import * as T from 'styles/text.style';
-import { color } from 'styles/theme.style';
+import { SchoolFeature } from 'features/auth/school/school.feature';
 import SchoolList from './SchoolList';
 import * as S from './style';
 
@@ -17,6 +13,8 @@ const SchoolContent = ({
 }: JoinContentsPropsType) => {
   const [searchWord, setSearchWord] = useState('');
 
+  const { data } = SchoolFeature({ searchWord });
+
   const handleClickRadio = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.id;
     const id = Number(e.target.value);
@@ -26,15 +24,6 @@ const SchoolContent = ({
   const onChage = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchWord(e.target.value);
   };
-
-  const { data } = useQuery<SchoolType[]>(
-    ['searchWord', searchWord],
-    () => searchSchool(searchWord),
-    {
-      enabled: !!searchWord,
-      select: (data) => data.slice(0, 10),
-    },
-  );
 
   return (
     <S.SchoolContent>

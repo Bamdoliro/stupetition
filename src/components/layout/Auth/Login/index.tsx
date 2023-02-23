@@ -2,53 +2,22 @@ import { useState } from 'react';
 import { LoginType } from 'types/auth/auth.type';
 import Input from 'components/shared/Input';
 import Button from 'components/shared/Button';
-import { useMutation } from 'react-query';
-import { loginUser } from 'apis/auth.api';
 import { useNavigate } from 'react-router-dom';
-import { useSetRecoilState } from 'recoil';
-import { userData } from 'atoms/user.atom';
-import { AUTHORITY, SCHOOL_NAME } from 'constants/user.constant';
-import { ACCESS_KEY, REFRESH_KEY } from 'constants/token.constant';
-import { color } from 'styles/theme.style';
-import * as T from 'styles/text.style';
+import { LoginFeature } from 'features/auth/login/login.feature';
 import * as S from './style';
 
 const Login = () => {
   const navigate = useNavigate();
-  const setUserData = useSetRecoilState(userData);
   const [loginData, setLoginData] = useState<LoginType>({
     email: '',
     password: '',
   });
 
+  const { login } = LoginFeature({ loginData });
+
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setLoginData({ ...loginData, [name]: value });
-  };
-
-  const loginMutate = useMutation(loginUser, {
-    onSuccess: (res) => {
-      localStorage.setItem(AUTHORITY, res.user.authority);
-      localStorage.setItem(SCHOOL_NAME, res.user.schoolName);
-      localStorage.setItem(ACCESS_KEY, res.accessToken);
-      localStorage.setItem(REFRESH_KEY, res.refreshToken);
-      setUserData({
-        accessToken: res.accessToken,
-        refreshToken: res.refreshToken,
-        authority: res.user.authority,
-        schoolName: res.user.schoolName,
-      });
-
-      alert('로그인 성공 !!');
-      navigate('/');
-    },
-    onError: (err) => {
-      console.log(err);
-    },
-  });
-
-  const login = () => {
-    loginMutate.mutate(loginData);
   };
 
   return (

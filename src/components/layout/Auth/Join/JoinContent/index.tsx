@@ -1,12 +1,8 @@
-import { useNavigate } from 'react-router-dom';
 import { JoinContentsPropsType } from 'types/auth/auth.type';
-import { useMutation } from 'react-query';
-import { joinUser } from 'apis/auth.api';
 import Input from 'components/shared/Input';
 import SearchInput from 'components/shared/SearchInput';
 import Button from 'components/shared/Button';
-import { color } from 'styles/theme.style';
-import * as T from 'styles/text.style';
+import { JoinFeature } from 'features/auth/join/join.feature';
 import * as S from './style';
 
 const JoinContent = ({
@@ -14,41 +10,11 @@ const JoinContent = ({
   setJoinData,
   joinData,
 }: JoinContentsPropsType) => {
-  const navigate = useNavigate();
+  const { submit } = JoinFeature({ setJoinData, joinData });
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setJoinData({ ...joinData, [name]: value });
-  };
-
-  const { mutate } = useMutation(joinUser, {
-    onSuccess: () => {
-      alert('회원가입 성공 !!');
-      navigate('/login');
-    },
-    onError: (err) => {
-      console.log(err);
-    },
-  });
-
-  const submit = () => {
-    const { password, rePassword, schoolId } = joinData;
-    if (password === rePassword) {
-      if (schoolId !== 0) {
-        mutate(joinData);
-      } else {
-        alert('학교 선택을 해주세요');
-      }
-    } else {
-      alert('비밀번호가 맞지 않습니다');
-    }
-    setJoinData({
-      email: '',
-      password: '',
-      rePassword: '',
-      schoolId: 0,
-      schoolName: '',
-    });
   };
 
   return (
