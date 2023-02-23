@@ -8,27 +8,25 @@ const MiniButton = ({
   width,
   option,
 }: ButtonPropsType) => {
-  let element: React.ReactNode;
   if (option === 'FILLED') {
-    element = (
+    return (
       <S.FilledButton style={{ padding, width }} onClick={onClick}>
         <S.FilledButtonText>{value}</S.FilledButtonText>
       </S.FilledButton>
     );
-  } else if (option === 'UNFILLED') {
-    element = (
+  }
+  if (option === 'UNFILLED') {
+    return (
       <S.UnfilledButton style={{ padding, width }} onClick={onClick}>
         <S.UnfilledButtonText>{value}</S.UnfilledButtonText>
       </S.UnfilledButton>
     );
-  } else {
-    element = (
-      <S.ScarceFilledButton style={{ padding, width }} onClick={onClick}>
-        <S.ScarceFilledButtonText>{value}</S.ScarceFilledButtonText>
-      </S.ScarceFilledButton>
-    );
   }
-  return element;
+  return (
+    <S.ScarceFilledButton style={{ padding, width }} onClick={onClick}>
+      <S.ScarceFilledButtonText>{value}</S.ScarceFilledButtonText>
+    </S.ScarceFilledButton>
+  );
 };
 
 export default MiniButton;
