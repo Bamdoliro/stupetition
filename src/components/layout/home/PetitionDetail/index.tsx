@@ -57,7 +57,7 @@ const PetitionDetail = () => {
               option="DETAIL"
               width="150px"
               height="150px"
-              numberOfAgreers={Number(data?.numberOfAgreers)}
+              numberOfAgreers={Number(data?.numberOfApprover)}
             />
           </S.InfoWrap>
         </S.Info>
@@ -90,6 +90,7 @@ const PetitionDetail = () => {
             <Comment
               key={item.id}
               id={item.id}
+              writer={item?.writer}
               comment={item.comment}
               createdAt={item.createdAt}
             />

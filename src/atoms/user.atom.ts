@@ -1,5 +1,5 @@
 import { ACCESS_KEY, REFRESH_KEY } from 'constants/token.constant';
-import { AUTHORITY, SCHOOL_NAME } from 'constants/user.constant';
+import { AUTHORITY, SCHOOL_NAME, USER_ID } from 'constants/user.constant';
 import { atom } from 'recoil';
 
 export const userData = atom({
@@ -9,5 +9,6 @@ export const userData = atom({
     refreshToken: localStorage.getItem(REFRESH_KEY),
     authority: localStorage.getItem(AUTHORITY),
     schoolName: localStorage.getItem(SCHOOL_NAME),
+    userId: localStorage.getItem(USER_ID),
   },
 });

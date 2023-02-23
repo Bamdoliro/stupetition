@@ -4,11 +4,12 @@ import { useMutation } from 'react-query';
 import { CommentType } from 'types/petition/petition.type';
 import { FormatDatetime } from 'utils/FormatDatetime';
 import CheckSvg from 'assets/check.svg';
+import { USER_ID } from 'constants/user.constant';
 import * as S from './style';
 
-const Comment = ({ comment, createdAt, id }: CommentType) => {
+const Comment = ({ comment, createdAt, id, writer }: CommentType) => {
   const { date, time } = FormatDatetime(createdAt);
-
+  const userId = localStorage.getItem(USER_ID);
   const deleteMutate = useMutation(deleteCommentPetition, {
     onSuccess: () => {
       alert('삭제 성공');
@@ -34,20 +35,22 @@ const Comment = ({ comment, createdAt, id }: CommentType) => {
             <S.ItemWrap>
               <S.NameWrap>
                 <S.Name>익명</S.Name>
-
-                {/* 백 고치면 그때 해야함 */}
-                {/* {user.authority === 'ROLE_STUDENT_COUNCIL' ? (
+                {writer.authority === 'ROLE_STUDENT_COUNCIL' ? (
                   <S.Check src={CheckSvg} />
                 ) : (
                   ''
-                )} */}
+                )}
               </S.NameWrap>
               <S.Date>
                 {date} {time}
               </S.Date>
             </S.ItemWrap>
           </S.ProfileWrap>
-          <S.Delete onClick={deleteSubmit}>삭제</S.Delete>
+          {Number(userId) === writer?.userId ? (
+            <S.Delete onClick={deleteSubmit}>삭제</S.Delete>
+          ) : (
+            ''
+          )}
         </S.InfoWrap>
       </S.Info>
       <S.Content>
