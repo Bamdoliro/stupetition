@@ -23,6 +23,7 @@ const PetitionDetail = () => {
   const { commentSubmit } = CommentFeature({ detailId, setComment, comment });
   const { answerSubmit } = AnswerFeature({ detailId, setComment, comment });
   const { approveSubmit } = ApproveFeature(detailId);
+  console.log(data);
 
   const { color, progress } = ProgressChecker(data?.status);
   const { date, time } = FormatDatetime(data?.createdAt);
