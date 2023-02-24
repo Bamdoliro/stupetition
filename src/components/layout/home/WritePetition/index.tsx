@@ -6,24 +6,19 @@ import Confirm from 'components/common/Dialog';
 
 import { useNavigate } from 'react-router-dom';
 import { useDialog } from 'hooks/useDialog';
+import { useModal } from 'hooks/useModal';
 import * as S from './style';
 import CheckPetitionModal from './CheckPetitionModal';
 
 const WritePetition = () => {
   const navigate = useNavigate();
-  const { closeDialog, openDialog } = useDialog();
+  const { closeDialog } = useDialog();
+  const { closeModal, openModal } = useModal();
   const [petitionData, setPetitionData] = useState<WritePetitionType>({
     title: '',
     content: '',
   });
-  const {
-    write,
-    closeCheckPetition,
-    openCheckPetition,
-    cancelConfirm,
-    closeConfirm,
-    outConfirm,
-  } = WriteFeature(petitionData);
+  const { write, cancelConfirm } = WriteFeature(petitionData);
 
   const onChange = (
     e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
@@ -46,11 +41,7 @@ const WritePetition = () => {
             petitionData.title.length <= 0 ? (
               <MiniButton value="다음" option="SCARCE_FILLED" />
             ) : (
-              <MiniButton
-                value="다음"
-                option="FILLED"
-                onClick={() => openCheckPetition()}
-              />
+              <MiniButton value="다음" option="FILLED" onClick={openModal} />
             )}
           </S.HeaderWrap>
         </S.Header>
@@ -76,12 +67,15 @@ const WritePetition = () => {
         정말 이 페이지를 나가시겠습니까?"
         canceltext="취소"
         checktext="나가기"
-        cancel={closeConfirm}
-        check={outConfirm}
+        cancel={closeDialog}
+        check={() => {
+          navigate('/');
+          closeDialog();
+        }}
       />
       <CheckPetitionModal
         title={petitionData.title}
-        close={closeCheckPetition}
+        close={closeModal}
         write={write}
       />
     </>
