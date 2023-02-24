@@ -8,15 +8,26 @@ const Button = ({
   option,
   value,
 }: ButtonPropsType) => {
-  return option === 'FILLED' ? (
-    <S.FilledButton style={{ padding, width }} onClick={onClick}>
-      <S.FilledButtonText>{value}</S.FilledButtonText>
-    </S.FilledButton>
-  ) : (
-    <S.UnfilledButton style={{ padding, width }} onClick={onClick}>
-      <S.UnfilledButtonText>{value}</S.UnfilledButtonText>
-    </S.UnfilledButton>
-  );
+  switch (option) {
+    case 'FILLED':
+      return (
+        <S.FilledButton style={{ padding, width }} onClick={onClick}>
+          <S.FilledButtonText>{value}</S.FilledButtonText>
+        </S.FilledButton>
+      );
+    case 'UNFILLED':
+      return (
+        <S.UnfilledButton style={{ padding, width }} onClick={onClick}>
+          <S.UnfilledButtonText>{value}</S.UnfilledButtonText>
+        </S.UnfilledButton>
+      );
+    default:
+      return (
+        <S.FilledButton style={{ padding, width }} onClick={onClick}>
+          <S.FilledButtonText>{value}</S.FilledButtonText>
+        </S.FilledButton>
+      );
+  }
 };
 
 export default Button;

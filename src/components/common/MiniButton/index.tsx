@@ -8,25 +8,32 @@ const MiniButton = ({
   width,
   option,
 }: ButtonPropsType) => {
-  if (option === 'FILLED') {
-    return (
-      <S.FilledButton style={{ padding, width }} onClick={onClick}>
-        <S.FilledButtonText>{value}</S.FilledButtonText>
-      </S.FilledButton>
-    );
+  switch (option) {
+    case 'FILLED':
+      return (
+        <S.FilledButton style={{ padding, width }} onClick={onClick}>
+          <S.FilledButtonText>{value}</S.FilledButtonText>
+        </S.FilledButton>
+      );
+    case 'UNFILLED':
+      return (
+        <S.UnfilledButton style={{ padding, width }} onClick={onClick}>
+          <S.UnfilledButtonText>{value}</S.UnfilledButtonText>
+        </S.UnfilledButton>
+      );
+    case 'SCARCE_FILLED':
+      return (
+        <S.ScarceFilledButton style={{ padding, width }} onClick={onClick}>
+          <S.ScarceFilledButtonText>{value}</S.ScarceFilledButtonText>
+        </S.ScarceFilledButton>
+      );
+    default:
+      return (
+        <S.FilledButton style={{ padding, width }} onClick={onClick}>
+          <S.FilledButtonText>{value}</S.FilledButtonText>
+        </S.FilledButton>
+      );
   }
-  if (option === 'UNFILLED') {
-    return (
-      <S.UnfilledButton style={{ padding, width }} onClick={onClick}>
-        <S.UnfilledButtonText>{value}</S.UnfilledButtonText>
-      </S.UnfilledButton>
-    );
-  }
-  return (
-    <S.ScarceFilledButton style={{ padding, width }} onClick={onClick}>
-      <S.ScarceFilledButtonText>{value}</S.ScarceFilledButtonText>
-    </S.ScarceFilledButton>
-  );
 };
 
 export default MiniButton;
