@@ -1,9 +1,11 @@
-import MiniButton from '../MiniButton';
+import { useConfirm } from 'hooks/useDialog';
+import MiniButton from '../../MiniButton';
 import * as S from './style';
 
-const Dialog = () => {
+const Confirm = () => {
+  const { confirm } = useConfirm();
   return (
-    <S.BlurBackground>
+    <S.BlurBackground display={confirm ? 'flex' : 'none'}>
       <S.Confirm>
         <S.ConfirmWrap>
           <S.ConfirmTextBox>
@@ -23,4 +25,4 @@ const Dialog = () => {
   );
 };
 
-export default Dialog;
+export default Confirm;

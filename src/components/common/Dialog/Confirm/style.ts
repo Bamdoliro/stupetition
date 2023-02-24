@@ -2,14 +2,15 @@ import styled from 'styled-components';
 import * as T from 'styles/text.style';
 import { color } from 'styles/theme.style';
 
-export const BlurBackground = styled.div`
+export const BlurBackground = styled.div<{ display: string }>`
+  display: ${(props) => props.display};
   top: 0;
   left: 0;
-  z-index: 10;
-  position: absolute;
+  position: fixed;
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
+  scrollbar-width: none;
 `;
 
 export const Confirm = styled.div`

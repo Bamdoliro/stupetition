@@ -23,7 +23,7 @@ export const Banner = styled.div`
   padding-left: 100px;
   background-image: url(${BannerImg});
   background-size: cover;
-  height: 70%;
+  height: 50%;
 `;
 
 export const BannerText = styled(T.D2)`
