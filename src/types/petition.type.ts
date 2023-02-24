@@ -5,7 +5,7 @@ export interface WritePetitionType {
   content: string;
 }
 
-export interface GetPetitionType {
+export interface PetitionListType {
   createdAt: string;
   id: number;
   numberOfAgreers: number;
@@ -19,15 +19,24 @@ export interface CommentType {
   writer: Writer;
 }
 
-export interface PostPetitionType {
-  comment: string;
-  petitionId?: number;
-}
-
 export interface Writer {
   authority: string;
   email: string;
   schoolName: string;
   status: string;
   userId: number;
+}
+
+export interface PetitionDetailType {
+  comments: CommentType[];
+  content: string;
+  id: number;
+  numberOfApprover: number;
+  status: StatusType;
+  answer: string;
+  title: string;
+  userEmail: string;
+  createdAt: string;
+  approved: boolean;
+  writer: Writer;
 }
