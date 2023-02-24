@@ -5,7 +5,7 @@ import { userData } from 'atoms/user.atom';
 import { useNavigate } from 'react-router-dom';
 import MiniButton from 'components/common/MiniButton';
 import { PetitionListFeature } from 'features/home/petitionList.feature';
-import PetitionList from './PetitionList';
+import PetitionList from '../../../common/PetitionList';
 import RadioTabMenu from './RadioTabMenu';
 import * as S from './style';
 
