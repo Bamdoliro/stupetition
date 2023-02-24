@@ -1,10 +1,24 @@
 import MiniButton from 'components/common/MiniButton';
 import PetitionList from 'components/common/PetitionList';
+import { useModal } from 'hooks/useModal';
+import { MouseEventHandler } from 'react';
 import * as S from './style';
 
-const CheckPetitionModal = () => {
+interface CheckPetitionModalPropsType {
+  title: string;
+  close: MouseEventHandler<HTMLButtonElement>;
+  write: MouseEventHandler<HTMLButtonElement>;
+}
+
+const CheckPetitionModal = ({
+  title,
+  close,
+  write,
+}: CheckPetitionModalPropsType) => {
+  const { modal } = useModal();
+
   return (
-    <S.BlurBackground display={true ? 'flex' : 'none'}>
+    <S.BlurBackground display={modal ? 'flex' : 'none'}>
       <S.CheckPetitionModal>
         <S.CheckPetitionModalWrap>
           <S.Title>최종 확인</S.Title>
@@ -13,14 +27,14 @@ const CheckPetitionModal = () => {
             <PetitionList
               id={0}
               status="ANSWERED"
-              title=""
+              title={title}
               numberOfAgreers={0}
               createdAt="0000-00-00 00:00:00"
             />
           </S.PreviewBox>
           <S.ButtonBox>
-            <MiniButton option="UNFILLED" value="닫기" />
-            <MiniButton option="FILLED" value="청원 게시" />
+            <MiniButton option="UNFILLED" value="닫기" onClick={close} />
+            <MiniButton option="FILLED" value="청원 게시" onClick={write} />
           </S.ButtonBox>
         </S.CheckPetitionModalWrap>
       </S.CheckPetitionModal>

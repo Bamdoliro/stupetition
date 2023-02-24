@@ -11,12 +11,19 @@ import CheckPetitionModal from './CheckPetitionModal';
 
 const WritePetition = () => {
   const navigate = useNavigate();
-  const { closeDialog } = useDialog();
+  const { closeDialog, openDialog } = useDialog();
   const [petitionData, setPetitionData] = useState<WritePetitionType>({
     title: '',
     content: '',
   });
-  const { write, cancel } = WriteFeature(petitionData);
+  const {
+    write,
+    closeCheckPetition,
+    openCheckPetition,
+    cancelConfirm,
+    closeConfirm,
+    outConfirm,
+  } = WriteFeature(petitionData);
 
   const onChange = (
     e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
@@ -30,12 +37,20 @@ const WritePetition = () => {
       <S.WritePetitionLayout>
         <S.Header>
           <S.HeaderWrap>
-            <MiniButton value="취소" option="UNFILLED" onClick={cancel} />
+            <MiniButton
+              value="취소"
+              option="UNFILLED"
+              onClick={cancelConfirm}
+            />
             {petitionData.content.length <= 0 ||
             petitionData.title.length <= 0 ? (
               <MiniButton value="다음" option="SCARCE_FILLED" />
             ) : (
-              <MiniButton value="다음" option="FILLED" onClick={write} />
+              <MiniButton
+                value="다음"
+                option="FILLED"
+                onClick={() => openCheckPetition()}
+              />
             )}
           </S.HeaderWrap>
         </S.Header>
@@ -55,19 +70,20 @@ const WritePetition = () => {
         </S.ContentsWrap>
       </S.WritePetitionLayout>
       <Confirm
-        option="ALERT"
+        option="CONFIRM"
         title="창 닫기"
         content="이대로 나가면 변경사항이 모두 삭제됩니다.
         정말 이 페이지를 나가시겠습니까?"
         canceltext="취소"
         checktext="나가기"
-        cancel={() => closeDialog()}
-        check={() => {
-          navigate('/');
-          closeDialog();
-        }}
+        cancel={closeConfirm}
+        check={outConfirm}
       />
-      <CheckPetitionModal />
+      <CheckPetitionModal
+        title={petitionData.title}
+        close={closeCheckPetition}
+        write={write}
+      />
     </>
   );
 };
