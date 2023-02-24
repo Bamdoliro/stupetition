@@ -24,7 +24,6 @@ const PetitionDetail = () => {
   const { answerSubmit } = AnswerFeature({ detailId, setComment, comment });
   const { approveSubmit } = ApproveFeature(detailId);
 
-  const isApprovePetition = useState<boolean>(data.approved);
   const { color, progress } = ProgressChecker(data.status);
   const { date, time } = FormatDatetime(data.createdAt);
 
@@ -51,8 +50,7 @@ const PetitionDetail = () => {
         <S.Content>
           <S.Pre>{data.content}</S.Pre>
         </S.Content>
-        {user.authority ===
-        'ROLE_STUDENT_COUNCIL' ? null : isApprovePetition ? (
+        {user.authority === 'ROLE_STUDENT_COUNCIL' ? null : data.approved ? (
           <S.ApprovedButton>
             <S.ApproveText>동의 완료</S.ApproveText>
           </S.ApprovedButton>
