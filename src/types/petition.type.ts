@@ -1,7 +1,5 @@
 export type StatusType = 'PETITION' | 'EXPIRED' | 'WAITING' | 'ANSWERED';
 
-export type StatusNameType = '진행중' | '대기중' | '완료' | '만료';
-
 export interface WritePetitionType {
   title: string;
   content: string;

@@ -1,4 +1,6 @@
-import { StatusNameType, StatusType } from 'types/petition.type';
+import { StatusType } from 'types/petition.type';
+
+export type StatusNameType = '진행중' | '대기중' | '완료' | '만료';
 
 interface TabDataType {
   id: number;

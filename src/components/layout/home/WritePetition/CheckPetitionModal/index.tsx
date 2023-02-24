@@ -25,11 +25,12 @@ const CheckPetitionModal = ({
           <S.PreviewBox>
             <S.Preview>썸네일 미리보기</S.Preview>
             <PetitionList
+              option="MODAL"
               id={0}
               status="ANSWERED"
               title={title}
               numberOfApprover={0}
-              createdAt="0000-00-00 00:00:00"
+              createdAt="0000-00-00"
             />
           </S.PreviewBox>
           <S.ButtonBox>

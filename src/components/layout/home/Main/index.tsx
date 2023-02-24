@@ -47,6 +47,7 @@ const Main = () => {
               data.map((item) => {
                 return (
                   <PetitionList
+                    option="LIST"
                     key={item.id}
                     id={item.id}
                     createdAt={item.createdAt}
