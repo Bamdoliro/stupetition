@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import MiniButton from 'components/common/MiniButton';
 import { PetitionListFeature } from 'features/home/petitionList.feature';
 import PetitionList from '../../../common/PetitionList';
-import RadioTabMenu from './RadioTabMenu';
+import RadioTabMenu from '../../../common/RadioTabMenu';
 import * as S from './style';
 
 const Main = () => {
