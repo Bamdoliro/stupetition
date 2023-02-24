@@ -2,15 +2,15 @@ import { ChangeEvent, useState } from 'react';
 import { WritePetitionType } from 'types/petition.type';
 import MiniButton from 'components/common/MiniButton';
 import { WriteFeature } from 'features/home/write.feature';
-import Confirm from 'components/common/Dialog/Confirm';
+import Confirm from 'components/common/Dialog';
 
 import { useNavigate } from 'react-router-dom';
-import { useConfirm } from 'hooks/useDialog';
+import { useDialog } from 'hooks/useDialog';
 import * as S from './style';
 
 const WritePetition = () => {
   const navigate = useNavigate();
-  const { closeConfirm } = useConfirm();
+  const { closeDialog } = useDialog();
   const [petitionData, setPetitionData] = useState<WritePetitionType>({
     title: '',
     content: '',
@@ -54,15 +54,16 @@ const WritePetition = () => {
         </S.ContentsWrap>
       </S.WritePetitionLayout>
       <Confirm
+        option="ALERT"
         title="창 닫기"
         content="이대로 나가면 변경사항이 모두 삭제됩니다.
         정말 이 페이지를 나가시겠습니까?"
         canceltext="취소"
         checktext="나가기"
-        cancel={() => closeConfirm()}
+        cancel={() => closeDialog()}
         check={() => {
           navigate('/');
-          closeConfirm();
+          closeDialog();
         }}
       />
     </>

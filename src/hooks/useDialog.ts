@@ -1,14 +1,14 @@
-import { confirmState } from 'atoms/dialog.atom';
+import { dialogState } from 'atoms/dialog.atom';
 import { useRecoilState } from 'recoil';
 
-export const useConfirm = () => {
-  const [confirm, setConfirm] = useRecoilState(confirmState);
-  const openConfirm = () => {
-    setConfirm(true);
+export const useDialog = () => {
+  const [dialog, setDialog] = useRecoilState(dialogState);
+  const openDialog = () => {
+    setDialog(true);
   };
-  const closeConfirm = () => {
-    setConfirm(false);
+  const closeDialog = () => {
+    setDialog(false);
   };
 
-  return { openConfirm, closeConfirm, confirm };
+  return { openDialog, closeDialog, dialog };
 };

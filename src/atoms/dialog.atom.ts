@@ -1,6 +1,6 @@
 import { atom } from 'recoil';
 
-export const confirmState = atom<boolean>({
-  key: 'cofirm',
+export const dialogState = atom<boolean>({
+  key: 'dialogState',
   default: false,
 });
