@@ -11,7 +11,6 @@ export const SchoolFeature = (searchWord: string) => {
       select: (data) => data.slice(0, 10),
     },
   );
-  console.log(data);
 
   return { data };
 };

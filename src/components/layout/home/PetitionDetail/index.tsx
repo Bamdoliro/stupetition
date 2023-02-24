@@ -23,24 +23,10 @@ const PetitionDetail = () => {
   const { commentSubmit } = CommentFeature({ detailId, setComment, comment });
   const { answerSubmit } = AnswerFeature({ detailId, setComment, comment });
   const { approveSubmit } = ApproveFeature(detailId);
-  console.log(data);
 
+  const isApprovePetition = useState<boolean | undefined>(data?.approved);
   const { color, progress } = ProgressChecker(data?.status);
   const { date, time } = FormatDatetime(data?.createdAt);
-
-  const [isApprovePetition, setIsApprovePetition] = useState<
-    boolean | undefined
-  >(data?.approved);
-
-  const approveElement = isApprovePetition ? (
-    <S.ApprovedButton>
-      <S.ApproveText>동의 완료</S.ApproveText>
-    </S.ApprovedButton>
-  ) : (
-    <S.ApproveButton onClick={approveSubmit}>
-      <S.ApproveText>동의 하기</S.ApproveText>
-    </S.ApproveButton>
-  );
 
   return (
     <S.PetitionDetailLayout>
@@ -65,7 +51,16 @@ const PetitionDetail = () => {
         <S.Content>
           <S.Pre>{data?.content}</S.Pre>
         </S.Content>
-        {user.authority === 'ROLE_STUDENT_COUNCIL' ? '' : approveElement}
+        {user.authority ===
+        'ROLE_STUDENT_COUNCIL' ? null : isApprovePetition ? (
+          <S.ApprovedButton>
+            <S.ApproveText>동의 완료</S.ApproveText>
+          </S.ApprovedButton>
+        ) : (
+          <S.ApproveButton onClick={approveSubmit}>
+            <S.ApproveText>동의 하기</S.ApproveText>
+          </S.ApproveButton>
+        )}
         <S.CommentSendWrap>
           <S.CommentSendInput
             placeholder={
@@ -91,7 +86,7 @@ const PetitionDetail = () => {
             <Comment
               key={item.id}
               id={item.id}
-              writer={item?.writer}
+              writer={item.writer}
               comment={item.comment}
               createdAt={item.createdAt}
             />

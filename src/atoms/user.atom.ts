@@ -4,7 +4,6 @@ import { atom } from 'recoil';
 import { UserDataType } from 'types/user.type';
 
 export const userData = atom<UserDataType>({
-  // userId 개애매함..
   key: 'user',
   default: {
     accessToken: localStorage.getItem(ACCESS_KEY) || '',
