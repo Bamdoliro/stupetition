@@ -24,9 +24,9 @@ const PetitionDetail = () => {
   const { answerSubmit } = AnswerFeature({ detailId, setComment, comment });
   const { approveSubmit } = ApproveFeature(detailId);
 
-  const isApprovePetition = useState<boolean | undefined>(data?.approved);
-  const { color, progress } = ProgressChecker(data?.status);
-  const { date, time } = FormatDatetime(data?.createdAt);
+  const isApprovePetition = useState<boolean>(data.approved);
+  const { color, progress } = ProgressChecker(data.status);
+  const { date, time } = FormatDatetime(data.createdAt);
 
   return (
     <S.PetitionDetailLayout>
@@ -35,7 +35,7 @@ const PetitionDetail = () => {
           <S.InfoWrap>
             <S.ItemWrap>
               <S.Progress color={color}>{progress}</S.Progress>
-              <S.Title>{data?.title}</S.Title>
+              <S.Title>{data.title}</S.Title>
               <S.Date>
                 {date} {time}
               </S.Date>
@@ -44,12 +44,12 @@ const PetitionDetail = () => {
               option="DETAIL"
               width="150px"
               height="150px"
-              numberOfAgreers={Number(data?.numberOfApprover)}
+              numberOfAgreers={Number(data.numberOfApprover)}
             />
           </S.InfoWrap>
         </S.Info>
         <S.Content>
-          <S.Pre>{data?.content}</S.Pre>
+          <S.Pre>{data.content}</S.Pre>
         </S.Content>
         {user.authority ===
         'ROLE_STUDENT_COUNCIL' ? null : isApprovePetition ? (
@@ -81,17 +81,18 @@ const PetitionDetail = () => {
             </S.CommentSendButton>
           )}
         </S.CommentSendWrap>
-        {data?.comments.map((item) => {
-          return (
-            <Comment
-              key={item.id}
-              id={item.id}
-              writer={item.writer}
-              comment={item.comment}
-              createdAt={item.createdAt}
-            />
-          );
-        })}
+        {data.comments &&
+          data.comments.map((item) => {
+            return (
+              <Comment
+                key={item.id}
+                id={item.id}
+                writer={item.writer}
+                comment={item.comment}
+                createdAt={item.createdAt}
+              />
+            );
+          })}
       </S.Wrap>
     </S.PetitionDetailLayout>
   );

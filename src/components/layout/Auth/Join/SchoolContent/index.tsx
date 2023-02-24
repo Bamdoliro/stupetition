@@ -36,17 +36,18 @@ const SchoolContent = ({
           onChange={onChage}
         />
         <S.SchoolWrap>
-          {data?.map((item) => {
-            return (
-              <SchoolList
-                key={item.id}
-                name={item.name}
-                id={item.id}
-                emailDomain={item.emailDomain}
-                onChange={handleClickRadio}
-              />
-            );
-          })}
+          {data &&
+            data.map((item) => {
+              return (
+                <SchoolList
+                  key={item.id}
+                  name={item.name}
+                  id={item.id}
+                  emailDomain={item.emailDomain}
+                  onChange={handleClickRadio}
+                />
+              );
+            })}
         </S.SchoolWrap>
         <S.ButtonWrap>
           <Button

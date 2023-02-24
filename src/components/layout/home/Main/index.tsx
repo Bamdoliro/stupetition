@@ -45,7 +45,8 @@ const Main = () => {
           </S.SubNav>
           <S.PetitionWrap>
             {user.authority ? (
-              data?.map((item) => {
+              data &&
+              data.map((item) => {
                 return (
                   <PetitionList
                     key={item.id}

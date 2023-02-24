@@ -8,5 +8,17 @@ export const DetailFeature = (detailId: number) => {
     () => getPetitionDetail(detailId),
   );
 
-  return { isLoading, isError, data };
+  return {
+    isLoading,
+    isError,
+    data: data || {
+      approved: false,
+      createdAt: '0000-00-00T00:00:00',
+      status: 'ANSWERED',
+      title: '',
+      numberOfApprover: 0,
+      content: '',
+      comments: [],
+    },
+  };
 };
