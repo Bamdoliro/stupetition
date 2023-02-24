@@ -22,26 +22,12 @@ const WritePetition = () => {
     <S.WritePetitionLayout>
       <S.Header>
         <S.HeaderWrap>
-          <MiniButton
-            value="취소"
-            option="UNFILLED"
-            padding="10px 16px"
-            onClick={cancel}
-          />
+          <MiniButton value="취소" option="UNFILLED" onClick={cancel} />
           {petitionData.content.length <= 0 ||
           petitionData.title.length <= 0 ? (
-            <MiniButton
-              value="다음"
-              option="SCARCE_FILLED"
-              padding="10px 16px"
-            />
+            <MiniButton value="다음" option="SCARCE_FILLED" />
           ) : (
-            <MiniButton
-              value="다음"
-              option="FILLED"
-              padding="10px 16px"
-              onClick={write}
-            />
+            <MiniButton value="다음" option="FILLED" onClick={write} />
           )}
         </S.HeaderWrap>
       </S.Header>

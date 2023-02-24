@@ -45,7 +45,6 @@ const Header = () => {
             <MiniButton
               value="로그인"
               option="UNFILLED"
-              padding="10px 16px"
               onClick={() => navigate('/login')}
             />
           )}
