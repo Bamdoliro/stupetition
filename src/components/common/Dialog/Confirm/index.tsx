@@ -1,23 +1,37 @@
 import { useConfirm } from 'hooks/useDialog';
+import { MouseEventHandler } from 'react';
 import MiniButton from '../../MiniButton';
 import * as S from './style';
 
-const Confirm = () => {
+interface ConfirmPropsType {
+  title: string;
+  content: string;
+  canceltext: string;
+  checktext: string;
+  cancel: MouseEventHandler<HTMLButtonElement>;
+  check: MouseEventHandler<HTMLButtonElement>;
+}
+
+const Confirm = ({
+  title,
+  content,
+  canceltext,
+  checktext,
+  cancel,
+  check,
+}: ConfirmPropsType) => {
   const { confirm } = useConfirm();
   return (
     <S.BlurBackground display={confirm ? 'flex' : 'none'}>
       <S.Confirm>
         <S.ConfirmWrap>
           <S.ConfirmTextBox>
-            <S.ConfirmTitle>경고 창</S.ConfirmTitle>
-            <S.ConfirmContent>
-              이대로 나가면 변경사항이 모두 삭제됩니다. 정말 이 페이지를
-              나가시겠습니까?
-            </S.ConfirmContent>
+            <S.ConfirmTitle>{title}</S.ConfirmTitle>
+            <S.ConfirmContent>{content}</S.ConfirmContent>
           </S.ConfirmTextBox>
           <S.ConfirmButtonBox>
-            <MiniButton option="UNFILLED" value="취소" />
-            <MiniButton option="FILLED" value="나가기" />
+            <MiniButton option="UNFILLED" value={canceltext} onClick={cancel} />
+            <MiniButton option="FILLED" value={checktext} onClick={check} />
           </S.ConfirmButtonBox>
         </S.ConfirmWrap>
       </S.Confirm>

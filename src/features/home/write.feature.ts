@@ -1,10 +1,12 @@
 import { writePetition } from 'apis/petition.api';
+import { useConfirm } from 'hooks/useDialog';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import { WritePetitionType } from 'types/petition.type';
 
 export const WriteFeature = (petitionData: WritePetitionType) => {
   const navigate = useNavigate();
+  const { openConfirm } = useConfirm();
   const { mutate } = useMutation(writePetition, {
     onSuccess: () => {
       alert('게시글 작성 성공 !!');
@@ -20,13 +22,8 @@ export const WriteFeature = (petitionData: WritePetitionType) => {
   };
 
   const cancel = () => {
-    // 임시 confirm
     if (petitionData.content || petitionData.title) {
-      if (
-        window.confirm('변경된 사항은 저장되지 않습니다 진짜 나갈거냐 닝겐')
-      ) {
-        navigate('/');
-      }
+      openConfirm();
     } else {
       navigate('/');
     }
