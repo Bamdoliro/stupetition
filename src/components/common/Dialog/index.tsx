@@ -3,8 +3,10 @@ import { MouseEventHandler } from 'react';
 import MiniButton from 'components/common/MiniButton';
 import * as S from './style';
 
+type DialogOptionType = 'CONFIRM' | 'ALERT';
+
 interface DialogPropsType {
-  option: 'CONFIRM' | 'ALERT';
+  option: DialogOptionType;
   title: string;
   content: string;
   canceltext: string;
