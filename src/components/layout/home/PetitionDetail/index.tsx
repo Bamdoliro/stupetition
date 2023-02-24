@@ -3,7 +3,7 @@ import Progressbar from 'components/common/Progressbar';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { FormatDatetime } from 'utils/FormatDatetime';
-import { userData } from 'atoms/user.atom';
+import { userState } from 'atoms/user.atom';
 import { useRecoilValue } from 'recoil';
 import { DetailFeature } from 'features/home/detail.feature';
 import { CommentFeature } from 'features/home/commnet.feature';
@@ -15,7 +15,7 @@ import * as S from './style';
 const PetitionDetail = () => {
   const { id } = useParams();
   const detailId = Number(id);
-  const user = useRecoilValue(userData);
+  const user = useRecoilValue(userState);
   const [comment, setComment] = useState('');
 
   // 쿼리
@@ -44,7 +44,7 @@ const PetitionDetail = () => {
               option="DETAIL"
               width="150px"
               height="150px"
-              numberOfAgreers={Number(data.numberOfApprover)}
+              numberOfApprover={Number(data.numberOfApprover)}
             />
           </S.InfoWrap>
         </S.Info>
@@ -81,18 +81,17 @@ const PetitionDetail = () => {
             </S.CommentSendButton>
           )}
         </S.CommentSendWrap>
-        {data.comments &&
-          data.comments.map((item) => {
-            return (
-              <Comment
-                key={item.id}
-                id={item.id}
-                writer={item.writer}
-                comment={item.comment}
-                createdAt={item.createdAt}
-              />
-            );
-          })}
+        {data.comments.map((item) => {
+          return (
+            <Comment
+              key={item.id}
+              id={item.id}
+              writer={item.writer}
+              comment={item.comment}
+              createdAt={item.createdAt}
+            />
+          );
+        })}
       </S.Wrap>
     </S.PetitionDetailLayout>
   );

@@ -2,10 +2,10 @@ import { useQuery } from 'react-query';
 import { getPetition } from 'apis/petition.api';
 import { PetitionListType, StatusType } from 'types/petition.type';
 import { useRecoilValue } from 'recoil';
-import { userData } from 'atoms/user.atom';
+import { userState } from 'atoms/user.atom';
 
 export const PetitionListFeature = (status: StatusType) => {
-  const user = useRecoilValue(userData);
+  const user = useRecoilValue(userState);
   const { isLoading, isError, data } = useQuery<PetitionListType[]>(
     ['status', status],
     () => getPetition(status),
@@ -14,5 +14,5 @@ export const PetitionListFeature = (status: StatusType) => {
     },
   );
 
-  return { isLoading, isError, data };
+  return { isLoading, isError, data: data || [] };
 };

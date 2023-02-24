@@ -7,24 +7,24 @@ import { ProgressBarOption } from 'types/progressBar.type';
 import * as S from './style';
 
 interface ProgressbarPropsType {
-  numberOfAgreers: number;
+  numberOfApprover: number;
   width: string;
   height: string;
   option: ProgressBarOption;
 }
 
 const Progressbar = ({
-  numberOfAgreers,
+  numberOfApprover,
   width,
   height,
   option,
 }: ProgressbarPropsType) => {
-  const percentage = (numberOfAgreers / 20) * 100;
+  const percentage = (numberOfApprover / 20) * 100;
 
   return (
     <S.ProgressBar style={{ width, height }}>
       <CircularProgressbarWithChildren
-        value={numberOfAgreers}
+        value={numberOfApprover}
         maxValue={20}
         styles={buildStyles({
           strokeLinecap: 'butt',
@@ -34,12 +34,12 @@ const Progressbar = ({
         {option === 'LIST' ? (
           <>
             <S.PercentSmall>{percentage}%</S.PercentSmall>
-            <S.PersonnelSmall>{numberOfAgreers}명</S.PersonnelSmall>
+            <S.PersonnelSmall>{numberOfApprover}명</S.PersonnelSmall>
           </>
         ) : (
           <>
             <S.PercentLarge>{percentage}%</S.PercentLarge>
-            <S.PersonnelLarge>{numberOfAgreers}명</S.PersonnelLarge>
+            <S.PersonnelLarge>{numberOfApprover}명</S.PersonnelLarge>
           </>
         )}
       </CircularProgressbarWithChildren>

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { StatusType } from 'types/petition.type';
 import { useRecoilValue } from 'recoil';
-import { userData } from 'atoms/user.atom';
+import { userState } from 'atoms/user.atom';
 import { useNavigate } from 'react-router-dom';
 import MiniButton from 'components/common/MiniButton';
 import { PetitionListFeature } from 'features/home/petitionList.feature';
@@ -11,7 +11,7 @@ import * as S from './style';
 
 const Main = () => {
   const navigate = useNavigate();
-  const user = useRecoilValue(userData);
+  const user = useRecoilValue(userState);
   const [status, setStatus] = useState<StatusType>('PETITION');
   const [isBannerOpen, setIsBannerOpen] = useState<boolean>(true);
   const { isLoading, isError, data } = PetitionListFeature(status);
@@ -44,7 +44,6 @@ const Main = () => {
           </S.SubNav>
           <S.PetitionWrap>
             {user.authority ? (
-              data &&
               data.map((item) => {
                 return (
                   <PetitionList
@@ -52,7 +51,7 @@ const Main = () => {
                     id={item.id}
                     createdAt={item.createdAt}
                     title={item.title}
-                    numberOfAgreers={item.numberOfAgreers}
+                    numberOfApprover={item.numberOfApprover}
                     status={status}
                   />
                 );

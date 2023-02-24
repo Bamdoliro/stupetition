@@ -28,7 +28,7 @@ const CheckPetitionModal = ({
               id={0}
               status="ANSWERED"
               title={title}
-              numberOfAgreers={0}
+              numberOfApprover={0}
               createdAt="0000-00-00 00:00:00"
             />
           </S.PreviewBox>

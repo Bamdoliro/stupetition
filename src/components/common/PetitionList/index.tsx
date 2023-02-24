@@ -9,7 +9,7 @@ import * as S from './style';
 interface PetitionListPropsType {
   createdAt: string;
   title: string;
-  numberOfAgreers: number;
+  numberOfApprover: number;
   id: number;
   status: StatusType;
 }
@@ -17,7 +17,7 @@ interface PetitionListPropsType {
 const PetitionList = ({
   createdAt,
   title,
-  numberOfAgreers,
+  numberOfApprover,
   id,
   status,
 }: PetitionListPropsType) => {
@@ -38,7 +38,7 @@ const PetitionList = ({
           option="LIST"
           width="96px"
           height="96px"
-          numberOfAgreers={numberOfAgreers}
+          numberOfApprover={numberOfApprover}
         />
       </S.Wrap>
     </S.PetitionList>

@@ -8,7 +8,7 @@ export interface WritePetitionType {
 export interface PetitionListType {
   createdAt: string;
   id: number;
-  numberOfAgreers: number;
+  numberOfApprover: number;
   title: string;
 }
 
