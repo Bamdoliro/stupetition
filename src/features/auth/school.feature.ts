@@ -1,17 +1,8 @@
 import { useQuery } from 'react-query';
 import { searchSchool } from 'apis/school.api';
+import { SchoolType } from 'types/school.type';
 
-interface SchoolFeatureType {
-  searchWord: string;
-}
-
-interface SchoolType {
-  name: string;
-  id: number;
-  emailDomain: string;
-}
-
-export const SchoolFeature = ({ searchWord }: SchoolFeatureType) => {
+export const SchoolFeature = (searchWord: string) => {
   const { data } = useQuery<SchoolType[]>(
     ['searchWord', searchWord],
     () => searchSchool(searchWord),
@@ -20,6 +11,7 @@ export const SchoolFeature = ({ searchWord }: SchoolFeatureType) => {
       select: (data) => data.slice(0, 10),
     },
   );
+  console.log(data);
 
   return { data };
 };

@@ -12,7 +12,7 @@ const SchoolContent = ({
   joinData,
 }: JoinContentsPropsType) => {
   const [searchWord, setSearchWord] = useState('');
-  const { data } = SchoolFeature({ searchWord });
+  const { data } = SchoolFeature(searchWord);
 
   const handleClickRadio = (e: ChangeEvent<HTMLInputElement>) => {
     const name = e.target.id;

@@ -3,5 +3,5 @@ export interface UserDataType {
   refreshToken: string;
   authority: string;
   schoolName: string;
-  userId: string;
+  email: string;
 }
