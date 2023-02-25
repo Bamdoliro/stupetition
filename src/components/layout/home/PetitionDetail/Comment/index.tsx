@@ -1,14 +1,14 @@
 import { deleteCommentPetition } from 'apis/petition.api';
 import ProfileSvg from 'assets/profile.svg';
 import { useMutation } from 'react-query';
-import { CommentType } from 'types/petition.type';
 import { FormatDatetime } from 'utils/FormatDatetime';
 import CheckSvg from 'assets/check.svg';
 import { useRecoilValue } from 'recoil';
 import { userState } from 'atoms/user.atom';
+import { CommentType } from 'types/petition.type';
 import * as S from './style';
 
-const Comment = ({ comment, createdAt, id, writer }: CommentType) => {
+const Comment = ({ comment, createdAt, id, writer, option }: CommentType) => {
   const { date, time } = FormatDatetime(createdAt);
   const userData = useRecoilValue(userState);
   const deleteMutate = useMutation(deleteCommentPetition, {
@@ -36,16 +36,14 @@ const Comment = ({ comment, createdAt, id, writer }: CommentType) => {
             <S.ItemWrap>
               <S.NameWrap>
                 <S.Name>익명</S.Name>
-                {writer.authority === 'ROLE_STUDENT_COUNCIL' && (
-                  <S.Check src={CheckSvg} />
-                )}
+                {option === 'STUDENT_COUNCIL' && <S.Check src={CheckSvg} />}
               </S.NameWrap>
               <S.Date>
                 {date} {time}
               </S.Date>
             </S.ItemWrap>
           </S.ProfileWrap>
-          {userData.email === writer.email && (
+          {userData.email === writer?.email && (
             <S.Delete onClick={deleteSubmit}>삭제</S.Delete>
           )}
         </S.InfoWrap>

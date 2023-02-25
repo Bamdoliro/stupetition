@@ -27,6 +27,8 @@ const PetitionDetail = () => {
   const { color, progress } = ProgressChecker(data.status);
   const { date, time } = FormatDatetime(data.createdAt);
 
+  console.log(data);
+
   return (
     <S.PetitionDetailLayout>
       <S.Wrap>
@@ -79,9 +81,21 @@ const PetitionDetail = () => {
             </S.CommentSendButton>
           )}
         </S.CommentSendWrap>
-        {data.comments.map((item) => {
+        {data.answer?.map((item) => {
           return (
             <Comment
+              option="STUDENT_COUNCIL"
+              key={item.id}
+              id={item.id}
+              comment={item.comment}
+              createdAt={item.createdAt}
+            />
+          );
+        })}
+        {data.comments?.map((item) => {
+          return (
+            <Comment
+              option="STUDENT"
               key={item.id}
               id={item.id}
               writer={item.writer}

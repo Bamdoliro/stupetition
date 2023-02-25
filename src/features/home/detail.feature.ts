@@ -19,6 +19,7 @@ export const DetailFeature = (detailId: number) => {
       numberOfApprover: 0,
       content: '',
       comments: [],
+      answer: [],
     },
   };
 };

@@ -12,11 +12,14 @@ export interface PetitionListType {
   title: string;
 }
 
+type CommentOptionType = 'STUDENT' | 'STUDENT_COUNCIL';
+
 export interface CommentType {
+  option: CommentOptionType;
   id: number;
   comment: string;
   createdAt: string;
-  writer: Writer;
+  writer?: Writer;
 }
 
 export interface Writer {
@@ -33,7 +36,7 @@ export interface PetitionDetailType {
   id: number;
   numberOfApprover: number;
   status: StatusType;
-  answer: string;
+  answer: CommentType[];
   title: string;
   userEmail: string;
   createdAt: string;
