@@ -1,7 +1,7 @@
 import { approvePetition } from 'apis/petition.api';
 import { useMutation, useQueryClient } from 'react-query';
 
-export const ApproveFeature = (id: number) => {
+export const ApproveFeature = (detailId: number) => {
   const queryClient = useQueryClient();
 
   const approveMutate = useMutation(approvePetition, {
@@ -15,7 +15,7 @@ export const ApproveFeature = (id: number) => {
   });
 
   const approveSubmit = () => {
-    approveMutate.mutate(Number(id));
+    approveMutate.mutate(detailId);
   };
 
   return { approveSubmit };

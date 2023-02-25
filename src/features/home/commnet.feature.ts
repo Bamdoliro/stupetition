@@ -28,7 +28,7 @@ export const CommentFeature = ({
   const commentSubmit = () => {
     commentMutate.mutate({
       comment,
-      petitionId: detailId,
+      detailId,
     });
   };
 

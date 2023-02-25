@@ -4,7 +4,7 @@ import { WritePetitionType, StatusType } from 'types/petition.type';
 
 export interface CommentPetitionParamsType {
   comment: string;
-  petitionId?: number;
+  detailId: number;
 }
 
 export const writePetition = async (petitionData: WritePetitionType) => {
@@ -24,8 +24,12 @@ export const getPetitionDetail = async (id: number) => {
   return data;
 };
 
-export const approvePetition = async (petitionId: number) => {
-  await customAxios.post(`/petition/${petitionId}/approve`, authorization());
+export const approvePetition = async (detailId: number) => {
+  await customAxios.post(
+    `/petition/${detailId}/approve`,
+    null,
+    authorization(),
+  );
 };
 
 export const commentPetition = async (
@@ -36,10 +40,10 @@ export const commentPetition = async (
 
 export const answerPetition = async ({
   comment,
-  petitionId,
+  detailId,
 }: CommentPetitionParamsType) => {
   await customAxios.post(
-    `/petition/${petitionId}/approve`,
+    `/petition/${detailId}/answer`,
     comment,
     authorization(),
   );

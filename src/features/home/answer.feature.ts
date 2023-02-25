@@ -28,7 +28,7 @@ export const AnswerFeature = ({
   const answerSubmit = () => {
     answerMutate.mutate({
       comment,
-      petitionId: detailId,
+      detailId,
     });
   };
   return { answerSubmit };
