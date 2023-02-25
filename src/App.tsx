@@ -1,5 +1,5 @@
 import LoginPage from 'pages/Login';
-import MainOutlet from 'components/shared/Outlet/main.outlet';
+import MainOutlet from 'components/common/Outlet/main.outlet';
 import JoinPage from 'pages/Join';
 import MainPage from 'pages/Main';
 import PetitionDetail from 'components/layout/home/PetitionDetail';

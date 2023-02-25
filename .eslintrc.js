@@ -11,6 +11,7 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   rules: {
+    'no-nested-ternary': 'off',
     'linebreak-style': 0,
     'import/prefer-default-export': 0,
     'import/extensions': 0,

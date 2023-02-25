@@ -1,9 +1,10 @@
-import React from 'react';
+import { ButtonHTMLAttributes } from 'react';
 
-export interface ButtonPropsType {
-  value?: string;
+export type ButtonOptionType = 'UNFILLED' | 'FILLED' | 'SCARCE_FILLED';
+
+export interface ButtonPropsType
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
   padding?: string;
   width?: string;
-  option: 'UNFILLED' | 'FILLED' | 'SCARCE_FILLED';
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  option: ButtonOptionType;
 }

@@ -1,8 +1,9 @@
-import { JoinContentsPropsType } from 'types/auth/auth.type';
-import Input from 'components/shared/Input';
-import SearchInput from 'components/shared/SearchInput';
-import Button from 'components/shared/Button';
-import { JoinFeature } from 'features/auth/join/join.feature';
+import { JoinContentsPropsType } from 'types/auth.type';
+import Input from 'components/common/Input';
+import SearchInput from 'components/common/SearchInput';
+import Button from 'components/common/Button';
+import { JoinFeature } from 'features/auth/join.feature';
+import { ChangeEvent } from 'react';
 import * as S from './style';
 
 const JoinContent = ({
@@ -12,7 +13,7 @@ const JoinContent = ({
 }: JoinContentsPropsType) => {
   const { join } = JoinFeature({ setJoinData, joinData });
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setJoinData({ ...joinData, [name]: value });
   };

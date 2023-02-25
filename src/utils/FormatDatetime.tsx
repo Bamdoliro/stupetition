@@ -1,7 +1,7 @@
-export const FormatDatetime = (data: string | undefined) => {
-  const datetime = data?.split('T');
+export const FormatDatetime = (data: string) => {
+  const datetime = data.split('T');
   return {
-    date: datetime?.[0],
-    time: datetime?.[1],
+    date: datetime[0],
+    time: datetime[1],
   };
 };

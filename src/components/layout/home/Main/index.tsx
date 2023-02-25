@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { StatusType } from 'types/petition/petition.type';
+import { useState } from 'react';
+import { StatusType } from 'types/petition.type';
 import { useRecoilValue } from 'recoil';
 import { userData } from 'atoms/user.atom';
 import { useNavigate } from 'react-router-dom';
-import MiniButton from 'components/shared/MiniButton';
-import { PetitionListFeature } from 'features/home/main/petitionList/petitionList.feature';
+import MiniButton from 'components/common/MiniButton';
+import { PetitionListFeature } from 'features/home/petitionList.feature';
 import PetitionList from './PetitionList';
 import RadioTabMenu from './RadioTabMenu';
 import * as S from './style';
@@ -18,7 +18,7 @@ const Main = () => {
 
   return (
     <S.MainLayout>
-      {isBannerOpen ? (
+      {isBannerOpen && (
         <S.Banner>
           <S.BannerText>
             학생청원,
@@ -29,27 +29,24 @@ const Main = () => {
             X 닫기
           </S.CloseBanner>
         </S.Banner>
-      ) : (
-        ''
       )}
       <S.ContentsWrap>
         <S.ContentsInnerWrap>
           <S.SubNav>
             <RadioTabMenu setStatus={setStatus} status={status} />
-            {user.authority ? (
+            {user.authority && (
               <MiniButton
                 onClick={() => navigate('/petition/write')}
                 option="FILLED"
                 padding="10px 16px"
                 value="청원 추가"
               />
-            ) : (
-              ''
             )}
           </S.SubNav>
           <S.PetitionWrap>
-            {user?.authority ? (
-              data?.map((item) => {
+            {user.authority ? (
+              data &&
+              data.map((item) => {
                 return (
                   <PetitionList
                     key={item.id}

@@ -1,14 +1,14 @@
 import { ProgressChecker } from 'utils/ProgressChecker';
-import Progressbar from 'components/shared/Progressbar';
+import Progressbar from 'components/common/Progressbar';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { FormatDatetime } from 'utils/FormatDatetime';
 import { userData } from 'atoms/user.atom';
 import { useRecoilValue } from 'recoil';
-import { DetailFeature } from 'features/home/petition/detail/detail.feature';
-import { CommentFeature } from 'features/home/petition/comment/commnet.feature';
-import { AnswerFeature } from 'features/home/petition/answer/answer.feature';
-import { ApproveFeature } from 'features/home/petition/approve/approve.feature';
+import { DetailFeature } from 'features/home/detail.feature';
+import { CommentFeature } from 'features/home/commnet.feature';
+import { AnswerFeature } from 'features/home/answer.feature';
+import { ApproveFeature } from 'features/home/approve.feature';
 import Comment from './Comment';
 import * as S from './style';
 
@@ -24,22 +24,9 @@ const PetitionDetail = () => {
   const { answerSubmit } = AnswerFeature({ detailId, setComment, comment });
   const { approveSubmit } = ApproveFeature(detailId);
 
-  const { color, progress } = ProgressChecker(data?.status);
-  const { date, time } = FormatDatetime(data?.createdAt);
-
-  const [isApprovePetition, setIsApprovePetition] = useState<
-    boolean | undefined
-  >(data?.approved);
-
-  const approveElement = isApprovePetition ? (
-    <S.ApprovedButton>
-      <S.ApproveText>동의 완료</S.ApproveText>
-    </S.ApprovedButton>
-  ) : (
-    <S.ApproveButton onClick={approveSubmit}>
-      <S.ApproveText>동의 하기</S.ApproveText>
-    </S.ApproveButton>
-  );
+  const isApprovePetition = useState<boolean>(data.approved);
+  const { color, progress } = ProgressChecker(data.status);
+  const { date, time } = FormatDatetime(data.createdAt);
 
   return (
     <S.PetitionDetailLayout>
@@ -48,7 +35,7 @@ const PetitionDetail = () => {
           <S.InfoWrap>
             <S.ItemWrap>
               <S.Progress color={color}>{progress}</S.Progress>
-              <S.Title>{data?.title}</S.Title>
+              <S.Title>{data.title}</S.Title>
               <S.Date>
                 {date} {time}
               </S.Date>
@@ -57,14 +44,23 @@ const PetitionDetail = () => {
               option="DETAIL"
               width="150px"
               height="150px"
-              numberOfAgreers={Number(data?.numberOfAgreers)}
+              numberOfAgreers={Number(data.numberOfApprover)}
             />
           </S.InfoWrap>
         </S.Info>
         <S.Content>
-          <S.Pre>{data?.content}</S.Pre>
+          <S.Pre>{data.content}</S.Pre>
         </S.Content>
-        {user.authority === 'ROLE_STUDENT_COUNCIL' ? '' : approveElement}
+        {user.authority ===
+        'ROLE_STUDENT_COUNCIL' ? null : isApprovePetition ? (
+          <S.ApprovedButton>
+            <S.ApproveText>동의 완료</S.ApproveText>
+          </S.ApprovedButton>
+        ) : (
+          <S.ApproveButton onClick={approveSubmit}>
+            <S.ApproveText>동의 하기</S.ApproveText>
+          </S.ApproveButton>
+        )}
         <S.CommentSendWrap>
           <S.CommentSendInput
             placeholder={
@@ -85,16 +81,18 @@ const PetitionDetail = () => {
             </S.CommentSendButton>
           )}
         </S.CommentSendWrap>
-        {data?.comments.map((item) => {
-          return (
-            <Comment
-              key={item.id}
-              id={item.id}
-              comment={item.comment}
-              createdAt={item.createdAt}
-            />
-          );
-        })}
+        {data.comments &&
+          data.comments.map((item) => {
+            return (
+              <Comment
+                key={item.id}
+                id={item.id}
+                writer={item.writer}
+                comment={item.comment}
+                createdAt={item.createdAt}
+              />
+            );
+          })}
       </S.Wrap>
     </S.PetitionDetailLayout>
   );

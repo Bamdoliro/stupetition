@@ -5,7 +5,6 @@ export const D1 = styled.p`
   font-size: 4.5rem;
   line-height: 130%;
   letter-spacing: -1.5px;
-  color: ${(props) => props.color};
 `;
 
 export const D2 = styled.p`
@@ -13,7 +12,6 @@ export const D2 = styled.p`
   font-size: 3.75rem;
   line-height: 130%;
   letter-spacing: -0.5px;
-  color: ${(props) => props.color};
 `;
 
 export const D3 = styled.p`
@@ -21,7 +19,6 @@ export const D3 = styled.p`
   font-size: 3rem;
   line-height: 130%;
   letter-spacing: 0px;
-  color: ${(props) => props.color};
 `;
 
 export const H1 = styled.p`
@@ -29,7 +26,6 @@ export const H1 = styled.p`
   font-size: 2.25rem;
   line-height: 140%;
   letter-spacing: 0.25px;
-  color: ${(props) => props.color};
 `;
 
 export const H2 = styled.p`
@@ -37,7 +33,6 @@ export const H2 = styled.p`
   font-size: 1.75rem;
   line-height: 140%;
   letter-spacing: 0px;
-  color: ${(props) => props.color};
 `;
 
 export const H3 = styled.p`
@@ -45,7 +40,6 @@ export const H3 = styled.p`
   font-size: 1.5rem;
   line-height: 140%;
   letter-spacing: 0.15px;
-  color: ${(props) => props.color};
 `;
 
 export const H4 = styled.p`
@@ -53,7 +47,6 @@ export const H4 = styled.p`
   font-size: 1.25rem;
   line-height: 140%;
   letter-spacing: 0.15px;
-  color: ${(props) => props.color};
 `;
 
 export const H5 = styled.p`
@@ -61,7 +54,6 @@ export const H5 = styled.p`
   font-size: 1.125rem;
   line-height: 140%;
   letter-spacing: 0.15px;
-  color: ${(props) => props.color};
 `;
 
 export const btn = styled.p`
@@ -69,7 +61,6 @@ export const btn = styled.p`
   font-size: 1.125rem;
   line-height: 160%;
   letter-spacing: -0.15px;
-  color: ${(props) => props.color};
 `;
 
 export const p1 = styled.p`
@@ -77,7 +68,6 @@ export const p1 = styled.p`
   font-size: 1.125rem;
   line-height: 140%;
   letter-spacing: 0.15px;
-  color: ${(props) => props.color};
 `;
 
 export const p2 = styled.p`
@@ -85,7 +75,6 @@ export const p2 = styled.p`
   font-size: 1rem;
   line-height: 160%;
   letter-spacing: -0.15px;
-  color: ${(props) => props.color};
 `;
 
 export const p3 = styled.p`
@@ -93,7 +82,6 @@ export const p3 = styled.p`
   font-size: 0.875rem;
   line-height: 160%;
   letter-spacing: -0.1px;
-  color: ${(props) => props.color};
 `;
 
 export const caption = styled.p`
@@ -101,7 +89,6 @@ export const caption = styled.p`
   font-size: 0.75rem;
   line-height: 140%;
   letter-spacing: 0px;
-  color: ${(props) => props.color};
 `;
 
 export const btn1 = styled.p`
@@ -109,7 +96,6 @@ export const btn1 = styled.p`
   font-size: 1rem;
   line-height: 130%;
   letter-spacing: 0px;
-  color: ${(props) => props.color};
 `;
 
 export const btn2 = styled.p`
@@ -117,5 +103,4 @@ export const btn2 = styled.p`
   font-size: 0.875rem;
   line-height: 130%;
   letter-spacing: 0px;
-  color: ${(props) => props.color};
 `;

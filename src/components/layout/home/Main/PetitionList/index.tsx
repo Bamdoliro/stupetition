@@ -1,10 +1,18 @@
 import 'react-circular-progressbar/dist/styles.css';
 import { useNavigate } from 'react-router-dom';
-import { PetitionListPropsType } from 'types/main/main.type';
 import { FormatDatetime } from 'utils/FormatDatetime';
 import { ProgressChecker } from 'utils/ProgressChecker';
-import Progressbar from '../../../../shared/Progressbar';
+import Progressbar from 'components/common/Progressbar';
+import { StatusType } from 'types/petition.type';
 import * as S from './style';
+
+interface PetitionListPropsType {
+  createdAt: string;
+  title: string;
+  numberOfAgreers: number;
+  id: number;
+  status: StatusType;
+}
 
 const PetitionList = ({
   createdAt,

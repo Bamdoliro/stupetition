@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { LoginType } from 'types/auth/auth.type';
-import Input from 'components/shared/Input';
-import Button from 'components/shared/Button';
+import { ChangeEvent, useState } from 'react';
+import { LoginType } from 'types/auth.type';
+import Input from 'components/common/Input';
+import Button from 'components/common/Button';
 import { useNavigate } from 'react-router-dom';
-import { LoginFeature } from 'features/auth/login/login.feature';
+import { LoginFeature } from 'features/auth/login.feature';
 import * as S from './style';
 
 const Login = () => {
@@ -15,7 +15,7 @@ const Login = () => {
 
   const { login } = LoginFeature({ loginData });
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setLoginData({ ...loginData, [name]: value });
   };
