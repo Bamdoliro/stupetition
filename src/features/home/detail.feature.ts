@@ -20,6 +20,13 @@ export const DetailFeature = (petitionId: number) => {
       content: '',
       comments: [],
       answer: [],
+      writer: {
+        authority: 'ROLE_STUDENT',
+        email: '',
+        schoolName: '',
+        status: 'ATTENDING',
+        userId: 0,
+      },
     },
   };
 };

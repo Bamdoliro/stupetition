@@ -6,26 +6,13 @@ import CheckSvg from 'assets/check.svg';
 import { useRecoilValue } from 'recoil';
 import { userState } from 'atoms/user.atom';
 import { CommentType } from 'types/petition.type';
+import { CommentDeleteFeature } from 'features/home/commentDelete.feature';
 import * as S from './style';
 
 const Comment = ({ comment, createdAt, id, writer, option }: CommentType) => {
   const { date, time } = FormatDatetime(createdAt);
   const userData = useRecoilValue(userState);
-  const deleteMutate = useMutation(deleteCommentPetition, {
-    onSuccess: () => {
-      alert('삭제 성공');
-    },
-    onError: (err) => {
-      console.log(err);
-    },
-  });
-
-  const deleteSubmit = () => {
-    // 임시 confirm
-    if (window.confirm('정말 댓글을 삭제하시겠습니까?')) {
-      deleteMutate.mutate(id);
-    }
-  };
+  const { deleteSubmit } = CommentDeleteFeature(id);
 
   return (
     <S.Comment>
@@ -35,7 +22,9 @@ const Comment = ({ comment, createdAt, id, writer, option }: CommentType) => {
             <S.Profile src={ProfileSvg} />
             <S.ItemWrap>
               <S.NameWrap>
-                <S.Name>익명</S.Name>
+                <S.Name>
+                  {option === 'STUDENT_COUNCIL' ? '학생회' : '학생'}
+                </S.Name>
                 {option === 'STUDENT_COUNCIL' && <S.Check src={CheckSvg} />}
               </S.NameWrap>
               <S.Date>
