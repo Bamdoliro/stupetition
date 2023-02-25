@@ -6,18 +6,22 @@ import Progressbar from 'components/common/Progressbar';
 import { StatusType } from 'types/petition.type';
 import * as S from './style';
 
+type PetitonListOption = 'MODAL' | 'LIST';
+
 interface PetitionListPropsType {
+  option: PetitonListOption;
   createdAt: string;
   title: string;
-  numberOfAgreers: number;
+  numberOfApprover: number;
   id: number;
   status: StatusType;
 }
 
 const PetitionList = ({
+  option,
   createdAt,
   title,
-  numberOfAgreers,
+  numberOfApprover,
   id,
   status,
 }: PetitionListPropsType) => {
@@ -25,7 +29,9 @@ const PetitionList = ({
   const { date } = FormatDatetime(createdAt);
   const { color, progress } = ProgressChecker(status);
   return (
-    <S.PetitionList onClick={() => navigate(`/petition/${id}`)}>
+    <S.PetitionList
+      onClick={() => option === 'LIST' && navigate(`/petition/${id}`)}
+    >
       <S.Wrap>
         <S.Info>
           <S.Title>{title}</S.Title>
@@ -38,7 +44,7 @@ const PetitionList = ({
           option="LIST"
           width="96px"
           height="96px"
-          numberOfAgreers={numberOfAgreers}
+          numberOfApprover={numberOfApprover}
         />
       </S.Wrap>
     </S.PetitionList>

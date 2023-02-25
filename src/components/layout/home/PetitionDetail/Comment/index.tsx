@@ -4,12 +4,13 @@ import { useMutation } from 'react-query';
 import { CommentType } from 'types/petition.type';
 import { FormatDatetime } from 'utils/FormatDatetime';
 import CheckSvg from 'assets/check.svg';
-import { EMAIL } from 'constants/user.constant';
+import { useRecoilValue } from 'recoil';
+import { userState } from 'atoms/user.atom';
 import * as S from './style';
 
 const Comment = ({ comment, createdAt, id, writer }: CommentType) => {
   const { date, time } = FormatDatetime(createdAt);
-  const email = localStorage.getItem(EMAIL);
+  const userData = useRecoilValue(userState);
   const deleteMutate = useMutation(deleteCommentPetition, {
     onSuccess: () => {
       alert('삭제 성공');
@@ -44,7 +45,7 @@ const Comment = ({ comment, createdAt, id, writer }: CommentType) => {
               </S.Date>
             </S.ItemWrap>
           </S.ProfileWrap>
-          {email === writer.email && (
+          {userData.email === writer.email && (
             <S.Delete onClick={deleteSubmit}>삭제</S.Delete>
           )}
         </S.InfoWrap>

@@ -1,10 +1,14 @@
 import { writePetition } from 'apis/petition.api';
+import { useDialog } from 'hooks/useDialog';
+import { useModal } from 'hooks/useModal';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import { WritePetitionType } from 'types/petition.type';
 
 export const WriteFeature = (petitionData: WritePetitionType) => {
   const navigate = useNavigate();
+  const { openDialog } = useDialog();
+  const { closeModal } = useModal();
   const { mutate } = useMutation(writePetition, {
     onSuccess: () => {
       alert('게시글 작성 성공 !!');
@@ -15,22 +19,23 @@ export const WriteFeature = (petitionData: WritePetitionType) => {
     },
   });
 
+  // petitionWrite
   const write = () => {
     mutate(petitionData);
+    closeModal();
   };
 
-  const cancel = () => {
-    // 임시 confirm
+  // confirm cancel
+  const cancelConfirm = () => {
     if (petitionData.content || petitionData.title) {
-      if (
-        window.confirm('변경된 사항은 저장되지 않습니다 진짜 나갈거냐 닝겐')
-      ) {
-        navigate('/');
-      }
+      openDialog();
     } else {
       navigate('/');
     }
   };
 
-  return { write, cancel };
+  return {
+    write,
+    cancelConfirm,
+  };
 };
