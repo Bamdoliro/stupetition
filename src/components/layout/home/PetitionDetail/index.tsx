@@ -14,15 +14,15 @@ import * as S from './style';
 
 const PetitionDetail = () => {
   const { id } = useParams();
-  const detailId = Number(id);
+  const petitionId = Number(id);
   const user = useRecoilValue(userState);
   const [comment, setComment] = useState('');
 
   // 쿼리
-  const { isLoading, isError, data } = DetailFeature(detailId);
-  const { commentSubmit } = CommentFeature({ detailId, setComment, comment });
-  const { answerSubmit } = AnswerFeature({ detailId, setComment, comment });
-  const { approveSubmit } = ApproveFeature(detailId);
+  const { isLoading, isError, data } = DetailFeature(petitionId);
+  const { commentSubmit } = CommentFeature({ petitionId, setComment, comment });
+  const { answerSubmit } = AnswerFeature({ petitionId, setComment, comment });
+  const { approveSubmit } = ApproveFeature(petitionId);
 
   const { color, progress } = ProgressChecker(data.status);
   const { date, time } = FormatDatetime(data.createdAt);

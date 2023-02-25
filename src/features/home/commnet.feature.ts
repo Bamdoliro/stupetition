@@ -3,13 +3,13 @@ import { useMutation, useQueryClient } from 'react-query';
 import { Dispatch, SetStateAction } from 'react';
 
 interface CommentFeatureType {
-  detailId: number;
+  petitionId: number;
   setComment: Dispatch<SetStateAction<string>>;
   comment: string;
 }
 
 export const CommentFeature = ({
-  detailId,
+  petitionId,
   setComment,
   comment,
 }: CommentFeatureType) => {
@@ -28,7 +28,7 @@ export const CommentFeature = ({
   const commentSubmit = () => {
     commentMutate.mutate({
       comment,
-      detailId,
+      petitionId,
     });
   };
 

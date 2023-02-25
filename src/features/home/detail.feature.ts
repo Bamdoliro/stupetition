@@ -2,10 +2,10 @@ import { getPetitionDetail } from 'apis/petition.api';
 import { useQuery } from 'react-query';
 import { PetitionDetailType } from 'types/petition.type';
 
-export const DetailFeature = (detailId: number) => {
+export const DetailFeature = (petitionId: number) => {
   const { isLoading, isError, data } = useQuery<PetitionDetailType>(
-    ['detailDatas', detailId],
-    () => getPetitionDetail(detailId),
+    ['detailDatas', petitionId],
+    () => getPetitionDetail(petitionId),
   );
 
   return {
