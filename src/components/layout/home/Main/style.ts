@@ -56,7 +56,7 @@ export const SubNav = styled.div`
   justify-content: space-between;
   width: 100%;
   height: 54px;
-  margin: 60px 0px 32px 0px;
+  margin: 48px 0px 32px 0px;
 `;
 
 export const PetitionWrap = styled.div`

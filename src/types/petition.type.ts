@@ -1,18 +1,13 @@
 export type StatusType = 'PETITION' | 'EXPIRED' | 'WAITING' | 'ANSWERED';
 
+export type MyPetitionStatusType = 'APPROVED' | 'WROTE';
+
+export type CommentOptionType = 'STUDENT' | 'STUDENT_COUNCIL';
+
 export interface WritePetitionType {
   title: string;
   content: string;
 }
-
-export interface PetitionListType {
-  createdAt: string;
-  id: number;
-  numberOfApprover: number;
-  title: string;
-}
-
-type CommentOptionType = 'STUDENT' | 'STUDENT_COUNCIL';
 
 export interface CommentType {
   option: CommentOptionType;

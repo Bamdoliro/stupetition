@@ -18,6 +18,10 @@ export const InnerWrap = styled.div`
   width: 74.4%;
 `;
 
+export const RadioTabMenuWrap = styled.div`
+  margin: 48px 0px 32px 0px;
+`;
+
 export const PetitionWrap = styled.div`
   display: grid;
   grid-template-columns: 48.5% 48.5%;

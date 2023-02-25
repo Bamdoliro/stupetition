@@ -1,6 +1,10 @@
 import { customAxios } from 'lib/axios/customAxios';
 import { authorization } from 'lib/token/authorization';
-import { WritePetitionType, StatusType } from 'types/petition.type';
+import {
+  WritePetitionType,
+  StatusType,
+  MyPetitionStatusType,
+} from 'types/petition.type';
 
 export interface CommentPetitionParamsType {
   comment: string;
@@ -11,7 +15,9 @@ export const writePetition = async (petitionData: WritePetitionType) => {
   await customAxios.post('/petition', petitionData, authorization());
 };
 
-export const getPetition = async (status: StatusType) => {
+export const getPetition = async (
+  status: StatusType | MyPetitionStatusType,
+) => {
   const { data } = await customAxios.get(
     `/petition?status=${status}`,
     authorization(),
