@@ -52,3 +52,8 @@ export const answerPetition = async ({
 export const deleteCommentPetition = async (commentId: number) => {
   await customAxios.delete(`/comment/${commentId}`, authorization());
 };
+
+export const petitionApproved = async () => {
+  const { data } = await customAxios.get('/petition/approved', authorization());
+  return data;
+};
