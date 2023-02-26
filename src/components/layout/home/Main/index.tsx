@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MyPetitionStatusType, StatusType } from 'types/petition.type';
+import { StatusType } from 'types/petition.type';
 import { useRecoilValue } from 'recoil';
 import { userState } from 'atoms/user.atom';
 import { useNavigate } from 'react-router-dom';
@@ -12,9 +12,7 @@ import * as S from './style';
 const Main = () => {
   const navigate = useNavigate();
   const user = useRecoilValue(userState);
-  const [status, setStatus] = useState<StatusType | MyPetitionStatusType>(
-    'PETITION',
-  );
+  const [status, setStatus] = useState<StatusType>('PETITION');
   const [isBannerOpen, setIsBannerOpen] = useState<boolean>(true);
   const { isLoading, isError, data } = PetitionListFeature(status);
 

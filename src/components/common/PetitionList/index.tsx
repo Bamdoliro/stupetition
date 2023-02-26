@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FormatDatetime } from 'utils/FormatDatetime';
 import { ProgressChecker } from 'utils/ProgressChecker';
 import Progressbar from 'components/common/Progressbar';
-import { MyPetitionStatusType, StatusType } from 'types/petition.type';
+import { StatusType } from 'types/petition.type';
 import * as S from './style';
 
 type PetitonListOption = 'MODAL' | 'LIST';
@@ -14,7 +14,7 @@ interface PetitionListPropsType {
   title: string;
   numberOfApprover: number;
   id: number;
-  status: StatusType | MyPetitionStatusType;
+  status: StatusType;
 }
 
 const PetitionList = ({

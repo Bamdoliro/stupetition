@@ -1,6 +1,10 @@
-export type StatusType = 'PETITION' | 'EXPIRED' | 'WAITING' | 'ANSWERED';
-
-export type MyPetitionStatusType = 'APPROVED' | 'WROTE';
+export type StatusType =
+  | 'PETITION'
+  | 'EXPIRED'
+  | 'WAITING'
+  | 'ANSWERED'
+  | 'APPROVED'
+  | 'WROTE';
 
 export type CommentOptionType = 'STUDENT' | 'STUDENT_COUNCIL';
 

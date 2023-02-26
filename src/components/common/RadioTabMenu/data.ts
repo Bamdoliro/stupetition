@@ -1,4 +1,4 @@
-import { StatusType, MyPetitionStatusType } from 'types/petition.type';
+import { StatusType } from 'types/petition.type';
 
 export type StatusNameType =
   | '진행중'
@@ -10,7 +10,7 @@ export type StatusNameType =
 
 interface TabDataType {
   id: number;
-  option: StatusType | MyPetitionStatusType;
+  option: StatusType;
   name: StatusNameType;
 }
 

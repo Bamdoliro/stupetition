@@ -55,7 +55,6 @@ export const SubNav = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 54px;
   margin: 48px 0px 32px 0px;
 `;
 

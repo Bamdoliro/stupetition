@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query';
 import { getPetition } from 'apis/petition.api';
-import { MyPetitionStatusType, StatusType } from 'types/petition.type';
+import { StatusType } from 'types/petition.type';
 import { useRecoilValue } from 'recoil';
 import { userState } from 'atoms/user.atom';
 import * as KEY from 'constants/key.constant';
@@ -13,9 +13,7 @@ interface PetitionListType {
   title: string;
 }
 
-export const PetitionListFeature = (
-  status: StatusType | MyPetitionStatusType,
-) => {
+export const PetitionListFeature = (status: StatusType) => {
   const user = useRecoilValue(userState);
   const { isLoading, isError, data } = useQuery<PetitionListType[]>(
     [KEY.PETITION_LIST, status],

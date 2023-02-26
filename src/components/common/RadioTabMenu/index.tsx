@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
-import { MyPetitionStatusType, StatusType } from 'types/petition.type';
+import { StatusType } from 'types/petition.type';
 import { MainTabDatas, MyPetitionTabDatas } from './data';
 import * as S from './style';
 
@@ -7,7 +7,7 @@ type RadioOptionType = 'MAIN' | 'MY_PETITION';
 
 interface RadioPropsType {
   status: string;
-  setStatus: Dispatch<SetStateAction<StatusType | MyPetitionStatusType>>;
+  setStatus: Dispatch<SetStateAction<StatusType>>;
   option: RadioOptionType;
 }
 

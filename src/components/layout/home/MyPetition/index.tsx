@@ -7,16 +7,14 @@ import {
 } from 'features/home/myPetition.feature';
 import { useState } from 'react';
 import { useRecoilValue } from 'recoil';
-import { MyPetitionStatusType, StatusType } from 'types/petition.type';
+import { StatusType } from 'types/petition.type';
 import * as S from './style';
 
 const MyPetition = () => {
   const ApprovedData = ApprovedPetitionFeature();
   const WroteData = WrotePetitionFeature();
   const user = useRecoilValue(userState);
-  const [status, setStatus] = useState<MyPetitionStatusType | StatusType>(
-    'APPROVED',
-  );
+  const [status, setStatus] = useState<StatusType>('APPROVED');
   const data = status === 'APPROVED' ? ApprovedData : WroteData;
 
   return (
