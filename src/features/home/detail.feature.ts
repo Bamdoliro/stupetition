@@ -1,10 +1,11 @@
 import { getPetitionDetail } from 'apis/petition.api';
 import { useQuery } from 'react-query';
 import { PetitionDetailType } from 'types/petition.type';
+import * as KEY from 'constants/key.constant';
 
 export const DetailFeature = (petitionId: number) => {
   const { isLoading, isError, data } = useQuery<PetitionDetailType>(
-    ['detailDatas', petitionId],
+    [KEY.PETITION, petitionId],
     () => getPetitionDetail(petitionId),
   );
 

@@ -1,10 +1,11 @@
 import { useQuery } from 'react-query';
 import { searchSchool } from 'apis/school.api';
 import { SchoolType } from 'types/school.type';
+import * as KEY from 'constants/key.constant';
 
 export const SchoolFeature = (searchWord: string) => {
   const { data } = useQuery<SchoolType[]>(
-    ['searchWord', searchWord],
+    [KEY.SCHOOL_LIST, searchWord],
     () => searchSchool(searchWord),
     {
       enabled: !!searchWord,

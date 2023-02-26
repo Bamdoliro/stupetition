@@ -3,6 +3,7 @@ import { getPetition } from 'apis/petition.api';
 import { MyPetitionStatusType, StatusType } from 'types/petition.type';
 import { useRecoilValue } from 'recoil';
 import { userState } from 'atoms/user.atom';
+import * as KEY from 'constants/key.constant';
 
 interface PetitionListType {
   status: StatusType;
@@ -17,7 +18,7 @@ export const PetitionListFeature = (
 ) => {
   const user = useRecoilValue(userState);
   const { isLoading, isError, data } = useQuery<PetitionListType[]>(
-    ['status', status],
+    [KEY.PETITION_LIST, status],
     () => getPetition(status),
     {
       enabled: !!user.authority,
