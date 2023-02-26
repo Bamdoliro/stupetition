@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { AUTHORITY, SCHOOL_NAME } from 'constants/user.constant';
+import { AUTHORITY, SCHOOL_NAME, EMAIL } from 'constants/user.constant';
 import { ACCESS_KEY, REFRESH_KEY } from 'constants/token.constant';
 import { useMutation } from 'react-query';
 import { loginUser } from 'apis/auth.api';
@@ -25,6 +25,7 @@ export const LoginFeature = ({ loginData }: LoginFeatureType) => {
       localStorage.setItem(SCHOOL_NAME, schoolName);
       localStorage.setItem(ACCESS_KEY, accessToken);
       localStorage.setItem(REFRESH_KEY, refreshToken);
+      localStorage.setItem(EMAIL, email);
       setUserData({ accessToken, refreshToken, authority, schoolName, email });
       useSuccesToast('로그인 성공');
       navigate('/');
