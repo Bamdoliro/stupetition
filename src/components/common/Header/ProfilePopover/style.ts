@@ -2,8 +2,8 @@ import { color } from 'styles/theme.style';
 import * as T from 'styles/text.style';
 import styled from 'styled-components';
 
-export const ProfilePopover = styled.div`
-  display: flex;
+export const ProfilePopover = styled.div<{ display: string }>`
+  display: ${(props) => props.display};
   flex-direction: column;
   align-items: center;
   z-index: 1;

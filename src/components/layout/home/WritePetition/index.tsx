@@ -19,9 +19,7 @@ const WritePetition = () => {
   });
   const { write, cancelConfirm } = WriteFeature(petitionData);
 
-  const onChange = (
-    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
-  ) => {
+  const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setPetitionData({ ...petitionData, [name]: value });
   };

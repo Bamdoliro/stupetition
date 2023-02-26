@@ -20,8 +20,15 @@ const SchoolContent = ({
     setJoinData({ ...joinData, schoolName: name, schoolId: id });
   };
 
-  const onChage = (e: ChangeEvent<HTMLInputElement>) => {
-    setSearchWord(e.target.value);
+  const cancel = () => {
+    setSearchSchoolOpen(true);
+    setJoinData({
+      email: '',
+      password: '',
+      rePassword: '',
+      schoolId: 0,
+      schoolName: '',
+    });
   };
 
   return (
@@ -33,7 +40,7 @@ const SchoolContent = ({
           placeholder="학교 검색"
           type="text"
           name="school"
-          onChange={onChage}
+          onChange={(e) => setSearchWord(e.target.value)}
         />
         <S.SchoolWrap>
           {data &&
@@ -55,16 +62,7 @@ const SchoolContent = ({
             width="50%"
             padding="12px 22px"
             value="취소"
-            onClick={() => {
-              setSearchSchoolOpen(true);
-              setJoinData({
-                email: '',
-                password: '',
-                rePassword: '',
-                schoolId: 0,
-                schoolName: '',
-              });
-            }}
+            onClick={cancel}
           />
           <Button
             onClick={() => setSearchSchoolOpen(true)}
