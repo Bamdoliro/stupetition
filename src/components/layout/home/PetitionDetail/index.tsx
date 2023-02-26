@@ -52,7 +52,8 @@ const PetitionDetail = () => {
         <S.Content>
           <S.Pre>{data.content}</S.Pre>
         </S.Content>
-        {user.authority === 'ROLE_STUDENT_COUNCIL' ? null : data.approved ? (
+        {user.authority === 'ROLE_STUDENT_COUNCIL' ||
+        user.email === data.writer.email ? null : data.approved ? (
           <S.ApprovedButton>
             <S.ApproveText>동의 완료</S.ApproveText>
           </S.ApprovedButton>
