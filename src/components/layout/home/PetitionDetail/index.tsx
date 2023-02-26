@@ -10,6 +10,7 @@ import { CommentFeature } from 'features/home/commnet.feature';
 import { AnswerFeature } from 'features/home/answer.feature';
 import { ApproveFeature } from 'features/home/approve.feature';
 import Loading from 'pages/Loading';
+import NotFound from 'pages/404';
 import Comment from './Comment';
 import * as S from './style';
 
@@ -27,6 +28,10 @@ const PetitionDetail = () => {
 
   const { color, progress } = ProgressChecker(data.status);
   const { date, time } = FormatDatetime(data.createdAt);
+
+  if (isError) {
+    return <NotFound />;
+  }
 
   return (
     <S.PetitionDetailLayout>

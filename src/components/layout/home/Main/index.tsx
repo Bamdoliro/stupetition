@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import MiniButton from 'components/common/MiniButton';
 import { PetitionListFeature } from 'features/home/petitionList.feature';
 import Loading from 'pages/Loading';
+import NotFound from 'pages/404';
 import PetitionList from '../../../common/PetitionList';
 import RadioTabMenu from '../../../common/RadioTabMenu';
 import * as S from './style';
@@ -16,6 +17,10 @@ const Main = () => {
   const [status, setStatus] = useState<StatusType>('PETITION');
   const [isBannerOpen, setIsBannerOpen] = useState<boolean>(true);
   const { isLoading, isError, data } = PetitionListFeature(status);
+
+  if (isError) {
+    return <NotFound />;
+  }
 
   return (
     <S.MainLayout>

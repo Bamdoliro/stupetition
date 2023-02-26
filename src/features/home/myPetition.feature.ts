@@ -18,7 +18,7 @@ export const MyPetitionFeature = (status: StatusType) => {
       () => approvedPetition(),
     );
 
-    return { isLoading, data };
+    return { isLoading, data, isError };
   };
 
   const WrotePetitionFeature = () => {
@@ -27,11 +27,11 @@ export const MyPetitionFeature = (status: StatusType) => {
       () => wrotePetition(),
     );
 
-    return { isLoading, data };
+    return { isLoading, data, isError };
   };
 
-  const { data, isLoading } =
+  const { data, isLoading, isError } =
     status === 'APPROVED' ? ApprovedPetitionFeature() : WrotePetitionFeature();
 
-  return { data, isLoading };
+  return { data, isLoading, isError };
 };
