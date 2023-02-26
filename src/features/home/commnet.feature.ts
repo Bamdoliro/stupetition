@@ -2,6 +2,7 @@ import { commentPetition } from 'apis/petition.api';
 import { useMutation, useQueryClient } from 'react-query';
 import { Dispatch, SetStateAction } from 'react';
 import * as KEY from 'constants/key.constant';
+import { useErrorToast } from 'hooks/useToast';
 
 interface CommentFeatureType {
   petitionId: number;
@@ -23,6 +24,7 @@ export const CommentFeature = ({
     },
     onError: (err) => {
       console.log(err);
+      useErrorToast('크기가 2에서 500 사이여야 합니다');
     },
   });
 

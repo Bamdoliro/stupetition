@@ -9,6 +9,7 @@ export const CommentDeleteFeature = (id: number) => {
   const deleteMutate = useMutation(deleteCommentPetition, {
     onSuccess: () => {
       useSuccesToast('삭제 성공');
+      queryClient.invalidateQueries([KEY.PETITION]);
     },
     onError: (err) => {
       console.log(err);
@@ -17,7 +18,6 @@ export const CommentDeleteFeature = (id: number) => {
 
   const deleteSubmit = () => {
     deleteMutate.mutate(id);
-    queryClient.invalidateQueries([KEY.PETITION]);
   };
 
   return { deleteSubmit };

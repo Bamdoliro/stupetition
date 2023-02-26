@@ -27,8 +27,6 @@ const PetitionDetail = () => {
   const { color, progress } = ProgressChecker(data.status);
   const { date, time } = FormatDatetime(data.createdAt);
 
-  console.log(data);
-
   return (
     <S.PetitionDetailLayout>
       <S.Wrap>

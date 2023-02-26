@@ -15,7 +15,6 @@ const Comment = ({ comment, createdAt, id, writer, option }: CommentType) => {
   const userData = useRecoilValue(userState);
   const { deleteSubmit } = CommentDeleteFeature(id);
 
-  console.log(writer, userData.email);
   return (
     <>
       <S.Comment>
