@@ -6,6 +6,7 @@ import { loginUser } from 'apis/auth.api';
 import { useSetRecoilState } from 'recoil';
 import { userState } from 'atoms/user.atom';
 import { LoginType } from 'types/auth.type';
+import { useSuccesToast } from 'hooks/useToast';
 
 interface LoginFeatureType {
   loginData: LoginType;
@@ -25,8 +26,7 @@ export const LoginFeature = ({ loginData }: LoginFeatureType) => {
       localStorage.setItem(ACCESS_KEY, accessToken);
       localStorage.setItem(REFRESH_KEY, refreshToken);
       setUserData({ accessToken, refreshToken, authority, schoolName, email });
-
-      alert('로그인 성공 !!');
+      useSuccesToast('로그인 성공');
       navigate('/');
     },
     onError: (err) => {

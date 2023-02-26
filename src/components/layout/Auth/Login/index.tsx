@@ -4,6 +4,7 @@ import Input from 'components/common/Input';
 import Button from 'components/common/Button';
 import { useNavigate } from 'react-router-dom';
 import { LoginFeature } from 'features/auth/login.feature';
+import { ToastContainer } from 'react-toastify';
 import * as S from './style';
 
 const Login = () => {

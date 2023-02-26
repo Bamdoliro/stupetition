@@ -1,5 +1,6 @@
 import { customAxios } from 'lib/axios/customAxios';
 import { ACCESS_KEY, REFRESH_KEY } from 'constants/token.constant';
+import { useErrorToast } from 'hooks/useToast';
 
 export const tokenExpired = async () => {
   try {
@@ -12,6 +13,6 @@ export const tokenExpired = async () => {
   } catch (err) {
     console.log(err);
     localStorage.clear();
-    alert('세션이 만료되었습니다');
+    useErrorToast('세션이 만료되었습니다');
   }
 };
