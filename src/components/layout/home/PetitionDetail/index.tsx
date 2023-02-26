@@ -14,18 +14,20 @@ import * as S from './style';
 
 const PetitionDetail = () => {
   const { id } = useParams();
-  const detailId = Number(id);
+  const petitionId = Number(id);
   const user = useRecoilValue(userState);
   const [comment, setComment] = useState('');
 
   // 쿼리
-  const { isLoading, isError, data } = DetailFeature(detailId);
-  const { commentSubmit } = CommentFeature({ detailId, setComment, comment });
-  const { answerSubmit } = AnswerFeature({ detailId, setComment, comment });
-  const { approveSubmit } = ApproveFeature(detailId);
+  const { isLoading, isError, data } = DetailFeature(petitionId);
+  const { commentSubmit } = CommentFeature({ petitionId, setComment, comment });
+  const { answerSubmit } = AnswerFeature({ petitionId, setComment, comment });
+  const { approveSubmit } = ApproveFeature(petitionId);
 
   const { color, progress } = ProgressChecker(data.status);
   const { date, time } = FormatDatetime(data.createdAt);
+
+  console.log(data);
 
   return (
     <S.PetitionDetailLayout>
@@ -50,7 +52,8 @@ const PetitionDetail = () => {
         <S.Content>
           <S.Pre>{data.content}</S.Pre>
         </S.Content>
-        {user.authority === 'ROLE_STUDENT_COUNCIL' ? null : data.approved ? (
+        {user.authority === 'ROLE_STUDENT_COUNCIL' ||
+        user.email === data.writer.email ? null : data.approved ? (
           <S.ApprovedButton>
             <S.ApproveText>동의 완료</S.ApproveText>
           </S.ApprovedButton>
@@ -79,17 +82,25 @@ const PetitionDetail = () => {
             </S.CommentSendButton>
           )}
         </S.CommentSendWrap>
-        {data.comments.map((item) => {
-          return (
-            <Comment
-              key={item.id}
-              id={item.id}
-              writer={item.writer}
-              comment={item.comment}
-              createdAt={item.createdAt}
-            />
-          );
-        })}
+        {data.answer?.map((item) => (
+          <Comment
+            option="STUDENT_COUNCIL"
+            key={item.id}
+            id={item.id}
+            comment={item.comment}
+            createdAt={item.createdAt}
+          />
+        ))}
+        {data.comments?.map((item) => (
+          <Comment
+            option="STUDENT"
+            key={item.id}
+            id={item.id}
+            writer={item.writer}
+            comment={item.comment}
+            createdAt={item.createdAt}
+          />
+        ))}
       </S.Wrap>
     </S.PetitionDetailLayout>
   );

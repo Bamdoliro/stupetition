@@ -33,7 +33,7 @@ const Main = () => {
       <S.ContentsWrap>
         <S.ContentsInnerWrap>
           <S.SubNav>
-            <RadioTabMenu setStatus={setStatus} status={status} />
+            <RadioTabMenu option="MAIN" setStatus={setStatus} status={status} />
             {user.authority && (
               <MiniButton
                 onClick={() => navigate('/petition/write')}

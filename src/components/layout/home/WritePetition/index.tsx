@@ -5,8 +5,7 @@ import { WriteFeature } from 'features/home/write.feature';
 import Confirm from 'components/common/Dialog';
 
 import { useNavigate } from 'react-router-dom';
-import { useDialog } from 'hooks/useDialog';
-import { useModal } from 'hooks/useModal';
+import { useDialog, useModal } from 'hooks/useDialog';
 import * as S from './style';
 import CheckPetitionModal from './CheckPetitionModal';
 
@@ -20,9 +19,7 @@ const WritePetition = () => {
   });
   const { write, cancelConfirm } = WriteFeature(petitionData);
 
-  const onChange = (
-    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
-  ) => {
+  const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setPetitionData({ ...petitionData, [name]: value });
   };

@@ -4,7 +4,7 @@ import { WritePetitionType, StatusType } from 'types/petition.type';
 
 export interface CommentPetitionParamsType {
   comment: string;
-  petitionId?: number;
+  petitionId: number;
 }
 
 export const writePetition = async (petitionData: WritePetitionType) => {
@@ -25,7 +25,11 @@ export const getPetitionDetail = async (id: number) => {
 };
 
 export const approvePetition = async (petitionId: number) => {
-  await customAxios.post(`/petition/${petitionId}/approve`, authorization());
+  await customAxios.post(
+    `/petition/${petitionId}/approve`,
+    null,
+    authorization(),
+  );
 };
 
 export const commentPetition = async (
@@ -39,7 +43,7 @@ export const answerPetition = async ({
   petitionId,
 }: CommentPetitionParamsType) => {
   await customAxios.post(
-    `/petition/${petitionId}/approve`,
+    `/petition/${petitionId}/answer`,
     comment,
     authorization(),
   );
@@ -47,4 +51,14 @@ export const answerPetition = async ({
 
 export const deleteCommentPetition = async (commentId: number) => {
   await customAxios.delete(`/comment/${commentId}`, authorization());
+};
+
+export const approvedPetition = async () => {
+  const { data } = await customAxios.get('/petition/approved', authorization());
+  return data;
+};
+
+export const wrotePetition = async () => {
+  const { data } = await customAxios.get('/petition/wrote', authorization());
+  return data;
 };

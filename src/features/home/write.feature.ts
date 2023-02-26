@@ -1,6 +1,5 @@
 import { writePetition } from 'apis/petition.api';
-import { useDialog } from 'hooks/useDialog';
-import { useModal } from 'hooks/useModal';
+import { useDialog, useModal } from 'hooks/useDialog';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import { WritePetitionType } from 'types/petition.type';

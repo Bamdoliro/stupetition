@@ -1,15 +1,16 @@
 import { answerPetition } from 'apis/petition.api';
 import { useMutation, useQueryClient } from 'react-query';
 import { Dispatch, SetStateAction } from 'react';
+import * as KEY from 'constants/key.constant';
 
 interface AnswerFeatureType {
-  detailId: number;
+  petitionId: number;
   setComment: Dispatch<SetStateAction<string>>;
   comment: string;
 }
 
 export const AnswerFeature = ({
-  detailId,
+  petitionId,
   setComment,
   comment,
 }: AnswerFeatureType) => {
@@ -18,7 +19,7 @@ export const AnswerFeature = ({
   const answerMutate = useMutation(answerPetition, {
     onSuccess: () => {
       setComment('');
-      queryClient.invalidateQueries(['detailDatas']);
+      queryClient.invalidateQueries([KEY.PETITION]);
     },
     onError: (err) => {
       console.log(err);
@@ -28,7 +29,7 @@ export const AnswerFeature = ({
   const answerSubmit = () => {
     answerMutate.mutate({
       comment,
-      petitionId: detailId,
+      petitionId,
     });
   };
   return { answerSubmit };

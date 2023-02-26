@@ -1,6 +1,6 @@
 import MiniButton from 'components/common/MiniButton';
 import PetitionList from 'components/common/PetitionList';
-import { useModal } from 'hooks/useModal';
+import { useModal } from 'hooks/useDialog';
 import { MouseEventHandler } from 'react';
 import * as S from './style';
 

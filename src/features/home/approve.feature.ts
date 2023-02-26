@@ -1,13 +1,14 @@
 import { approvePetition } from 'apis/petition.api';
 import { useMutation, useQueryClient } from 'react-query';
+import * as KEY from 'constants/key.constant';
 
-export const ApproveFeature = (id: number) => {
+export const ApproveFeature = (petitionId: number) => {
   const queryClient = useQueryClient();
 
   const approveMutate = useMutation(approvePetition, {
     onSuccess: () => {
       alert('동의 완료 !!');
-      queryClient.invalidateQueries(['detailDatas']);
+      queryClient.invalidateQueries([KEY.PETITION]);
     },
     onError: (err) => {
       console.log(err);
@@ -15,7 +16,7 @@ export const ApproveFeature = (id: number) => {
   });
 
   const approveSubmit = () => {
-    approveMutate.mutate(Number(id));
+    approveMutate.mutate(petitionId);
   };
 
   return { approveSubmit };

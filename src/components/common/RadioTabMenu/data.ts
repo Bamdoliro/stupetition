@@ -1,32 +1,51 @@
 import { StatusType } from 'types/petition.type';
 
-export type StatusNameType = '진행중' | '대기중' | '완료' | '만료';
+export type StatusNameType =
+  | '진행중'
+  | '대기중'
+  | '완료'
+  | '만료'
+  | '동의한 청원'
+  | '내가 쓴 청원';
 
 interface TabDataType {
   id: number;
-  status: StatusType;
+  option: StatusType;
   name: StatusNameType;
 }
 
 export const MainTabDatas: TabDataType[] = [
   {
     id: 0,
-    status: 'PETITION',
+    option: 'PETITION',
     name: '진행중',
   },
   {
     id: 1,
-    status: 'WAITING',
+    option: 'WAITING',
     name: '대기중',
   },
   {
     id: 2,
-    status: 'ANSWERED',
+    option: 'ANSWERED',
     name: '완료',
   },
   {
     id: 3,
-    status: 'EXPIRED',
+    option: 'EXPIRED',
     name: '만료',
+  },
+];
+
+export const MyPetitionTabDatas: TabDataType[] = [
+  {
+    id: 0,
+    option: 'APPROVED',
+    name: '동의한 청원',
+  },
+  {
+    id: 1,
+    option: 'WAITING',
+    name: '내가 쓴 청원',
   },
 ];

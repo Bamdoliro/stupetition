@@ -1,11 +1,12 @@
 import { getPetitionDetail } from 'apis/petition.api';
 import { useQuery } from 'react-query';
 import { PetitionDetailType } from 'types/petition.type';
+import * as KEY from 'constants/key.constant';
 
-export const DetailFeature = (detailId: number) => {
+export const DetailFeature = (petitionId: number) => {
   const { isLoading, isError, data } = useQuery<PetitionDetailType>(
-    ['detailDatas', detailId],
-    () => getPetitionDetail(detailId),
+    [KEY.PETITION, petitionId],
+    () => getPetitionDetail(petitionId),
   );
 
   return {
@@ -19,6 +20,14 @@ export const DetailFeature = (detailId: number) => {
       numberOfApprover: 0,
       content: '',
       comments: [],
+      answer: [],
+      writer: {
+        authority: 'ROLE_STUDENT',
+        email: '',
+        schoolName: '',
+        status: 'ATTENDING',
+        userId: 0,
+      },
     },
   };
 };

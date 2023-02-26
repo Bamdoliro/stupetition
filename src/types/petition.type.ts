@@ -1,22 +1,24 @@
-export type StatusType = 'PETITION' | 'EXPIRED' | 'WAITING' | 'ANSWERED';
+export type StatusType =
+  | 'PETITION'
+  | 'EXPIRED'
+  | 'WAITING'
+  | 'ANSWERED'
+  | 'APPROVED'
+  | 'WROTE';
+
+export type CommentOptionType = 'STUDENT' | 'STUDENT_COUNCIL';
 
 export interface WritePetitionType {
   title: string;
   content: string;
 }
 
-export interface PetitionListType {
-  createdAt: string;
-  id: number;
-  numberOfApprover: number;
-  title: string;
-}
-
 export interface CommentType {
+  option: CommentOptionType;
   id: number;
   comment: string;
   createdAt: string;
-  writer: Writer;
+  writer?: Writer;
 }
 
 export interface Writer {
@@ -33,7 +35,7 @@ export interface PetitionDetailType {
   id: number;
   numberOfApprover: number;
   status: StatusType;
-  answer: string;
+  answer: CommentType[];
   title: string;
   userEmail: string;
   createdAt: string;
