@@ -4,7 +4,7 @@ import { SchoolType } from 'types/school.type';
 import * as KEY from 'constants/key.constant';
 
 export const SchoolFeature = (searchWord: string) => {
-  const { data } = useQuery<SchoolType[]>(
+  const { data, isLoading } = useQuery<SchoolType[]>(
     [KEY.SCHOOL_LIST, searchWord],
     () => searchSchool(searchWord),
     {
@@ -13,5 +13,5 @@ export const SchoolFeature = (searchWord: string) => {
     },
   );
 
-  return { data };
+  return { data, isLoading };
 };

@@ -5,6 +5,7 @@ import { userState } from 'atoms/user.atom';
 import { useNavigate } from 'react-router-dom';
 import MiniButton from 'components/common/MiniButton';
 import { PetitionListFeature } from 'features/home/petitionList.feature';
+import Loading from 'pages/Loading';
 import PetitionList from '../../../common/PetitionList';
 import RadioTabMenu from '../../../common/RadioTabMenu';
 import * as S from './style';
@@ -42,25 +43,25 @@ const Main = () => {
               />
             )}
           </S.SubNav>
-          <S.PetitionWrap>
-            {user.authority ? (
-              data.map((item) => {
-                return (
-                  <PetitionList
-                    option="LIST"
-                    key={item.id}
-                    id={item.id}
-                    createdAt={item.createdAt}
-                    title={item.title}
-                    numberOfApprover={item.numberOfApprover}
-                    status={status}
-                  />
-                );
-              })
-            ) : (
-              <div>로그인을 해야지 청원을 하지 ;;</div>
-            )}
-          </S.PetitionWrap>
+          {isLoading ? (
+            <Loading />
+          ) : user.authority ? (
+            <S.PetitionWrap>
+              {data.map((item) => (
+                <PetitionList
+                  option="LIST"
+                  key={item.id}
+                  id={item.id}
+                  createdAt={item.createdAt}
+                  title={item.title}
+                  numberOfApprover={item.numberOfApprover}
+                  status={status}
+                />
+              ))}
+            </S.PetitionWrap>
+          ) : (
+            <div>로그인을 해야지 청원을 하지 ;;</div>
+          )}
         </S.ContentsInnerWrap>
       </S.ContentsWrap>
     </S.MainLayout>
