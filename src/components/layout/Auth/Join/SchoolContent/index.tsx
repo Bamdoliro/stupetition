@@ -15,9 +15,13 @@ const SchoolContent = ({
   const { data } = SchoolFeature(searchWord);
 
   const handleClickRadio = (e: ChangeEvent<HTMLInputElement>) => {
-    const name = e.target.id;
-    const id = Number(e.target.value);
-    setJoinData({ ...joinData, schoolName: name, schoolId: id });
+    /**
+     * schoolName은 radio에서 id 값으로 사용됩니다
+     * schoolId는 value값으로 최종선택을 하게되었을때 id를 추출합니다
+     */
+    const schoolName = e.target.id;
+    const schoolId = Number(e.target.value);
+    setJoinData({ ...joinData, schoolName, schoolId });
   };
 
   const cancel = () => {
