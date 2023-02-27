@@ -14,10 +14,6 @@ const MyPetition = () => {
   const [status, setStatus] = useState<StatusType>('APPROVED');
   const { data, isLoading, isError } = MyPetitionFeature(status);
 
-  if (isError) {
-    return <NotFound />;
-  }
-
   return (
     <S.MyPetitionLayout>
       <S.Wrap>
@@ -29,9 +25,9 @@ const MyPetition = () => {
               setStatus={setStatus}
             />
           </S.RadioTabMenuWrap>
-          {isLoading ? (
-            <Loading />
-          ) : user.authority ? (
+          {isError && <NotFound />}
+          {isLoading && <Loading />}
+          {user.authority ? (
             <S.PetitionWrap>
               {data?.map((item) => (
                 <PetitionList

@@ -18,10 +18,6 @@ const Main = () => {
   const [isBannerOpen, setIsBannerOpen] = useState<boolean>(true);
   const { isLoading, isError, data } = PetitionListFeature(status);
 
-  if (isError) {
-    return <NotFound />;
-  }
-
   return (
     <S.MainLayout>
       {isBannerOpen && (
@@ -48,9 +44,9 @@ const Main = () => {
               />
             )}
           </S.SubNav>
-          {isLoading ? (
-            <Loading />
-          ) : user.authority ? (
+          {isError && <NotFound />}
+          {isLoading && <Loading />}
+          {user.authority ? (
             <S.PetitionWrap>
               {data.map((item) => (
                 <PetitionList

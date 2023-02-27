@@ -48,21 +48,18 @@ const SchoolContent = ({
           onChange={(e) => setSearchWord(e.target.value)}
         />
         <S.SchoolWrap>
-          {isLoading ? (
-            <Loading />
-          ) : (
-            data?.map((item) => {
-              return (
-                <SchoolList
-                  key={item.id}
-                  name={item.name}
-                  id={item.id}
-                  emailDomain={item.emailDomain}
-                  onChange={handleClickRadio}
-                />
-              );
-            })
-          )}
+          {isLoading && <Loading />}
+          {data?.map((item) => {
+            return (
+              <SchoolList
+                key={item.id}
+                name={item.name}
+                id={item.id}
+                emailDomain={item.emailDomain}
+                onChange={handleClickRadio}
+              />
+            );
+          })}
         </S.SchoolWrap>
         <S.ButtonWrap>
           <Button

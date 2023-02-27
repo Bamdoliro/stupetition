@@ -36,6 +36,7 @@ const PetitionDetail = () => {
   return (
     <S.PetitionDetailLayout>
       <S.Wrap>
+        {isError && <NotFound />}
         {isLoading ? (
           <Loading />
         ) : (
