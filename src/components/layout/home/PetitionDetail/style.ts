@@ -6,6 +6,7 @@ export const PetitionDetailLayout = styled.div`
   display: flex;
   justify-content: center;
   width: 100vw;
+  height: 100vh;
   min-height: 100vh;
   background-color: ${color.white};
 `;
@@ -22,8 +23,8 @@ export const Info = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 232px;
   width: 100%;
+  margin-bottom: 30px;
 `;
 
 export const InfoWrap = styled.div`
@@ -76,8 +77,7 @@ export const Content = styled(T.p2)`
   width: 100%;
   word-break: break-all;
   max-width: 100%;
-  min-height: 20%;
-  margin-bottom: 120px;
+  min-height: 30%;
 `;
 
 export const Pre = styled.pre``;
@@ -150,4 +150,5 @@ export const CommentSendText = styled(T.btn1)`
 export const CommentWrap = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;

@@ -11,20 +11,27 @@ interface MyPetitionList {
   status: StatusType;
 }
 
-export const ApprovedPetitionFeature = () => {
-  const { isLoading, isError, data } = useQuery<MyPetitionList[]>(
-    [KEY.PETITION_APPROVED],
-    () => approvedPetition(),
-  );
+export const MyPetitionFeature = (status: StatusType) => {
+  const ApprovedPetitionFeature = () => {
+    const { isLoading, isError, data } = useQuery<MyPetitionList[]>(
+      [KEY.PETITION_APPROVED],
+      () => approvedPetition(),
+    );
 
-  return data;
-};
+    return { isLoading, data, isError };
+  };
 
-export const WrotePetitionFeature = () => {
-  const { isLoading, isError, data } = useQuery<MyPetitionList[]>(
-    [KEY.PETITION_WROTE],
-    () => wrotePetition(),
-  );
+  const WrotePetitionFeature = () => {
+    const { isLoading, isError, data } = useQuery<MyPetitionList[]>(
+      [KEY.PETITION_WROTE],
+      () => wrotePetition(),
+    );
 
-  return data;
+    return { isLoading, data, isError };
+  };
+
+  const { data, isLoading, isError } =
+    status === 'APPROVED' ? ApprovedPetitionFeature() : WrotePetitionFeature();
+
+  return { data, isLoading, isError };
 };

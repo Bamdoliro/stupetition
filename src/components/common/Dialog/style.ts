@@ -21,15 +21,16 @@ export const Confirm = styled.div`
   height: 268px;
   left: calc(50% - 416px / 2);
   top: calc(50% - 268px / 2);
-  padding: 48px;
+  padding: 36px;
   background: ${color.white};
   border-radius: 12px;
 `;
 
 export const ConfirmWrap = styled.div`
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 36px;
+  justify-content: space-between;
 `;
 
 export const ConfirmTextBox = styled.div`
@@ -48,7 +49,7 @@ export const ConfirmContent = styled(T.p2)`
 
 export const ConfirmButtonBox = styled.div`
   display: flex;
-  gap: 6px;
+  justify-content: space-between;
 `;
 
 // alert
@@ -59,15 +60,16 @@ export const Alert = styled.div`
   height: 268px;
   left: calc(50% - 416px / 2);
   top: calc(50% - 268px / 2);
-  padding: 48px;
+  padding: 36px;
   background: ${color.white};
   border-radius: 12px;
 `;
 
 export const AlertWrap = styled.div`
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 36px;
+  justify-content: space-between;
 `;
 
 export const AlertTextBox = styled.div`

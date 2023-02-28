@@ -63,6 +63,7 @@ export const PetitionWrap = styled.div`
   grid-template-columns: 48.5% 48.5%;
   gap: 3%;
   width: 100%;
+  height: 20%;
 `;
 
 export const CreatePetition = styled.button`

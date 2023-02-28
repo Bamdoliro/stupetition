@@ -3,6 +3,7 @@ import Button from 'components/common/Button';
 import { ChangeEvent, useState } from 'react';
 import { JoinContentsPropsType } from 'types/auth.type';
 import { SchoolFeature } from 'features/auth/school.feature';
+import Loading from 'pages/Loading';
 import SchoolList from './SchoolList';
 import * as S from './style';
 
@@ -11,8 +12,8 @@ const SchoolContent = ({
   setJoinData,
   joinData,
 }: JoinContentsPropsType) => {
-  const [searchWord, setSearchWord] = useState('');
-  const { data } = SchoolFeature(searchWord);
+  const [searchWord, setSearchWord] = useState<string>('');
+  const { data, isLoading } = SchoolFeature(searchWord);
 
   const handleClickRadio = (e: ChangeEvent<HTMLInputElement>) => {
     /**
@@ -47,18 +48,18 @@ const SchoolContent = ({
           onChange={(e) => setSearchWord(e.target.value)}
         />
         <S.SchoolWrap>
-          {data &&
-            data.map((item) => {
-              return (
-                <SchoolList
-                  key={item.id}
-                  name={item.name}
-                  id={item.id}
-                  emailDomain={item.emailDomain}
-                  onChange={handleClickRadio}
-                />
-              );
-            })}
+          {isLoading && <Loading />}
+          {data?.map((item) => {
+            return (
+              <SchoolList
+                key={item.id}
+                name={item.name}
+                id={item.id}
+                emailDomain={item.emailDomain}
+                onChange={handleClickRadio}
+              />
+            );
+          })}
         </S.SchoolWrap>
         <S.ButtonWrap>
           <Button

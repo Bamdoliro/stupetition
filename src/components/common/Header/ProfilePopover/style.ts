@@ -35,6 +35,6 @@ export const ButtonText = styled(T.p3)`
 
 export const Line = styled.div`
   width: 160px;
-  border: 1px solid ${color.gray300};
+  border: 0.9px solid ${color.gray300};
   margin: 8px 0px;
 `;

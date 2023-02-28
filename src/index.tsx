@@ -4,6 +4,8 @@ import GlobalStyled from 'styles/global.style';
 import { RecoilRoot } from 'recoil';
 import { BrowserRouter } from 'react-router-dom';
 import ScrollTop from 'utils/ScrollTop';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import App from './App';
 
 const queryClient = new QueryClient();
@@ -18,6 +20,7 @@ root.render(
         <App />
         <GlobalStyled />
         <ScrollTop />
+        <ToastContainer />
       </QueryClientProvider>
     </RecoilRoot>
   </BrowserRouter>,

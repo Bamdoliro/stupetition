@@ -12,7 +12,7 @@ const ProfilePopover = ({ isOpen, close }: ProfilePopoverPropsType) => {
   const navigate = useNavigate();
   const { logout } = LogoutFeature();
   return (
-    <S.ProfilePopover display={isOpen ? 'block' : 'none'}>
+    <S.ProfilePopover display={isOpen ? 'flex' : 'none'}>
       <S.Button onClick={() => navigate('/petition/my')}>
         <S.ButtonText>동의한 청원</S.ButtonText>
       </S.Button>

@@ -3,6 +3,7 @@ import { joinUser } from 'apis/auth.api';
 import { useNavigate } from 'react-router-dom';
 import { Dispatch, SetStateAction } from 'react';
 import { JoinType } from 'types/auth.type';
+import { useErrorToast, useSuccesToast } from 'hooks/useToast';
 
 interface JoinFeatureType {
   setJoinData: Dispatch<SetStateAction<JoinType>>;
@@ -14,7 +15,7 @@ export const JoinFeature = ({ setJoinData, joinData }: JoinFeatureType) => {
 
   const { mutate } = useMutation(joinUser, {
     onSuccess: () => {
-      alert('회원가입 성공 !!');
+      useSuccesToast('회원가입 성공');
       navigate('/login');
     },
     onError: (err) => {
@@ -28,10 +29,10 @@ export const JoinFeature = ({ setJoinData, joinData }: JoinFeatureType) => {
       if (schoolId !== 0) {
         mutate(joinData);
       } else {
-        alert('학교 선택을 해주세요');
+        useErrorToast('학교를 선택 해주세요');
       }
     } else {
-      alert('비밀번호가 맞지 않습니다');
+      useErrorToast('비밀번호가 맞지 않습니다');
     }
     setJoinData({
       email: '',

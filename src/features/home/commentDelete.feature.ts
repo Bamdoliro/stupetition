@@ -1,10 +1,15 @@
-import { useMutation } from 'react-query';
+import { useMutation, useQueryClient } from 'react-query';
 import { deleteCommentPetition } from 'apis/petition.api';
+import { useSuccesToast } from 'hooks/useToast';
+import * as KEY from 'constants/key.constant';
 
 export const CommentDeleteFeature = (id: number) => {
+  const queryClient = useQueryClient();
+
   const deleteMutate = useMutation(deleteCommentPetition, {
     onSuccess: () => {
-      alert('삭제 성공');
+      useSuccesToast('삭제 성공');
+      queryClient.invalidateQueries([KEY.PETITION]);
     },
     onError: (err) => {
       console.log(err);
@@ -12,10 +17,7 @@ export const CommentDeleteFeature = (id: number) => {
   });
 
   const deleteSubmit = () => {
-    // 임시 confirm
-    if (window.confirm('정말 댓글을 삭제하시겠습니까?')) {
-      deleteMutate.mutate(id);
-    }
+    deleteMutate.mutate(id);
   };
 
   return { deleteSubmit };

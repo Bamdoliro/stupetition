@@ -2,7 +2,7 @@ import { ChangeEvent, useState } from 'react';
 import { WritePetitionType } from 'types/petition.type';
 import MiniButton from 'components/common/MiniButton';
 import { WriteFeature } from 'features/home/write.feature';
-import Confirm from 'components/common/Dialog';
+import Dialog from 'components/common/Dialog';
 
 import { useNavigate } from 'react-router-dom';
 import { useDialog, useModal } from 'hooks/useDialog';
@@ -57,7 +57,7 @@ const WritePetition = () => {
           />
         </S.ContentsWrap>
       </S.WritePetitionLayout>
-      <Confirm
+      <Dialog
         option="CONFIRM"
         title="창 닫기"
         content="이대로 나가면 변경사항이 모두 삭제됩니다.
