@@ -18,7 +18,7 @@ const PetitionDetail = () => {
   const { id } = useParams();
   const petitionId = Number(id);
   const user = useRecoilValue(userState);
-  const [comment, setComment] = useState('');
+  const [comment, setComment] = useState<string>('');
 
   // 쿼리
   const { isLoading, isError, data } = DetailFeature(petitionId);
