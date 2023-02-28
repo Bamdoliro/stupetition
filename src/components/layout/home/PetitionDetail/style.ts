@@ -151,4 +151,5 @@ export const CommentSendText = styled(T.btn1)`
 export const CommentWrap = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;

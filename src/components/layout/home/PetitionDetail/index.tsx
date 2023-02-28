@@ -91,25 +91,27 @@ const PetitionDetail = () => {
                 </S.CommentSendButton>
               )}
             </S.CommentSendWrap>
-            {data.answer?.map((item) => (
-              <Comment
-                option="STUDENT_COUNCIL"
-                key={item.id}
-                id={item.id}
-                comment={item.comment}
-                createdAt={item.createdAt}
-              />
-            ))}
-            {data.comments?.map((item) => (
-              <Comment
-                option="STUDENT"
-                key={item.id}
-                id={item.id}
-                writer={item.writer}
-                comment={item.comment}
-                createdAt={item.createdAt}
-              />
-            ))}
+            <S.CommentWrap>
+              {data.answer?.map((item) => (
+                <Comment
+                  option="STUDENT_COUNCIL"
+                  key={item.id}
+                  id={item.id}
+                  comment={item.comment}
+                  createdAt={item.createdAt}
+                />
+              ))}
+              {data.comments?.map((item) => (
+                <Comment
+                  option="STUDENT"
+                  key={item.id}
+                  id={item.id}
+                  hasPermission={item.hasPermission}
+                  comment={item.comment}
+                  createdAt={item.createdAt}
+                />
+              ))}
+            </S.CommentWrap>
           </>
         )}
       </S.Wrap>

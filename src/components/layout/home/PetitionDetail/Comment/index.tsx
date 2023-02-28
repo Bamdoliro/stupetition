@@ -9,10 +9,15 @@ import { useDialog } from 'hooks/useDialog';
 import { CommentDeleteFeature } from 'features/home/commentDelete.feature';
 import * as S from './style';
 
-const Comment = ({ comment, createdAt, id, writer, option }: CommentType) => {
+const Comment = ({
+  comment,
+  createdAt,
+  id,
+  option,
+  hasPermission,
+}: CommentType) => {
   const { date, time } = FormatDatetime(createdAt);
   const { closeDialog, openDialog } = useDialog();
-  const userData = useRecoilValue(userState);
   const { deleteSubmit } = CommentDeleteFeature(id);
 
   return (
@@ -34,9 +39,7 @@ const Comment = ({ comment, createdAt, id, writer, option }: CommentType) => {
                 </S.Date>
               </S.ItemWrap>
             </S.ProfileWrap>
-            {userData.email === writer?.email && (
-              <S.Delete onClick={openDialog}>삭제</S.Delete>
-            )}
+            {hasPermission && <S.Delete onClick={openDialog}>삭제</S.Delete>}
           </S.InfoWrap>
         </S.Info>
         <S.Content>
