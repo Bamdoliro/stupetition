@@ -12,7 +12,7 @@ const SpinnerBox = styled.div`
 
 const Spinner = styled.img`
   background-color: ${color.white};
-  width: 6%;
+  width: 40px;
 `;
 
 const Loading = () => {
