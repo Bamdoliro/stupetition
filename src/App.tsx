@@ -4,8 +4,8 @@ import PetitionDetail from 'components/layout/home/PetitionDetail';
 import CreatePetition from 'components/layout/home/WritePetition';
 import MyPetition from 'components/layout/home/MyPetition';
 import Main from 'components/layout/home/Main';
-import Login from 'components/layout/auth/Login';
-import Join from 'components/layout/auth/Join';
+import Login from 'components/layout/Auth/Login';
+import Join from 'components/layout/Auth/Join';
 
 const App = () => {
   return (
