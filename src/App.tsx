@@ -6,6 +6,7 @@ import MyPetition from 'components/layout/home/MyPetition';
 import Main from 'components/layout/home/Main';
 import Login from 'components/layout/Auth/Login';
 import Join from 'components/layout/Auth/Join';
+import UpdatePassword from 'components/layout/home/UpdatePassword';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/petition/:id" element={<PetitionDetail />} />
         <Route path="/petition/my" element={<MyPetition />} />
       </Route>
+      <Route path="/update/password" element={<UpdatePassword />} />
       <Route path="/petition/write" element={<CreatePetition />} />
       <Route path="/login" element={<Login />} />
       <Route path="/join" element={<Join />} />

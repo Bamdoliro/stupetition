@@ -61,7 +61,7 @@ const JoinContent = ({
           onClick={join}
           option="FILLED"
           padding="12px 22px"
-          width="180px"
+          width="174px"
           value="회원가입"
         />
       </S.Wrap>
