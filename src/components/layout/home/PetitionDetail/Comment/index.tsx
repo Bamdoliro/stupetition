@@ -7,6 +7,7 @@ import { CommentType } from 'types/petition.type';
 import Dialog from 'components/common/Dialog';
 import { useDialog } from 'hooks/useDialog';
 import { CommentDeleteFeature } from 'features/home/commentDelete.feature';
+import { AnswerDeleteFeature } from 'features/home/deleteAnswer.feature';
 import * as S from './style';
 
 const Comment = ({
@@ -18,7 +19,8 @@ const Comment = ({
 }: CommentType) => {
   const { date, time } = FormatDatetime(createdAt);
   const { closeDialog, openDialog } = useDialog();
-  const { deleteSubmit } = CommentDeleteFeature(id);
+  const { deleteCommnetSubmit } = CommentDeleteFeature(id);
+  const { deleteAnswerSubmit } = AnswerDeleteFeature(id);
 
   return (
     <>
@@ -46,18 +48,33 @@ const Comment = ({
           <S.Pre>{comment}</S.Pre>
         </S.Content>
       </S.Comment>
-      <Dialog
-        option="CONFIRM"
-        title="댓글 삭제"
-        content="정말 댓글을 삭제하시겠습니까?"
-        canceltext="취소"
-        checktext="삭제"
-        cancel={closeDialog}
-        check={() => {
-          deleteSubmit();
-          closeDialog();
-        }}
-      />
+      {option === 'STUDENT_COUNCIL' ? (
+        <Dialog
+          option="CONFIRM"
+          title="댓글 삭제"
+          content="정말 댓글을 삭제하시겠습니까?"
+          canceltext="취소"
+          checktext="삭제"
+          cancel={closeDialog}
+          check={() => {
+            deleteAnswerSubmit();
+            closeDialog();
+          }}
+        />
+      ) : (
+        <Dialog
+          option="CONFIRM"
+          title="댓글 삭제"
+          content="정말 댓글을 삭제하시겠습니까?"
+          canceltext="취소"
+          checktext="삭제"
+          cancel={closeDialog}
+          check={() => {
+            deleteCommnetSubmit();
+            closeDialog();
+          }}
+        />
+      )}
     </>
   );
 };

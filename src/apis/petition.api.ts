@@ -38,15 +38,8 @@ export const commentPetition = async (
   await customAxios.post(`/comment`, commentData, authorization());
 };
 
-export const answerPetition = async ({
-  comment,
-  petitionId,
-}: CommentPetitionParamsType) => {
-  await customAxios.post(
-    `/petition/${petitionId}/answer`,
-    comment,
-    authorization(),
-  );
+export const answerPetition = async (answerData: CommentPetitionParamsType) => {
+  await customAxios.post(`/answer`, answerData, authorization());
 };
 
 export const deleteCommentPetition = async (commentId: number) => {
@@ -61,4 +54,8 @@ export const approvedPetition = async () => {
 export const wrotePetition = async () => {
   const { data } = await customAxios.get('/petition/wrote', authorization());
   return data;
+};
+
+export const deleteAnswerPetition = async (answerId: number) => {
+  await customAxios.delete(`/answer/${answerId}`, authorization());
 };

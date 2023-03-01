@@ -29,6 +29,8 @@ const PetitionDetail = () => {
   const { color, progress } = ProgressChecker(data.status);
   const { date, time } = FormatDatetime(data.createdAt);
 
+  console.log(data);
+
   if (isError) {
     return <NotFound />;
   }
@@ -98,6 +100,7 @@ const PetitionDetail = () => {
                   key={item.id}
                   id={item.id}
                   comment={item.comment}
+                  hasPermission={item.hasPermission}
                   createdAt={item.createdAt}
                 />
               ))}
