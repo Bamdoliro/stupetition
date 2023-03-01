@@ -5,3 +5,5 @@ export interface UserDataType {
   schoolName: string;
   email: string;
 }
+
+export type Authority = 'STUDENT_COUNCIL' | 'STUDENT';

@@ -4,7 +4,7 @@ import CheckSvg from 'assets/check.svg';
 import { CommentType } from 'types/petition.type';
 import Dialog from 'components/common/Dialog';
 import { useDialog } from 'hooks/useDialog';
-import { ReplyDeleteFeature } from 'features/home/ReplyDelete.feature';
+import { ReplyDeleteFeature } from 'features/home/replyDelete.feature';
 import * as S from './style';
 
 const Comment = ({

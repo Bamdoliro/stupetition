@@ -2,10 +2,11 @@ import { useMutation, useQueryClient } from 'react-query';
 import { deleteAnswerPetition, deleteCommentPetition } from 'apis/petition.api';
 import { useSuccesToast } from 'hooks/useToast';
 import * as KEY from 'constants/key.constant';
+import { Authority } from 'types/user.type';
 
 interface ReplyFeatureType {
   id: number;
-  option: 'STUDENT_COUNCIL' | 'STUDENT';
+  option: Authority;
 }
 
 export const ReplyDeleteFeature = ({ id, option }: ReplyFeatureType) => {

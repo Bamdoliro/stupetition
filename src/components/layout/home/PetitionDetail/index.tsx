@@ -6,8 +6,7 @@ import { FormatDatetime } from 'utils/FormatDatetime';
 import { userState } from 'atoms/user.atom';
 import { useRecoilValue } from 'recoil';
 import { DetailFeature } from 'features/home/detail.feature';
-import { CommentFeature } from 'features/home/commnet.feature';
-import { AnswerFeature } from 'features/home/answer.feature';
+import { ReplyFeature } from 'features/home/reply.feature';
 import { ApproveFeature } from 'features/home/approve.feature';
 import Loading from 'pages/Loading';
 import NotFound from 'pages/404';
@@ -22,14 +21,11 @@ const PetitionDetail = () => {
 
   // 쿼리
   const { isLoading, isError, data } = DetailFeature(petitionId);
-  const { commentSubmit } = CommentFeature({ petitionId, setComment, comment });
-  const { answerSubmit } = AnswerFeature({ petitionId, setComment, comment });
+  const { replySubmit } = ReplyFeature({ petitionId, setComment, comment });
   const { approveSubmit } = ApproveFeature(petitionId);
 
   const { color, progress } = ProgressChecker(data.status);
   const { date, time } = FormatDatetime(data.createdAt);
-
-  console.log(data);
 
   if (isError) {
     return <NotFound />;
@@ -84,11 +80,13 @@ const PetitionDetail = () => {
                 onChange={(e) => setComment(e.target.value)}
               />
               {user.authority === 'ROLE_STUDENT_COUNCIL' ? (
-                <S.CommentSendButton onClick={answerSubmit}>
+                <S.CommentSendButton
+                  onClick={() => replySubmit('STUDENT_COUNCIL')}
+                >
                   <S.CommentSendText>답변 작성</S.CommentSendText>
                 </S.CommentSendButton>
               ) : (
-                <S.CommentSendButton onClick={commentSubmit}>
+                <S.CommentSendButton onClick={() => replySubmit('STUDENT')}>
                   <S.CommentSendText>댓글 작성</S.CommentSendText>
                 </S.CommentSendButton>
               )}
