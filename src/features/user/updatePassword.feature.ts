@@ -19,11 +19,16 @@ export const UpdatePasswordFeature = (
   });
 
   const submit = () => {
-    const { currentPassword, password } = updatePasswordData;
-    mutate({
-      currentPassword,
-      password,
-    });
+    const { currentPassword, password, rePassword } = updatePasswordData;
+
+    if (password === rePassword) {
+      mutate({
+        currentPassword,
+        password,
+      });
+    } else {
+      useSuccesToast('비밀번호가 맞지 않습니다');
+    }
   };
 
   return { submit };
