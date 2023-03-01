@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { ACCESS_KEY } from 'constants/token.constant';
 import { useErrorToast } from 'hooks/useToast';
 import { tokenExpired } from 'lib/token/tokenExpired';
 
