@@ -2,7 +2,7 @@ import { customAxios } from 'lib/axios/customAxios';
 import { authorization } from 'lib/token/authorization';
 import { WritePetitionType, StatusType } from 'types/petition.type';
 
-export interface CommentPetitionParamsType {
+export interface ReplyPetitionParamsType {
   comment: string;
   petitionId: number;
 }
@@ -32,13 +32,11 @@ export const approvePetition = async (petitionId: number) => {
   );
 };
 
-export const commentPetition = async (
-  commentData: CommentPetitionParamsType,
-) => {
+export const commentPetition = async (commentData: ReplyPetitionParamsType) => {
   await customAxios.post(`/comment`, commentData, authorization());
 };
 
-export const answerPetition = async (answerData: CommentPetitionParamsType) => {
+export const answerPetition = async (answerData: ReplyPetitionParamsType) => {
   await customAxios.post(`/answer`, answerData, authorization());
 };
 
