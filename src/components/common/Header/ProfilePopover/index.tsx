@@ -13,8 +13,8 @@ const ProfilePopover = ({ isOpen, close }: ProfilePopoverPropsType) => {
   const { logout } = LogoutFeature();
   return (
     <S.ProfilePopover display={isOpen ? 'flex' : 'none'}>
-      <S.Button onClick={() => navigate('/petition/my')}>
-        <S.ButtonText>동의한 청원</S.ButtonText>
+      <S.Button onClick={() => navigate('/update/password')}>
+        <S.ButtonText>비밀번호 변경</S.ButtonText>
       </S.Button>
       <S.Button onClick={() => navigate('/petition/my')}>
         <S.ButtonText>내가 쓴 청원</S.ButtonText>
