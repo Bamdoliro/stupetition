@@ -50,6 +50,7 @@ export const commentPetition = async (commentData: ReplyPetitionParamsType) => {
 
 export const answerPetition = async (answerData: ReplyPetitionParamsType) => {
   await customAxios.post(`/answer`, answerData, authorization());
+};
 
 // 댓글 삭제
 
