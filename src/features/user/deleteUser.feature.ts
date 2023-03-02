@@ -16,9 +16,9 @@ export const DeleteUserFeature = (password: string) => {
     },
   });
 
-  const submit = () => {
+  const deleteUserSubmit = () => {
     mutate(password);
   };
 
-  return { submit };
+  return { deleteUserSubmit };
 };

@@ -7,6 +7,7 @@ import Main from 'components/layout/home/Main';
 import Login from 'components/layout/Auth/Login';
 import Join from 'components/layout/Auth/Join';
 import UpdatePassword from 'components/layout/home/UpdatePassword';
+import DeleteUser from 'components/layout/home/DeleteUser';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/" element={<Main />} />
         <Route path="/petition/:id" element={<PetitionDetail />} />
         <Route path="/petition/my" element={<MyPetition />} />
+        <Route path="/user/delete" element={<DeleteUser />} />
       </Route>
       <Route path="/update/password" element={<UpdatePassword />} />
       <Route path="/petition/write" element={<CreatePetition />} />
