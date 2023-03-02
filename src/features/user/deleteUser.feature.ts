@@ -9,6 +9,7 @@ export const DeleteUserFeature = (password: string) => {
   const { mutate } = useMutation(deleteUser, {
     onSuccess: () => {
       useSuccesToast('계정 삭제 성공');
+      localStorage.clear();
       navigate('/login');
     },
     onError: (err) => {
