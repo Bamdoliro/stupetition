@@ -1,4 +1,4 @@
-import { postUpdatePassword } from 'apis/user.api';
+import { updatePassword } from 'apis/user.api';
 import { useSuccesToast } from 'hooks/useToast';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +8,7 @@ export const UpdatePasswordFeature = (
   updatePasswordData: UpdatePasswordType,
 ) => {
   const navigate = useNavigate();
-  const { mutate } = useMutation(postUpdatePassword, {
+  const { mutate } = useMutation(updatePassword, {
     onSuccess: () => {
       useSuccesToast('비밀번호 변경 성공');
       navigate('/login');
@@ -27,7 +27,7 @@ export const UpdatePasswordFeature = (
         password,
       });
     } else {
-      useSuccesToast('비밀번호가 맞지 않습니다');
+      useSuccesToast('비밀번호가 틀립니다');
     }
   };
 

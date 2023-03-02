@@ -8,7 +8,7 @@ interface UpdatePasswordParamsType {
 
 // 비밀번호 변경
 
-export const postUpdatePassword = async (
+export const updatePassword = async (
   updatePasswordData: UpdatePasswordParamsType,
 ) => {
   await customAxios.put(
