@@ -54,6 +54,6 @@ export const wrotePetition = async () => {
   return data;
 };
 
-export const deleteAnswerPetition = async (answerId: number) => {
+export const deleteAnswer = async (answerId: number) => {
   await customAxios.delete(`/answer/${answerId}`, authorization());
 };
