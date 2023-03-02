@@ -1,12 +1,10 @@
 import ProfileSvg from 'assets/profile.svg';
 import { FormatDatetime } from 'utils/FormatDatetime';
 import CheckSvg from 'assets/check.svg';
-import { useRecoilValue } from 'recoil';
-import { userState } from 'atoms/user.atom';
 import { CommentType } from 'types/petition.type';
 import Dialog from 'components/common/Dialog';
 import { useDialog } from 'hooks/useDialog';
-import { CommentDeleteFeature } from 'features/home/commentDelete.feature';
+import { ReplyDeleteFeature } from 'features/home/replyDelete.feature';
 import * as S from './style';
 
 const Comment = ({
@@ -18,7 +16,7 @@ const Comment = ({
 }: CommentType) => {
   const { date, time } = FormatDatetime(createdAt);
   const { closeDialog, openDialog } = useDialog();
-  const { deleteSubmit } = CommentDeleteFeature(id);
+  const { deleteSubmit } = ReplyDeleteFeature({ id, option });
 
   return (
     <>

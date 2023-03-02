@@ -6,6 +6,8 @@ export interface UserDataType {
   email: string;
 }
 
+export type Authority = 'STUDENT_COUNCIL' | 'STUDENT';
+
 export interface UpdatePasswordType {
   currentPassword: string;
   password: string;

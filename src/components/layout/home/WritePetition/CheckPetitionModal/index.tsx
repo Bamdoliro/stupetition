@@ -17,6 +17,12 @@ const CheckPetitionModal = ({
 }: CheckPetitionModalPropsType) => {
   const { modal } = useModal();
 
+  const date = {
+    year: new Date().getFullYear(),
+    month: (new Date().getMonth() + 1).toString().padStart(2, '0'),
+    day: new Date().getDay().toString().padStart(2, '0'),
+  };
+
   return (
     <S.BlurBackground display={modal ? 'flex' : 'none'}>
       <S.CheckPetitionModal>
@@ -30,7 +36,7 @@ const CheckPetitionModal = ({
               status="ANSWERED"
               title={title}
               numberOfApprover={0}
-              createdAt="0000-00-00"
+              createdAt={`${date.year}-${date.month}-${date.day}`}
             />
           </S.PreviewBox>
           <S.ButtonBox>

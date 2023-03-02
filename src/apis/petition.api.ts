@@ -2,7 +2,7 @@ import { customAxios } from 'lib/axios/customAxios';
 import { authorization } from 'lib/token/authorization';
 import { WritePetitionType, StatusType } from 'types/petition.type';
 
-export interface CommentPetitionParamsType {
+export interface ReplyPetitionParamsType {
   comment: string;
   petitionId: number;
 }
@@ -42,24 +42,14 @@ export const approvePetition = async (petitionId: number) => {
 
 // 청원 댓글
 
-export const commentPetition = async (
-  commentData: CommentPetitionParamsType,
-) => {
+export const commentPetition = async (commentData: ReplyPetitionParamsType) => {
   await customAxios.post(`/comment`, commentData, authorization());
 };
 
 // 청원 학생회 답변
 
-export const answerPetition = async ({
-  comment,
-  petitionId,
-}: CommentPetitionParamsType) => {
-  await customAxios.post(
-    `/petition/${petitionId}/answer`,
-    comment,
-    authorization(),
-  );
-};
+export const answerPetition = async (answerData: ReplyPetitionParamsType) => {
+  await customAxios.post(`/answer`, answerData, authorization());
 
 // 댓글 삭제
 
@@ -81,4 +71,8 @@ export const approvedPetition = async () => {
 export const wrotePetition = async () => {
   const { data } = await customAxios.get('/petition/wrote', authorization());
   return data;
+};
+
+export const deleteAnswer = async (answerId: number) => {
+  await customAxios.delete(`/answer/${answerId}`, authorization());
 };

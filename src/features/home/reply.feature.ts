@@ -1,20 +1,21 @@
-import { commentPetition } from 'apis/petition.api';
+import { answerPetition, commentPetition } from 'apis/petition.api';
 import { useMutation, useQueryClient } from 'react-query';
 import { Dispatch, SetStateAction } from 'react';
 import * as KEY from 'constants/key.constant';
 import { useErrorToast } from 'hooks/useToast';
+import { Authority } from 'types/user.type';
 
-interface CommentFeatureType {
+interface ReplyFeatureType {
   petitionId: number;
   setComment: Dispatch<SetStateAction<string>>;
   comment: string;
 }
 
-export const CommentFeature = ({
+export const ReplyFeature = ({
   petitionId,
   setComment,
   comment,
-}: CommentFeatureType) => {
+}: ReplyFeatureType) => {
   const queryClient = useQueryClient();
 
   const commentMutate = useMutation(commentPetition, {
@@ -28,12 +29,25 @@ export const CommentFeature = ({
     },
   });
 
-  const commentSubmit = () => {
-    commentMutate.mutate({
+  const answerMutate = useMutation(answerPetition, {
+    onSuccess: () => {
+      setComment('');
+      queryClient.invalidateQueries([KEY.PETITION]);
+    },
+    onError: (err) => {
+      console.log(err);
+    },
+  });
+
+  const replySubmit = (option: Authority) => {
+    const deleteMutate =
+      option === 'STUDENT_COUNCIL' ? answerMutate : commentMutate;
+
+    deleteMutate.mutate({
       comment,
       petitionId,
     });
   };
 
-  return { commentSubmit };
+  return { replySubmit };
 };
