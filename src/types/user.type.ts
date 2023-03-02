@@ -5,3 +5,9 @@ export interface UserDataType {
   schoolName: string;
   email: string;
 }
+
+export interface UpdatePasswordType {
+  currentPassword: string;
+  password: string;
+  rePassword: string;
+}
