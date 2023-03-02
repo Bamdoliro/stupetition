@@ -10,6 +10,7 @@ import { ReplyFeature } from 'features/home/reply.feature';
 import { ApproveFeature } from 'features/home/approve.feature';
 import Loading from 'pages/Loading';
 import NotFound from 'pages/404';
+import DeletePetitionFeature from 'features/home/deletePetition.feature';
 import Comment from './Comment';
 import * as S from './style';
 
@@ -23,6 +24,7 @@ const PetitionDetail = () => {
   const { isLoading, isError, data } = DetailFeature(petitionId);
   const { replySubmit } = ReplyFeature({ petitionId, setComment, comment });
   const { approveSubmit } = ApproveFeature(petitionId);
+  const { deleteSubmit } = DeletePetitionFeature(petitionId);
 
   const { color, progress } = ProgressChecker(data.status);
   const { date, time } = FormatDatetime(data.createdAt);
@@ -30,8 +32,6 @@ const PetitionDetail = () => {
   if (isError) {
     return <NotFound />;
   }
-
-  console.log(data);
 
   return (
     <S.PetitionDetailLayout>
@@ -43,7 +43,10 @@ const PetitionDetail = () => {
           <>
             <S.Info>
               <S.InfoWrap>
-                {data.hasPermission && <S.DeleteButton>삭제</S.DeleteButton>}
+                {/* 임시 */}
+                {data.hasPermission && (
+                  <S.DeleteButton onClick={deleteSubmit}>삭제</S.DeleteButton>
+                )}
                 <S.ItemWrap>
                   <S.Progress color={color}>{progress}</S.Progress>
                   <S.Title>{data.title}</S.Title>
