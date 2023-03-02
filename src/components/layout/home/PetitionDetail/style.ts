@@ -152,3 +152,10 @@ export const CommentWrap = styled.div`
   flex-direction: column;
   width: 100%;
 `;
+
+export const DeleteButton = styled.button`
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  font-size: 18px;
+`;

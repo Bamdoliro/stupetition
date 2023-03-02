@@ -31,6 +31,8 @@ const PetitionDetail = () => {
     return <NotFound />;
   }
 
+  console.log(data);
+
   return (
     <S.PetitionDetailLayout>
       <S.Wrap>
@@ -41,6 +43,7 @@ const PetitionDetail = () => {
           <>
             <S.Info>
               <S.InfoWrap>
+                {data.hasPermission && <S.DeleteButton>삭제</S.DeleteButton>}
                 <S.ItemWrap>
                   <S.Progress color={color}>{progress}</S.Progress>
                   <S.Title>{data.title}</S.Title>

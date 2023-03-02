@@ -41,4 +41,5 @@ export interface PetitionDetailType {
   createdAt: string;
   approved: boolean;
   writer: Writer;
+  hasPermission: boolean;
 }
