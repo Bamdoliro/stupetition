@@ -20,7 +20,7 @@ const PetitionDetail = () => {
   const { id } = useParams();
   const petitionId = Number(id);
   const user = useRecoilValue(userState);
-  const [comment, setComment] = useState<string>('');
+  const [comment, setComment] = useState('');
 
   const { closeDialog, openDialog } = useDialog();
 
@@ -102,7 +102,7 @@ const PetitionDetail = () => {
                 )}
               </S.CommentSendWrap>
               <S.CommentWrap>
-                {data.answer?.map((item) => (
+                {data.answer.map((item) => (
                   <Comment
                     option="STUDENT_COUNCIL"
                     key={item.id}
@@ -112,7 +112,7 @@ const PetitionDetail = () => {
                     createdAt={item.createdAt}
                   />
                 ))}
-                {data.comments?.map((item) => (
+                {data.comments.map((item) => (
                   <Comment
                     option="STUDENT"
                     key={item.id}

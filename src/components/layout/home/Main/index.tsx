@@ -15,7 +15,7 @@ const Main = () => {
   const navigate = useNavigate();
   const user = useRecoilValue(userState);
   const [status, setStatus] = useState<StatusType>('PETITION');
-  const [isBannerOpen, setIsBannerOpen] = useState<boolean>(true);
+  const [isBannerOpen, setIsBannerOpen] = useState(true);
   const { isLoading, isError, data } = PetitionListFeature(status);
 
   return (

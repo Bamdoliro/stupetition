@@ -35,6 +35,7 @@ const Login = () => {
               placeholder="학교 이메일 주소를 입력해주세요"
               type="email"
               name="email"
+              value={loginData.email}
               onChange={onChange}
             />
             <Input
@@ -42,6 +43,7 @@ const Login = () => {
               placeholder="아이디를 입력해주세요"
               type="password"
               name="password"
+              value={loginData.password}
               onChange={onChange}
             />
           </S.InputWrap>

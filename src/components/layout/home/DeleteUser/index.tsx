@@ -7,7 +7,7 @@ import { useState } from 'react';
 import * as S from './style';
 
 const DeleteUser = () => {
-  const [password, setPassword] = useState<string>('');
+  const [password, setPassword] = useState('');
   const { closeDialog, openDialog } = useDialog();
   const { deleteUserSubmit } = DeleteUserFeature(password);
 

@@ -29,7 +29,7 @@ const MyPetition = () => {
           {isLoading && <Loading />}
           {user.authority ? (
             <S.PetitionWrap>
-              {data?.map((item) => (
+              {data.map((item) => (
                 <PetitionList
                   option="LIST"
                   key={item.id}

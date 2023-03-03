@@ -13,5 +13,5 @@ export const SchoolFeature = (searchWord: string) => {
     },
   );
 
-  return { data, isLoading };
+  return { data: data || [], isLoading };
 };

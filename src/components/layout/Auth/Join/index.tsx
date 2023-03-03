@@ -12,7 +12,7 @@ const Join = () => {
     schoolId: 0,
     schoolName: '',
   });
-  const [searchSchoolIsOpen, setSearchSchoolOpen] = useState<boolean>(true);
+  const [searchSchoolIsOpen, setSearchSchoolOpen] = useState(true);
 
   return (
     <S.JoinLayout>

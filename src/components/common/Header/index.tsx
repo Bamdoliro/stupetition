@@ -13,8 +13,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const user = useRecoilValue(userState);
-  const [profilePopoverIsOpen, setProfilePopoverIsOpen] =
-    useState<boolean>(false);
+  const [profilePopoverIsOpen, setProfilePopoverIsOpen] = useState(false);
 
   return (
     <S.Header>
