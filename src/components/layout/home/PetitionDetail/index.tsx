@@ -43,16 +43,15 @@ const PetitionDetail = () => {
           <>
             <S.Info>
               <S.InfoWrap>
-                {/* 임시 */}
-                {data.hasPermission && (
-                  <S.DeleteButton onClick={deleteSubmit}>삭제</S.DeleteButton>
-                )}
                 <S.ItemWrap>
                   <S.Progress color={color}>{progress}</S.Progress>
                   <S.Title>{data.title}</S.Title>
                   <S.Date>
                     {date} {time}
                   </S.Date>
+                  {data.hasPermission && (
+                    <S.Delete onClick={deleteSubmit}>삭제</S.Delete>
+                  )}
                 </S.ItemWrap>
                 <Progressbar
                   option="DETAIL"

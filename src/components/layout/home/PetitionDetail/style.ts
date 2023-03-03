@@ -32,6 +32,7 @@ export const InfoWrap = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  padding-bottom: 10px;
   border-bottom: 1px solid ${color.gray200};
 `;
 
@@ -65,6 +66,12 @@ export const Title = styled(T.H1)`
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+`;
+
+export const ItemRowWrap = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 15px;
 `;
 
 export const Date = styled(T.p2)`
@@ -153,9 +160,11 @@ export const CommentWrap = styled.div`
   width: 100%;
 `;
 
-export const DeleteButton = styled.button`
-  width: 50px;
-  height: 50px;
-  border: 1px solid black;
-  font-size: 18px;
+export const Delete = styled(T.p3)`
+  color: ${color.gray600};
+  cursor: pointer;
+  &:hover {
+    text-decoration-line: underline;
+    text-decoration-color: ${color.gray600};
+  }
 `;
