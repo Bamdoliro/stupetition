@@ -1,10 +1,12 @@
 import { deleteUser } from 'apis/user.api';
+import { useDialog } from 'hooks/useDialog';
 import { useSuccesToast } from 'hooks/useToast';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 
 export const DeleteUserFeature = (password: string) => {
   const navigate = useNavigate();
+  const { closeDialog } = useDialog();
 
   const { mutate } = useMutation(deleteUser, {
     onSuccess: () => {
@@ -19,6 +21,7 @@ export const DeleteUserFeature = (password: string) => {
 
   const deleteUserSubmit = () => {
     mutate(password);
+    closeDialog();
   };
 
   return { deleteUserSubmit };

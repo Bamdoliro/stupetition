@@ -60,8 +60,8 @@ const WritePetition = () => {
       <Dialog
         option="CONFIRM"
         title="창 닫기"
-        content="이대로 나가면 변경사항이 모두 삭제됩니다.
-        정말 이 페이지를 나가시겠습니까?"
+        content={`이대로 나가면 변경사항이 모두 삭제됩니다.\n
+        정말 이 페이지를 나가시겠습니까?`}
         canceltext="취소"
         checktext="나가기"
         cancel={closeDialog}
