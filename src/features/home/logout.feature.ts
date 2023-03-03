@@ -2,7 +2,7 @@ import { useMutation } from 'react-query';
 import { logoutUser } from 'apis/auth.api';
 
 export const LogoutFeature = () => {
-  const logoutMutate = useMutation(logoutUser, {
+  const { mutate } = useMutation(logoutUser, {
     onSuccess: () => {
       localStorage.clear();
       window.location.reload();
@@ -13,7 +13,7 @@ export const LogoutFeature = () => {
   });
 
   const logout = () => {
-    logoutMutate.mutate();
+    mutate();
   };
 
   return { logout };

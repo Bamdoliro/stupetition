@@ -6,7 +6,7 @@ import { useSuccesToast } from 'hooks/useToast';
 export const ApproveFeature = (petitionId: number) => {
   const queryClient = useQueryClient();
 
-  const approveMutate = useMutation(approvePetition, {
+  const { mutate } = useMutation(approvePetition, {
     onSuccess: () => {
       useSuccesToast('동의 완료 !!');
       queryClient.invalidateQueries([KEY.PETITION]);
@@ -17,7 +17,7 @@ export const ApproveFeature = (petitionId: number) => {
   });
 
   const approveSubmit = () => {
-    approveMutate.mutate(petitionId);
+    mutate(petitionId);
   };
 
   return { approveSubmit };
