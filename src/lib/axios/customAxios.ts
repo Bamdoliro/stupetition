@@ -29,7 +29,6 @@ customAxios.interceptors.response.use(
       if (status === 401 && code === 'EXPIRED_TOKEN') {
         tokenExpired();
       }
-      useErrorToast(message);
     }
     return Promise.reject(error);
   },
