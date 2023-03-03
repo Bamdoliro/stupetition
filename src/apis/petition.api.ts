@@ -30,6 +30,12 @@ export const getPetitionDetail = async (id: number) => {
   return data;
 };
 
+// 청원 삭제
+
+export const deletePetition = async (id: number) => {
+  await customAxios.delete(`/petition/${id}`, authorization());
+};
+
 // 청원 동의하기
 
 export const approvePetition = async (petitionId: number) => {

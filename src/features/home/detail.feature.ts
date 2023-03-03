@@ -21,6 +21,7 @@ export const DetailFeature = (petitionId: number) => {
       content: '',
       comments: [],
       answer: [],
+      hasPermission: false,
       writer: {
         authority: 'ROLE_STUDENT',
         email: '',
