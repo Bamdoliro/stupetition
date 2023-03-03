@@ -11,7 +11,7 @@ export const ProfilePopover = styled.div<{ display: string }>`
   right: 15px;
   top: 80px;
   width: 200px;
-  height: 178px;
+  height: 216px;
   padding: 24px 0px;
   border-radius: 8px;
   background-color: ${color.white};

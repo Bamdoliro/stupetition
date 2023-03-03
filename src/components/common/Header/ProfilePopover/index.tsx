@@ -20,6 +20,9 @@ const ProfilePopover = ({ isOpen, close }: ProfilePopoverPropsType) => {
         <S.ButtonText>내가 쓴 청원</S.ButtonText>
       </S.Button>
       <S.Line />
+      <S.Button onClick={() => navigate('/user/delete')}>
+        <S.ButtonText>계정 삭제</S.ButtonText>
+      </S.Button>
       <S.Button onClick={logout}>
         <S.ButtonText>로그아웃</S.ButtonText>
       </S.Button>
