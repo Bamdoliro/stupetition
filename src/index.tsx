@@ -20,7 +20,7 @@ root.render(
         <App />
         <GlobalStyled />
         <ScrollTop />
-        <ToastContainer />
+        <ToastContainer autoClose={4000} limit={4} />
       </QueryClientProvider>
     </RecoilRoot>
   </BrowserRouter>,
