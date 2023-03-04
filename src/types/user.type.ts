@@ -3,7 +3,7 @@ export interface UserDataType {
   refreshToken: string;
   authority: string;
   schoolName: string;
-  email: string;
+  username: string;
 }
 
 export type Authority = 'STUDENT_COUNCIL' | 'STUDENT';

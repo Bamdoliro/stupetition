@@ -24,7 +24,7 @@ export const DetailFeature = (petitionId: number) => {
       hasPermission: false,
       writer: {
         authority: 'ROLE_STUDENT',
-        email: '',
+        username: '',
         schoolName: '',
         status: 'ATTENDING',
         userId: 0,

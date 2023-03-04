@@ -23,7 +23,7 @@ export interface CommentType {
 
 export interface Writer {
   authority: string;
-  email: string;
+  username: string;
   schoolName: string;
   status: string;
   userId: number;
@@ -37,7 +37,6 @@ export interface PetitionDetailType {
   status: StatusType;
   answer: CommentType[];
   title: string;
-  userEmail: string;
   createdAt: string;
   approved: boolean;
   writer: Writer;
