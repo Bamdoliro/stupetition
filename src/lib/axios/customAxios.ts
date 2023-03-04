@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { useErrorToast } from 'hooks/useToast';
 import { tokenExpired } from 'lib/token/tokenExpired';
 
 const customAxios = axios.create({

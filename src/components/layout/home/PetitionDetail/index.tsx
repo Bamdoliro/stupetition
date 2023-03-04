@@ -102,7 +102,7 @@ const PetitionDetail = () => {
                 )}
               </S.CommentSendWrap>
               <S.CommentWrap>
-                {data.answer.map((item) => (
+                {data.answer?.map((item) => (
                   <Comment
                     option="STUDENT_COUNCIL"
                     key={item.id}
@@ -112,7 +112,7 @@ const PetitionDetail = () => {
                     createdAt={item.createdAt}
                   />
                 ))}
-                {data.comments.map((item) => (
+                {data.comments?.map((item) => (
                   <Comment
                     option="STUDENT"
                     key={item.id}
