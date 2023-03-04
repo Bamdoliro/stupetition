@@ -9,7 +9,7 @@ export interface JoinType {
 }
 
 export interface LoginType {
-  email: string;
+  username: string;
   password: string;
 }
 

@@ -9,7 +9,7 @@ import * as S from './style';
 const Login = () => {
   const navigate = useNavigate();
   const [loginData, setLoginData] = useState<LoginType>({
-    email: '',
+    username: '',
     password: '',
   });
 
@@ -31,16 +31,16 @@ const Login = () => {
           </S.SubTitle>
           <S.InputWrap>
             <Input
-              desc="학교 이메일 주소"
-              placeholder="학교 이메일 주소를 입력해주세요"
-              type="email"
-              name="email"
-              value={loginData.email}
+              desc="아이디"
+              placeholder="아이디를 입력해주세요"
+              type="text"
+              name="username"
+              value={loginData.username}
               onChange={onChange}
             />
             <Input
               desc="비밀번호"
-              placeholder="아이디를 입력해주세요"
+              placeholder="비밀번호를 입력해주세요"
               type="password"
               name="password"
               value={loginData.password}
