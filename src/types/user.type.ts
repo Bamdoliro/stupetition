@@ -13,3 +13,9 @@ export interface UpdatePasswordType {
   password: string;
   rePassword: string;
 }
+
+export interface GenerateStudnetsType {
+  admissionYear: number;
+  defaultPassword: string;
+  numberOfStudents: number;
+}

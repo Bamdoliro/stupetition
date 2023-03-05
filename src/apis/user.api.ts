@@ -1,15 +1,10 @@
 import { customAxios } from 'lib/axios/customAxios';
 import { authorization } from 'lib/token/authorization';
+import { GenerateStudnetsType } from 'types/user.type';
 
 interface UpdatePasswordParamsType {
   currentPassword: string;
   password: string;
-}
-
-interface GenerateStudnetsParamsType {
-  admissionYear: number;
-  defaultPassword: string;
-  numberOfStudents: number;
 }
 
 // 비밀번호 변경
@@ -27,7 +22,7 @@ export const updatePassword = async (
 // 학생 아이디 생성
 
 export const generateStudnets = async (
-  generateStudnetsData: GenerateStudnetsParamsType,
+  generateStudnetsData: GenerateStudnetsType,
 ) => {
   await customAxios.post(
     '/user/students',
