@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import MainOutlet from 'components/common/Outlet/main.outlet';
+import MainLayout from 'layouts/MainLayout';
 import PetitionDetail from 'components/ui/home/PetitionDetail';
 import CreatePetition from 'components/ui/home/WritePetition';
 import MyPetition from 'components/ui/home/MyPetition';
@@ -10,7 +10,7 @@ import UpdatePassword from 'components/ui/home/UpdatePassword';
 const App = () => {
   return (
     <Routes>
-      <Route element={<MainOutlet />}>
+      <Route element={<MainLayout />}>
         <Route path="/" element={<Main />} />
         <Route path="/petition/:id" element={<PetitionDetail />} />
         <Route path="/petition/my" element={<MyPetition />} />
