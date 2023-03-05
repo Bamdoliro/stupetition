@@ -2,12 +2,10 @@ import { ChangeEvent, useState } from 'react';
 import { LoginType } from 'types/auth.type';
 import Input from 'components/common/Input';
 import Button from 'components/common/Button';
-import { useNavigate } from 'react-router-dom';
 import { LoginFeature } from 'features/auth/login.feature';
 import * as S from './style';
 
 const Login = () => {
-  const navigate = useNavigate();
   const [loginData, setLoginData] = useState<LoginType>({
     username: '',
     password: '',
