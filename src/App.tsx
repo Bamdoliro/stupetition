@@ -1,11 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 import MainOutlet from 'components/common/Outlet/main.outlet';
-import PetitionDetail from 'components/layout/home/PetitionDetail';
-import CreatePetition from 'components/layout/home/WritePetition';
-import MyPetition from 'components/layout/home/MyPetition';
-import Main from 'components/layout/home/Main';
-import Login from 'components/layout/auth/Login';
-import UpdatePassword from 'components/layout/home/UpdatePassword';
+import PetitionDetail from 'components/ui/home/PetitionDetail';
+import CreatePetition from 'components/ui/home/WritePetition';
+import MyPetition from 'components/ui/home/MyPetition';
+import Main from 'components/ui/home/Main';
+import Login from 'components/ui/auth/Login';
+import UpdatePassword from 'components/ui/home/UpdatePassword';
 
 const App = () => {
   return (
