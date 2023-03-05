@@ -37,12 +37,6 @@ export const SubTitle = styled(T.p2)`
   color: ${color.gray600};
 `;
 
-export const Join = styled(T.p2)`
-  display: inline-block;
-  color: ${color.main};
-  cursor: pointer;
-`;
-
 export const InputWrap = styled.div`
   display: flex;
   flex-direction: column;

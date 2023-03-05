@@ -25,10 +25,7 @@ const Login = () => {
       <S.Wrap>
         <S.LoginBox>
           <S.Title>로그인</S.Title>
-          <S.SubTitle>
-            학생회 계정이 없나요?{' '}
-            <S.Join onClick={() => navigate('/join')}>계정만들기</S.Join>
-          </S.SubTitle>
+          <S.SubTitle>마음속에 담아있는 불만을 푸세요 !</S.SubTitle>
           <S.InputWrap>
             <Input
               desc="아이디"

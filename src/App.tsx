@@ -5,7 +5,6 @@ import CreatePetition from 'components/layout/home/WritePetition';
 import MyPetition from 'components/layout/home/MyPetition';
 import Main from 'components/layout/home/Main';
 import Login from 'components/layout/auth/Login';
-import Join from 'components/layout/auth/Join';
 import UpdatePassword from 'components/layout/home/UpdatePassword';
 
 const App = () => {
@@ -19,7 +18,6 @@ const App = () => {
       <Route path="/update/password" element={<UpdatePassword />} />
       <Route path="/petition/write" element={<CreatePetition />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/join" element={<Join />} />
     </Routes>
   );
 };
