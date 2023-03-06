@@ -4,7 +4,7 @@ import { color } from 'styles/theme.style';
 export const Desc = styled.div`
   font-size: 0.75rem;
   font-weight: 400;
-  color: ${color.gray500};
+  color: ${color.gray600};
   padding-bottom: 12px;
 `;
 

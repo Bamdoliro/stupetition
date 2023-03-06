@@ -4,7 +4,7 @@ import { color } from 'styles/theme.style';
 export const Desc = styled.div`
   font-size: 0.75rem;
   font-weight: 400;
-  color: ${color.gray500};
+  color: ${color.gray600};
   padding-bottom: 12px;
 `;
 
@@ -17,6 +17,6 @@ export const Input = styled.input`
   color: ${color.gray900};
   font-size: 1rem;
   &::placeholder {
-    color: ${color.gray400};
+    color: ${color.gray500};
   }
 `;

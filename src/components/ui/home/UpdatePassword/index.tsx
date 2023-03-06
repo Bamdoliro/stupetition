@@ -56,7 +56,6 @@ const UpdatePassword = () => {
               <Button
                 onClick={submit}
                 option="FILLED"
-                padding="12px 22px"
                 width="174px"
                 value="비밀번호 변경"
               />

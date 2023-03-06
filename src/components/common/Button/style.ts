@@ -14,6 +14,7 @@ export const FilledButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 12px 22px;
   border-radius: 8px;
   background-color: ${color.main};
   &:hover {
@@ -25,6 +26,7 @@ export const UnfilledButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 12px 22px;
   border-radius: 8px;
   background-color: ${color.white};
   border: 1px solid ${color.gray200};

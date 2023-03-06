@@ -45,7 +45,6 @@ const Login = () => {
           <Button
             onClick={login}
             option="FILLED"
-            padding="12px 24px"
             width="225px"
             value="로그인"
           />
