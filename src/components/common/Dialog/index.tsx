@@ -2,10 +2,10 @@ import { MouseEventHandler } from 'react';
 import MiniButton from 'components/common/MiniButton';
 import * as S from './style';
 
-type DialogOptionType = 'CONFIRM' | 'ALERT';
+type ModalOptionType = 'CONFIRM' | 'ALERT';
 
-interface DialogPropsType {
-  option: DialogOptionType;
+interface ModalPropsType {
+  option: ModalOptionType;
   title: string;
   content: string;
   canceltext: string;
@@ -14,7 +14,7 @@ interface DialogPropsType {
   check: MouseEventHandler<HTMLButtonElement>;
 }
 
-const Dialog = ({
+const Modal = ({
   option,
   title,
   content,
@@ -22,7 +22,7 @@ const Dialog = ({
   checktext,
   cancel,
   check,
-}: DialogPropsType) => {
+}: ModalPropsType) => {
   return (
     <S.BlurBackground display={false ? 'flex' : 'none'}>
       {option === 'CONFIRM' ? (
@@ -59,4 +59,4 @@ const Dialog = ({
   );
 };
 
-export default Dialog;
+export default Modal;
