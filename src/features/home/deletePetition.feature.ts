@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 
 const DeletePetitionFeature = (petitionId: number) => {
   const navigate = useNavigate();
-  const { closeDialog } = useDialog();
   const queryClient = useQueryClient();
 
   const deleteMutate = useMutation(deletePetition, {
@@ -25,7 +24,6 @@ const DeletePetitionFeature = (petitionId: number) => {
 
   const deleteSubmit = () => {
     deleteMutate.mutate(petitionId);
-    closeDialog();
   };
 
   return { deleteSubmit };

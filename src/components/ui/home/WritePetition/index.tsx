@@ -2,16 +2,11 @@ import { ChangeEvent, useState } from 'react';
 import { WritePetitionType } from 'types/petition.type';
 import MiniButton from 'components/common/MiniButton';
 import { WriteFeature } from 'features/home/write.feature';
-import Dialog from 'components/common/Dialog';
-
-import { useNavigate } from 'react-router-dom';
-import { useDialog, useModal } from 'hooks/useDialog';
+import { useModal } from 'hooks/useDialog';
 import * as S from './style';
 import CheckPetitionModal from './CheckPetitionModal';
 
 const WritePetition = () => {
-  const navigate = useNavigate();
-  const { closeDialog } = useDialog();
   const { closeModal, openModal } = useModal();
   const [petitionData, setPetitionData] = useState<WritePetitionType>({
     title: '',
@@ -57,7 +52,7 @@ const WritePetition = () => {
           />
         </S.ContentsWrap>
       </S.WritePetitionLayout>
-      <Dialog
+      {/* <Dialog
         option="CONFIRM"
         title="창 닫기"
         content={`이대로 나가면 변경사항이 모두 삭제됩니다.\n
@@ -69,7 +64,7 @@ const WritePetition = () => {
           navigate('/');
           closeDialog();
         }}
-      />
+      /> */}
       <CheckPetitionModal
         title={petitionData.title}
         close={closeModal}

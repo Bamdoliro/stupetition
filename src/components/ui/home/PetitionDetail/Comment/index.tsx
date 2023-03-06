@@ -2,8 +2,6 @@ import ProfileSvg from 'assets/profile.svg';
 import { FormatDatetime } from 'utils/FormatDatetime';
 import CheckSvg from 'assets/check.svg';
 import { CommentType } from 'types/petition.type';
-import Dialog from 'components/common/Dialog';
-import { useDialog } from 'hooks/useDialog';
 import { ReplyDeleteFeature } from 'features/home/replyDelete.feature';
 import * as S from './style';
 
@@ -15,7 +13,6 @@ const Comment = ({
   hasPermission,
 }: CommentType) => {
   const { date, time } = FormatDatetime(createdAt);
-  const { closeDialog, openDialog } = useDialog();
   const { deleteSubmit } = ReplyDeleteFeature({ id, option });
 
   return (
@@ -37,14 +34,14 @@ const Comment = ({
                 </S.Date>
               </S.ItemWrap>
             </S.ProfileWrap>
-            {hasPermission && <S.Delete onClick={openDialog}>삭제</S.Delete>}
+            {hasPermission && <S.Delete onClick={deleteSubmit}>삭제</S.Delete>}
           </S.InfoWrap>
         </S.Info>
         <S.Content>
           <S.Pre>{comment}</S.Pre>
         </S.Content>
       </S.Comment>
-      <Dialog
+      {/* <Dialog
         option="CONFIRM"
         title="댓글 삭제"
         content="정말 댓글을 삭제하시겠습니까?"
@@ -55,7 +52,7 @@ const Comment = ({
           deleteSubmit();
           closeDialog();
         }}
-      />
+      /> */}
     </>
   );
 };

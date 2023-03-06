@@ -11,8 +11,6 @@ import { ApproveFeature } from 'features/home/approve.feature';
 import Loading from 'pages/Loading';
 import NotFound from 'pages/404';
 import DeletePetitionFeature from 'features/home/deletePetition.feature';
-import Dialog from 'components/common/Dialog';
-import { useDialog } from 'hooks/useDialog';
 import Comment from './Comment';
 import * as S from './style';
 
@@ -21,8 +19,6 @@ const PetitionDetail = () => {
   const petitionId = Number(id);
   const user = useRecoilValue(userState);
   const [comment, setComment] = useState('');
-
-  const { closeDialog, openDialog } = useDialog();
 
   // 쿼리
   const { isLoading, isError, data } = DetailFeature(petitionId);
@@ -55,7 +51,7 @@ const PetitionDetail = () => {
                       {date} {time}
                     </S.Date>
                     {data.hasPermission && (
-                      <S.Delete onClick={openDialog}>삭제</S.Delete>
+                      <S.Delete onClick={deleteSubmit}>삭제</S.Delete>
                     )}
                   </S.ItemWrap>
                   <Progressbar
@@ -127,7 +123,7 @@ const PetitionDetail = () => {
           )}
         </S.Wrap>
       </S.PetitionDetailLayout>
-      <Dialog
+      {/* <Dialog
         option="CONFIRM"
         title="청원 삭제"
         content="정말 청원을 삭제 하시겠습니까?"
@@ -135,7 +131,7 @@ const PetitionDetail = () => {
         checktext="삭제"
         cancel={closeDialog}
         check={deleteSubmit}
-      />
+      /> */}
     </>
   );
 };
