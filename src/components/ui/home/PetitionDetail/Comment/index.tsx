@@ -16,44 +16,30 @@ const Comment = ({
   const { deleteSubmit } = ReplyDeleteFeature({ id, option });
 
   return (
-    <>
-      <S.Comment>
-        <S.Info>
-          <S.InfoWrap>
-            <S.ProfileWrap>
-              <S.Profile src={ProfileSvg} />
-              <S.ItemWrap>
-                <S.NameWrap>
-                  <S.Name>
-                    {option === 'STUDENT_COUNCIL' ? '학생회' : '학생'}
-                  </S.Name>
-                  {option === 'STUDENT_COUNCIL' && <S.Check src={CheckSvg} />}
-                </S.NameWrap>
-                <S.Date>
-                  {date} {time}
-                </S.Date>
-              </S.ItemWrap>
-            </S.ProfileWrap>
-            {hasPermission && <S.Delete onClick={deleteSubmit}>삭제</S.Delete>}
-          </S.InfoWrap>
-        </S.Info>
-        <S.Content>
-          <S.Pre>{comment}</S.Pre>
-        </S.Content>
-      </S.Comment>
-      {/* <Dialog
-        option="CONFIRM"
-        title="댓글 삭제"
-        content="정말 댓글을 삭제하시겠습니까?"
-        canceltext="취소"
-        checktext="삭제"
-        cancel={closeDialog}
-        check={() => {
-          deleteSubmit();
-          closeDialog();
-        }}
-      /> */}
-    </>
+    <S.Comment>
+      <S.Info>
+        <S.InfoWrap>
+          <S.ProfileWrap>
+            <S.Profile src={ProfileSvg} />
+            <S.ItemWrap>
+              <S.NameWrap>
+                <S.Name>
+                  {option === 'STUDENT_COUNCIL' ? '학생회' : '학생'}
+                </S.Name>
+                {option === 'STUDENT_COUNCIL' && <S.Check src={CheckSvg} />}
+              </S.NameWrap>
+              <S.Date>
+                {date} {time}
+              </S.Date>
+            </S.ItemWrap>
+          </S.ProfileWrap>
+          {hasPermission && <S.Delete onClick={deleteSubmit}>삭제</S.Delete>}
+        </S.InfoWrap>
+      </S.Info>
+      <S.Content>
+        <S.Pre>{comment}</S.Pre>
+      </S.Content>
+    </S.Comment>
   );
 };
 

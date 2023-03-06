@@ -1,5 +1,4 @@
 import { writePetition } from 'apis/petition.api';
-import { useDialog, useModal } from 'hooks/useDialog';
 import { useSuccesToast } from 'hooks/useToast';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
@@ -7,8 +6,6 @@ import { WritePetitionType } from 'types/petition.type';
 
 export const WriteFeature = (petitionData: WritePetitionType) => {
   const navigate = useNavigate();
-  const { openDialog } = useDialog();
-  const { closeModal } = useModal();
   const { mutate } = useMutation(writePetition, {
     onSuccess: () => {
       useSuccesToast('게시글 작성 성공 !!');
@@ -22,13 +19,13 @@ export const WriteFeature = (petitionData: WritePetitionType) => {
   // petitionWrite
   const write = () => {
     mutate(petitionData);
-    closeModal();
+    // closeModal();
   };
 
   // confirm cancel
   const cancelConfirm = () => {
     if (petitionData.content || petitionData.title) {
-      openDialog();
+      // openDialog();
     } else {
       navigate('/');
     }

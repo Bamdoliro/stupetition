@@ -1,5 +1,4 @@
 import { deletePetition } from 'apis/petition.api';
-import { useDialog } from 'hooks/useDialog';
 import { useSuccesToast } from 'hooks/useToast';
 import { useMutation, useQueryClient } from 'react-query';
 import * as KEY from 'constants/key.constant';

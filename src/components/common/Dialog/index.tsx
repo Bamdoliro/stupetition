@@ -1,4 +1,3 @@
-import { useDialog } from 'hooks/useDialog';
 import { MouseEventHandler } from 'react';
 import MiniButton from 'components/common/MiniButton';
 import * as S from './style';
@@ -24,9 +23,8 @@ const Dialog = ({
   cancel,
   check,
 }: DialogPropsType) => {
-  const { dialog } = useDialog();
   return (
-    <S.BlurBackground display={dialog ? 'flex' : 'none'}>
+    <S.BlurBackground display={false ? 'flex' : 'none'}>
       {option === 'CONFIRM' ? (
         <S.Confirm>
           <S.ConfirmWrap>

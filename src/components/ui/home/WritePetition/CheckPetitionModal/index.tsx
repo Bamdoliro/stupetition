@@ -1,6 +1,5 @@
 import MiniButton from 'components/common/MiniButton';
 import PetitionList from 'components/common/PetitionList';
-import { useModal } from 'hooks/useDialog';
 import { MouseEventHandler } from 'react';
 import * as S from './style';
 
@@ -15,8 +14,6 @@ const CheckPetitionModal = ({
   close,
   write,
 }: CheckPetitionModalPropsType) => {
-  const { modal } = useModal();
-
   const date = {
     year: new Date().getFullYear(),
     month: (new Date().getMonth() + 1).toString().padStart(2, '0'),
@@ -24,7 +21,7 @@ const CheckPetitionModal = ({
   };
 
   return (
-    <S.BlurBackground display={modal ? 'flex' : 'none'}>
+    <S.BlurBackground display={false ? 'flex' : 'none'}>
       <S.CheckPetitionModal>
         <S.CheckPetitionModalWrap>
           <S.Title>최종 확인</S.Title>
