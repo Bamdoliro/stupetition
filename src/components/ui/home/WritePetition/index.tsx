@@ -21,9 +21,9 @@ const WritePetition = () => {
     setPetitionData({ ...petitionData, [name]: value });
   };
 
-  const writeCancel = () => {
-    const cancel = () => closeModal();
-    const out = () => {
+  const writeClose = () => {
+    const close = () => closeModal();
+    const confirm = () => {
       navigate('/');
       closeModal();
     };
@@ -34,10 +34,10 @@ const WritePetition = () => {
           title="창 닫기"
           content={`이대로 나가면 변경사항이 모두 삭제됩니다.\n
           정말 이 페이지를 나가시겠습니까?`}
-          canceltext="취소"
-          checktext="나가기"
-          cancel={cancel}
-          check={out}
+          closeText="취소"
+          confirmText="나가기"
+          handleClose={close}
+          handleConfirm={confirm}
         />,
       );
     } else {
@@ -50,7 +50,7 @@ const WritePetition = () => {
       <S.WritePetitionLayout>
         <S.Header>
           <S.HeaderWrap>
-            <MiniButton value="취소" option="UNFILLED" onClick={writeCancel} />
+            <MiniButton value="취소" option="UNFILLED" onClick={writeClose} />
             {petitionData.content.length <= 0 ||
             petitionData.title.length <= 0 ? (
               <MiniButton value="다음" option="SCARCE_FILLED" />

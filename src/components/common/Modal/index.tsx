@@ -8,20 +8,20 @@ interface ModalPropsType {
   option: ModalOptionType;
   title: string;
   content: string;
-  canceltext: string;
-  checktext: string;
-  cancel: MouseEventHandler<HTMLButtonElement>;
-  check: MouseEventHandler<HTMLButtonElement>;
+  closeText: string;
+  confirmText: string;
+  handleClose: MouseEventHandler<HTMLButtonElement>;
+  handleConfirm: MouseEventHandler<HTMLButtonElement>;
 }
 
 const Modal = ({
   option,
   title,
   content,
-  canceltext,
-  checktext,
-  cancel,
-  check,
+  closeText,
+  confirmText,
+  handleClose,
+  handleConfirm,
 }: ModalPropsType) => {
   return (
     <S.BlurBackground>
@@ -35,10 +35,14 @@ const Modal = ({
             <S.ConfirmButtonBox>
               <MiniButton
                 option="UNFILLED"
-                value={canceltext}
-                onClick={cancel}
+                value={closeText}
+                onClick={handleClose}
               />
-              <MiniButton option="FILLED" value={checktext} onClick={check} />
+              <MiniButton
+                option="FILLED"
+                value={confirmText}
+                onClick={handleConfirm}
+              />
             </S.ConfirmButtonBox>
           </S.ConfirmWrap>
         </S.Confirm>
@@ -50,7 +54,11 @@ const Modal = ({
               <S.AlertContent>{content}</S.AlertContent>
             </S.AlertTextBox>
             <S.AlertButtonBox>
-              <MiniButton option="FILLED" value="확인" onClick={check} />
+              <MiniButton
+                option="FILLED"
+                value="확인"
+                onClick={handleConfirm}
+              />
             </S.AlertButtonBox>
           </S.AlertWrap>
         </S.Alert>

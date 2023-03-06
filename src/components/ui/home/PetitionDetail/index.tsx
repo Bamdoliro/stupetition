@@ -39,10 +39,10 @@ const PetitionDetail = () => {
         option="CONFIRM"
         title="청원 삭제"
         content="정말 청원을 삭제 하시겠습니까?"
-        canceltext="취소"
-        checktext="삭제"
-        cancel={closeModal}
-        check={deleteSubmit}
+        closeText="취소"
+        confirmText="삭제"
+        handleClose={closeModal}
+        handleConfirm={deleteSubmit}
       />,
     );
   };
