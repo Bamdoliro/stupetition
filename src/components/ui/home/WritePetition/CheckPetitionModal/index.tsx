@@ -1,19 +1,23 @@
 import MiniButton from 'components/common/MiniButton';
 import PetitionList from 'components/common/PetitionList';
 import { MouseEventHandler } from 'react';
+import { WritePetitionType } from 'types/petition.type';
+import { WriteFeature } from 'features/home/write.feature';
 import * as S from './style';
 
 interface CheckPetitionModalPropsType {
-  title: string;
   close: MouseEventHandler<HTMLButtonElement>;
-  write: MouseEventHandler<HTMLButtonElement>;
+  petitionData: WritePetitionType;
+  isOpenCheckPetitionModal: boolean;
 }
 
 const CheckPetitionModal = ({
-  title,
   close,
-  write,
+  petitionData,
+  isOpenCheckPetitionModal,
 }: CheckPetitionModalPropsType) => {
+  const { write } = WriteFeature(petitionData);
+
   const date = {
     year: new Date().getFullYear(),
     month: (new Date().getMonth() + 1).toString().padStart(2, '0'),
@@ -21,7 +25,7 @@ const CheckPetitionModal = ({
   };
 
   return (
-    <S.BlurBackground display={false ? 'flex' : 'none'}>
+    <S.BlurBackground display={isOpenCheckPetitionModal ? 'flex' : 'none'}>
       <S.CheckPetitionModal>
         <S.CheckPetitionModalWrap>
           <S.Title>최종 확인</S.Title>
@@ -31,7 +35,7 @@ const CheckPetitionModal = ({
               option="MODAL"
               id={0}
               status="ANSWERED"
-              title={title}
+              title={petitionData.title}
               numberOfApprover={0}
               createdAt={`${date.year}-${date.month}-${date.day}`}
             />
