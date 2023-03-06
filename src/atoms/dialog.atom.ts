@@ -1,11 +1,7 @@
+import { ReactNode } from 'react';
 import { atom } from 'recoil';
 
-export const dialogState = atom<boolean>({
-  key: 'dialogState',
-  default: false,
-});
-
-export const modalState = atom<boolean>({
+export const modalState = atom<ReactNode>({
   key: 'modalState',
-  default: false,
+  default: null,
 });
