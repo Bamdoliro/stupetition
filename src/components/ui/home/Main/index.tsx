@@ -46,7 +46,7 @@ const Main = () => {
           </S.SubNav>
           {isError && <NotFound />}
           {isLoading && <Loading />}
-          {user.authority ? (
+          {user.authority && (
             <S.PetitionWrap>
               {data.map((item) => (
                 <PetitionList
@@ -60,8 +60,6 @@ const Main = () => {
                 />
               ))}
             </S.PetitionWrap>
-          ) : (
-            <div>로그인을 해야지 청원을 하지 ;;</div>
           )}
         </S.ContentsInnerWrap>
       </S.ContentsWrap>
