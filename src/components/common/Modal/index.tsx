@@ -24,7 +24,7 @@ const Modal = ({
   check,
 }: ModalPropsType) => {
   return (
-    <S.BlurBackground display={false ? 'flex' : 'none'}>
+    <S.BlurBackground>
       {option === 'CONFIRM' ? (
         <S.Confirm>
           <S.ConfirmWrap>

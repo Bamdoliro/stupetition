@@ -11,10 +11,14 @@ import { ApproveFeature } from 'features/home/approve.feature';
 import Loading from 'pages/Loading';
 import NotFound from 'pages/404';
 import DeletePetitionFeature from 'features/home/deletePetition.feature';
+import { useModal } from 'hooks/useModal';
+import Modal from 'components/common/Modal';
 import Comment from './Comment';
 import * as S from './style';
 
 const PetitionDetail = () => {
+  const { openModal, closeModal } = useModal();
+
   const { id } = useParams();
   const petitionId = Number(id);
   const user = useRecoilValue(userState);
@@ -28,6 +32,20 @@ const PetitionDetail = () => {
 
   const { color, progress } = ProgressChecker(data.status);
   const { date, time } = FormatDatetime(data.createdAt);
+
+  const deletePetition = () => {
+    openModal(
+      <Modal
+        option="CONFIRM"
+        title="청원 삭제"
+        content="정말 청원을 삭제 하시겠습니까?"
+        canceltext="취소"
+        checktext="삭제"
+        cancel={closeModal}
+        check={deleteSubmit}
+      />,
+    );
+  };
 
   if (isError) {
     return <NotFound />;
@@ -50,7 +68,7 @@ const PetitionDetail = () => {
                     {date} {time}
                   </S.Date>
                   {data.hasPermission && (
-                    <S.Delete onClick={deleteSubmit}>삭제</S.Delete>
+                    <S.Delete onClick={deletePetition}>삭제</S.Delete>
                   )}
                 </S.ItemWrap>
                 <Progressbar

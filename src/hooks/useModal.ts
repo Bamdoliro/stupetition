@@ -1,13 +1,14 @@
-import { modalState } from 'atoms/dialog.atom';
+import { modalState } from 'atoms/modal.atom';
+import { ReactNode } from 'react';
 import { useRecoilState } from 'recoil';
 
 export const useModal = () => {
   const [modal, setModal] = useRecoilState(modalState);
-  const openModal = () => {
-    setModal(true);
+  const openModal = (m: ReactNode) => {
+    setModal(m);
   };
   const closeModal = () => {
-    setModal(false);
+    setModal(null);
   };
 
   return { openModal, closeModal, modal };

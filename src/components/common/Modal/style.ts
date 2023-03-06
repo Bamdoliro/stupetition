@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import * as T from 'styles/text.style';
 import { color } from 'styles/theme.style';
 
-export const BlurBackground = styled.div<{ display: string }>`
-  display: ${(props) => props.display};
+export const BlurBackground = styled.div`
   top: 0;
   left: 0;
   position: fixed;

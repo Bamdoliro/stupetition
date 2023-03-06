@@ -1,4 +1,4 @@
-import { modalState } from 'atoms/dialog.atom';
+import { modalState } from 'atoms/modal.atom';
 import { useRecoilValue } from 'recoil';
 
 const GlobalModal = () => {
