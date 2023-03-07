@@ -25,7 +25,7 @@ const UpdatePassword = () => {
       <S.UpdatePasswordWrap>
         <S.UpdatePasswordBox>
           <S.UpdatePasswordContent>
-            <S.UpdatePasswordWrap>
+            <S.UpdatePasswordContentWrap>
               <S.Title>비밀번호 변경</S.Title>
               <S.InputWrap>
                 <Input
@@ -59,7 +59,7 @@ const UpdatePassword = () => {
                 width="174px"
                 value="비밀번호 변경"
               />
-            </S.UpdatePasswordWrap>
+            </S.UpdatePasswordContentWrap>
           </S.UpdatePasswordContent>
         </S.UpdatePasswordBox>
       </S.UpdatePasswordWrap>

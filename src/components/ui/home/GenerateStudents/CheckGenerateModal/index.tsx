@@ -1,5 +1,5 @@
 import MiniButton from 'components/common/MiniButton';
-import { MouseEventHandler } from 'react';
+import { Dispatch, MouseEventHandler, SetStateAction } from 'react';
 import { GenerateStudnetsType } from 'types/user.type';
 import * as S from './style';
 
@@ -15,7 +15,7 @@ const CheckGenerateModal = ({
   generateStudentsData,
 }: CheckGenerateModalPropsType) => {
   const { admissionYear, numberOfStudents } = generateStudentsData;
-  const grade = admissionYear - new Date().getFullYear();
+  const grade = new Date().getFullYear() + 1 - admissionYear;
 
   return (
     <S.BlurBackground display={isOpenCheckGenerateModal ? 'flex' : 'none'}>

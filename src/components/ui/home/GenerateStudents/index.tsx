@@ -6,10 +6,12 @@ import { GenerateStudnetsType } from 'types/user.type';
 import Modal from 'components/common/Modal';
 import { useModal } from 'hooks/useModal';
 import { useErrorToast } from 'hooks/useToast';
+import { useNavigate } from 'react-router-dom';
 import CheckGenerateModal from './CheckGenerateModal';
 import * as S from './style';
 
 const GenerateStudnets = () => {
+  const navigate = useNavigate();
   const { openModal, closeModal } = useModal();
   const [generateStudentsData, setGenerateStudentsData] =
     useState<GenerateStudnetsType>({
@@ -31,7 +33,7 @@ const GenerateStudnets = () => {
 
   const generateStudents = () => {
     const { admissionYear, numberOfStudents } = generateStudentsData;
-    const grade = new Date().getFullYear() - admissionYear + 1;
+    const grade = new Date().getFullYear() + 1 - admissionYear;
     if (new Date().getFullYear() < admissionYear) {
       useErrorToast('입학년도를 다시 한번 확인해주세요');
       return;
@@ -47,6 +49,11 @@ const GenerateStudnets = () => {
         handleConfirm={generate}
       />,
     );
+  };
+
+  const closeGenerateModal = () => {
+    setIsOpenCheckGenerateModal(false);
+    navigate('/');
   };
 
   return (
@@ -102,7 +109,7 @@ const GenerateStudnets = () => {
       </S.GenerateStudentsLayout>
       <CheckGenerateModal
         isOpenCheckGenerateModal={isOpenCheckGenerateModal}
-        close={() => setIsOpenCheckGenerateModal(false)}
+        close={closeGenerateModal}
         generateStudentsData={generateStudentsData}
       />
     </>
