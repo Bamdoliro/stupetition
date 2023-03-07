@@ -22,7 +22,7 @@ const UpdatePassword = () => {
 
   return (
     <S.UpdatePasswordLayout>
-      <S.Wrap>
+      <S.UpdatePasswordWrap>
         <S.UpdatePasswordBox>
           <S.UpdatePasswordContent>
             <S.UpdatePasswordWrap>
@@ -62,7 +62,7 @@ const UpdatePassword = () => {
             </S.UpdatePasswordWrap>
           </S.UpdatePasswordContent>
         </S.UpdatePasswordBox>
-      </S.Wrap>
+      </S.UpdatePasswordWrap>
     </S.UpdatePasswordLayout>
   );
 };

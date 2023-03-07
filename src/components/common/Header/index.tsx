@@ -17,7 +17,7 @@ const Header = () => {
 
   return (
     <S.Header>
-      <S.Wrap>
+      <S.HeaderWrap>
         <S.LogoWrap>
           <S.Logo src={Logo} />
           <S.LogoText onClick={() => navigate('/')}>학생청원</S.LogoText>
@@ -49,7 +49,7 @@ const Header = () => {
             />
           )}
         </S.NavWrap>
-      </S.Wrap>
+      </S.HeaderWrap>
     </S.Header>
   );
 };

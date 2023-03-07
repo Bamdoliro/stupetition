@@ -16,7 +16,7 @@ const MyPetition = () => {
 
   return (
     <S.MyPetitionLayout>
-      <S.Wrap>
+      <S.MyPetitionWrap>
         <S.InnerWrap>
           <S.RadioTabMenuWrap>
             <RadioTabMenu
@@ -45,7 +45,7 @@ const MyPetition = () => {
             <div>로그인을 해야지 청원을 하지 ;;</div>
           )}
         </S.InnerWrap>
-      </S.Wrap>
+      </S.MyPetitionWrap>
     </S.MyPetitionLayout>
   );
 };

@@ -11,7 +11,7 @@ export const Header = styled.div`
   background-color: ${color.white};
 `;
 
-export const Wrap = styled.div`
+export const HeaderWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;

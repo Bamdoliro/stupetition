@@ -8,7 +8,7 @@ export const UpdatePasswordLayout = styled.div`
   background-color: ${color.gray300};
 `;
 
-export const Wrap = styled.div`
+export const UpdatePasswordWrap = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
@@ -30,7 +30,7 @@ export const UpdatePasswordContent = styled.div`
   height: 75.5%;
 `;
 
-export const UpdatePasswordWrap = styled.div`
+export const UpdatePasswordContentWrap = styled.div`
   width: 100%;
   height: 100%;
   display: flex;

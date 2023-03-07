@@ -53,7 +53,7 @@ const PetitionDetail = () => {
 
   return (
     <S.PetitionDetailLayout>
-      <S.Wrap>
+      <S.PetitionDetailWrap>
         {isError && <NotFound />}
         {isLoading ? (
           <Loading />
@@ -138,7 +138,7 @@ const PetitionDetail = () => {
             </S.CommentWrap>
           </>
         )}
-      </S.Wrap>
+      </S.PetitionDetailWrap>
     </S.PetitionDetailLayout>
   );
 };

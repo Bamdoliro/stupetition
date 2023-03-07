@@ -8,7 +8,7 @@ export const MyPetitionLayout = styled.div`
   background-color: ${color.white};
 `;
 
-export const Wrap = styled.div`
+export const MyPetitionWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

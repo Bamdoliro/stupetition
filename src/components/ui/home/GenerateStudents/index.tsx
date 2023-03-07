@@ -21,7 +21,7 @@ const GenerateStudnets = () => {
 
   return (
     <S.GenerateStudentsLayout>
-      <S.Wrap>
+      <S.GenerateStudentsWrap>
         <S.GenerateStudentsBox>
           <S.Title>학생 아이디 생성</S.Title>
           <S.ColInputWrap>
@@ -67,7 +67,7 @@ const GenerateStudnets = () => {
             value="계정 생성"
           />
         </S.GenerateStudentsBox>
-      </S.Wrap>
+      </S.GenerateStudentsWrap>
     </S.GenerateStudentsLayout>
   );
 };

@@ -20,7 +20,7 @@ const Login = () => {
 
   return (
     <S.LoginLayout>
-      <S.Wrap>
+      <S.LoginWrap>
         <S.LoginBox>
           <S.Title>로그인</S.Title>
           <S.SubTitle>마음속에 담아있는 불만을 푸세요 !</S.SubTitle>
@@ -49,7 +49,7 @@ const Login = () => {
             value="로그인"
           />
         </S.LoginBox>
-      </S.Wrap>
+      </S.LoginWrap>
     </S.LoginLayout>
   );
 };
