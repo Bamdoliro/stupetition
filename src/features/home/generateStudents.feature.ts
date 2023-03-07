@@ -1,4 +1,5 @@
 import { generateStudnets } from 'apis/user.api';
+import { useModal } from 'hooks/useModal';
 import { useErrorToast } from 'hooks/useToast';
 import { Dispatch, SetStateAction } from 'react';
 import { useMutation } from 'react-query';
@@ -13,12 +14,13 @@ export const GenerateStudentsFeature = ({
   generateStudentsData,
   setIsOpenCheckGenerateModal,
 }: GenerateStudentsFeaturePropsType) => {
-  const openModal = () => setIsOpenCheckGenerateModal(true);
+  const openCheckGenerateModal = () => setIsOpenCheckGenerateModal(true);
+  const { closeModal } = useModal();
 
   const { mutate } = useMutation(generateStudnets, {
     onSuccess: (res) => {
       console.log(res);
-      openModal();
+      openCheckGenerateModal();
     },
     onError: (err) => {
       console.log(err);
@@ -39,6 +41,7 @@ export const GenerateStudentsFeature = ({
         defaultPassword,
         numberOfStudents,
       });
+      closeModal();
     } else {
       useErrorToast('비밀번호가 맞지 않습니다');
     }

@@ -3,10 +3,14 @@ import { ChangeEvent, useState } from 'react';
 import MiniButton from 'components/common/MiniButton';
 import { GenerateStudentsFeature } from 'features/home/generateStudents.feature';
 import { GenerateStudnetsType } from 'types/user.type';
+import Modal from 'components/common/Modal';
+import { useModal } from 'hooks/useModal';
+import { useErrorToast } from 'hooks/useToast';
 import CheckGenerateModal from './CheckGenerateModal';
 import * as S from './style';
 
 const GenerateStudnets = () => {
+  const { openModal, closeModal } = useModal();
   const [generateStudentsData, setGenerateStudentsData] =
     useState<GenerateStudnetsType>({
       admissionYear: 0,
@@ -23,6 +27,26 @@ const GenerateStudnets = () => {
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setGenerateStudentsData({ ...generateStudentsData, [name]: value });
+  };
+
+  const generateStudents = () => {
+    const { admissionYear, numberOfStudents } = generateStudentsData;
+    const grade = new Date().getFullYear() - admissionYear + 1;
+    if (new Date().getFullYear() < admissionYear) {
+      useErrorToast('입학년도를 다시 한번 확인해주세요');
+      return;
+    }
+    openModal(
+      <Modal
+        option="CONFIRM"
+        title="학생 아이디 생성"
+        content={`${grade}학년 학생 ${numberOfStudents}명의 아이디를 생성이 맞는지 다시 한번 확인해주세요`}
+        closeText="취소"
+        confirmText="생성"
+        handleClose={closeModal}
+        handleConfirm={generate}
+      />,
+    );
   };
 
   return (
@@ -68,7 +92,7 @@ const GenerateStudnets = () => {
               </S.InputWrap>
             </S.RowInputWrap>
             <MiniButton
-              onClick={generate}
+              onClick={generateStudents}
               option="FILLED"
               width="225px"
               value="계정 생성"
