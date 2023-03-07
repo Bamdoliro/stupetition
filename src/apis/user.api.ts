@@ -1,6 +1,5 @@
 import { customAxios } from 'lib/axios/customAxios';
 import { authorization } from 'lib/token/authorization';
-import { GenerateStudnetsType } from 'types/user.type';
 
 interface UpdatePasswordParamsType {
   currentPassword: string;

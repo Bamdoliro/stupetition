@@ -5,7 +5,7 @@ import { useModal } from 'hooks/useModal';
 import { useNavigate } from 'react-router-dom';
 import Modal from 'components/common/Modal';
 import * as S from './style';
-import CheckPetitionModal from './CheckPetitionModal';
+import CheckWriteModal from './CheckWriteModal';
 
 const WritePetition = () => {
   const navigate = useNavigate();
@@ -78,10 +78,10 @@ const WritePetition = () => {
           />
         </S.ContentsWrap>
       </S.WritePetitionLayout>
-      <CheckPetitionModal
+      <CheckWriteModal
         petitionData={petitionData}
         close={() => setIsOpenCheckPetitionModal(false)}
-        isOpenCheckPetitionModal={isOpenCheckPetitionModal}
+        isOpenCheckWriteModal={isOpenCheckPetitionModal}
       />
     </>
   );

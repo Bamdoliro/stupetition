@@ -5,17 +5,17 @@ import { WritePetitionType } from 'types/petition.type';
 import { WriteFeature } from 'features/home/write.feature';
 import * as S from './style';
 
-interface CheckPetitionModalPropsType {
+interface CheckWriteModalPropsType {
   close: MouseEventHandler<HTMLButtonElement>;
   petitionData: WritePetitionType;
-  isOpenCheckPetitionModal: boolean;
+  isOpenCheckWriteModal: boolean;
 }
 
-const CheckPetitionModal = ({
+const CheckWriteModal = ({
   close,
   petitionData,
-  isOpenCheckPetitionModal,
-}: CheckPetitionModalPropsType) => {
+  isOpenCheckWriteModal,
+}: CheckWriteModalPropsType) => {
   const { write } = WriteFeature(petitionData);
 
   const date = {
@@ -25,9 +25,9 @@ const CheckPetitionModal = ({
   };
 
   return (
-    <S.BlurBackground display={isOpenCheckPetitionModal ? 'flex' : 'none'}>
-      <S.CheckPetitionModal>
-        <S.CheckPetitionModalWrap>
+    <S.BlurBackground display={isOpenCheckWriteModal ? 'flex' : 'none'}>
+      <S.CheckWriteModal>
+        <S.CheckWriteModalWrap>
           <S.Title>최종 확인</S.Title>
           <S.PreviewBox>
             <S.Preview>썸네일 미리보기</S.Preview>
@@ -44,10 +44,10 @@ const CheckPetitionModal = ({
             <MiniButton option="UNFILLED" value="닫기" onClick={close} />
             <MiniButton option="FILLED" value="청원 게시" onClick={write} />
           </S.ButtonBox>
-        </S.CheckPetitionModalWrap>
-      </S.CheckPetitionModal>
+        </S.CheckWriteModalWrap>
+      </S.CheckWriteModal>
     </S.BlurBackground>
   );
 };
 
-export default CheckPetitionModal;
+export default CheckWriteModal;

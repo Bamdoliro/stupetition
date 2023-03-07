@@ -13,7 +13,7 @@ export const BlurBackground = styled.div<{ display: string }>`
   scrollbar-width: none;
 `;
 
-export const CheckPetitionModal = styled.div`
+export const CheckWriteModal = styled.div`
   position: absolute;
   width: 636px;
   height: 414px;
@@ -24,7 +24,7 @@ export const CheckPetitionModal = styled.div`
   border-radius: 12px;
 `;
 
-export const CheckPetitionModalWrap = styled.div`
+export const CheckWriteModalWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 36px;
