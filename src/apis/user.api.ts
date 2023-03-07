@@ -7,6 +7,12 @@ interface UpdatePasswordParamsType {
   password: string;
 }
 
+interface GenerateStudnetsParamsType {
+  admissionYear: number;
+  defaultPassword: string;
+  numberOfStudents: number;
+}
+
 // 비밀번호 변경
 
 export const updatePassword = async (
@@ -22,11 +28,12 @@ export const updatePassword = async (
 // 학생 아이디 생성
 
 export const generateStudnets = async (
-  generateStudnetsData: GenerateStudnetsType,
+  generateStudnetsData: GenerateStudnetsParamsType,
 ) => {
-  await customAxios.post(
-    '/user/students',
+  const { data } = await customAxios.post(
+    '/user/student',
     generateStudnetsData,
     authorization(),
   );
+  return data;
 };

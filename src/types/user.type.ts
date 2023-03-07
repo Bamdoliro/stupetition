@@ -18,4 +18,5 @@ export interface GenerateStudnetsType {
   admissionYear: number;
   defaultPassword: string;
   numberOfStudents: number;
+  reDefaultPassword: string;
 }

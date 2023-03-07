@@ -1,23 +1,19 @@
 import Input from 'components/common/Input';
 import { ChangeEvent, useState } from 'react';
 import MiniButton from 'components/common/MiniButton';
+import { GenerateStudentsFeature } from 'features/home/generateStudents.feature';
+import { GenerateStudnetsType } from 'types/user.type';
 import * as S from './style';
-
-interface GenrateStudentsType {
-  admissionYear: number;
-  defaultPassword: string;
-  reDefaultPassword: string;
-  numberOfStudents: number;
-}
 
 const GenerateStudnets = () => {
   const [generateStudentsData, setGenerateStudentsData] =
-    useState<GenrateStudentsType>({
+    useState<GenerateStudnetsType>({
       admissionYear: 0,
       defaultPassword: '',
       reDefaultPassword: '',
       numberOfStudents: 0,
     });
+  const { generate } = GenerateStudentsFeature(generateStudentsData);
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setGenerateStudentsData({ ...generateStudentsData, [name]: value });
@@ -50,7 +46,7 @@ const GenerateStudnets = () => {
                 desc="초기 비밀번호"
                 placeholder="20자 이내"
                 type="password"
-                name="password"
+                name="defaultPassword"
                 onChange={onChange}
               />
             </S.InputWrap>
@@ -59,13 +55,13 @@ const GenerateStudnets = () => {
                 desc="비밀번호 재입력"
                 placeholder="20자 이내"
                 type="password"
-                name="password"
+                name="reDefaultPassword"
                 onChange={onChange}
               />
             </S.InputWrap>
           </S.RowInputWrap>
           <MiniButton
-            onClick={() => console.log('계정 생성')}
+            onClick={generate}
             option="FILLED"
             width="225px"
             value="계정 생성"
