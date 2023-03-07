@@ -3,6 +3,7 @@ import { ChangeEvent, useState } from 'react';
 import MiniButton from 'components/common/MiniButton';
 import { GenerateStudentsFeature } from 'features/home/generateStudents.feature';
 import { GenerateStudnetsType } from 'types/user.type';
+import CheckGenerateModal from './CheckGenerateModal';
 import * as S from './style';
 
 const GenerateStudnets = () => {
@@ -20,55 +21,58 @@ const GenerateStudnets = () => {
   };
 
   return (
-    <S.GenerateStudentsLayout>
-      <S.GenerateStudentsWrap>
-        <S.GenerateStudentsBox>
-          <S.Title>학생 아이디 생성</S.Title>
-          <S.ColInputWrap>
-            <Input
-              desc="입학년도"
-              placeholder="20XX"
-              type="number"
-              name="admissionYear"
-              onChange={onChange}
-            />
-            <Input
-              desc="학생 수"
-              placeholder="최대 400명"
-              type="number"
-              name="numberOfStudents"
-              onChange={onChange}
-            />
-          </S.ColInputWrap>
-          <S.RowInputWrap>
-            <S.InputWrap>
+    <>
+      <S.GenerateStudentsLayout>
+        <S.GenerateStudentsWrap>
+          <S.GenerateStudentsBox>
+            <S.Title>학생 아이디 생성</S.Title>
+            <S.ColInputWrap>
               <Input
-                desc="초기 비밀번호"
-                placeholder="20자 이내"
-                type="password"
-                name="defaultPassword"
+                desc="입학년도"
+                placeholder="20XX"
+                type="number"
+                name="admissionYear"
                 onChange={onChange}
               />
-            </S.InputWrap>
-            <S.InputWrap>
               <Input
-                desc="비밀번호 재입력"
-                placeholder="20자 이내"
-                type="password"
-                name="reDefaultPassword"
+                desc="학생 수"
+                placeholder="최대 400명"
+                type="number"
+                name="numberOfStudents"
                 onChange={onChange}
               />
-            </S.InputWrap>
-          </S.RowInputWrap>
-          <MiniButton
-            onClick={generate}
-            option="FILLED"
-            width="225px"
-            value="계정 생성"
-          />
-        </S.GenerateStudentsBox>
-      </S.GenerateStudentsWrap>
-    </S.GenerateStudentsLayout>
+            </S.ColInputWrap>
+            <S.RowInputWrap>
+              <S.InputWrap>
+                <Input
+                  desc="초기 비밀번호"
+                  placeholder="20자 이내"
+                  type="password"
+                  name="defaultPassword"
+                  onChange={onChange}
+                />
+              </S.InputWrap>
+              <S.InputWrap>
+                <Input
+                  desc="비밀번호 재입력"
+                  placeholder="20자 이내"
+                  type="password"
+                  name="reDefaultPassword"
+                  onChange={onChange}
+                />
+              </S.InputWrap>
+            </S.RowInputWrap>
+            <MiniButton
+              onClick={generate}
+              option="FILLED"
+              width="225px"
+              value="계정 생성"
+            />
+          </S.GenerateStudentsBox>
+        </S.GenerateStudentsWrap>
+      </S.GenerateStudentsLayout>
+      <CheckGenerateModal />
+    </>
   );
 };
 
