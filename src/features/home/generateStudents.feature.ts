@@ -1,15 +1,24 @@
 import { generateStudnets } from 'apis/user.api';
-import { useErrorToast, useSuccesToast } from 'hooks/useToast';
+import { useErrorToast } from 'hooks/useToast';
+import { Dispatch, SetStateAction } from 'react';
 import { useMutation } from 'react-query';
 import { GenerateStudnetsType } from 'types/user.type';
 
-export const GenerateStudentsFeature = (
-  generateStudentsData: GenerateStudnetsType,
-) => {
+interface GenerateStudentsFeaturePropsType {
+  generateStudentsData: GenerateStudnetsType;
+  setIsOpenCheckGenerateModal: Dispatch<SetStateAction<boolean>>;
+}
+
+export const GenerateStudentsFeature = ({
+  generateStudentsData,
+  setIsOpenCheckGenerateModal,
+}: GenerateStudentsFeaturePropsType) => {
+  const openModal = () => setIsOpenCheckGenerateModal(true);
+
   const { mutate } = useMutation(generateStudnets, {
     onSuccess: (res) => {
       console.log(res);
-      useSuccesToast('생성 완료');
+      openModal();
     },
     onError: (err) => {
       console.log(err);

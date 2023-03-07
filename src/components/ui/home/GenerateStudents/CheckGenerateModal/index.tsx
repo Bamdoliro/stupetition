@@ -1,21 +1,34 @@
 import MiniButton from 'components/common/MiniButton';
+import { MouseEventHandler } from 'react';
+import { GenerateStudnetsType } from 'types/user.type';
 import * as S from './style';
 
-const CheckGenerateModal = () => {
+interface CheckGenerateModalPropsType {
+  close: MouseEventHandler<HTMLButtonElement>;
+  isOpenCheckGenerateModal: boolean;
+  generateStudentsData: GenerateStudnetsType;
+}
+
+const CheckGenerateModal = ({
+  close,
+  isOpenCheckGenerateModal,
+  generateStudentsData,
+}: CheckGenerateModalPropsType) => {
+  const { admissionYear, numberOfStudents } = generateStudentsData;
+  const grade = admissionYear - new Date().getFullYear();
+
   return (
-    <S.BlurBackground display={true ? 'flex' : 'none'}>
+    <S.BlurBackground display={isOpenCheckGenerateModal ? 'flex' : 'none'}>
       <S.CheckGenerateModal>
         <S.CheckGenerateModalWrap>
           <S.TextBox>
             <S.Title>아이디 생성 완료!</S.Title>
-            <S.Content>2학년 학생 61명의 아이디를 생성했습니다</S.Content>
+            <S.Content>
+              {grade}학년 학생 {numberOfStudents}명의 아이디를 생성했습니다
+            </S.Content>
           </S.TextBox>
           <S.ButtonBox>
-            <MiniButton
-              option="FILLED"
-              value="확인"
-              onClick={() => console.log('확인')}
-            />
+            <MiniButton option="FILLED" value="확인" onClick={close} />
             <MiniButton
               option="UNFILLED"
               value="인쇄용 pdf 다운로드"

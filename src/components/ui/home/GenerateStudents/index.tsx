@@ -14,7 +14,12 @@ const GenerateStudnets = () => {
       reDefaultPassword: '',
       numberOfStudents: 0,
     });
-  const { generate } = GenerateStudentsFeature(generateStudentsData);
+  const [isOpenCheckGenerateModal, setIsOpenCheckGenerateModal] =
+    useState(false);
+  const { generate } = GenerateStudentsFeature({
+    generateStudentsData,
+    setIsOpenCheckGenerateModal,
+  });
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setGenerateStudentsData({ ...generateStudentsData, [name]: value });
@@ -71,7 +76,11 @@ const GenerateStudnets = () => {
           </S.GenerateStudentsBox>
         </S.GenerateStudentsWrap>
       </S.GenerateStudentsLayout>
-      <CheckGenerateModal />
+      <CheckGenerateModal
+        isOpenCheckGenerateModal={isOpenCheckGenerateModal}
+        close={() => setIsOpenCheckGenerateModal(false)}
+        generateStudentsData={generateStudentsData}
+      />
     </>
   );
 };
