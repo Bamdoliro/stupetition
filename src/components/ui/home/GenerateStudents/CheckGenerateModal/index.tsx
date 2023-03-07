@@ -1,5 +1,5 @@
 import MiniButton from 'components/common/MiniButton';
-import { Dispatch, MouseEventHandler, SetStateAction } from 'react';
+import { MouseEventHandler, useRef } from 'react';
 import { GenerateStudnetsType } from 'types/user.type';
 import * as S from './style';
 
@@ -31,7 +31,7 @@ const CheckGenerateModal = ({
             <MiniButton option="FILLED" value="확인" onClick={close} />
             <MiniButton
               option="UNFILLED"
-              value="인쇄용 pdf 다운로드"
+              value="인쇄용 png 다운로드"
               onClick={() => console.log('다운로드')}
             />
           </S.ButtonBox>

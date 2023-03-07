@@ -2579,6 +2579,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/dom-to-image@npm:^2.6.4":
+  version: 2.6.4
+  resolution: "@types/dom-to-image@npm:2.6.4"
+  checksum: ddc8d74b944909040a6e6d9ca2feb246b50dc8c3ad908a90634fb6e46e4c438b47aa0a5df4994bd19c1d6f110eb90a15146d1c1a7b8762ab9d050f70e6de4050
+  languageName: node
+  linkType: hard
+
 "@types/emscripten@npm:^1.39.6":
   version: 1.39.6
   resolution: "@types/emscripten@npm:1.39.6"
@@ -2647,6 +2654,13 @@ __metadata:
     "@types/qs": "*"
     "@types/serve-static": "*"
   checksum: 0196dacc275ac3ce89d7364885cb08e7fb61f53ca101f65886dbf1daf9b7eb05c0943e2e4bbd01b0cc5e50f37e0eea7e4cbe97d0304094411ac73e1b7998f4da
+  languageName: node
+  linkType: hard
+
+"@types/file-saver@npm:^2.0.5":
+  version: 2.0.5
+  resolution: "@types/file-saver@npm:2.0.5"
+  checksum: a31d6ee2abf99598647139f8f35b37b6e1bacf6c7ddf05c66651b9b0e6e53381aa0e8ed13f37faa6e496e0eb1da87c97e6c70fd589d5b83b0c95c57cb64ce92a
   languageName: node
   linkType: hard
 
@@ -3369,6 +3383,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "Stupetition-client-V1@workspace:."
   dependencies:
+    "@types/dom-to-image": ^2.6.4
+    "@types/file-saver": ^2.0.5
     "@types/react-dom": latest
     "@types/styled-components": ^5.1.26
     "@yarnpkg/pnpify": ^4.0.0-rc.39
