@@ -38,7 +38,7 @@ const Header = () => {
               />
               <ProfilePopover
                 isOpen={profilePopoverIsOpen}
-                close={() => setProfilePopoverIsOpen(false)}
+                setProfilePopoverIsOpen={setProfilePopoverIsOpen}
               />
             </>
           ) : (
