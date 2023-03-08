@@ -20,7 +20,7 @@ export const GenerateStudentsFeature = ({
   const openCheckGenerateModal = () => setIsOpenCheckGenerateModal(true);
   const { closeModal } = useModal();
 
-  const { mutate } = useMutation(generateStudnets, {
+  const { mutate, isLoading } = useMutation(generateStudnets, {
     onSuccess: (res) => {
       console.log(res);
       setGenerateListData(res);
@@ -51,5 +51,5 @@ export const GenerateStudentsFeature = ({
     }
   };
 
-  return { generate };
+  return { generate, isLoading };
 };

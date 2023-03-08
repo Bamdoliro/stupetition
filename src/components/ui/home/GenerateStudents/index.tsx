@@ -7,6 +7,7 @@ import Modal from 'components/common/Modal';
 import { useModal } from 'hooks/useModal';
 import { useErrorToast } from 'hooks/useToast';
 import { useNavigate } from 'react-router-dom';
+import Loading from 'pages/Loading';
 import CheckGenerateModal from './CheckGenerateModal';
 import * as S from './style';
 
@@ -22,7 +23,7 @@ const GenerateStudnets = () => {
     });
   const [isOpenCheckGenerateModal, setIsOpenCheckGenerateModal] =
     useState(false);
-  const { generate } = GenerateStudentsFeature({
+  const { generate, isLoading } = GenerateStudentsFeature({
     generateStudentsData,
     setIsOpenCheckGenerateModal,
   });
@@ -58,6 +59,7 @@ const GenerateStudnets = () => {
 
   return (
     <>
+      {isLoading && <Loading />}
       <S.GenerateStudentsLayout>
         <S.GenerateStudentsWrap>
           <S.GenerateStudentsBox>
