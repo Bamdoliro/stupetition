@@ -1,6 +1,9 @@
+import { generateListState } from 'atoms/generateList.atom';
 import MiniButton from 'components/common/MiniButton';
 import { Dispatch, SetStateAction } from 'react';
+import { useRecoilValue } from 'recoil';
 import * as S from './style';
+import UserInfoList from './UserInfoList';
 
 interface PreviewPropsType {
   isOpenPreview: boolean;
@@ -8,15 +11,20 @@ interface PreviewPropsType {
 }
 
 const Preview = ({ isOpenPreview, setIsOpenPreview }: PreviewPropsType) => {
+  const generateListData = useRecoilValue(generateListState);
+
   return (
     <S.BlurBackground display={isOpenPreview ? 'flex' : 'none'}>
       <S.Preview>
         <S.PreviewWrap>
           <S.UserListBox>
-            <S.UserInfoList>
-              <S.UserName>user name: sj060706</S.UserName>
-              <S.Password>password: 12345678</S.Password>
-            </S.UserInfoList>
+            {generateListData.map((item) => (
+              <UserInfoList
+                key={item.username}
+                username={item.username}
+                password={item.password}
+              />
+            ))}
           </S.UserListBox>
           <S.ButtonBox>
             <MiniButton

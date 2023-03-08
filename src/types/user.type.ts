@@ -20,3 +20,8 @@ export interface GenerateStudnetsType {
   numberOfStudents: number;
   reDefaultPassword: string;
 }
+
+export interface GenerateStudentsListType {
+  username: string;
+  password: string;
+}

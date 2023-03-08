@@ -37,22 +37,6 @@ export const UserListBox = styled.div`
   overflow: auto;
 `;
 
-export const UserInfoList = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  border-bottom: 1px solid ${color.gray100};
-  padding-bottom: 8px;
-`;
-
-export const UserName = styled(T.p2)`
-  color: ${color.gray900};
-`;
-
-export const Password = styled(T.p2)`
-  color: ${color.gray900};
-`;
-
 export const ButtonBox = styled.div`
   width: 100%;
   display: flex;
