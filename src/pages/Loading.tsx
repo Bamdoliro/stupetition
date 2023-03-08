@@ -1,6 +1,5 @@
 import SpinnerGif from 'assets/spinner.gif';
 import styled from 'styled-components';
-import { color } from 'styles/theme.style';
 
 const SpinnerBox = styled.div`
   position: fixed;

@@ -15,7 +15,7 @@ const App = () => {
         <Route path="/" element={<Main />} />
         <Route path="/petition/:id" element={<PetitionDetail />} />
         <Route path="/petition/my" element={<MyPetition />} />
-        <Route path="/petition/generate" element={<GenerateStudnets />} />
+        <Route path="/student/generate" element={<GenerateStudnets />} />
       </Route>
       <Route path="/update/password" element={<UpdatePassword />} />
       <Route path="/petition/write" element={<CreatePetition />} />
