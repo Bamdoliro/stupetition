@@ -1,25 +1,27 @@
 import { Route, Routes } from 'react-router-dom';
-import MainOutlet from 'components/common/Outlet/main.outlet';
-import PetitionDetail from 'components/layout/home/PetitionDetail';
-import CreatePetition from 'components/layout/home/WritePetition';
-import MyPetition from 'components/layout/home/MyPetition';
-import Main from 'components/layout/home/Main';
-import Login from 'components/layout/auth/Login';
-import Join from 'components/layout/auth/Join';
-import UpdatePassword from 'components/layout/home/UpdatePassword';
+import BaseLayout from 'layouts/BaseLayout';
+import PetitionDetail from 'components/ui/home/PetitionDetail';
+import CreatePetition from 'components/ui/home/WritePetition';
+import MyPetition from 'components/ui/home/MyPetition';
+import Main from 'components/ui/home/Main';
+import Login from 'components/ui/auth/Login';
+import UpdatePassword from 'components/ui/home/UpdatePassword';
+import GenerateStudnets from 'components/ui/home/GenerateStudents';
+import PrintPDF from 'components/ui/home/PrintPDF';
 
 const App = () => {
   return (
     <Routes>
-      <Route element={<MainOutlet />}>
+      <Route element={<BaseLayout />}>
         <Route path="/" element={<Main />} />
         <Route path="/petition/:id" element={<PetitionDetail />} />
         <Route path="/petition/my" element={<MyPetition />} />
+        <Route path="/student/generate" element={<GenerateStudnets />} />
+        <Route path="/student/generate/print" element={<PrintPDF />} />
       </Route>
       <Route path="/update/password" element={<UpdatePassword />} />
       <Route path="/petition/write" element={<CreatePetition />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/join" element={<Join />} />
     </Routes>
   );
 };

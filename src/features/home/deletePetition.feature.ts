@@ -1,13 +1,13 @@
 import { deletePetition } from 'apis/petition.api';
-import { useDialog } from 'hooks/useDialog';
 import { useSuccesToast } from 'hooks/useToast';
 import { useMutation, useQueryClient } from 'react-query';
 import * as KEY from 'constants/key.constant';
 import { useNavigate } from 'react-router-dom';
+import { useModal } from 'hooks/useModal';
 
 const DeletePetitionFeature = (petitionId: number) => {
   const navigate = useNavigate();
-  const { closeDialog } = useDialog();
+  const { closeModal } = useModal();
   const queryClient = useQueryClient();
 
   const deleteMutate = useMutation(deletePetition, {
@@ -25,7 +25,7 @@ const DeletePetitionFeature = (petitionId: number) => {
 
   const deleteSubmit = () => {
     deleteMutate.mutate(petitionId);
-    closeDialog();
+    closeModal();
   };
 
   return { deleteSubmit };

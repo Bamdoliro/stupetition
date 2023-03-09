@@ -1,10 +1,15 @@
-import { ACCESS_KEY, REQUEST_KEY } from 'constants/token.constant';
 import { customAxios } from 'lib/axios/customAxios';
 import { authorization } from 'lib/token/authorization';
 
 interface UpdatePasswordParamsType {
   currentPassword: string;
   password: string;
+}
+
+interface GenerateStudnetsParamsType {
+  admissionYear: number;
+  defaultPassword: string;
+  numberOfStudents: number;
 }
 
 // 비밀번호 변경
@@ -19,15 +24,15 @@ export const updatePassword = async (
   );
 };
 
-// 아이디 삭제
+// 학생 아이디 생성
 
-export const deleteUser = async (password: string) => {
-  await customAxios.delete('/user', {
-    data: {
-      password,
-    },
-    headers: {
-      [REQUEST_KEY]: `Bearer ${localStorage.getItem(ACCESS_KEY)}`,
-    },
-  });
+export const generateStudnets = async (
+  generateStudnetsData: GenerateStudnetsParamsType,
+) => {
+  const { data } = await customAxios.post(
+    '/user/student',
+    generateStudnetsData,
+    authorization(),
+  );
+  return data;
 };

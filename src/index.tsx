@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import ScrollTop from 'utils/ScrollTop';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import GlobalModal from 'components/common/GlobalModal';
 import App from './App';
 
 const queryClient = new QueryClient();
@@ -18,6 +19,7 @@ root.render(
     <RecoilRoot>
       <QueryClientProvider client={queryClient}>
         <App />
+        <GlobalModal />
         <GlobalStyled />
         <ScrollTop />
         <ToastContainer autoClose={4000} limit={4} />

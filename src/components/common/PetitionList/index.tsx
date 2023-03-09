@@ -32,7 +32,7 @@ const PetitionList = ({
     <S.PetitionList
       onClick={() => option === 'LIST' && navigate(`/petition/${id}`)}
     >
-      <S.Wrap>
+      <S.PetitionListWrap>
         <S.Info>
           <S.Title>{title}</S.Title>
           <S.DetailInfo>
@@ -46,7 +46,7 @@ const PetitionList = ({
           height="96px"
           numberOfApprover={numberOfApprover}
         />
-      </S.Wrap>
+      </S.PetitionListWrap>
     </S.PetitionList>
   );
 };

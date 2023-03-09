@@ -12,7 +12,7 @@ export const PetitionList = styled.div`
   cursor: pointer;
 `;
 
-export const Wrap = styled.div`
+export const PetitionListWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -1,18 +1,15 @@
 import SpinnerGif from 'assets/spinner.gif';
 import styled from 'styled-components';
-import { color } from 'styles/theme.style';
 
 const SpinnerBox = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 const Spinner = styled.img`
-  background-color: ${color.white};
-  width: 40px;
+  width: 60px;
 `;
 
 const Loading = () => {
