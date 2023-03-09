@@ -1,5 +1,6 @@
 import MiniButton from 'components/common/MiniButton';
 import * as S from './style';
+import UserList from './UserList';
 
 const PrintPDF = () => {
   return (
@@ -30,14 +31,7 @@ const PrintPDF = () => {
               <S.UserListHeaderText>비밀번호</S.UserListHeaderText>
             </S.UserListHeaderItem>
           </S.UserListHeader>
-          <S.UserList>
-            <S.UserListItem>
-              <S.UserListHeaderText>sj060706</S.UserListHeaderText>
-            </S.UserListItem>
-            <S.UserListItem>
-              <S.UserListHeaderText>123456789</S.UserListHeaderText>
-            </S.UserListItem>
-          </S.UserList>
+          <UserList />
         </S.UserListWrap>
       </S.PrintPDFWrap>
     </S.PrintPDFLayout>

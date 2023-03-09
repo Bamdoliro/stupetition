@@ -49,7 +49,6 @@ export const UserListWrap = styled.div`
 `;
 
 export const UserListHeader = styled.div`
-  padding: 16px;
   height: 60px;
   background-color: ${color.gray50};
   display: flex;
@@ -58,25 +57,9 @@ export const UserListHeader = styled.div`
 
 export const UserListHeaderItem = styled.div`
   width: 50%;
+  padding: 0px 16px;
 `;
 
 export const UserListHeaderText = styled(T.p1)`
   color: ${color.gray700};
-`;
-
-export const UserList = styled.div`
-  padding: 16px;
-  height: 60px;
-  background-color: ${color.white};
-  border-bottom: 1px solid ${color.gray200};
-  display: flex;
-  align-items: center;
-`;
-
-export const UserListItem = styled.div`
-  width: 50%;
-`;
-
-export const UserListText = styled(T.p1)`
-  color: ${color.gray900};
 `;
