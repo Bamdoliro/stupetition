@@ -13,9 +13,7 @@ const DeletePetitionFeature = (petitionId: number) => {
   const deleteMutate = useMutation(deletePetition, {
     onSuccess: () => {
       useSuccesToast('삭제 완료');
-      navigate('/');
       queryClient.invalidateQueries([KEY.PETITION_LIST]);
-
       navigate('/');
     },
     onError: (err) => {

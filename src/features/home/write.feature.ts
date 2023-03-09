@@ -10,7 +10,7 @@ export const WriteFeature = (petitionData: WritePetitionType) => {
   const { closeModal } = useModal();
   const { mutate } = useMutation(writePetition, {
     onSuccess: () => {
-      useSuccesToast('게시글 작성 성공 !!');
+      useSuccesToast('작성 성공');
       navigate('/');
     },
     onError: (err) => {

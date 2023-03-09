@@ -8,7 +8,7 @@ export const ApproveFeature = (petitionId: number) => {
 
   const { mutate } = useMutation(approvePetition, {
     onSuccess: () => {
-      useSuccesToast('동의 완료 !!');
+      useSuccesToast('동의 완료');
       queryClient.invalidateQueries([KEY.PETITION]);
     },
     onError: (err) => {

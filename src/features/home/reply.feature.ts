@@ -2,7 +2,7 @@ import { answerPetition, commentPetition } from 'apis/petition.api';
 import { useMutation, useQueryClient } from 'react-query';
 import { Dispatch, SetStateAction } from 'react';
 import * as KEY from 'constants/key.constant';
-import { useErrorToast } from 'hooks/useToast';
+import { useErrorToast, useSuccesToast } from 'hooks/useToast';
 import { Authority } from 'types/user.type';
 
 interface ReplyFeatureType {
@@ -21,17 +21,18 @@ export const ReplyFeature = ({
   const commentMutate = useMutation(commentPetition, {
     onSuccess: () => {
       setComment('');
+      useSuccesToast('답변 성공');
       queryClient.invalidateQueries([KEY.PETITION]);
     },
     onError: (err) => {
       console.log(err);
-      useErrorToast('크기가 2에서 500 사이여야 합니다');
     },
   });
 
   const answerMutate = useMutation(answerPetition, {
     onSuccess: () => {
       setComment('');
+      useSuccesToast('답변 성공');
       queryClient.invalidateQueries([KEY.PETITION]);
     },
     onError: (err) => {
