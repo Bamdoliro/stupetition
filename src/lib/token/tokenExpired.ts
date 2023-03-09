@@ -11,7 +11,6 @@ export const tokenExpired = async () => {
         'Refresh-Token': `${localStorage.getItem(REFRESH_KEY)}`,
       },
     });
-    console.log(data);
     localStorage.setItem(ACCESS_KEY, data.accessToken);
   } catch {
     useErrorToast('세션이 만료되었습니다');

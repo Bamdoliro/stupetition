@@ -51,15 +51,15 @@ const WritePetition = () => {
         <S.Header>
           <S.HeaderWrap>
             <MiniButton value="취소" option="UNFILLED" onClick={writeClose} />
-            {petitionData.content.length <= 0 ||
-            petitionData.title.length <= 0 ? (
-              <MiniButton value="다음" option="SCARCE_FILLED" />
-            ) : (
+            {petitionData.content.length >= 2 &&
+            petitionData.title.length >= 2 ? (
               <MiniButton
                 value="다음"
                 option="FILLED"
                 onClick={() => setIsOpenCheckPetitionModal(true)}
               />
+            ) : (
+              <MiniButton value="다음" option="SCARCE_FILLED" />
             )}
           </S.HeaderWrap>
         </S.Header>
