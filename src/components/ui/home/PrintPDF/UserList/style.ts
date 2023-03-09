@@ -2,7 +2,7 @@ import * as T from 'styles/text.style';
 import { color } from 'styles/theme.style';
 import styled from 'styled-components';
 
-export const UserList = styled.div`
+export const UserList = styled.li`
   height: 60px;
   background-color: ${color.white};
   border-bottom: 1px solid ${color.gray200};

@@ -1,7 +1,7 @@
 import Input from 'components/common/Input';
 import { ChangeEvent, useState } from 'react';
 import MiniButton from 'components/common/MiniButton';
-import { GenerateStudentsFeature } from 'features/home/generateStudents.feature';
+import { GenerateStudentsFeature } from 'features/user/generateStudents.feature';
 import { GenerateStudnetsType } from 'types/user.type';
 import Modal from 'components/common/Modal';
 import { useModal } from 'hooks/useModal';

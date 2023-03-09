@@ -53,6 +53,7 @@ export const UserListHeader = styled.div`
   background-color: ${color.gray50};
   display: flex;
   align-items: center;
+  border-radius: 8px 8px 0px 0px;
 `;
 
 export const UserListHeaderItem = styled.div`

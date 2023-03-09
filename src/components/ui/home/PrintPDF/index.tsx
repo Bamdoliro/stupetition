@@ -1,8 +1,12 @@
 import MiniButton from 'components/common/MiniButton';
-import * as S from './style';
+import { generateListState } from 'atoms/generateList.atom';
+import { useRecoilValue } from 'recoil';
 import UserList from './UserList';
+import * as S from './style';
 
 const PrintPDF = () => {
+  const generateListData = useRecoilValue(generateListState);
+
   return (
     <S.PrintPDFLayout>
       <S.PrintPDFWrap>
@@ -12,7 +16,7 @@ const PrintPDF = () => {
         </S.TextBox>
         <S.ButtonBox>
           <MiniButton
-            onClick={() => console.log('디운로드')}
+            onClick={() => window.print()}
             option="FILLED"
             value="다운로드"
           />
@@ -31,7 +35,13 @@ const PrintPDF = () => {
               <S.UserListHeaderText>비밀번호</S.UserListHeaderText>
             </S.UserListHeaderItem>
           </S.UserListHeader>
-          <UserList />
+          {generateListData.map((item) => (
+            <UserList
+              key={item.username}
+              username={item.username}
+              password={item.password}
+            />
+          ))}
         </S.UserListWrap>
       </S.PrintPDFWrap>
     </S.PrintPDFLayout>

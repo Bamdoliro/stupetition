@@ -1,5 +1,6 @@
 import MiniButton from 'components/common/MiniButton';
 import { MouseEventHandler } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { GenerateStudnetsType } from 'types/user.type';
 import * as S from './style';
 
@@ -14,6 +15,7 @@ const CheckGenerateModal = ({
   isOpenCheckGenerateModal,
   generateStudentsData,
 }: CheckGenerateModalPropsType) => {
+  const navigate = useNavigate();
   const { admissionYear, numberOfStudents } = generateStudentsData;
   const grade = new Date().getFullYear() + 1 - admissionYear;
 
@@ -31,8 +33,8 @@ const CheckGenerateModal = ({
             <MiniButton option="FILLED" value="확인" onClick={close} />
             <MiniButton
               option="UNFILLED"
-              value="인쇄용 png 다운로드"
-              onClick={() => console.log('인쇄 다운로드 페이지로')}
+              value="인쇄용 pdf 다운로드"
+              onClick={() => navigate('/student/generate/print')}
             />
           </S.ButtonBox>
         </S.CheckGenerateModalWrap>
