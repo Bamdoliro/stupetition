@@ -22,7 +22,12 @@ root.render(
         <GlobalModal />
         <GlobalStyled />
         <ScrollTop />
-        <ToastContainer autoClose={4000} limit={4} />
+        <ToastContainer
+          autoClose={2000}
+          limit={5}
+          pauseOnHover={false}
+          position="top-right"
+        />
       </QueryClientProvider>
     </RecoilRoot>
   </BrowserRouter>,
