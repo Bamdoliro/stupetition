@@ -20,11 +20,6 @@ const PrintPDF = () => {
             option="FILLED"
             value="다운로드"
           />
-          <MiniButton
-            onClick={() => console.log('미리보기')}
-            option="UNFILLED"
-            value="미리보기"
-          />
         </S.ButtonBox>
         <S.UserListWrap>
           <S.UserListHeader>
@@ -35,13 +30,15 @@ const PrintPDF = () => {
               <S.UserListHeaderText>비밀번호</S.UserListHeaderText>
             </S.UserListHeaderItem>
           </S.UserListHeader>
-          {generateListData.map((item) => (
-            <UserList
-              key={item.username}
-              username={item.username}
-              password={item.password}
-            />
-          ))}
+          <S.UserListBox>
+            {generateListData.map((item) => (
+              <UserList
+                key={item.username}
+                username={item.username}
+                password={item.password}
+              />
+            ))}
+          </S.UserListBox>
         </S.UserListWrap>
       </S.PrintPDFWrap>
     </S.PrintPDFLayout>

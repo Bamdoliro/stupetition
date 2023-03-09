@@ -9,6 +9,9 @@ export const Header = styled.div`
   width: 100vw;
   height: 72px;
   background-color: ${color.white};
+  @media print {
+    display: none;
+  }
 `;
 
 export const HeaderWrap = styled.div`

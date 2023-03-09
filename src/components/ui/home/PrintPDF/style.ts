@@ -38,6 +38,9 @@ export const Desc = styled(T.p2)`
 export const ButtonBox = styled.div`
   display: flex;
   gap: 12px;
+  @media print {
+    display: none;
+  }
 `;
 
 export const UserListWrap = styled.div`
@@ -63,4 +66,11 @@ export const UserListHeaderItem = styled.div`
 
 export const UserListHeaderText = styled(T.p1)`
   color: ${color.gray700};
+`;
+
+export const UserListBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 `;

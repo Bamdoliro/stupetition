@@ -33,7 +33,7 @@ const CheckGenerateModal = ({
             <MiniButton option="FILLED" value="확인" onClick={close} />
             <MiniButton
               option="UNFILLED"
-              value="인쇄용 pdf 다운로드"
+              value="인쇄용 pdf 다운로드 하러가기"
               onClick={() => navigate('/student/generate/print')}
             />
           </S.ButtonBox>
