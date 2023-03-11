@@ -1,7 +1,7 @@
 import MiniButton from 'components/common/MiniButton';
 import { generateListState } from 'atoms/generateList.atom';
 import { useRecoilValue } from 'recoil';
-import UserList from './PrintList';
+import PrintList from './PrintList';
 import * as S from './style';
 
 const PrintPDF = () => {
@@ -24,7 +24,7 @@ const PrintPDF = () => {
         <S.PrintListWrap>
           <S.PrintListBox>
             {generateListData.map((item) => (
-              <UserList
+              <PrintList
                 key={item.username}
                 username={item.username}
                 password={item.password}

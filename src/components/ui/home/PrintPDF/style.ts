@@ -53,7 +53,6 @@ export const PrintListWrap = styled.div`
 
 export const PrintListBox = styled.div`
   display: grid;
-  grid-template-columns: 48.5% 48.5%;
-  gap: 3%;
+  grid-template-columns: 50% 50%;
   width: 100%;
 `;

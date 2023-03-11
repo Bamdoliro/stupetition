@@ -78,9 +78,7 @@ export const TableBodyItem = styled.div`
   justify-content: center;
   width: 50%;
   height: 50px;
-  border-width: 0px 1px 1px 1px;
-  border-style: solid;
-  border-color: ${color.gray100};
+  border: 1px solid ${color.gray100};
 `;
 
 export const TableBodyItemText = styled(T.p2)`
