@@ -45,7 +45,7 @@ export const MyPetitionTabDatas: TabDataType[] = [
   },
   {
     id: 1,
-    option: 'WAITING',
+    option: 'WROTE',
     name: '내가 쓴 청원',
   },
 ];

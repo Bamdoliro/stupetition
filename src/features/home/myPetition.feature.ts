@@ -29,8 +29,6 @@ export const MyPetitionFeature = (status: StatusType) => {
   };
 
   const WrotePetitionFeature = () => {
-    const user = useRecoilValue(userState);
-
     const { isLoading, isError, data } = useQuery<MyPetitionList[]>(
       [KEY.PETITION_WROTE],
       () => wrotePetition(),
