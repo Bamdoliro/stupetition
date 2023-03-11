@@ -43,7 +43,7 @@ const GenerateStudnets = () => {
       <Modal
         option="CONFIRM"
         title="학생 아이디 생성"
-        content={`${grade}학년 학생 ${numberOfStudents}명의 아이디를 생성이 맞는지 다시 한번 확인해주세요`}
+        content={`${grade}학년 학생 ${numberOfStudents}명의 아이디 생성이 맞는지 다시 한번 확인해주세요`}
         closeText="취소"
         confirmText="생성"
         handleClose={closeModal}

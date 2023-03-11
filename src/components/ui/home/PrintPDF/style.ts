@@ -15,7 +15,7 @@ export const PrintPDFWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 42%;
+  width: 74.4%;
   height: 100%;
   gap: 64px;
 `;
@@ -43,7 +43,7 @@ export const ButtonBox = styled.div`
   }
 `;
 
-export const UserListWrap = styled.div`
+export const PrintListWrap = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -51,26 +51,8 @@ export const UserListWrap = styled.div`
   border-radius: 8px;
 `;
 
-export const UserListHeader = styled.div`
-  height: 60px;
-  background-color: ${color.gray50};
-  display: flex;
-  align-items: center;
-  border-radius: 8px 8px 0px 0px;
-`;
-
-export const UserListHeaderItem = styled.div`
-  width: 50%;
-  padding: 0px 16px;
-`;
-
-export const UserListHeaderText = styled(T.p1)`
-  color: ${color.gray700};
-`;
-
-export const UserListBox = styled.div`
-  display: flex;
-  flex-direction: column;
+export const PrintListBox = styled.div`
+  display: grid;
+  grid-template-columns: 50% 50%;
   width: 100%;
-  height: 100%;
 `;

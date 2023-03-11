@@ -10,10 +10,10 @@ export const MainLayout = styled.div`
   background-color: ${color.white};
 `;
 
-export const Wrap = styled.div`
+export const MainWrap = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 100%;
 `;
 
 export const Banner = styled.div`
@@ -63,7 +63,6 @@ export const PetitionWrap = styled.div`
   grid-template-columns: 48.5% 48.5%;
   gap: 3%;
   width: 100%;
-  height: 20%;
 `;
 
 export const CreatePetition = styled.button`

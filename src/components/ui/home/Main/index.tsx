@@ -20,49 +20,55 @@ const Main = () => {
 
   return (
     <S.MainLayout>
-      {isBannerOpen && (
-        <S.Banner>
-          <S.BannerText>
-            학생청원,
-            <br />
-            학생들의 목소리를 듣다
-          </S.BannerText>
-          <S.CloseBanner onClick={() => setIsBannerOpen(false)}>
-            X 닫기
-          </S.CloseBanner>
-        </S.Banner>
-      )}
-      <S.ContentsWrap>
-        <S.ContentsInnerWrap>
-          <S.SubNav>
-            <RadioTabMenu option="MAIN" setStatus={setStatus} status={status} />
-            {user.authority && (
-              <MiniButton
-                onClick={() => navigate('/petition/write')}
-                option="FILLED"
-                value="청원 추가"
+      <S.MainWrap>
+        {isBannerOpen && (
+          <S.Banner>
+            <S.BannerText>
+              학생청원,
+              <br />
+              학생들의 목소리를 듣다
+            </S.BannerText>
+            <S.CloseBanner onClick={() => setIsBannerOpen(false)}>
+              X 닫기
+            </S.CloseBanner>
+          </S.Banner>
+        )}
+        <S.ContentsWrap>
+          <S.ContentsInnerWrap>
+            <S.SubNav>
+              <RadioTabMenu
+                option="MAIN"
+                setStatus={setStatus}
+                status={status}
               />
-            )}
-          </S.SubNav>
-          {isError && <NotFound />}
-          {isLoading && <Loading />}
-          {user.authority && (
-            <S.PetitionWrap>
-              {data.map((item) => (
-                <PetitionList
-                  option="LIST"
-                  key={item.id}
-                  id={item.id}
-                  createdAt={item.createdAt}
-                  title={item.title}
-                  numberOfApprover={item.numberOfApprover}
-                  status={status}
+              {user.authority && (
+                <MiniButton
+                  onClick={() => navigate('/petition/write')}
+                  option="FILLED"
+                  value="청원 추가"
                 />
-              ))}
-            </S.PetitionWrap>
-          )}
-        </S.ContentsInnerWrap>
-      </S.ContentsWrap>
+              )}
+            </S.SubNav>
+            {isError && <NotFound />}
+            {isLoading && <Loading />}
+            {user.authority && (
+              <S.PetitionWrap>
+                {data.map((item) => (
+                  <PetitionList
+                    option="LIST"
+                    key={item.id}
+                    id={item.id}
+                    createdAt={item.createdAt}
+                    title={item.title}
+                    numberOfApprover={item.numberOfApprover}
+                    status={status}
+                  />
+                ))}
+              </S.PetitionWrap>
+            )}
+          </S.ContentsInnerWrap>
+        </S.ContentsWrap>
+      </S.MainWrap>
     </S.MainLayout>
   );
 };
