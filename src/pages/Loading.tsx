@@ -1,5 +1,6 @@
-import SpinnerGif from 'assets/spinner.gif';
 import styled from 'styled-components';
+import ClipLoader from 'react-spinners/ClipLoader';
+import { color } from 'styles/theme.style';
 
 const SpinnerBox = styled.div`
   position: fixed;
@@ -8,14 +9,10 @@ const SpinnerBox = styled.div`
   transform: translate(-50%, -50%);
 `;
 
-const Spinner = styled.img`
-  width: 60px;
-`;
-
 const Loading = () => {
   return (
     <SpinnerBox>
-      <Spinner src={SpinnerGif} />
+      <ClipLoader color={color.main} />
     </SpinnerBox>
   );
 };
