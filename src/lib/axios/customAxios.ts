@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useErrorToast } from 'hooks/useToast';
 import { tokenExpired } from 'lib/token/tokenExpired';
 
 const customAxios = axios.create({
@@ -28,6 +29,7 @@ customAxios.interceptors.response.use(
       if (status === 401 && code === 'EXPIRED_TOKEN') {
         tokenExpired();
       }
+      if (code !== 'EXPIRED_TOKEN') useErrorToast(message);
     }
     return Promise.reject(error);
   },
