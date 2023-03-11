@@ -10,10 +10,10 @@ export const MainLayout = styled.div`
   background-color: ${color.white};
 `;
 
-export const Wrap = styled.div`
+export const MainWrap = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 100%;
 `;
 
 export const Banner = styled.div`

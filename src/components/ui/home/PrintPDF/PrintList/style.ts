@@ -2,8 +2,8 @@ import * as T from 'styles/text.style';
 import { color } from 'styles/theme.style';
 import styled from 'styled-components';
 
-export const UserList = styled.div`
-  width: 600px;
+export const PrintList = styled.div`
+  width: 100%;
   height: 300px;
   display: flex;
   justify-content: center;
@@ -11,7 +11,7 @@ export const UserList = styled.div`
   border: 1px solid ${color.gray200};
 `;
 
-export const UserListWrap = styled.div`
+export const PrintListWrap = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
