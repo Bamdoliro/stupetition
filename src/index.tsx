@@ -27,6 +27,7 @@ root.render(
           limit={5}
           pauseOnHover={false}
           position="top-right"
+          pauseOnFocusLoss={false}
         />
       </QueryClientProvider>
     </RecoilRoot>
