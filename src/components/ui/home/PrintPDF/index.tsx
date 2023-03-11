@@ -22,22 +22,15 @@ const PrintPDF = () => {
           />
         </S.ButtonBox>
         <S.UserListWrap>
-          <S.UserListHeader>
-            <S.UserListHeaderItem>
-              <S.UserListHeaderText>아이디</S.UserListHeaderText>
-            </S.UserListHeaderItem>
-            <S.UserListHeaderItem>
-              <S.UserListHeaderText>비밀번호</S.UserListHeaderText>
-            </S.UserListHeaderItem>
-          </S.UserListHeader>
           <S.UserListBox>
-            {generateListData.map((item) => (
+            {/* {generateListData.map((item) => (
               <UserList
                 key={item.username}
                 username={item.username}
                 password={item.password}
               />
-            ))}
+            ))} */}
+            <UserList key="sj060706" username="sj060706" password="12345" />
           </S.UserListBox>
         </S.UserListWrap>
       </S.PrintPDFWrap>
