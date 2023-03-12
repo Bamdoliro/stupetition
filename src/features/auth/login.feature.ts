@@ -8,11 +8,7 @@ import { userState } from 'atoms/user.atom';
 import { LoginType } from 'types/auth.type';
 import { useSuccesToast } from 'hooks/useToast';
 
-interface LoginFeatureType {
-  loginData: LoginType;
-}
-
-export const LoginFeature = ({ loginData }: LoginFeatureType) => {
+export const LoginFeature = (loginData: LoginType) => {
   const navigate = useNavigate();
   const setUserData = useSetRecoilState(userState);
 

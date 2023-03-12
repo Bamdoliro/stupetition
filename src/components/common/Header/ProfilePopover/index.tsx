@@ -1,4 +1,4 @@
-import { LogoutFeature } from 'features/home/logout.feature';
+import { LogoutFeature } from 'features/user/logout.feature';
 import { useNavigate } from 'react-router-dom';
 import { Dispatch, SetStateAction } from 'react';
 import { useRecoilValue } from 'recoil';

@@ -46,7 +46,7 @@ export const Url = styled(T.caption)`
 `;
 
 export const Table = styled.div`
-  width: 380px;
+  width: 100%;
 `;
 
 export const TableHeader = styled.div`

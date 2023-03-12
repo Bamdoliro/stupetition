@@ -29,6 +29,7 @@ export const updatePassword = async (
 export const generateStudnets = async (
   generateStudnetsData: GenerateStudnetsParamsType,
 ) => {
+  console.log(generateStudnetsData);
   const { data } = await customAxios.post(
     '/user/student',
     generateStudnetsData,

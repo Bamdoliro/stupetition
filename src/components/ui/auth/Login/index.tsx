@@ -11,7 +11,7 @@ const Login = () => {
     password: '',
   });
 
-  const { login } = LoginFeature({ loginData });
+  const { login } = LoginFeature(loginData);
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
