@@ -26,7 +26,7 @@ export const RadioTabMenuWrap = styled.div`
 
 export const PetitionWrap = styled.div`
   display: grid;
-  grid-template-columns: 48.5% 48.5%;
-  gap: 3%;
+  grid-template-columns: 49% 49%;
+  gap: 2%;
   width: 100%;
 `;
