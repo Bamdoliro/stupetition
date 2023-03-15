@@ -1,5 +1,5 @@
 import { useMutation } from 'react-query';
-import { logoutUser } from 'apis/auth.api';
+import { logoutUser } from 'apis/user.api';
 
 export const LogoutFeature = () => {
   const { mutate } = useMutation(logoutUser, {

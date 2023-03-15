@@ -8,9 +8,3 @@ export const loginUser = async (loginData: LoginType) => {
   const { data } = await customAxios.post('/auth', loginData);
   return data;
 };
-
-// 로그아웃
-
-export const logoutUser = async () => {
-  await customAxios.delete('/auth', authorization());
-};

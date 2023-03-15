@@ -28,6 +28,7 @@ export const GenerateStudentsFeature = ({
     },
     onError: (err) => {
       console.log(err);
+      useErrorToast('학생 아이디 생성중 오류 발생');
     },
   });
 

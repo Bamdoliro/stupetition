@@ -12,6 +12,12 @@ interface GenerateStudnetsParamsType {
   numberOfStudents: number;
 }
 
+// 로그아웃
+
+export const logoutUser = async () => {
+  await customAxios.delete('/auth', authorization());
+};
+
 // 비밀번호 변경
 
 export const updatePassword = async (

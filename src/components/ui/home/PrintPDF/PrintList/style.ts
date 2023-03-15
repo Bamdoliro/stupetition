@@ -14,7 +14,7 @@ export const PrintList = styled.div`
     color-adjust: exact !important; /* Firefox 48 – 96 */
   }
   @media print {
-    height: 280px;
+    height: 279.7px;
   }
 `;
 
