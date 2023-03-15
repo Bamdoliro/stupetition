@@ -10,8 +10,7 @@ export const PrintPDFLayout = styled.div`
   min-height: 100vh;
   background-color: ${color.white};
   @page {
-    size: auto;
-    margin: 0mm 0mm 50.8mm 0mm;
+    size: 210mm 297mm;
   }
 `;
 
@@ -22,6 +21,9 @@ export const PrintPDFWrap = styled.div`
   width: 74.4%;
   height: 100%;
   gap: 64px;
+  @media print {
+    width: 100%;
+  }
 `;
 
 export const TextBox = styled.div`

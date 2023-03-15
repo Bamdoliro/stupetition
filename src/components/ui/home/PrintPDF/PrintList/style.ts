@@ -12,7 +12,9 @@ export const PrintList = styled.div`
   * {
     -webkit-print-color-adjust: exact !important; /* Chrome, Safari 6 – 15.3, Edge */
     color-adjust: exact !important; /* Firefox 48 – 96 */
-    print-color-adjust: exact !important;
+  }
+  @media print {
+    height: 280px;
   }
 `;
 
@@ -22,6 +24,10 @@ export const PrintListWrap = styled.div`
   align-items: center;
   justify-content: center;
   gap: 24px;
+  width: 63.3%;
+  @media print {
+    width: 80%;
+  }
 `;
 
 export const TextBox = styled.div`
