@@ -9,6 +9,11 @@ export const PrintList = styled.div`
   justify-content: center;
   background-color: ${color.white};
   border: 1px solid ${color.gray200};
+  * {
+    -webkit-print-color-adjust: exact !important; /* Chrome, Safari 6 – 15.3, Edge */
+    color-adjust: exact !important; /* Firefox 48 – 96 */
+    print-color-adjust: exact !important;
+  }
 `;
 
 export const PrintListWrap = styled.div`

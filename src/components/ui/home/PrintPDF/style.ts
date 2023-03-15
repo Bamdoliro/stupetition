@@ -9,6 +9,10 @@ export const PrintPDFLayout = styled.div`
   height: 100vh;
   min-height: 100vh;
   background-color: ${color.white};
+  @page {
+    size: auto;
+    margin: 0mm 0mm 50.8mm 0mm;
+  }
 `;
 
 export const PrintPDFWrap = styled.div`
@@ -25,6 +29,9 @@ export const TextBox = styled.div`
   flex-direction: column;
   gap: 16px;
   text-align: center;
+  @media print {
+    display: none;
+  }
 `;
 
 export const Title = styled(T.H1)`
