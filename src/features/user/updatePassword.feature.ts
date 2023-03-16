@@ -28,7 +28,7 @@ export const UpdatePasswordFeature = (
         password,
       });
     } else {
-      useSuccesToast('비밀번호가 다릅니다');
+      useErrorToast('비밀번호가 다릅니다');
     }
   };
 
