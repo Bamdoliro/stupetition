@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-import { AUTHORITY, SCHOOL_NAME, USER_NAME } from 'constants/user.constant';
 import { ACCESS_KEY, REFRESH_KEY } from 'constants/token.constant';
 import { useMutation } from 'react-query';
 import { loginUser } from 'apis/auth.api';
