@@ -22,7 +22,6 @@ export const GenerateStudentsFeature = ({
 
   const { mutate, isLoading } = useMutation(generateStudnets, {
     onSuccess: (res) => {
-      console.log(res);
       setGenerateListData(res);
       openCheckGenerateModal();
     },

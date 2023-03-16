@@ -1,5 +1,4 @@
 import { customAxios } from 'lib/axios/customAxios';
-import { authorization } from 'lib/token/authorization';
 import { LoginType } from 'types/auth.type';
 
 // 로그인
