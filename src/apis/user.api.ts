@@ -12,6 +12,13 @@ interface GenerateStudnetsParamsType {
   numberOfStudents: number;
 }
 
+// 유저 정보
+
+export const getUserData = async () => {
+  const { data } = await customAxios.get('/user', authorization());
+  return data;
+};
+
 // 로그아웃
 
 export const logoutUser = async () => {
