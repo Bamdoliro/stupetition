@@ -1,15 +1,30 @@
 import { ACCESS_KEY, REFRESH_KEY } from 'constants/token.constant';
-import { AUTHORITY, SCHOOL_NAME, USER_NAME } from 'constants/user.constant';
 import { atom } from 'recoil';
-import { UserDataType } from 'types/user.type';
 
-export const userState = atom<UserDataType>({
-  key: 'user',
+interface TokenStateType {
+  accessToken: string;
+  refreshToken: string;
+}
+
+interface UserStateType {
+  authority: string;
+  schoolName: string;
+  username: string;
+}
+
+export const tokenState = atom<TokenStateType>({
+  key: 'token',
   default: {
     accessToken: localStorage.getItem(ACCESS_KEY) || '',
     refreshToken: localStorage.getItem(REFRESH_KEY) || '',
-    authority: localStorage.getItem(AUTHORITY) || '',
-    schoolName: localStorage.getItem(SCHOOL_NAME) || '',
-    username: localStorage.getItem(USER_NAME) || '',
+  },
+});
+
+export const userState = atom<UserStateType>({
+  key: 'user',
+  default: {
+    authority: '',
+    schoolName: '',
+    username: '',
   },
 });

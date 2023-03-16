@@ -1,8 +1,7 @@
 import { LogoutFeature } from 'features/user/logout.feature';
 import { useNavigate } from 'react-router-dom';
 import { Dispatch, SetStateAction } from 'react';
-import { useRecoilValue } from 'recoil';
-import { userState } from 'atoms/user.atom';
+import { useUser } from 'hooks/useUser';
 import * as S from './style';
 
 export interface ProfilePopoverPropsType {
@@ -14,7 +13,7 @@ const ProfilePopover = ({
   isOpen,
   setProfilePopoverIsOpen,
 }: ProfilePopoverPropsType) => {
-  const user = useRecoilValue(userState);
+  const { user } = useUser();
   const close = () => setProfilePopoverIsOpen(false);
   const navigate = useNavigate();
   const { logout } = LogoutFeature();

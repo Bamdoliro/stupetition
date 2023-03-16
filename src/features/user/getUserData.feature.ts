@@ -5,7 +5,7 @@ import { UserDataType } from 'types/user.type';
 import { ACCESS_KEY } from 'constants/token.constant';
 
 export const GetUserDataFeature = () => {
-  const { data, isFetching } = useQuery<UserDataType>(
+  const { data: user, isFetching } = useQuery<UserDataType>(
     [KEY.USER],
     () => getUserData(),
     {
@@ -13,5 +13,5 @@ export const GetUserDataFeature = () => {
     },
   );
 
-  return { data, isFetching };
+  return { user, isFetching };
 };

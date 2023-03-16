@@ -1,11 +1,10 @@
 import { GenerateStudentsListType } from 'types/user.type';
 import Logo from 'assets/logo.svg';
-import { useRecoilValue } from 'recoil';
-import { userState } from 'atoms/user.atom';
+import { useUser } from 'hooks/useUser';
 import * as S from './style';
 
 const PrintList = ({ username, password }: GenerateStudentsListType) => {
-  const user = useRecoilValue(userState);
+  const { user } = useUser();
 
   return (
     <S.PrintList>
