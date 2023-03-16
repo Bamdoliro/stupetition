@@ -1,5 +1,4 @@
 import { customAxios } from 'lib/axios/customAxios';
-import { authorization } from 'lib/token/authorization';
 import { LoginType } from 'types/auth.type';
 
 // 로그인
@@ -7,10 +6,4 @@ import { LoginType } from 'types/auth.type';
 export const loginUser = async (loginData: LoginType) => {
   const { data } = await customAxios.post('/auth', loginData);
   return data;
-};
-
-// 로그아웃
-
-export const logoutUser = async () => {
-  await customAxios.delete('/auth', authorization());
 };

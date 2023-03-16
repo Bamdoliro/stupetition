@@ -22,12 +22,12 @@ export const GenerateStudentsFeature = ({
 
   const { mutate, isLoading } = useMutation(generateStudnets, {
     onSuccess: (res) => {
-      console.log(res);
       setGenerateListData(res);
       openCheckGenerateModal();
     },
     onError: (err) => {
       console.log(err);
+      useErrorToast('학생 아이디 생성중 오류 발생');
     },
   });
 
