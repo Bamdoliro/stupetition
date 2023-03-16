@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { useErrorToast } from 'hooks/useToast';
 import { tokenExpired } from 'lib/token/tokenExpired';
+import { toast } from 'react-toastify';
 
 const customAxios = axios.create({
   baseURL: process.env.REACT_APP_BASE_URL,
@@ -29,7 +29,7 @@ customAxios.interceptors.response.use(
       if (status === 401 && code === 'EXPIRED_TOKEN') {
         tokenExpired();
       }
-      if (code !== 'EXPIRED_TOKEN') useErrorToast(message);
+      if (code !== 'EXPIRED_TOKEN') toast.error(message);
     }
     return Promise.reject(error);
   },

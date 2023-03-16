@@ -1,9 +1,9 @@
 import { deletePetition } from 'apis/petition.api';
-import { useSuccesToast } from 'hooks/useToast';
 import { useMutation, useQueryClient } from 'react-query';
 import * as KEY from 'constants/key.constant';
 import { useNavigate } from 'react-router-dom';
 import { useModal } from 'hooks/useModal';
+import { toast } from 'react-toastify';
 
 const DeletePetitionFeature = (petitionId: number) => {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ const DeletePetitionFeature = (petitionId: number) => {
 
   const deleteMutate = useMutation(deletePetition, {
     onSuccess: () => {
-      useSuccesToast('삭제 완료');
+      toast.success('삭제 완료');
       queryClient.invalidateQueries([KEY.PETITION_LIST]);
       navigate('/');
     },

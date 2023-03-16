@@ -5,7 +5,7 @@ import { loginUser } from 'apis/auth.api';
 import { useSetRecoilState } from 'recoil';
 import { tokenState } from 'atoms/user.atom';
 import { LoginType } from 'types/auth.type';
-import { useSuccesToast } from 'hooks/useToast';
+import { toast } from 'react-toastify';
 
 export const LoginFeature = (loginData: LoginType) => {
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ export const LoginFeature = (loginData: LoginType) => {
       localStorage.setItem(ACCESS_KEY, accessToken);
       localStorage.setItem(REFRESH_KEY, refreshToken);
       setTokenData({ accessToken, refreshToken });
-      useSuccesToast('로그인 성공');
+      toast.success('로그인 성공');
       navigate('/');
     },
     onError: (err) => {

@@ -5,9 +5,9 @@ import { GenerateStudentsFeature } from 'features/user/generateStudents.feature'
 import { GenerateStudnetsType } from 'types/user.type';
 import Modal from 'components/common/Modal';
 import { useModal } from 'hooks/useModal';
-import { useErrorToast } from 'hooks/useToast';
 import { useNavigate } from 'react-router-dom';
 import Loading from 'pages/Loading';
+import { toast } from 'react-toastify';
 import CheckGenerateModal from './CheckGenerateModal';
 import * as S from './style';
 
@@ -36,7 +36,7 @@ const GenerateStudnets = () => {
     const { admissionYear, numberOfStudents } = generateStudentsData;
     const grade = new Date().getFullYear() + 1 - admissionYear;
     if (new Date().getFullYear() < admissionYear) {
-      useErrorToast('입학년도를 다시 한번 확인해주세요');
+      toast.error('입학년도를 다시 한번 확인해주세요');
       return;
     }
     openModal(

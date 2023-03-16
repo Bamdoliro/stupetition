@@ -1,9 +1,9 @@
 import { generateStudnets } from 'apis/user.api';
 import { generateListState } from 'atoms/generateList.atom';
 import { useModal } from 'hooks/useModal';
-import { useErrorToast } from 'hooks/useToast';
 import { Dispatch, SetStateAction } from 'react';
 import { useMutation } from 'react-query';
+import { toast } from 'react-toastify';
 import { useSetRecoilState } from 'recoil';
 import { GenerateStudnetsType } from 'types/user.type';
 
@@ -27,7 +27,7 @@ export const GenerateStudentsFeature = ({
     },
     onError: (err) => {
       console.log(err);
-      useErrorToast('학생 아이디 생성중 오류 발생');
+      toast.error('학생 아이디 생성중 오류 발생');
     },
   });
 
@@ -47,7 +47,7 @@ export const GenerateStudentsFeature = ({
       });
       closeModal();
     } else {
-      useErrorToast('비밀번호가 맞지 않습니다');
+      toast.error('비밀번호가 맞지 않습니다');
     }
   };
 

@@ -2,8 +2,8 @@ import { answerPetition, commentPetition } from 'apis/petition.api';
 import { useMutation, useQueryClient } from 'react-query';
 import { Dispatch, SetStateAction } from 'react';
 import * as KEY from 'constants/key.constant';
-import { useErrorToast, useSuccesToast } from 'hooks/useToast';
 import { Authority } from 'types/user.type';
+import { toast } from 'react-toastify';
 
 interface ReplyFeatureType {
   petitionId: number;
@@ -21,7 +21,7 @@ export const ReplyFeature = ({
   const commentMutate = useMutation(commentPetition, {
     onSuccess: () => {
       setComment('');
-      useSuccesToast('답변 성공');
+      toast.success('답변 성공');
       queryClient.invalidateQueries([KEY.PETITION]);
     },
     onError: (err) => {
@@ -32,7 +32,7 @@ export const ReplyFeature = ({
   const answerMutate = useMutation(answerPetition, {
     onSuccess: () => {
       setComment('');
-      useSuccesToast('답변 성공');
+      toast.success('답변 성공');
       queryClient.invalidateQueries([KEY.PETITION]);
     },
     onError: (err) => {
