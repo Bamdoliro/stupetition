@@ -2,12 +2,10 @@ import { getPetitionDetail } from 'apis/petition.api';
 import { useQuery } from 'react-query';
 import { PetitionDetailType } from 'types/petition.type';
 import * as KEY from 'constants/key.constant';
-import { useRecoilValue } from 'recoil';
-import { userState } from 'atoms/user.atom';
+import { useUser } from 'hooks/useUser';
 
 export const DetailFeature = (petitionId: number) => {
-  const user = useRecoilValue(userState);
-
+  const { user } = useUser();
   const { isLoading, isError, data } = useQuery<PetitionDetailType>(
     [KEY.PETITION, petitionId],
     () => getPetitionDetail(petitionId),

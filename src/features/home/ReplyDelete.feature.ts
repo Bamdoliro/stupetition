@@ -1,9 +1,9 @@
 import { useMutation, useQueryClient } from 'react-query';
 import { deleteAnswer, deleteCommentPetition } from 'apis/petition.api';
-import { useSuccesToast } from 'hooks/useToast';
 import * as KEY from 'constants/key.constant';
 import { useModal } from 'hooks/useModal';
 import { Authority } from 'types/user.type';
+import { toast } from 'react-toastify';
 
 interface ReplyFeatureType {
   id: number;
@@ -16,7 +16,7 @@ export const ReplyDeleteFeature = ({ id, option }: ReplyFeatureType) => {
 
   const deleteCommentMutate = useMutation(deleteCommentPetition, {
     onSuccess: () => {
-      useSuccesToast('삭제 성공');
+      toast.success('삭제 성공');
       queryClient.invalidateQueries([KEY.PETITION]);
     },
     onError: (err) => {
@@ -26,7 +26,7 @@ export const ReplyDeleteFeature = ({ id, option }: ReplyFeatureType) => {
 
   const deleteAnswerMutate = useMutation(deleteAnswer, {
     onSuccess: () => {
-      useSuccesToast('삭제 성공');
+      toast.success('삭제 성공');
       queryClient.invalidateQueries([KEY.PETITION]);
     },
     onError: (err) => {

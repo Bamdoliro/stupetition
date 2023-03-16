@@ -1,18 +1,17 @@
 import Logo from 'assets/logo.svg';
 import Profile from 'assets/loginProfile.svg';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
-import { userState } from 'atoms/user.atom';
 import { useState } from 'react';
 import MiniButton from 'components/common/MiniButton';
 import SearchInput from 'components/common/SearchInput';
+import { useUser } from 'hooks/useUser';
 import ProfilePopover from './ProfilePopover';
 import * as S from './style';
 
 const Header = () => {
   const navigate = useNavigate();
 
-  const user = useRecoilValue(userState);
+  const { user } = useUser();
   const [profilePopoverIsOpen, setProfilePopoverIsOpen] = useState(false);
 
   return (

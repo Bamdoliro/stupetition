@@ -1,7 +1,7 @@
 import { updatePassword } from 'apis/user.api';
-import { useErrorToast, useSuccesToast } from 'hooks/useToast';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { UpdatePasswordType } from 'types/user.type';
 
 export const UpdatePasswordFeature = (
@@ -10,12 +10,12 @@ export const UpdatePasswordFeature = (
   const navigate = useNavigate();
   const { mutate } = useMutation(updatePassword, {
     onSuccess: () => {
-      useSuccesToast('비밀번호 변경 성공');
+      toast.success('비밀번호 변경 성공');
       navigate('/login');
     },
     onError: (err) => {
       console.log(err);
-      useErrorToast('비밀번호 변경중 오류 발생');
+      toast.error('비밀번호 변경중 오류 발생');
     },
   });
 
@@ -28,7 +28,7 @@ export const UpdatePasswordFeature = (
         password,
       });
     } else {
-      useSuccesToast('비밀번호가 다릅니다');
+      toast.error('비밀번호가 다릅니다');
     }
   };
 

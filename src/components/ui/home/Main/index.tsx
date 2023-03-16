@@ -1,19 +1,18 @@
 import { useState } from 'react';
 import { StatusType } from 'types/petition.type';
-import { useRecoilValue } from 'recoil';
-import { userState } from 'atoms/user.atom';
 import { useNavigate } from 'react-router-dom';
 import MiniButton from 'components/common/MiniButton';
 import { PetitionListFeature } from 'features/home/petitionList.feature';
 import Loading from 'pages/Loading';
 import NotFound from 'pages/404';
+import { useUser } from 'hooks/useUser';
 import PetitionList from '../../../common/PetitionList';
 import RadioTabMenu from '../../../common/RadioTabMenu';
 import * as S from './style';
 
 const Main = () => {
   const navigate = useNavigate();
-  const user = useRecoilValue(userState);
+  const { user } = useUser();
   const [status, setStatus] = useState<StatusType>('PETITION');
   const [isBannerOpen, setIsBannerOpen] = useState(true);
   const { isLoading, isError, data } = PetitionListFeature(status);

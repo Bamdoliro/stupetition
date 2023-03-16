@@ -3,8 +3,6 @@ import Progressbar from 'components/common/Progressbar';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { FormatDatetime } from 'utils/FormatDatetime';
-import { userState } from 'atoms/user.atom';
-import { useRecoilValue } from 'recoil';
 import { DetailFeature } from 'features/home/detail.feature';
 import { ReplyFeature } from 'features/home/reply.feature';
 import { ApproveFeature } from 'features/home/approve.feature';
@@ -13,6 +11,7 @@ import NotFound from 'pages/404';
 import DeletePetitionFeature from 'features/home/deletePetition.feature';
 import { useModal } from 'hooks/useModal';
 import Modal from 'components/common/Modal';
+import { useUser } from 'hooks/useUser';
 import Comment from './Comment';
 import * as S from './style';
 
@@ -21,7 +20,7 @@ const PetitionDetail = () => {
 
   const { id } = useParams();
   const petitionId = Number(id);
-  const user = useRecoilValue(userState);
+  const { user } = useUser();
   const [comment, setComment] = useState('');
 
   // 쿼리
