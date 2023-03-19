@@ -10,7 +10,7 @@ const NotFoundBox = styled.div`
   align-items: center;
 `;
 
-const NotFoundText = styled(T.D1)`
+const NotFoundText = styled(T.H3)`
   color: ${color.gray900};
   text-align: center;
 `;
@@ -21,7 +21,7 @@ const NotFound = () => {
       <NotFoundText>
         404 Error
         <br />
-        개발자한테 문의하세요 !
+        2학년 2반 김석진한테 문의하세요
       </NotFoundText>
     </NotFoundBox>
   );
