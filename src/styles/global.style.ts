@@ -6,8 +6,8 @@ const GlobalStyled = createGlobalStyle`
     * {
       line-height: 135%;
       letter-spacing: -1%;
-      box-sizing: border-box;
-      font-family: 'PretendardMedium';
+      box-sizing: border-box; 
+      font-family: 'Pretendard Variable';
       margin: 0;
       padding: 0;
     }
