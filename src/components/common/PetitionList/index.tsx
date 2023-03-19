@@ -8,7 +8,7 @@ import * as S from './style';
 
 type PetitonListOption = 'MODAL' | 'LIST';
 
-interface PetitionListPropsType {
+interface PropsType {
   option: PetitonListOption;
   createdAt: string;
   title: string;
@@ -24,7 +24,7 @@ const PetitionList = ({
   numberOfApprover,
   id,
   status,
-}: PetitionListPropsType) => {
+}: PropsType) => {
   const navigate = useNavigate();
   const { date } = FormatDatetime(createdAt);
   const { color, progress } = ProgressChecker(status);

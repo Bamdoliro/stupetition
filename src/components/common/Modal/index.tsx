@@ -4,7 +4,7 @@ import * as S from './style';
 
 type ModalOptionType = 'CONFIRM' | 'ALERT';
 
-interface ModalPropsType {
+interface PropsType {
   option: ModalOptionType;
   title: string;
   content: string;
@@ -22,7 +22,7 @@ const Modal = ({
   confirmText,
   handleClose,
   handleConfirm,
-}: ModalPropsType) => {
+}: PropsType) => {
   return (
     <S.BlurBackground>
       {option === 'CONFIRM' ? (
