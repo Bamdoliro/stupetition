@@ -5,7 +5,7 @@ import { WritePetitionType } from 'types/petition.type';
 import { WriteFeature } from 'features/home/write.feature';
 import * as S from './style';
 
-interface CheckWriteModalPropsType {
+interface PropsType {
   close: MouseEventHandler<HTMLButtonElement>;
   petitionData: WritePetitionType;
   isOpenCheckWriteModal: boolean;
@@ -15,7 +15,7 @@ const CheckWriteModal = ({
   close,
   petitionData,
   isOpenCheckWriteModal,
-}: CheckWriteModalPropsType) => {
+}: PropsType) => {
   const { write } = WriteFeature(petitionData);
 
   const date = {

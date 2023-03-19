@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import { useSetRecoilState } from 'recoil';
 import { GenerateStudnetsType } from 'types/user.type';
 
-interface GenerateStudentsFeaturePropsType {
+interface PropsType {
   generateStudentsData: GenerateStudnetsType;
   setIsOpenCheckGenerateModal: Dispatch<SetStateAction<boolean>>;
 }
@@ -15,7 +15,7 @@ interface GenerateStudentsFeaturePropsType {
 export const GenerateStudentsFeature = ({
   generateStudentsData,
   setIsOpenCheckGenerateModal,
-}: GenerateStudentsFeaturePropsType) => {
+}: PropsType) => {
   const setGenerateListData = useSetRecoilState(generateListState);
   const openCheckGenerateModal = () => setIsOpenCheckGenerateModal(true);
   const { closeModal } = useModal();

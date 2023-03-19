@@ -4,15 +4,12 @@ import { Dispatch, SetStateAction } from 'react';
 import { useUser } from 'hooks/useUser';
 import * as S from './style';
 
-export interface ProfilePopoverPropsType {
+export interface PropsType {
   isOpen: boolean;
   setProfilePopoverIsOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-const ProfilePopover = ({
-  isOpen,
-  setProfilePopoverIsOpen,
-}: ProfilePopoverPropsType) => {
+const ProfilePopover = ({ isOpen, setProfilePopoverIsOpen }: PropsType) => {
   const { user } = useUser();
   const close = () => setProfilePopoverIsOpen(false);
   const navigate = useNavigate();

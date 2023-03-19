@@ -5,7 +5,7 @@ import * as KEY from 'constants/key.constant';
 import { Authority } from 'types/user.type';
 import { toast } from 'react-toastify';
 
-interface ReplyFeatureType {
+interface PropsType {
   petitionId: number;
   setComment: Dispatch<SetStateAction<string>>;
   comment: string;
@@ -15,7 +15,7 @@ export const ReplyFeature = ({
   petitionId,
   setComment,
   comment,
-}: ReplyFeatureType) => {
+}: PropsType) => {
   const queryClient = useQueryClient();
 
   const commentMutate = useMutation(commentPetition, {

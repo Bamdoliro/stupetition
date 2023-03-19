@@ -6,7 +6,7 @@ import { color } from 'styles/theme.style';
 import { ProgressBarOption } from 'types/progressBar.type';
 import * as S from './style';
 
-interface ProgressbarPropsType {
+interface PropsType {
   numberOfApprover: number;
   width: string;
   height: string;
@@ -18,7 +18,7 @@ const Progressbar = ({
   width,
   height,
   option,
-}: ProgressbarPropsType) => {
+}: PropsType) => {
   const percentage = (numberOfApprover / 20) * 100;
 
   return (
