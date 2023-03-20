@@ -22,8 +22,8 @@ const Comment = ({
     openModal(
       <Modal
         option="CONFIRM"
-        title="청원 삭제"
-        content={<p>정말 청원을 삭제 하시겠습니까?</p>}
+        title="댓글 삭제"
+        content={<p>정말 댓글을 삭제 하시겠습니까?</p>}
         closeText="취소"
         confirmText="삭제"
         handleClose={closeModal}
