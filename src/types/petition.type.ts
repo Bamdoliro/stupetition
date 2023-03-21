@@ -18,7 +18,7 @@ export interface CommentType {
   id: number;
   comment: string;
   createdAt: string;
-  hasPermission?: boolean;
+  hasPermission: boolean;
 }
 
 export interface Writer {
@@ -27,6 +27,7 @@ export interface Writer {
   schoolName: string;
   status: string;
   userId: number;
+  hasPermission: boolean;
 }
 
 export interface PetitionDetailType {
