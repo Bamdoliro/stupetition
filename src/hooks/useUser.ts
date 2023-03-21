@@ -24,5 +24,5 @@ export const useUser = () => {
     if (user) setUserInfo(user);
   }, [setUserInfo, user, navigate]);
 
-  return { userInfo };
+  return { user: userInfo };
 };
