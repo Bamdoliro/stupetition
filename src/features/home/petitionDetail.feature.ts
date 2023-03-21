@@ -3,8 +3,9 @@ import { useQuery } from 'react-query';
 import { PetitionDetailType } from 'types/petition.type';
 import * as KEY from 'constants/key.constant';
 import { useUser } from 'hooks/useUser';
+import { petitionDetail } from 'fixtures/index';
 
-export const DetailFeature = (petitionId: number) => {
+export const PetitionDetailFeature = (petitionId: number) => {
   const { user } = useUser();
   const { isLoading, isError, data } = useQuery<PetitionDetailType>(
     [KEY.PETITION, petitionId],
@@ -17,23 +18,6 @@ export const DetailFeature = (petitionId: number) => {
   return {
     isLoading,
     isError,
-    data: data || {
-      approved: false,
-      createdAt: '0000-00-00T00:00:00',
-      status: 'ANSWERED',
-      title: '',
-      numberOfApprover: 0,
-      content: '',
-      comments: [],
-      answer: [],
-      hasPermission: false,
-      writer: {
-        authority: 'ROLE_STUDENT',
-        username: '',
-        schoolName: '',
-        status: 'ATTENDING',
-        userId: 0,
-      },
-    },
+    data: data || petitionDetail,
   };
 };
