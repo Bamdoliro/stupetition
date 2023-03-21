@@ -5,7 +5,7 @@ import * as KEY from 'constants/key.constant';
 import { useUser } from 'hooks/useUser';
 import { petitionDetail } from 'fixtures/index';
 
-export const DetailFeature = (petitionId: number) => {
+export const PetitionDetailFeature = (petitionId: number) => {
   const { user } = useUser();
   const { isLoading, isError, data } = useQuery<PetitionDetailType>(
     [KEY.PETITION, petitionId],

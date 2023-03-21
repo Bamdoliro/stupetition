@@ -3,7 +3,7 @@ import Progressbar from 'components/common/Progressbar';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { FormatDatetime } from 'utils/FormatDatetime';
-import { DetailFeature } from 'features/home/detail.feature';
+import { PetitionDetailFeature } from 'features/home/petitionDetail.feature';
 import { ReplyFeature } from 'features/home/reply.feature';
 import { ApproveFeature } from 'features/home/approve.feature';
 import Loading from 'pages/Loading';
@@ -24,7 +24,7 @@ const PetitionDetail = () => {
   const [comment, setComment] = useState('');
 
   // 쿼리
-  const { isLoading, isError, data } = DetailFeature(petitionId);
+  const { isLoading, isError, data } = PetitionDetailFeature(petitionId);
   const { replySubmit } = ReplyFeature({ petitionId, setComment, comment });
   const { approveSubmit } = ApproveFeature(petitionId);
   const { deleteSubmit } = DeletePetitionFeature(petitionId);
