@@ -7,7 +7,7 @@ export const LogoutFeature = () => {
   const { mutate } = useMutation(logoutUser, {
     onSuccess: () => {
       localStorage.clear();
-      window.location.reload();
+      window.location.href = '/';
       navigate('/');
     },
     onError: (err) => {
