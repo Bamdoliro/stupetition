@@ -1,6 +1,6 @@
 import * as KEY from 'constants/key.constant';
 import { useQuery } from 'react-query';
-import { getUserData } from 'apis/user.api';
+import { getUserInfo } from 'apis/user.api';
 import { UserInfoType } from 'types/user.type';
 import { Storage } from 'lib/storage/storage';
 import { ACCESS_KEY } from 'constants/token.constant';
@@ -14,7 +14,7 @@ export const useUser = () => {
   const [userInfo, setUserInfo] = useRecoilState(userState);
   const { data: user } = useQuery<UserInfoType>(
     [KEY.USER],
-    () => getUserData(),
+    () => getUserInfo(),
     {
       enabled: !!Storage.getItem(ACCESS_KEY),
     },
