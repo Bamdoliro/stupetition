@@ -14,7 +14,7 @@ interface GenerateStudnetsParamsType {
 
 // 유저 정보
 
-export const getUserData = async () => {
+export const getUserInfo = async () => {
   const { data } = await customAxios.get('/user', authorization());
   return data;
 };
