@@ -1,12 +1,18 @@
 import * as KEY from 'constants/key.constant';
 import { useQuery } from 'react-query';
 import { getUserData } from 'apis/user.api';
-import { UserDataType } from 'types/user.type';
+import { UserInfoType } from 'types/user.type';
 import { Storage } from 'lib/storage/storage';
 import { ACCESS_KEY } from 'constants/token.constant';
+import { useRecoilState } from 'recoil';
+import { userState } from 'atoms/user.atom';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const useUser = () => {
-  const { data: user } = useQuery<UserDataType>(
+  const navigate = useNavigate();
+  const [userInfo, setUserInfo] = useRecoilState(userState);
+  const { data: user } = useQuery<UserInfoType>(
     [KEY.USER],
     () => getUserData(),
     {
@@ -14,11 +20,9 @@ export const useUser = () => {
     },
   );
 
-  return {
-    user: user || {
-      authority: null,
-      username: null,
-      schoolName: null,
-    },
-  };
+  useEffect(() => {
+    if (user) setUserInfo(user);
+  }, [setUserInfo, user, navigate]);
+
+  return { userInfo };
 };

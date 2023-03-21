@@ -1,11 +1,3 @@
-export interface UserDataType {
-  accessToken: string;
-  refreshToken: string;
-  authority: string;
-  schoolName: string;
-  username: string;
-}
-
 export type Authority = 'STUDENT_COUNCIL' | 'STUDENT';
 
 export interface UpdatePasswordType {
@@ -24,4 +16,10 @@ export interface GenerateStudnetsType {
 export interface GenerateStudentsListType {
   username: string;
   password: string;
+}
+
+export interface UserInfoType {
+  authority: string;
+  username: string;
+  schoolName: string;
 }
