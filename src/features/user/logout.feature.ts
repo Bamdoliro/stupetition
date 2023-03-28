@@ -1,14 +1,16 @@
 import { useMutation } from 'react-query';
 import { logoutUser } from 'apis/user.api';
-import { useNavigate } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
+import { userEmpty, userState } from 'atoms/user.atom';
 
 export const LogoutFeature = () => {
-  const navigate = useNavigate();
+  const setUser = useSetRecoilState(userState);
+
   const { mutate } = useMutation(logoutUser, {
     onSuccess: () => {
       localStorage.clear();
-      window.location.href = '/';
-      navigate('/');
+      setUser(userEmpty);
+      window.location.href = '/login';
     },
     onError: (err) => {
       console.log(err);
