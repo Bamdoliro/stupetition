@@ -5,13 +5,13 @@ import * as S from './style';
 
 type RadioOptionType = 'MAIN' | 'MY_PETITION';
 
-interface RadioPropsType {
+interface PropsType {
   status: string;
   setStatus: Dispatch<SetStateAction<StatusType>>;
   option: RadioOptionType;
 }
 
-const RadioTabMenu = ({ status, setStatus, option }: RadioPropsType) => {
+const RadioTabMenu = ({ status, setStatus, option }: PropsType) => {
   const data = option === 'MAIN' ? MainTabDatas : MyPetitionTabDatas;
   return (
     <S.RadioTabMenu>

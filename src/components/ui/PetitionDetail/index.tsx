@@ -3,12 +3,12 @@ import Progressbar from 'components/common/Progressbar';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { FormatDatetime } from 'utils/FormatDatetime';
-import { DetailFeature } from 'features/home/detail.feature';
-import { ReplyFeature } from 'features/home/reply.feature';
-import { ApproveFeature } from 'features/home/approve.feature';
+import { PetitionDetailFeature } from 'features/posts/petitionDetail.feature';
+import { ReplyFeature } from 'features/posts/reply.feature';
+import { ApproveFeature } from 'features/posts/approve.feature';
 import Loading from 'pages/Loading';
 import NotFound from 'pages/404';
-import DeletePetitionFeature from 'features/home/deletePetition.feature';
+import DeletePetitionFeature from 'features/posts/deletePetition.feature';
 import { useModal } from 'hooks/useModal';
 import Modal from 'components/common/Modal';
 import { useUser } from 'hooks/useUser';
@@ -24,7 +24,7 @@ const PetitionDetail = () => {
   const [comment, setComment] = useState('');
 
   // 쿼리
-  const { isLoading, isError, data } = DetailFeature(petitionId);
+  const { isLoading, isError, data } = PetitionDetailFeature(petitionId);
   const { replySubmit } = ReplyFeature({ petitionId, setComment, comment });
   const { approveSubmit } = ApproveFeature(petitionId);
   const { deleteSubmit } = DeletePetitionFeature(petitionId);
@@ -37,7 +37,7 @@ const PetitionDetail = () => {
       <Modal
         option="CONFIRM"
         title="청원 삭제"
-        content="정말 청원을 삭제 하시겠습니까?"
+        content={<p>정말 청원을 삭제 하시겠습니까?</p>}
         closeText="취소"
         confirmText="삭제"
         handleClose={closeModal}

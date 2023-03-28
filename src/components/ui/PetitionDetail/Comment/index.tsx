@@ -2,7 +2,7 @@ import ProfileSvg from 'assets/profile.svg';
 import { FormatDatetime } from 'utils/FormatDatetime';
 import CheckSvg from 'assets/check.svg';
 import { CommentType } from 'types/petition.type';
-import { ReplyDeleteFeature } from 'features/home/replyDelete.feature';
+import { DeleteReplyFeature } from 'features/posts/deleteReply.feature';
 import { useModal } from 'hooks/useModal';
 import Modal from 'components/common/Modal';
 import * as S from './style';
@@ -16,14 +16,14 @@ const Comment = ({
 }: CommentType) => {
   const { openModal, closeModal } = useModal();
   const { date, time } = FormatDatetime(createdAt);
-  const { deleteSubmit } = ReplyDeleteFeature({ id, option });
+  const { deleteSubmit } = DeleteReplyFeature({ id, option });
 
   const deleteComment = () => {
     openModal(
       <Modal
         option="CONFIRM"
-        title="청원 삭제"
-        content="정말 청원을 삭제 하시겠습니까?"
+        title="댓글 삭제"
+        content={<p>정말 댓글을 삭제 하시겠습니까?</p>}
         closeText="취소"
         confirmText="삭제"
         handleClose={closeModal}

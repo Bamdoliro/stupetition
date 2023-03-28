@@ -1,13 +1,13 @@
-import { MouseEventHandler } from 'react';
+import { MouseEventHandler, ReactNode } from 'react';
 import MiniButton from 'components/common/MiniButton';
 import * as S from './style';
 
 type ModalOptionType = 'CONFIRM' | 'ALERT';
 
-interface ModalPropsType {
+interface PropsType {
   option: ModalOptionType;
   title: string;
-  content: string;
+  content: ReactNode;
   closeText: string;
   confirmText: string;
   handleClose: MouseEventHandler<HTMLButtonElement>;
@@ -22,7 +22,7 @@ const Modal = ({
   confirmText,
   handleClose,
   handleConfirm,
-}: ModalPropsType) => {
+}: PropsType) => {
   return (
     <S.BlurBackground>
       {option === 'CONFIRM' ? (

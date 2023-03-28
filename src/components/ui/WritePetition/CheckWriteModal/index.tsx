@@ -2,10 +2,10 @@ import MiniButton from 'components/common/MiniButton';
 import PetitionList from 'components/common/PetitionList';
 import { MouseEventHandler } from 'react';
 import { WritePetitionType } from 'types/petition.type';
-import { WriteFeature } from 'features/home/write.feature';
+import { WriteFeature } from 'features/posts/write.feature';
 import * as S from './style';
 
-interface CheckWriteModalPropsType {
+interface PropsType {
   close: MouseEventHandler<HTMLButtonElement>;
   petitionData: WritePetitionType;
   isOpenCheckWriteModal: boolean;
@@ -15,7 +15,7 @@ const CheckWriteModal = ({
   close,
   petitionData,
   isOpenCheckWriteModal,
-}: CheckWriteModalPropsType) => {
+}: PropsType) => {
   const { write } = WriteFeature(petitionData);
 
   const date = {

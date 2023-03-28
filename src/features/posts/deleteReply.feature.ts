@@ -5,12 +5,12 @@ import { useModal } from 'hooks/useModal';
 import { Authority } from 'types/user.type';
 import { toast } from 'react-toastify';
 
-interface ReplyFeatureType {
+interface PropsType {
   id: number;
   option: Authority;
 }
 
-export const ReplyDeleteFeature = ({ id, option }: ReplyFeatureType) => {
+export const DeleteReplyFeature = ({ id, option }: PropsType) => {
   const queryClient = useQueryClient();
   const { closeModal } = useModal();
 

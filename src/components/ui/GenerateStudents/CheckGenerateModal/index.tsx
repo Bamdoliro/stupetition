@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { GenerateStudnetsType } from 'types/user.type';
 import * as S from './style';
 
-interface CheckGenerateModalPropsType {
+interface PropsType {
   close: MouseEventHandler<HTMLButtonElement>;
   isOpenCheckGenerateModal: boolean;
   generateStudentsData: GenerateStudnetsType;
@@ -14,7 +14,7 @@ const CheckGenerateModal = ({
   close,
   isOpenCheckGenerateModal,
   generateStudentsData,
-}: CheckGenerateModalPropsType) => {
+}: PropsType) => {
   const navigate = useNavigate();
   const { admissionYear, numberOfStudents } = generateStudentsData;
   const grade = new Date().getFullYear() + 1 - admissionYear;
