@@ -10,7 +10,7 @@ interface PropsType {
   option: Authority;
 }
 
-export const ReplyDeleteFeature = ({ id, option }: PropsType) => {
+export const DeleteReplyFeature = ({ id, option }: PropsType) => {
   const queryClient = useQueryClient();
   const { closeModal } = useModal();
 

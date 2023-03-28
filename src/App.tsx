@@ -1,13 +1,13 @@
 import { Route, Routes } from 'react-router-dom';
 import BaseLayout from 'layouts/BaseLayout';
-import PetitionDetail from 'components/ui/home/PetitionDetail';
-import CreatePetition from 'components/ui/home/WritePetition';
-import MyPetition from 'components/ui/home/MyPetition';
-import Main from 'components/ui/home/Main';
-import Login from 'components/ui/auth/Login';
-import UpdatePassword from 'components/ui/home/UpdatePassword';
-import GenerateStudnets from 'components/ui/home/GenerateStudents';
-import PrintPDF from 'components/ui/home/PrintPDF';
+import PetitionDetail from 'components/ui/PetitionDetail';
+import CreatePetition from 'components/ui/WritePetition';
+import MyPetition from 'components/ui/MyPetition';
+import Main from 'components/ui/Main';
+import Login from 'components/ui/Login';
+import UpdatePassword from 'components/ui/UpdatePassword';
+import GenerateStudnets from 'components/ui/GenerateStudents';
+import PrintPDF from 'components/ui/PrintPDF';
 
 const App = () => {
   return (

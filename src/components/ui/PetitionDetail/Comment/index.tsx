@@ -2,7 +2,7 @@ import ProfileSvg from 'assets/profile.svg';
 import { FormatDatetime } from 'utils/FormatDatetime';
 import CheckSvg from 'assets/check.svg';
 import { CommentType } from 'types/petition.type';
-import { ReplyDeleteFeature } from 'features/home/replyDelete.feature';
+import { DeleteReplyFeature } from 'features/posts/deleteReply.feature';
 import { useModal } from 'hooks/useModal';
 import Modal from 'components/common/Modal';
 import * as S from './style';
@@ -16,7 +16,7 @@ const Comment = ({
 }: CommentType) => {
   const { openModal, closeModal } = useModal();
   const { date, time } = FormatDatetime(createdAt);
-  const { deleteSubmit } = ReplyDeleteFeature({ id, option });
+  const { deleteSubmit } = DeleteReplyFeature({ id, option });
 
   const deleteComment = () => {
     openModal(

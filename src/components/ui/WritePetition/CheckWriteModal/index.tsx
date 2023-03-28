@@ -2,7 +2,7 @@ import MiniButton from 'components/common/MiniButton';
 import PetitionList from 'components/common/PetitionList';
 import { MouseEventHandler } from 'react';
 import { WritePetitionType } from 'types/petition.type';
-import { WriteFeature } from 'features/home/write.feature';
+import { WriteFeature } from 'features/posts/write.feature';
 import * as S from './style';
 
 interface PropsType {

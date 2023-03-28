@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { StatusType } from 'types/petition.type';
 import { useNavigate } from 'react-router-dom';
 import MiniButton from 'components/common/MiniButton';
-import { PetitionListFeature } from 'features/home/petitionList.feature';
+import { PetitionListFeature } from 'features/posts/petitionList.feature';
 import Loading from 'pages/Loading';
 import NotFound from 'pages/404';
 import { useUser } from 'hooks/useUser';
-import PetitionList from '../../../common/PetitionList';
-import RadioTabMenu from '../../../common/RadioTabMenu';
+import PetitionList from 'components/common/PetitionList';
+import RadioTabMenu from 'components/common/RadioTabMenu';
 import * as S from './style';
 
 const Main = () => {
