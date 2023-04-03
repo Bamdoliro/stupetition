@@ -39,7 +39,7 @@ const Main = () => {
               <MiniButton
                 onClick={() => navigate('/petition/write')}
                 option="FILLED"
-                value="청원 추가"
+                value="청원하기"
               />
             )}
           </S.SubNav>

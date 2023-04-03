@@ -1,6 +1,7 @@
 export const color = {
   main: '#2979FF',
   hover: '#448AFF',
+  disabled: '#B4D2FF',
   white: '#FFFFFF',
   black: '#202020',
   gray50: '#FAFAFA',

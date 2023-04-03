@@ -12,7 +12,7 @@ export const tokenExpired = async () => {
     });
     Storage.setItem(ACCESS_KEY, data.accessToken);
   } catch {
-    toast.error('세션이 만료되었습니다');
+    toast.error('다시 로그인 해주세요');
     localStorage.clear();
     window.location.href = '/login';
   }
