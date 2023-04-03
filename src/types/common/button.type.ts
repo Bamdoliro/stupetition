@@ -1,6 +1,8 @@
 import { ButtonHTMLAttributes } from 'react';
 
-export type ButtonOptionType = 'UNFILLED' | 'FILLED' | 'SCARCE_FILLED';
+export type ButtonOptionType = 'FILLED' | 'UNFILLED';
+
+export type MiniButtonOptionType = 'FILLED' | 'UNFILLED';
 
 export interface ButtonPropsType
   extends ButtonHTMLAttributes<HTMLButtonElement> {
