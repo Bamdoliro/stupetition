@@ -11,9 +11,6 @@ export const LogoutFeature = () => {
       localStorage.clear();
       setUser(userEmpty);
     },
-    onError: (err) => {
-      console.log(err);
-    },
   });
 
   const logout = () => {

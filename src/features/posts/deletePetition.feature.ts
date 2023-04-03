@@ -16,9 +16,6 @@ const DeletePetitionFeature = (petitionId: number) => {
       queryClient.invalidateQueries([KEY.PETITION_LIST]);
       navigate('/');
     },
-    onError: (err) => {
-      console.log(err);
-    },
   });
 
   const deleteSubmit = () => {

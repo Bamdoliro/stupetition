@@ -1,5 +1,4 @@
 import { color } from 'styles/theme.style';
-import * as T from 'styles/text.style';
 import styled from 'styled-components';
 
 export const WritePetitionLayout = styled.div`

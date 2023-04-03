@@ -11,9 +11,6 @@ export const ApproveFeature = (petitionId: number) => {
       toast.success('동의 완료');
       queryClient.invalidateQueries([KEY.PETITION]);
     },
-    onError: (err) => {
-      console.log(err);
-    },
   });
 
   const approveSubmit = () => {
