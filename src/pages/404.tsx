@@ -10,7 +10,7 @@ const NotFoundBox = styled.div`
   align-items: center;
 `;
 
-const NotFoundText = styled(T.H3)`
+const NotFoundText = styled(T.H2)`
   color: ${color.gray900};
   text-align: center;
 `;
