@@ -1,7 +1,6 @@
 import { LogoutFeature } from 'features/user/logout.feature';
 import { useNavigate } from 'react-router-dom';
 import { Dispatch, SetStateAction } from 'react';
-import { useUser } from 'hooks/useUser';
 import * as S from './style';
 
 export interface PropsType {
@@ -10,18 +9,12 @@ export interface PropsType {
 }
 
 const ProfilePopover = ({ isOpen, setProfilePopoverIsOpen }: PropsType) => {
-  const { user } = useUser();
   const close = () => setProfilePopoverIsOpen(false);
   const navigate = useNavigate();
   const { logout } = LogoutFeature();
 
   return (
-    <S.ProfilePopover
-      style={{
-        height: user.authority === 'ROLE_STUDENT_COUNCIL' ? '224px' : '178px',
-      }}
-      display={isOpen ? 'flex' : 'none'}
-    >
+    <S.ProfilePopover display={isOpen ? 'flex' : 'none'}>
       <S.Button
         onClick={() => {
           navigate('/petition/my');
@@ -30,16 +23,6 @@ const ProfilePopover = ({ isOpen, setProfilePopoverIsOpen }: PropsType) => {
       >
         <S.ButtonText>내 청원</S.ButtonText>
       </S.Button>
-      {user.authority === 'ROLE_STUDENT_COUNCIL' && (
-        <S.Button
-          onClick={() => {
-            navigate('/student/generate');
-            close();
-          }}
-        >
-          <S.ButtonText>학생 아이디 생성</S.ButtonText>
-        </S.Button>
-      )}
       <S.Line />
       <S.Button
         onClick={() => {

@@ -10,19 +10,16 @@ const DeletePetitionFeature = (petitionId: number) => {
   const { closeModal } = useModal();
   const queryClient = useQueryClient();
 
-  const deleteMutate = useMutation(deletePetition, {
+  const { mutate } = useMutation(deletePetition, {
     onSuccess: () => {
       toast.success('삭제 완료');
       queryClient.invalidateQueries([KEY.PETITION_LIST]);
       navigate('/');
     },
-    onError: (err) => {
-      console.log(err);
-    },
   });
 
   const deleteSubmit = () => {
-    deleteMutate.mutate(petitionId);
+    mutate(petitionId);
     closeModal();
   };
 

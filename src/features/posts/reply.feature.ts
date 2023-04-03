@@ -24,9 +24,6 @@ export const ReplyFeature = ({
       toast.success('답변 성공');
       queryClient.invalidateQueries([KEY.PETITION]);
     },
-    onError: (err) => {
-      console.log(err);
-    },
   });
 
   const answerMutate = useMutation(answerPetition, {
@@ -35,19 +32,19 @@ export const ReplyFeature = ({
       toast.success('답변 성공');
       queryClient.invalidateQueries([KEY.PETITION]);
     },
-    onError: (err) => {
-      console.log(err);
-    },
   });
 
   const replySubmit = (option: Authority) => {
-    const deleteMutate =
+    const replyMutate =
       option === 'STUDENT_COUNCIL' ? answerMutate : commentMutate;
-
-    deleteMutate.mutate({
-      comment,
-      petitionId,
-    });
+    if (comment.length < 2 || comment.length > 500) {
+      toast.error('크기가 2에서 500 사이여야 합니다');
+    } else {
+      replyMutate.mutate({
+        comment,
+        petitionId,
+      });
+    }
   };
 
   return { replySubmit };

@@ -13,9 +13,6 @@ export const WriteFeature = (petitionData: WritePetitionType) => {
       toast.success('작성 성공');
       navigate('/');
     },
-    onError: (err) => {
-      console.log(err);
-    },
   });
 
   const write = () => {

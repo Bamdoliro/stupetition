@@ -19,18 +19,12 @@ export const DeleteReplyFeature = ({ id, option }: PropsType) => {
       toast.success('삭제 성공');
       queryClient.invalidateQueries([KEY.PETITION]);
     },
-    onError: (err) => {
-      console.log(err);
-    },
   });
 
   const deleteAnswerMutate = useMutation(deleteAnswer, {
     onSuccess: () => {
       toast.success('삭제 성공');
       queryClient.invalidateQueries([KEY.PETITION]);
-    },
-    onError: (err) => {
-      console.log(err);
     },
   });
 
