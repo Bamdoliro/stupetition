@@ -1,4 +1,4 @@
-import { deletePetition } from 'apis/petition.api';
+import { deletePetition } from 'api/petition.api';
 import { useMutation, useQueryClient } from 'react-query';
 import * as KEY from 'constants/key.constant';
 import { useNavigate } from 'react-router-dom';

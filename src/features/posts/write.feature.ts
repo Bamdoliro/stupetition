@@ -1,4 +1,4 @@
-import { writePetition } from 'apis/petition.api';
+import { writePetition } from 'api/petition.api';
 import { useModal } from 'hooks/useModal';
 import { useMutation } from 'react-query';
 import { useNavigate } from 'react-router-dom';

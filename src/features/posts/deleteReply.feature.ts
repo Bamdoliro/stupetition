@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from 'react-query';
-import { deleteAnswer, deleteCommentPetition } from 'apis/petition.api';
+import { deleteAnswer, deleteCommentPetition } from 'api/petition.api';
 import * as KEY from 'constants/key.constant';
 import { useModal } from 'hooks/useModal';
 import { Authority } from 'types/user.type';

@@ -1,4 +1,4 @@
-import { approvedPetition, wrotePetition } from 'apis/petition.api';
+import { approvedPetition, wrotePetition } from 'api/petition.api';
 import { useQuery } from 'react-query';
 import { StatusType } from 'types/petition.type';
 import * as KEY from 'constants/key.constant';

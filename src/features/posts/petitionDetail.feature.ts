@@ -1,4 +1,4 @@
-import { getPetitionDetail } from 'apis/petition.api';
+import { getPetitionDetail } from 'api/petition.api';
 import { useQuery } from 'react-query';
 import { PetitionDetailType } from 'types/petition.type';
 import * as KEY from 'constants/key.constant';

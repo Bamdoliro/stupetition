@@ -1,4 +1,4 @@
-import { answerPetition, commentPetition } from 'apis/petition.api';
+import { answerPetition, commentPetition } from 'api/petition.api';
 import { useMutation, useQueryClient } from 'react-query';
 import { Dispatch, SetStateAction } from 'react';
 import * as KEY from 'constants/key.constant';
