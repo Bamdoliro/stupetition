@@ -7,7 +7,7 @@ export const Header = styled.div`
   justify-content: center;
   z-index: 1;
   width: 100vw;
-  height: 72px;
+  height: 64px;
   background-color: ${color.white};
   @media print {
     display: none;

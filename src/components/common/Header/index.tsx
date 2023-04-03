@@ -17,7 +17,7 @@ const Header = () => {
   return (
     <S.Header>
       <S.HeaderWrap>
-        <S.LogoWrap onClick={() => window.location.reload()}>
+        <S.LogoWrap onClick={() => navigate('/')}>
           <S.Logo src={Logo} />
           <S.LogoText>학생청원</S.LogoText>
         </S.LogoWrap>

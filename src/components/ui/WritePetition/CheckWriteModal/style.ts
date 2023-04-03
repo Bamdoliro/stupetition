@@ -21,7 +21,7 @@ export const CheckWriteModal = styled.div`
   top: calc(50% - 414px / 2);
   padding: 48px;
   background: ${color.white};
-  border-radius: 12px;
+  border-radius: 8px;
 `;
 
 export const CheckWriteModalWrap = styled.div`
