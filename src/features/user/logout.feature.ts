@@ -10,7 +10,6 @@ export const LogoutFeature = () => {
     onSuccess: () => {
       localStorage.clear();
       setUser(userEmpty);
-      window.location.href = '/login';
     },
     onError: (err) => {
       console.log(err);
