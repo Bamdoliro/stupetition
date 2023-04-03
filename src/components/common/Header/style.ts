@@ -24,16 +24,17 @@ export const HeaderWrap = styled.div`
 `;
 
 export const LogoWrap = styled.div`
+  height: 100%;
   display: flex;
   align-items: center;
   gap: 6px;
+  cursor: pointer;
 `;
 
 export const Logo = styled.img``;
 
 export const LogoText = styled(T.H5)`
   color: ${color.black};
-  cursor: pointer;
 `;
 
 export const Profile = styled.img`
