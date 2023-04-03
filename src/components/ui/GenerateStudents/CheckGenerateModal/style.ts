@@ -21,7 +21,7 @@ export const CheckGenerateModal = styled.div`
   top: calc(50% - 250px / 2);
   padding: 40px 48px;
   background: ${color.white};
-  border-radius: 12px;
+  border-radius: 8px;
 `;
 
 export const CheckGenerateModalWrap = styled.div`

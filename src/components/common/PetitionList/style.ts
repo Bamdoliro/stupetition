@@ -8,7 +8,7 @@ export const PetitionList = styled.div`
   width: 100%;
   border: 1px solid black;
   border: 1px solid ${color.gray200};
-  border-radius: 16px;
+  border-radius: 8px;
   cursor: pointer;
 `;
 

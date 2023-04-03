@@ -17,6 +17,14 @@ export const SearchInput = styled.div`
   border-radius: 8px;
   background-color: ${color.gray100};
   padding: 0px 0px 0px 16px;
+  &:focus-within {
+    background-color: ${color.white};
+    outline: 4px solid rgba(41, 121, 255, 0.15);
+  }
+  &:hover {
+    background-color: ${color.white};
+    outline: 4px solid rgba(41, 121, 255, 0.15);
+  }
 `;
 
 export const Img = styled.img`
@@ -34,5 +42,11 @@ export const Input = styled.input`
   font-size: 1rem;
   &::placeholder {
     color: ${color.gray500};
+  }
+  &:focus {
+    background-color: ${color.white};
+  }
+  &:hover {
+    background-color: ${color.white};
   }
 `;
