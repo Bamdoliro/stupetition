@@ -56,7 +56,7 @@ const UpdatePassword = () => {
               <Button
                 onClick={submit}
                 option="FILLED"
-                width="174px"
+                width="50%"
                 value="비밀번호 변경"
               />
             </S.UpdatePasswordContentWrap>
