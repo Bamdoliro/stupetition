@@ -21,14 +21,16 @@ const Main = () => {
     <S.MainLayout>
       {isBannerOpen && (
         <S.Banner>
-          <S.BannerText>
-            학생청원,
-            <br />
-            {user.authority ? user.schoolName : '학생들의 목소리를 듣다'}
-          </S.BannerText>
-          <S.CloseBanner onClick={() => setIsBannerOpen(false)}>
-            X 닫기
-          </S.CloseBanner>
+          <S.BannerWrap>
+            <S.BannerText>
+              학생청원,
+              <br />
+              학생들의 목소리를 듣다
+            </S.BannerText>
+            <S.CloseBanner onClick={() => setIsBannerOpen(false)}>
+              X 닫기
+            </S.CloseBanner>
+          </S.BannerWrap>
         </S.Banner>
       )}
       <S.ContentsWrap>
