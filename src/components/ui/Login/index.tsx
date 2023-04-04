@@ -3,6 +3,7 @@ import { LoginType } from 'types/auth.type';
 import Input from 'components/common/Input';
 import Button from 'components/common/Button';
 import { LoginFeature } from 'features/auth/login.feature';
+import Ment from 'components/common/Ment';
 import * as S from './style';
 
 const Login = () => {
@@ -21,6 +22,7 @@ const Login = () => {
   return (
     <S.LoginLayout>
       <S.LoginWrap>
+        <Ment posistion="flex-start" />
         <S.LoginBox>
           <S.Title>로그인</S.Title>
           <S.SubTitle>마음속에 담아있는 불만을 해소해 보세요</S.SubTitle>

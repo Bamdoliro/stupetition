@@ -1,9 +1,13 @@
 import Logo from 'assets/logo.svg';
 import * as S from './style';
 
-const Ment = () => {
+interface PropsType {
+  posistion: 'flex-end' | 'flex-start';
+}
+
+const Ment = ({ posistion }: PropsType) => {
   return (
-    <S.Ment>
+    <S.Ment style={{ alignSelf: posistion }}>
       <S.LogoWrap>
         <S.Logo src={Logo} />
         <S.LogoText>학생청원</S.LogoText>

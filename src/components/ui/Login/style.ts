@@ -4,6 +4,8 @@ import * as T from 'styles/text.style';
 import { color } from 'styles/theme.style';
 
 export const LoginLayout = styled.div`
+  display: flex;
+  align-items: center;
   width: 100vw;
   height: 100vh;
   background-color: ${color.gray300};
@@ -15,7 +17,7 @@ export const LoginLayout = styled.div`
 export const LoginWrap = styled.div`
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 492px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -27,7 +29,7 @@ export const LoginBox = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 553px;
-  height: 492px;
+  height: 100%;
   background-color: ${color.white};
   border-radius: 8px;
   padding: 0px 64px;

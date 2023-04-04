@@ -10,6 +10,7 @@ export const Ment = styled.div`
 
 export const Text = styled(T.H2)`
   color: rgba(0, 0, 0, 0.7);
+  font-weight: 600;
 `;
 
 export const LogoWrap = styled.div`
