@@ -7,6 +7,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import GlobalModal from 'utils/GlobalModal';
 import { HelmetProvider } from 'react-helmet-async';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 
 const queryClient = new QueryClient();
@@ -15,21 +16,23 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <RecoilRoot>
-    <QueryClientProvider client={queryClient}>
-      <HelmetProvider>
-        <App />
-        <GlobalModal />
-        <GlobalStyled />
-        <ScrollTop />
-        <ToastContainer
-          autoClose={2000}
-          limit={5}
-          pauseOnHover={false}
-          position="top-right"
-          pauseOnFocusLoss={false}
-        />
-      </HelmetProvider>
-    </QueryClientProvider>
-  </RecoilRoot>,
+  <BrowserRouter>
+    <RecoilRoot>
+      <QueryClientProvider client={queryClient}>
+        <HelmetProvider>
+          <App />
+          <GlobalModal />
+          <GlobalStyled />
+          <ScrollTop />
+          <ToastContainer
+            autoClose={2000}
+            limit={5}
+            pauseOnHover={false}
+            position="top-right"
+            pauseOnFocusLoss={false}
+          />
+        </HelmetProvider>
+      </QueryClientProvider>
+    </RecoilRoot>
+  </BrowserRouter>,
 );

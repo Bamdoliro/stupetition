@@ -1,4 +1,4 @@
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import BaseLayout from 'layouts/BaseLayout';
 import PetitionDetail from 'components/ui/PetitionDetail';
 import CreatePetition from 'components/ui/WritePetition';
@@ -10,7 +10,7 @@ import SEOMetaTag from 'SEOMetaTag';
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <>
       <SEOMetaTag />
       <Routes>
         <Route element={<BaseLayout />}>
@@ -22,7 +22,7 @@ const App = () => {
         <Route path="/petition/write" element={<CreatePetition />} />
         <Route path="/login" element={<Login />} />
       </Routes>
-    </BrowserRouter>
+    </>
   );
 };
 
