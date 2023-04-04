@@ -1,5 +1,11 @@
-import { ButtonPropsType } from 'types/common/button.type';
+import { ButtonHTMLAttributes } from 'react';
+import { ButtonOptionType } from 'types/common/button.type';
 import * as S from './style';
+
+interface ButtonPropsType extends ButtonHTMLAttributes<HTMLButtonElement> {
+  width?: string;
+  option: ButtonOptionType;
+}
 
 const Button = ({
   onClick,
