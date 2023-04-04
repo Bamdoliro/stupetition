@@ -7,6 +7,7 @@ import ScrollTop from 'utils/ScrollTop';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import GlobalModal from 'utils/GlobalModal';
+import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
 
 const queryClient = new QueryClient();
@@ -18,17 +19,19 @@ root.render(
   <BrowserRouter>
     <RecoilRoot>
       <QueryClientProvider client={queryClient}>
-        <App />
-        <GlobalModal />
-        <GlobalStyled />
-        <ScrollTop />
-        <ToastContainer
-          autoClose={2000}
-          limit={5}
-          pauseOnHover={false}
-          position="top-right"
-          pauseOnFocusLoss={false}
-        />
+        <HelmetProvider>
+          <App />
+          <GlobalModal />
+          <GlobalStyled />
+          <ScrollTop />
+          <ToastContainer
+            autoClose={2000}
+            limit={5}
+            pauseOnHover={false}
+            position="top-right"
+            pauseOnFocusLoss={false}
+          />
+        </HelmetProvider>
       </QueryClientProvider>
     </RecoilRoot>
   </BrowserRouter>,
