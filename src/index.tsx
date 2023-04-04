@@ -2,7 +2,6 @@ import ReactDOM from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import GlobalStyled from 'styles/global.style';
 import { RecoilRoot } from 'recoil';
-import { BrowserRouter } from 'react-router-dom';
 import ScrollTop from 'utils/ScrollTop';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,23 +15,21 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <BrowserRouter>
-    <RecoilRoot>
-      <QueryClientProvider client={queryClient}>
-        <HelmetProvider>
-          <App />
-          <GlobalModal />
-          <GlobalStyled />
-          <ScrollTop />
-          <ToastContainer
-            autoClose={2000}
-            limit={5}
-            pauseOnHover={false}
-            position="top-right"
-            pauseOnFocusLoss={false}
-          />
-        </HelmetProvider>
-      </QueryClientProvider>
-    </RecoilRoot>
-  </BrowserRouter>,
+  <RecoilRoot>
+    <QueryClientProvider client={queryClient}>
+      <HelmetProvider>
+        <App />
+        <GlobalModal />
+        <GlobalStyled />
+        <ScrollTop />
+        <ToastContainer
+          autoClose={2000}
+          limit={5}
+          pauseOnHover={false}
+          position="top-right"
+          pauseOnFocusLoss={false}
+        />
+      </HelmetProvider>
+    </QueryClientProvider>
+  </RecoilRoot>,
 );
