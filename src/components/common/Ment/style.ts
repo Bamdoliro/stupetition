@@ -6,6 +6,10 @@ export const Ment = styled.div`
   display: flex;
   flex-direction: column;
   gap: 48px;
+  // 나중에 수정합시다
+  @media screen and (max-width: 1280px) {
+    display: none;
+  }
 `;
 
 export const Text = styled(T.H2)`
