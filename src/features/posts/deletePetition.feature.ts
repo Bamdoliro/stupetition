@@ -1,4 +1,4 @@
-import { deletePetition } from 'apis/petition.api';
+import { deletePetition } from 'api/petition.api';
 import { useMutation, useQueryClient } from 'react-query';
 import * as KEY from 'constants/key.constant';
 import { useNavigate } from 'react-router-dom';
@@ -10,19 +10,16 @@ const DeletePetitionFeature = (petitionId: number) => {
   const { closeModal } = useModal();
   const queryClient = useQueryClient();
 
-  const deleteMutate = useMutation(deletePetition, {
+  const { mutate } = useMutation(deletePetition, {
     onSuccess: () => {
       toast.success('삭제 완료');
       queryClient.invalidateQueries([KEY.PETITION_LIST]);
       navigate('/');
     },
-    onError: (err) => {
-      console.log(err);
-    },
   });
 
   const deleteSubmit = () => {
-    deleteMutate.mutate(petitionId);
+    mutate(petitionId);
     closeModal();
   };
 

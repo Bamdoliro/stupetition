@@ -21,7 +21,7 @@ export const Confirm = styled.div`
   top: calc(50% - 268px / 2);
   padding: 36px;
   background: ${color.white};
-  border-radius: 12px;
+  border-radius: 8px;
 `;
 
 export const ConfirmWrap = styled.div`
@@ -60,7 +60,7 @@ export const Alert = styled.div`
   top: calc(50% - 268px / 2);
   padding: 36px;
   background: ${color.white};
-  border-radius: 12px;
+  border-radius: 8px;
 `;
 
 export const AlertWrap = styled.div`

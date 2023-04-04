@@ -1,5 +1,5 @@
 import { useMutation } from 'react-query';
-import { logoutUser } from 'apis/user.api';
+import { logoutUser } from 'api/user.api';
 import { useSetRecoilState } from 'recoil';
 import { userEmpty, userState } from 'atoms/user.atom';
 
@@ -10,10 +10,6 @@ export const LogoutFeature = () => {
     onSuccess: () => {
       localStorage.clear();
       setUser(userEmpty);
-      window.location.href = '/login';
-    },
-    onError: (err) => {
-      console.log(err);
     },
   });
 

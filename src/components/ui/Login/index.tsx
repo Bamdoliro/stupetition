@@ -23,7 +23,7 @@ const Login = () => {
       <S.LoginWrap>
         <S.LoginBox>
           <S.Title>로그인</S.Title>
-          <S.SubTitle>마음속에 담아있는 불만을 푸세요 !</S.SubTitle>
+          <S.SubTitle>마음속에 담아있는 해소해 보세요</S.SubTitle>
           <S.InputWrap>
             <Input
               desc="아이디"
@@ -42,12 +42,7 @@ const Login = () => {
               onChange={onChange}
             />
           </S.InputWrap>
-          <Button
-            onClick={login}
-            option="FILLED"
-            width="225px"
-            value="로그인"
-          />
+          <Button onClick={login} option="FILLED" width="50%" value="로그인" />
         </S.LoginBox>
       </S.LoginWrap>
     </S.LoginLayout>

@@ -1,5 +1,4 @@
 import { color } from 'styles/theme.style';
-import * as T from 'styles/text.style';
 import styled from 'styled-components';
 
 export const WritePetitionLayout = styled.div`
@@ -46,7 +45,7 @@ export const TitleInput = styled.input`
 export const ContentInput = styled.textarea`
   padding: 16px 20px;
   border: 1px solid ${color.gray200};
-  border-radius: 16px;
+  border-radius: 8px;
   width: 100%;
   height: 100%;
   resize: none;

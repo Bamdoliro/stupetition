@@ -25,7 +25,7 @@ export const LoginBox = styled.div`
   height: 492px;
   background-color: ${color.white};
   border-radius: 8px;
-  padding: 80px;
+  padding: 0px 64px;
 `;
 
 export const Title = styled(T.H1)`
