@@ -23,7 +23,7 @@ const Login = () => {
       <S.LoginWrap>
         <S.LoginBox>
           <S.Title>로그인</S.Title>
-          <S.SubTitle>마음속에 담아있는 해소해 보세요</S.SubTitle>
+          <S.SubTitle>마음속에 담아있는 불만을 해소해 보세요</S.SubTitle>
           <S.InputWrap>
             <Input
               desc="아이디"
