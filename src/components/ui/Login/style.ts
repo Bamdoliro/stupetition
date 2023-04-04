@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Background from 'assets/background.png';
 import * as T from 'styles/text.style';
 import { color } from 'styles/theme.style';
 
@@ -6,15 +7,19 @@ export const LoginLayout = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: ${color.gray300};
+  background-image: url(${Background});
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 export const LoginWrap = styled.div`
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  padding-right: 215px;
+  justify-content: space-between;
+  padding: 0px 215px;
 `;
 
 export const LoginBox = styled.div`

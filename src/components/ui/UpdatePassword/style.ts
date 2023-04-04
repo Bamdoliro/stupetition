@@ -1,3 +1,4 @@
+import Background from 'assets/background.png';
 import { color } from 'styles/theme.style';
 import * as T from 'styles/text.style';
 import styled from 'styled-components';
@@ -6,6 +7,9 @@ export const UpdatePasswordLayout = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: ${color.gray300};
+  background-image: url(${Background});
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 export const UpdatePasswordWrap = styled.div`
