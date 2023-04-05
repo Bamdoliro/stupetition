@@ -8,23 +8,23 @@ import * as S from './style';
 
 interface PropsType {
   numberOfApprover: number;
+  percentageOfApprover: number;
   width: string;
   height: string;
   option: ProgressBarOption;
 }
 
 const Progressbar = ({
+  percentageOfApprover,
   numberOfApprover,
   width,
   height,
   option,
 }: PropsType) => {
-  const percentage = (numberOfApprover / 20) * 100;
-
   return (
     <S.ProgressBar style={{ width, height }}>
       <CircularProgressbarWithChildren
-        value={numberOfApprover}
+        value={percentageOfApprover}
         maxValue={20}
         styles={buildStyles({
           strokeLinecap: 'butt',
@@ -33,12 +33,12 @@ const Progressbar = ({
       >
         {option === 'LIST' ? (
           <>
-            <S.PercentSmall>{percentage}%</S.PercentSmall>
+            <S.PercentSmall>{percentageOfApprover}%</S.PercentSmall>
             <S.PersonnelSmall>{numberOfApprover}명</S.PersonnelSmall>
           </>
         ) : (
           <>
-            <S.PercentLarge>{percentage}%</S.PercentLarge>
+            <S.PercentLarge>{percentageOfApprover}%</S.PercentLarge>
             <S.PersonnelLarge>{numberOfApprover}명</S.PersonnelLarge>
           </>
         )}

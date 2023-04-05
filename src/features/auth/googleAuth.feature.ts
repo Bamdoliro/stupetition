@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { Storage } from 'lib/storage/storage';
 import { ACCESS_KEY, REFRESH_KEY } from 'constants/token.constant';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 export const GoogleAuthLink = () => {
   const { data } = useQuery([KEY.GOOGLE_AUTH_LINK], getGoogleAuthLink);
@@ -18,6 +19,8 @@ export const GoogleAuthLink = () => {
 };
 
 export const GoogleAuth = () => {
+  const navigate = useNavigate();
+
   const { mutate } = useMutation(authGoogle, {
     onSuccess: (res) => {
       const { accessToken, refreshToken } = res;
@@ -27,7 +30,8 @@ export const GoogleAuth = () => {
       window.location.href = '/';
     },
     onError: () => {
-      toast.error('로그인 오류');
+      toast.error('학교 계정으로 로그인 해주세요');
+      navigate('/login');
     },
   });
 

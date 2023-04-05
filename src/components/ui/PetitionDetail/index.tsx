@@ -73,6 +73,7 @@ const PetitionDetail = () => {
                   width="150px"
                   height="150px"
                   numberOfApprover={Number(data.numberOfApprover)}
+                  percentageOfApprover={data.percentageOfApprover}
                 />
               </S.InfoWrap>
             </S.Info>

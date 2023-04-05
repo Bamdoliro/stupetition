@@ -13,6 +13,7 @@ interface PropsType {
   createdAt: string;
   title: string;
   numberOfApprover: number;
+  percentageOfApprover: number;
   id: number;
   status: StatusType;
 }
@@ -21,6 +22,7 @@ const PetitionList = ({
   option,
   createdAt,
   title,
+  percentageOfApprover,
   numberOfApprover,
   id,
   status,
@@ -44,6 +46,7 @@ const PetitionList = ({
           option="LIST"
           width="96px"
           height="96px"
+          percentageOfApprover={percentageOfApprover}
           numberOfApprover={numberOfApprover}
         />
       </S.PetitionListWrap>

@@ -33,6 +33,7 @@ const MyPetition = () => {
                 createdAt={item.createdAt}
                 title={item.title}
                 numberOfApprover={item.numberOfApprover}
+                percentageOfApprover={item.percentageOfApprover}
                 status={item.status}
               />
             ))}

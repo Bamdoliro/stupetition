@@ -9,6 +9,7 @@ interface PetitionListType {
   createdAt: string;
   id: number;
   numberOfApprover: number;
+  percentageOfApprover: number;
   title: string;
 }
 

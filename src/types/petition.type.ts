@@ -35,6 +35,7 @@ export interface PetitionDetailType {
   content: string;
   id: number;
   numberOfApprover: number;
+  percentageOfApprover: number;
   status: StatusType;
   answer: CommentType[];
   title: string;

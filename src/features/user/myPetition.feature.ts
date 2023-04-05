@@ -8,6 +8,7 @@ interface MyPetitionList {
   createdAt: string;
   title: string;
   numberOfApprover: number;
+  percentageOfApprover: number;
   id: number;
   status: StatusType;
 }

@@ -37,6 +37,7 @@ const CheckWriteModal = ({
               status="ANSWERED"
               title={petitionData.title}
               numberOfApprover={0}
+              percentageOfApprover={0}
               createdAt={`${date.year}-${date.month}-${date.day}`}
             />
           </S.PreviewBox>

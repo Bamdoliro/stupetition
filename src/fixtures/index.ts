@@ -9,6 +9,7 @@ export const petitionDetail: PetitionDetailType = {
   status: 'ANSWERED',
   title: '',
   numberOfApprover: 0,
+  percentageOfApprover: 0,
   id: 0,
   hasPermission: false,
   writer: {
