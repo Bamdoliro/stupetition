@@ -10,6 +10,7 @@ export const LogoutFeature = () => {
     onSuccess: () => {
       localStorage.clear();
       setUser(userEmpty);
+      window.location.href = '/';
     },
   });
 

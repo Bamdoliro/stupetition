@@ -4,10 +4,12 @@ import * as S from './style';
 
 interface ButtonPropsType extends ButtonHTMLAttributes<HTMLButtonElement> {
   width?: string;
+  imgSrc?: string;
   option: ButtonOptionType;
 }
 
 const Button = ({
+  imgSrc,
   onClick,
   width = '88px',
   option,
@@ -15,6 +17,7 @@ const Button = ({
 }: ButtonPropsType) => {
   return (
     <S.Button style={{ width }} option={option} onClick={onClick}>
+      {imgSrc && <S.Img src={imgSrc} />}
       <S.ButtonText>{value}</S.ButtonText>
     </S.Button>
   );

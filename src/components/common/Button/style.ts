@@ -14,6 +14,8 @@ export const Button = styled.button<{ option: ButtonOptionType }>`
 
 export const ButtonText = styled(T.H5)``;
 
+export const Img = styled.img``;
+
 const getButtonStyle: Record<ButtonOptionType, FlattenSimpleInterpolation> = {
   FILLED: css`
     color: ${color.white};
