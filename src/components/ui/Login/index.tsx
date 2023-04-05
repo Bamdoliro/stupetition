@@ -1,50 +1,51 @@
-import { ChangeEvent, useState } from 'react';
-import { LoginType } from 'types/auth.type';
-import Input from 'components/common/Input';
 import Button from 'components/common/Button';
-import { LoginFeature } from 'features/auth/login.feature';
 import Ment from 'components/common/Ment';
+import { GoogleAuthLink } from 'features/auth/googleAuth.feature';
+import GoogleImg from 'assets/google.svg';
+import { useState } from 'react';
 import * as S from './style';
+import Council from './Council';
 
 const Login = () => {
-  const [loginData, setLoginData] = useState<LoginType>({
-    username: '',
-    password: '',
-  });
-
-  const { login } = LoginFeature(loginData);
-
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setLoginData({ ...loginData, [name]: value });
-  };
+  const { google } = GoogleAuthLink();
+  const [isOpenLoginCouncil, setIsOpenLoginCouncil] = useState(true);
 
   return (
     <S.LoginLayout>
-      <S.LoginWrap>
+      <S.LoginWrap isOpenLoginCouncil={isOpenLoginCouncil}>
         <Ment posistion="flex-start" />
-        <S.LoginBox>
-          <S.Title>로그인</S.Title>
-          <S.SubTitle>마음속에 담아있는 불만을 해소해 보세요</S.SubTitle>
-          <S.InputWrap>
-            <Input
-              desc="아이디"
-              placeholder="아이디를 입력해주세요"
-              type="text"
-              name="username"
-              value={loginData.username}
-              onChange={onChange}
+        <S.LoginBox isOpenLoginCouncil={isOpenLoginCouncil}>
+          <div>
+            <S.Title>로그인</S.Title>
+            <S.TextBox>
+              {isOpenLoginCouncil ? (
+                <>
+                  <S.SubTitle>학생회인가요?</S.SubTitle>
+                  <S.Council onClick={() => setIsOpenLoginCouncil(false)}>
+                    학생회 로그인하러 가기
+                  </S.Council>
+                </>
+              ) : (
+                <>
+                  <S.SubTitle>학생인가요?</S.SubTitle>
+                  <S.Council onClick={() => setIsOpenLoginCouncil(true)}>
+                    로그인하러 가기
+                  </S.Council>
+                </>
+              )}
+            </S.TextBox>
+          </div>
+          {isOpenLoginCouncil ? (
+            <Button
+              imgSrc={GoogleImg}
+              onClick={google}
+              option="UNFILLED"
+              width="100%"
+              value="학교 계정 로그인"
             />
-            <Input
-              desc="비밀번호"
-              placeholder="비밀번호를 입력해주세요"
-              type="password"
-              name="password"
-              value={loginData.password}
-              onChange={onChange}
-            />
-          </S.InputWrap>
-          <Button onClick={login} option="FILLED" width="50%" value="로그인" />
+          ) : (
+            <Council />
+          )}
         </S.LoginBox>
       </S.LoginWrap>
     </S.LoginLayout>

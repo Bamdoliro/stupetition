@@ -14,25 +14,33 @@ export const LoginLayout = styled.div`
   background-size: cover;
 `;
 
-export const LoginWrap = styled.div`
+export const LoginWrap = styled.div<{ isOpenLoginCouncil: boolean }>`
   position: relative;
   width: 100%;
-  height: 492px;
+  height: ${({ isOpenLoginCouncil }) =>
+    isOpenLoginCouncil ? '294px' : '492px'};
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0px 215px;
 `;
 
-export const LoginBox = styled.div`
+export const LoginBox = styled.div<{ isOpenLoginCouncil: boolean }>`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: ${({ isOpenLoginCouncil }) => isOpenLoginCouncil && '30px'};
   width: 553px;
   height: 100%;
   background-color: ${color.white};
   border-radius: 8px;
   padding: 0px 64px;
+`;
+
+export const TextBox = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
 `;
 
 export const Title = styled(T.H1)`
@@ -44,10 +52,7 @@ export const SubTitle = styled(T.p2)`
   color: ${color.gray600};
 `;
 
-export const InputWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 42px 0px;
-  gap: 18px;
-  width: 425px;
+export const Council = styled(T.p2)`
+  color: ${color.main};
+  cursor: pointer;
 `;

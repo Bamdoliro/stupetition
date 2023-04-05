@@ -24,14 +24,6 @@ const ProfilePopover = ({ isOpen, setProfilePopoverIsOpen }: PropsType) => {
         <S.ButtonText>내 청원</S.ButtonText>
       </S.Button>
       <S.Line />
-      <S.Button
-        onClick={() => {
-          navigate('/update/password');
-          close();
-        }}
-      >
-        <S.ButtonText>비밀번호 변경</S.ButtonText>
-      </S.Button>
       <S.Button onClick={logout}>
         <S.ButtonText>로그아웃</S.ButtonText>
       </S.Button>

@@ -9,7 +9,7 @@ import { toast } from 'react-toastify';
 export const LoginFeature = (loginData: LoginType) => {
   const navigate = useNavigate();
 
-  const loginMutate = useMutation(loginUser, {
+  const { mutate } = useMutation(loginUser, {
     onSuccess: (res) => {
       const { accessToken, refreshToken } = res;
 
@@ -21,7 +21,7 @@ export const LoginFeature = (loginData: LoginType) => {
   });
 
   const login = () => {
-    loginMutate.mutate(loginData);
+    mutate(loginData);
   };
 
   return { login };
