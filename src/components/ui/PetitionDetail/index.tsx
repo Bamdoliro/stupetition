@@ -30,7 +30,7 @@ const PetitionDetail = () => {
   const { deleteSubmit } = DeletePetitionFeature(petitionId);
 
   const { color, progress } = ProgressChecker(data.status);
-  const { date, time } = FormatDatetime(data.createdAt);
+  const { date } = FormatDatetime(data.createdAt);
 
   const deletePetition = () => {
     openModal(
@@ -63,9 +63,7 @@ const PetitionDetail = () => {
                 <S.ItemWrap>
                   <S.Progress color={color}>{progress}</S.Progress>
                   <S.Title>{data.title}</S.Title>
-                  <S.Date>
-                    {date} {time}
-                  </S.Date>
+                  <S.Date>{date}</S.Date>
                   {data.hasPermission && (
                     <S.Delete onClick={deletePetition}>삭제</S.Delete>
                   )}

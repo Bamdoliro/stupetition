@@ -15,7 +15,7 @@ const Comment = ({
   hasPermission,
 }: CommentType) => {
   const { openModal, closeModal } = useModal();
-  const { date, time } = FormatDatetime(createdAt);
+  const { date } = FormatDatetime(createdAt);
   const { deleteSubmit } = DeleteReplyFeature({ id, option });
 
   const deleteComment = () => {
@@ -45,9 +45,7 @@ const Comment = ({
                 </S.Name>
                 {option === 'STUDENT_COUNCIL' && <S.Check src={CheckSvg} />}
               </S.NameWrap>
-              <S.Date>
-                {date} {time}
-              </S.Date>
+              <S.Date>{date}</S.Date>
             </S.ItemWrap>
           </S.ProfileWrap>
           {hasPermission && <S.Delete onClick={deleteComment}>삭제</S.Delete>}
