@@ -14,3 +14,10 @@ export const getGoogleAuthLink = async () => {
   const { data } = await customAxios.get('/auth/google');
   return data;
 };
+
+// 구글 콜백
+
+export const authGoogle = async (code: string) => {
+  const { data } = await customAxios.post(`/auth/google/callback?code=${code}`);
+  return data;
+};

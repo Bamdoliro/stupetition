@@ -7,6 +7,7 @@ import Main from 'components/ui/Main';
 import Login from 'components/ui/Login';
 import UpdatePassword from 'components/ui/UpdatePassword';
 import SEOMetaTag from 'SEOMetaTag';
+import Callback from 'components/ui/Callback';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/petition/:id" element={<PetitionDetail />} />
           <Route path="/petition/my" element={<MyPetition />} />
         </Route>
+        <Route path="/callback/google" element={<Callback />} />
         <Route path="/update/password" element={<UpdatePassword />} />
         <Route path="/petition/write" element={<CreatePetition />} />
         <Route path="/login" element={<Login />} />

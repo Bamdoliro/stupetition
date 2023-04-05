@@ -4,7 +4,7 @@ import Input from 'components/common/Input';
 import Button from 'components/common/Button';
 import { LoginFeature } from 'features/auth/login.feature';
 import Ment from 'components/common/Ment';
-import { GoogleAuthLink } from 'features/auth/getGoogleAuthLink.feature';
+import { GoogleAuthLink } from 'features/auth/googleAuth.feature';
 import * as S from './style';
 
 const Login = () => {
