@@ -23,6 +23,13 @@ const ProfilePopover = ({ isOpen, setProfilePopoverIsOpen }: PropsType) => {
       >
         <S.ButtonText>내 청원</S.ButtonText>
       </S.Button>
+      <S.Button
+        onClick={() => {
+          window.location.href = 'https://www.instagram.com/bamdoliro/';
+        }}
+      >
+        <S.ButtonText>문의하기</S.ButtonText>
+      </S.Button>
       <S.Line />
       <S.Button onClick={logout}>
         <S.ButtonText>로그아웃</S.ButtonText>

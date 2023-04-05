@@ -8,7 +8,7 @@ import { StatusType } from 'types/petition.type';
 import * as S from './style';
 
 const MyPetition = () => {
-  const [status, setStatus] = useState<StatusType>('APPROVED');
+  const [status, setStatus] = useState<StatusType>('WROTE');
   const { data, isLoading, isError } = MyPetitionFeature(status);
 
   return (

@@ -7,6 +7,7 @@ export const Button = styled.button<{ option: ButtonOptionType }>`
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   padding: 12px 22px;
   border-radius: 8px;
   ${({ option }) => option && getButtonStyle[option]}

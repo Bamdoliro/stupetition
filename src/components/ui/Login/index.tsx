@@ -41,7 +41,7 @@ const Login = () => {
               onClick={google}
               option="UNFILLED"
               width="100%"
-              value="학교 계정 로그인"
+              value="학교 계정으로 로그인"
             />
           ) : (
             <Council />

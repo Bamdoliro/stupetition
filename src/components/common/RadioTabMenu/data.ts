@@ -40,12 +40,12 @@ export const MainTabDatas: TabDataType[] = [
 export const MyPetitionTabDatas: TabDataType[] = [
   {
     id: 0,
-    option: 'APPROVED',
-    name: '동의한 청원',
+    option: 'WROTE',
+    name: '내가 쓴 청원',
   },
   {
     id: 1,
-    option: 'WROTE',
-    name: '내가 쓴 청원',
+    option: 'APPROVED',
+    name: '동의한 청원',
   },
 ];
