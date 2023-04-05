@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import BaseLayout from 'layouts/BaseLayout';
+import Layout from 'components/common/Layout';
 import PetitionDetail from 'components/ui/PetitionDetail';
 import CreatePetition from 'components/ui/WritePetition';
 import MyPetition from 'components/ui/MyPetition';
@@ -13,7 +13,7 @@ const App = () => {
     <>
       <SEOMetaTag />
       <Routes>
-        <Route element={<BaseLayout />}>
+        <Route element={<Layout />}>
           <Route path="/" element={<Main />} />
           <Route path="/petition/:id" element={<PetitionDetail />} />
           <Route path="/petition/my" element={<MyPetition />} />

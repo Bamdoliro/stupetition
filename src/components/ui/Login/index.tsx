@@ -4,6 +4,7 @@ import Input from 'components/common/Input';
 import Button from 'components/common/Button';
 import { LoginFeature } from 'features/auth/login.feature';
 import Ment from 'components/common/Ment';
+import { GoogleAuthLink } from 'features/auth/getGoogleAuthLink.feature';
 import * as S from './style';
 
 const Login = () => {
@@ -13,6 +14,7 @@ const Login = () => {
   });
 
   const { login } = LoginFeature(loginData);
+  const { google } = GoogleAuthLink();
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -45,6 +47,12 @@ const Login = () => {
             />
           </S.InputWrap>
           <Button onClick={login} option="FILLED" width="50%" value="로그인" />
+          <Button
+            onClick={google}
+            option="UNFILLED"
+            width="50%"
+            value="구글 로그인"
+          />
         </S.LoginBox>
       </S.LoginWrap>
     </S.LoginLayout>
