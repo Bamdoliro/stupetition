@@ -14,11 +14,12 @@ const Comment = ({
   id,
   option,
   hasPermission,
+  writer,
 }: CommentType) => {
   const { openModal, closeModal } = useModal();
   const { date } = FormatDatetime(createdAt);
   const { deleteSubmit } = DeleteReplyFeature({ id, option });
-  const { email } = EmailReplace();
+  const { userEmail } = EmailReplace(writer.email);
 
   const deleteComment = () => {
     openModal(
@@ -43,7 +44,9 @@ const Comment = ({
             <S.ItemWrap>
               <S.NameWrap>
                 <S.Name>
-                  {option === 'STUDENT_COUNCIL' ? '학생회' : `학생 #${email}`}
+                  {option === 'STUDENT_COUNCIL'
+                    ? '학생회'
+                    : `학생 #${userEmail}`}
                 </S.Name>
                 {option === 'STUDENT_COUNCIL' && <S.Check src={CheckSvg} />}
               </S.NameWrap>

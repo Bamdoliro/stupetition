@@ -23,7 +23,6 @@ const PetitionDetail = () => {
   const petitionId = Number(id);
   const { user } = useUser();
   const [comment, setComment] = useState('');
-  const { email } = EmailReplace();
 
   // 쿼리
   const { isLoading, isError, data } = PetitionDetailFeature(petitionId);
@@ -33,6 +32,7 @@ const PetitionDetail = () => {
 
   const { color, progress } = ProgressChecker(data.status);
   const { date } = FormatDatetime(data.createdAt);
+  const { userEmail } = EmailReplace(data.writer.email);
 
   const deletePetition = () => {
     openModal(
@@ -66,7 +66,7 @@ const PetitionDetail = () => {
                   <S.Progress color={color}>{progress}</S.Progress>
                   <S.Title>{data.title}</S.Title>
                   <S.PetitionInfo>
-                    <S.Date>{date}</S.Date>|<S.Email>학생 #{email}</S.Email>
+                    <S.Date>{date}</S.Date>|<S.Email>학생 #{userEmail}</S.Email>
                   </S.PetitionInfo>
                   {data.hasPermission && (
                     <S.Delete onClick={deletePetition}>삭제</S.Delete>
@@ -125,6 +125,7 @@ const PetitionDetail = () => {
                   comment={item.comment}
                   hasPermission={item.hasPermission}
                   createdAt={item.createdAt}
+                  writer={item.writer}
                 />
               ))}
               {data.comments?.map((item) => (
@@ -135,6 +136,7 @@ const PetitionDetail = () => {
                   hasPermission={item.hasPermission}
                   comment={item.comment}
                   createdAt={item.createdAt}
+                  writer={item.writer}
                 />
               ))}
             </S.CommentWrap>

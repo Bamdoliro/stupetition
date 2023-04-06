@@ -19,6 +19,7 @@ export interface CommentType {
   comment: string;
   createdAt: string;
   hasPermission: boolean;
+  writer: Writer;
 }
 
 export interface Writer {
