@@ -25,7 +25,7 @@ const Progressbar = ({
     <S.ProgressBar style={{ width, height }}>
       <CircularProgressbarWithChildren
         value={percentageOfApprover}
-        maxValue={20}
+        maxValue={100}
         styles={buildStyles({
           strokeLinecap: 'butt',
           pathColor: color.main,
