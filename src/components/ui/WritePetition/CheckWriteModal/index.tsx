@@ -34,7 +34,7 @@ const CheckWriteModal = ({
             <PetitionList
               option="MODAL"
               id={0}
-              status="ANSWERED"
+              status="PETITION"
               title={petitionData.title}
               numberOfApprover={0}
               percentageOfApprover={0}
