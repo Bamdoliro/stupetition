@@ -5,6 +5,7 @@ import { CommentType } from 'types/petition.type';
 import { DeleteReplyFeature } from 'features/posts/deleteReply.feature';
 import { useModal } from 'hooks/useModal';
 import Modal from 'components/common/Modal';
+import { EmailReplace } from 'utils/EmailReplace';
 import * as S from './style';
 
 const Comment = ({
@@ -17,6 +18,7 @@ const Comment = ({
   const { openModal, closeModal } = useModal();
   const { date } = FormatDatetime(createdAt);
   const { deleteSubmit } = DeleteReplyFeature({ id, option });
+  const { email } = EmailReplace();
 
   const deleteComment = () => {
     openModal(
@@ -41,7 +43,7 @@ const Comment = ({
             <S.ItemWrap>
               <S.NameWrap>
                 <S.Name>
-                  {option === 'STUDENT_COUNCIL' ? '학생회' : '학생'}
+                  {option === 'STUDENT_COUNCIL' ? '학생회' : `학생 #${email}`}
                 </S.Name>
                 {option === 'STUDENT_COUNCIL' && <S.Check src={CheckSvg} />}
               </S.NameWrap>

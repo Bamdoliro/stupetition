@@ -74,7 +74,18 @@ export const ItemRowWrap = styled.div`
   gap: 15px;
 `;
 
+export const PetitionInfo = styled.div`
+  display: flex;
+  align-items: center;
+  color: ${color.gray500};
+  gap: 8px;
+`;
+
 export const Date = styled(T.p2)`
+  color: ${color.gray500};
+`;
+
+export const Email = styled(T.p2)`
   color: ${color.gray500};
 `;
 
