@@ -23,7 +23,7 @@ export const InfoWrap = styled.div`
 export const ProfileWrap = styled.div`
   display: flex;
   align-items: flex-end;
-  gap: 20px;
+  gap: 12px;
 `;
 
 export const Profile = styled.img`

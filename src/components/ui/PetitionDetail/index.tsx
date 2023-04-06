@@ -12,6 +12,7 @@ import DeletePetitionFeature from 'features/posts/deletePetition.feature';
 import { useModal } from 'hooks/useModal';
 import Modal from 'components/common/Modal';
 import { useUser } from 'hooks/useUser';
+import { EmailReplace } from 'utils/EmailReplace';
 import Comment from './Comment';
 import * as S from './style';
 
@@ -22,6 +23,7 @@ const PetitionDetail = () => {
   const petitionId = Number(id);
   const { user } = useUser();
   const [comment, setComment] = useState('');
+  const { email } = EmailReplace();
 
   // 쿼리
   const { isLoading, isError, data } = PetitionDetailFeature(petitionId);
@@ -63,7 +65,9 @@ const PetitionDetail = () => {
                 <S.ItemWrap>
                   <S.Progress color={color}>{progress}</S.Progress>
                   <S.Title>{data.title}</S.Title>
-                  <S.Date>{date}</S.Date>
+                  <S.PetitionInfo>
+                    <S.Date>{date}</S.Date>|<S.Email>학생 #{email}</S.Email>
+                  </S.PetitionInfo>
                   {data.hasPermission && (
                     <S.Delete onClick={deletePetition}>삭제</S.Delete>
                   )}
