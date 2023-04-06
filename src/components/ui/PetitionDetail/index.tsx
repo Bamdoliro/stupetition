@@ -50,8 +50,6 @@ const PetitionDetail = () => {
     return <NotFound />;
   }
 
-  console.log(data);
-
   return (
     <S.PetitionDetailLayout>
       <S.PetitionDetailWrap>
