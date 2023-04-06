@@ -3,7 +3,7 @@ import { UserInfoType } from 'types/user.type';
 
 export const userEmpty: UserInfoType = {
   authority: '',
-  username: '',
+  email: '',
   schoolName: '',
 };
 

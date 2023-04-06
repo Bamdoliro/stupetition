@@ -50,6 +50,8 @@ const PetitionDetail = () => {
     return <NotFound />;
   }
 
+  console.log(data);
+
   return (
     <S.PetitionDetailLayout>
       <S.PetitionDetailWrap>
@@ -81,7 +83,7 @@ const PetitionDetail = () => {
               <S.Pre>{data.content}</S.Pre>
             </S.Content>
             {user.authority === 'ROLE_STUDENT_COUNCIL' ||
-            user.username === data.writer.username ? null : data.approved ? (
+            user.email === data.writer.email ? null : data.approved ? (
               <S.ApprovedButton>
                 <S.ApproveText>동의 완료</S.ApproveText>
               </S.ApprovedButton>

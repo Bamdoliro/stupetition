@@ -14,10 +14,9 @@ export const petitionDetail: PetitionDetailType = {
   hasPermission: false,
   writer: {
     authority: 'ROLE_STUDENT',
-    username: '',
+    email: '',
     schoolName: '',
     status: 'ATTENDING',
     userId: 0,
-    hasPermission: false,
   },
 };
