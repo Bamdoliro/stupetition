@@ -7,12 +7,15 @@ export const Button = styled.button<{ option: ButtonOptionType }>`
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   padding: 12px 22px;
   border-radius: 8px;
   ${({ option }) => option && getButtonStyle[option]}
 `;
 
 export const ButtonText = styled(T.H5)``;
+
+export const Img = styled.img``;
 
 const getButtonStyle: Record<ButtonOptionType, FlattenSimpleInterpolation> = {
   FILLED: css`

@@ -25,7 +25,7 @@ root.render(
           <GlobalStyled />
           <ScrollTop />
           <ToastContainer
-            autoClose={2000}
+            autoClose={1200}
             limit={5}
             pauseOnHover={false}
             position="top-right"

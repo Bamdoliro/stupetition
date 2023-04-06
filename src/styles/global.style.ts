@@ -3,6 +3,8 @@ import reset from 'styled-reset';
 
 const GlobalStyled = createGlobalStyle`
     ${reset};
+    body{-ms-overflow-style:none; }
+    body::-webkit-scrollbar { display:none; }
     * {
       line-height: 135%;
       letter-spacing: -1%;

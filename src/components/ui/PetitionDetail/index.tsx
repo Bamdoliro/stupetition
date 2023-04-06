@@ -30,7 +30,7 @@ const PetitionDetail = () => {
   const { deleteSubmit } = DeletePetitionFeature(petitionId);
 
   const { color, progress } = ProgressChecker(data.status);
-  const { date, time } = FormatDatetime(data.createdAt);
+  const { date } = FormatDatetime(data.createdAt);
 
   const deletePetition = () => {
     openModal(
@@ -63,9 +63,7 @@ const PetitionDetail = () => {
                 <S.ItemWrap>
                   <S.Progress color={color}>{progress}</S.Progress>
                   <S.Title>{data.title}</S.Title>
-                  <S.Date>
-                    {date} {time}
-                  </S.Date>
+                  <S.Date>{date}</S.Date>
                   {data.hasPermission && (
                     <S.Delete onClick={deletePetition}>삭제</S.Delete>
                   )}
@@ -75,6 +73,7 @@ const PetitionDetail = () => {
                   width="150px"
                   height="150px"
                   numberOfApprover={Number(data.numberOfApprover)}
+                  percentageOfApprover={data.percentageOfApprover}
                 />
               </S.InfoWrap>
             </S.Info>
@@ -82,7 +81,7 @@ const PetitionDetail = () => {
               <S.Pre>{data.content}</S.Pre>
             </S.Content>
             {user.authority === 'ROLE_STUDENT_COUNCIL' ||
-            user.username === data.writer.username ? null : data.approved ? (
+            user.email === data.writer.email ? null : data.approved ? (
               <S.ApprovedButton>
                 <S.ApproveText>동의 완료</S.ApproveText>
               </S.ApprovedButton>
