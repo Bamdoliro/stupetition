@@ -1,4 +1,4 @@
-import { modalState } from 'atoms/modal.atom';
+import { modalState } from 'atoms/modal';
 import { ReactNode } from 'react';
 import { useRecoilState } from 'recoil';
 

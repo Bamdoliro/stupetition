@@ -26,7 +26,7 @@ const MyPetition = () => {
           {isError && <NotFound />}
           {isLoading && <Loading />}
           <S.PetitionWrap>
-            {data?.map((item) => (
+            {data.map((item) => (
               <PetitionList
                 option="LIST"
                 key={item.id}

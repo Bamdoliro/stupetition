@@ -30,6 +30,12 @@ export const CheckWriteModalWrap = styled.div`
   gap: 32px;
 `;
 
+export const InfoBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+`;
+
 export const Title = styled(T.H3)`
   color: ${color.gray900};
 `;

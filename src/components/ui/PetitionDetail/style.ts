@@ -127,7 +127,7 @@ export const ApproveText = styled(T.H5)`
 `;
 
 export const CommentSendBox = styled.div`
-  margin: 60px 0px 40px 0px;
+  margin: 50px 0px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;

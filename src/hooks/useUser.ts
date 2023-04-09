@@ -5,7 +5,7 @@ import { UserInfoType } from 'types/user.type';
 import { Storage } from 'lib/storage/storage';
 import { ACCESS_KEY } from 'constants/token.constant';
 import { useRecoilState } from 'recoil';
-import { userState } from 'atoms/user.atom';
+import { userState } from 'atoms/user';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
