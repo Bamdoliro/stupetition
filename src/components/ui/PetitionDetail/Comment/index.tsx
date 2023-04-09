@@ -2,10 +2,10 @@ import ProfileSvg from 'assets/profile.svg';
 import { FormatDatetime } from 'utils/FormatDatetime';
 import CheckSvg from 'assets/check.svg';
 import { CommentType } from 'types/petition.type';
-import { DeleteReplyFeature } from 'features/posts/deleteReply.feature';
 import { useModal } from 'hooks/useModal';
 import Modal from 'components/common/Modal';
 import { EmailReplace } from 'utils/EmailReplace';
+import { useDeletePetitionCommentMutation } from 'features/PetitionFeature';
 import * as S from './style';
 
 const Comment = ({
@@ -18,10 +18,15 @@ const Comment = ({
 }: CommentType) => {
   const { openModal, closeModal } = useModal();
   const { date } = FormatDatetime(createdAt);
-  const { deleteSubmit } = DeleteReplyFeature({ id, option });
   const { userEmail } = EmailReplace(writer.email);
 
-  const deleteComment = () => {
+  const { useDeleteCommentMutation } = useDeletePetitionCommentMutation({
+    id,
+    option,
+  });
+  const commentDeleteMutate = useDeleteCommentMutation();
+
+  const checkDeleteComment = () => {
     openModal(
       <Modal
         option="CONFIRM"
@@ -30,7 +35,7 @@ const Comment = ({
         closeText="취소"
         confirmText="삭제"
         handleClose={closeModal}
-        handleConfirm={deleteSubmit}
+        handleConfirm={() => commentDeleteMutate.mutate()}
       />,
     );
   };
@@ -53,7 +58,9 @@ const Comment = ({
               <S.Date>{date}</S.Date>
             </S.ItemWrap>
           </S.ProfileWrap>
-          {hasPermission && <S.Delete onClick={deleteComment}>삭제</S.Delete>}
+          {hasPermission && (
+            <S.Delete onClick={checkDeleteComment}>삭제</S.Delete>
+          )}
         </S.InfoWrap>
       </S.Info>
       <S.Content>

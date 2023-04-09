@@ -13,9 +13,10 @@ interface PetitionListType {
   title: string;
 }
 
-export const PetitionListFeature = (status: StatusType) => {
+export const usePetitionList = (status: StatusType) => {
   const { user } = useUser();
-  const { isLoading, isError, data } = useQuery<PetitionListType[]>(
+
+  const { data, isLoading, isError } = useQuery<PetitionListType[]>(
     [KEY.PETITION_LIST, status],
     () => getPetition(status),
     {

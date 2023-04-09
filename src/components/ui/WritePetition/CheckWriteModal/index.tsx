@@ -2,7 +2,7 @@ import MiniButton from 'components/common/MiniButton';
 import PetitionList from 'components/common/PetitionList';
 import { MouseEventHandler } from 'react';
 import { WritePetitionType } from 'types/petition.type';
-import { WriteFeature } from 'features/posts/write.feature';
+import { useWritePetition } from 'features/WritePetitionFeature';
 import * as S from './style';
 
 interface PropsType {
@@ -16,7 +16,7 @@ const CheckWriteModal = ({
   petitionData,
   isOpenCheckWriteModal,
 }: PropsType) => {
-  const { write } = WriteFeature(petitionData);
+  const writePetitionMutate = useWritePetition(petitionData);
 
   const date = {
     year: new Date().getFullYear(),
@@ -43,7 +43,11 @@ const CheckWriteModal = ({
           </S.PreviewBox>
           <S.ButtonBox>
             <MiniButton option="UNFILLED" value="닫기" onClick={close} />
-            <MiniButton option="FILLED" value="청원 게시" onClick={write} />
+            <MiniButton
+              option="FILLED"
+              value="청원 게시"
+              onClick={() => writePetitionMutate.mutate()}
+            />
           </S.ButtonBox>
         </S.CheckWriteModalWrap>
       </S.CheckWriteModal>
