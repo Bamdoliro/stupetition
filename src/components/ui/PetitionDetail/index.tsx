@@ -105,7 +105,7 @@ const PetitionDetail = () => {
                 <S.ApproveText>동의 하기</S.ApproveText>
               </S.ApproveButton>
             )}
-            <S.CommentSendWrap>
+            <S.CommentSendBox>
               <S.CommentSendInput
                 placeholder={
                   user.authority === 'ROLE_STUDENT_COUNCIL'
@@ -128,7 +128,7 @@ const PetitionDetail = () => {
                   <S.CommentSendText>댓글 작성</S.CommentSendText>
                 </S.CommentSendButton>
               )}
-            </S.CommentSendWrap>
+            </S.CommentSendBox>
             <S.CommentWrap>
               {data.answer?.map((item) => (
                 <Comment

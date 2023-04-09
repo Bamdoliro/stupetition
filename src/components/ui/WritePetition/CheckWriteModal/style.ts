@@ -19,7 +19,7 @@ export const CheckWriteModal = styled.div`
   height: 440.4px;
   left: calc(50% - 636px / 2);
   top: calc(50% - 440.4px / 2);
-  padding: 48px;
+  padding: 47px;
   background: ${color.white};
   border-radius: 8px;
 `;

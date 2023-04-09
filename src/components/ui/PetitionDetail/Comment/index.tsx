@@ -63,9 +63,7 @@ const Comment = ({
           )}
         </S.InfoWrap>
       </S.Info>
-      <S.Content>
-        <S.Pre>{comment}</S.Pre>
-      </S.Content>
+      <S.Content>{comment}</S.Content>
     </S.Comment>
   );
 };

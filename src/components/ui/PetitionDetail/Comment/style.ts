@@ -65,11 +65,10 @@ export const Delete = styled(T.p3)`
 `;
 
 export const Content = styled(T.p2)`
+  white-space: pre-line;
   color: ${color.gray900};
   width: 87%;
   word-break: break-all;
   max-width: 87%;
   margin-bottom: 28px;
 `;
-
-export const Pre = styled.pre``;
