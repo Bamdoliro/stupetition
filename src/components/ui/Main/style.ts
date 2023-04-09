@@ -37,7 +37,7 @@ export const CloseBanner = styled(T.caption)`
   bottom: 21px;
 `;
 
-export const ContentsWrap = styled.div`
+export const ContentsBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,10 +56,10 @@ export const SubNav = styled.div`
   margin: 48px 0px 32px 0px;
 `;
 
-export const PetitionWrap = styled.div`
+export const PetitionListBox = styled.div`
   display: grid;
-  grid-template-columns: 49% 49%;
-  gap: 2%;
+  grid-template-columns: 48.5% 48.5%;
+  gap: 3%;
   width: 100%;
 `;
 

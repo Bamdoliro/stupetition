@@ -92,9 +92,9 @@ const PetitionDetail = () => {
                 />
               </S.InfoWrap>
             </S.Info>
-            <S.Content>
-              <S.Pre>{data.content}</S.Pre>
-            </S.Content>
+            <S.ContentBox>
+              <S.Content>{data.content}</S.Content>
+            </S.ContentBox>
             {user.authority === 'ROLE_STUDENT_COUNCIL' ||
             data.hasPermission ? null : data.approved ? (
               <S.ApprovedButton>

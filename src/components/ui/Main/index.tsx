@@ -33,7 +33,7 @@ const Main = () => {
           </S.BannerWrap>
         </S.Banner>
       )}
-      <S.ContentsWrap>
+      <S.ContentsBox>
         <S.ContentsInnerWrap>
           <S.SubNav>
             <RadioTabMenu option="MAIN" setStatus={setStatus} status={status} />
@@ -48,7 +48,7 @@ const Main = () => {
           {isError && <NotFound />}
           {isLoading && <Loading />}
           {user.authority && (
-            <S.PetitionWrap>
+            <S.PetitionListBox>
               {data.map((item) => (
                 <PetitionList
                   option="LIST"
@@ -61,10 +61,10 @@ const Main = () => {
                   status={status}
                 />
               ))}
-            </S.PetitionWrap>
+            </S.PetitionListBox>
           )}
         </S.ContentsInnerWrap>
-      </S.ContentsWrap>
+      </S.ContentsBox>
     </S.MainLayout>
   );
 };

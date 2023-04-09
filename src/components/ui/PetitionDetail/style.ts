@@ -89,16 +89,16 @@ export const Email = styled(T.p2)`
   color: ${color.gray500};
 `;
 
-export const Content = styled(T.p2)`
-  text-align: left;
-  color: ${color.gray900};
+export const ContentBox = styled.div`
   width: 100%;
   word-break: break-all;
-  max-width: 100%;
-  min-height: 30%;
 `;
 
-export const Pre = styled.pre``;
+export const Content = styled(T.p2)`
+  white-space: pre-line;
+  text-align: left;
+  color: ${color.gray900};
+`;
 
 export const ApproveButton = styled.button`
   display: flex;
