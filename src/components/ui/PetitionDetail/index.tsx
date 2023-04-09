@@ -74,7 +74,10 @@ const PetitionDetail = () => {
                   <S.Progress color={color}>{progress}</S.Progress>
                   <S.Title>{data.title}</S.Title>
                   <S.PetitionInfo>
-                    <S.Date>{date}</S.Date>|<S.Email>학생 #{userEmail}</S.Email>
+                    <S.Date>{date}</S.Date>|
+                    <S.Email>
+                      {data.writer.name} #{userEmail}
+                    </S.Email>
                   </S.PetitionInfo>
                   {data.hasPermission && (
                     <S.Delete onClick={checkDeletePetition}>삭제</S.Delete>
@@ -93,7 +96,7 @@ const PetitionDetail = () => {
               <S.Pre>{data.content}</S.Pre>
             </S.Content>
             {user.authority === 'ROLE_STUDENT_COUNCIL' ||
-            user.email === data.writer.email ? null : data.approved ? (
+            data.hasPermission ? null : data.approved ? (
               <S.ApprovedButton>
                 <S.ApproveText>동의 완료</S.ApproveText>
               </S.ApprovedButton>

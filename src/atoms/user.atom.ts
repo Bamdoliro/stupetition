@@ -5,6 +5,7 @@ export const userEmpty: UserInfoType = {
   authority: '',
   email: '',
   schoolName: '',
+  name: '',
 };
 
 export const userState = atom<UserInfoType>({

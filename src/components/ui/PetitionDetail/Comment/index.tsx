@@ -4,8 +4,8 @@ import CheckSvg from 'assets/check.svg';
 import { CommentType } from 'types/petition.type';
 import { useModal } from 'hooks/useModal';
 import Modal from 'components/common/Modal';
-import { EmailReplace } from 'utils/EmailReplace';
 import { useDeletePetitionCommentMutation } from 'features/PetitionFeature';
+import { EmailReplace } from 'utils/EmailReplace';
 import * as S from './style';
 
 const Comment = ({
@@ -51,7 +51,7 @@ const Comment = ({
                 <S.Name>
                   {option === 'STUDENT_COUNCIL'
                     ? '학생회'
-                    : `학생 #${userEmail}`}
+                    : `${writer.name} #${userEmail}`}
                 </S.Name>
                 {option === 'STUDENT_COUNCIL' && <S.Check src={CheckSvg} />}
               </S.NameWrap>

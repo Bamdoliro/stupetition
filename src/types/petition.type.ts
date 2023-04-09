@@ -28,6 +28,7 @@ export interface Writer {
   schoolName: string;
   status: string;
   userId: number;
+  name: string;
 }
 
 export interface PetitionDetailType {

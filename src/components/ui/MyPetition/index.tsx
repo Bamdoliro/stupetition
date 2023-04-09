@@ -15,7 +15,6 @@ const MyPetition = () => {
   return (
     <S.MyPetitionLayout>
       <S.MyPetitionWrap>
-        ;
         <S.InnerWrap>
           <S.RadioTabMenuWrap>
             <RadioTabMenu
