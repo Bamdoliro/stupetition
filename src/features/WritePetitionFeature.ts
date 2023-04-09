@@ -12,8 +12,8 @@ export const useWritePetition = (petitionData: WritePetitionType) => {
   return useMutation(() => writePetition(petitionData), {
     onSuccess: () => {
       toast.success('작성 성공');
-      navigate('/');
       closeModal();
+      navigate('/');
     },
   });
 };
