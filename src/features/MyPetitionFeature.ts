@@ -35,5 +35,5 @@ export const useMyPetitionList = (status: StatusType) => {
   const { data, isLoading, isError } =
     status === 'WROTE' ? wrotePetitionList : approvedPetitionList;
 
-  return { data, isLoading, isError };
+  return { data: data || [], isLoading, isError };
 };
