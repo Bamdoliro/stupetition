@@ -3,7 +3,6 @@ import Progressbar from 'components/common/Progressbar';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { FormatDatetime } from 'utils/FormatDatetime';
-import { PetitionDetailFeature } from 'features/posts/petitionDetail.feature';
 import Loading from 'pages/Loading';
 import NotFound from 'pages/404';
 import { useModal } from 'hooks/useModal';
@@ -14,7 +13,8 @@ import {
   useApprovePetitionMutation,
   useDeletePetitionMutation,
   usePetitionCommentMutation,
-} from 'features/posts/PetitionFeature';
+  usePetitionDetailData,
+} from 'features/PetitionFeature';
 import Comment from './Comment';
 import * as S from './style';
 
@@ -26,9 +26,6 @@ const PetitionDetail = () => {
   const { user } = useUser();
   const [comment, setComment] = useState('');
 
-  // 쿼리
-  const { isLoading, isError, data } = PetitionDetailFeature(petitionId);
-
   const { useCommentMutation } = usePetitionCommentMutation({
     petitionId,
     setComment,
@@ -39,12 +36,13 @@ const PetitionDetail = () => {
   const commentStudentMutate = useCommentMutation('STUDENT');
   const commentCouncilMutate = useCommentMutation('STUDENT_COUNCIL');
   const deletePetitionMutate = useDeletePetitionMutation(petitionId);
+  const { isLoading, isError, data } = usePetitionDetailData(petitionId);
 
   const { color, progress } = ProgressChecker(data.status);
   const { date } = FormatDatetime(data.createdAt);
   const { userEmail } = EmailReplace(data.writer.email);
 
-  const deletePetition = () => {
+  const checkDeletePetition = () => {
     openModal(
       <Modal
         option="CONFIRM"
@@ -79,7 +77,7 @@ const PetitionDetail = () => {
                     <S.Date>{date}</S.Date>|<S.Email>학생 #{userEmail}</S.Email>
                   </S.PetitionInfo>
                   {data.hasPermission && (
-                    <S.Delete onClick={deletePetition}>삭제</S.Delete>
+                    <S.Delete onClick={checkDeletePetition}>삭제</S.Delete>
                   )}
                 </S.ItemWrap>
                 <Progressbar

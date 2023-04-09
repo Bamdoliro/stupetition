@@ -1,6 +1,6 @@
 import PetitionList from 'components/common/PetitionList';
 import RadioTabMenu from 'components/common/RadioTabMenu';
-import { MyPetitionFeature } from 'features/user/MyPetitionFeature';
+import { MyPetitionFeature } from 'features/MyPetitionFeature';
 import NotFound from 'pages/404';
 import Loading from 'pages/Loading';
 import { useState } from 'react';

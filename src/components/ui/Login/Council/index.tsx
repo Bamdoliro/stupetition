@@ -1,6 +1,6 @@
 import Button from 'components/common/Button';
 import Input from 'components/common/Input';
-import { LoginFeature } from 'features/auth/LoginFeature';
+import { LoginFeature } from 'features/LoginFeature';
 import * as S from './style';
 
 const Council = () => {

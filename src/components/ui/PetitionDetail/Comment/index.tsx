@@ -5,7 +5,7 @@ import { CommentType } from 'types/petition.type';
 import { useModal } from 'hooks/useModal';
 import Modal from 'components/common/Modal';
 import { EmailReplace } from 'utils/EmailReplace';
-import { useDeletePetitionCommentMutation } from 'features/posts/PetitionFeature';
+import { useDeletePetitionCommentMutation } from 'features/PetitionFeature';
 import * as S from './style';
 
 const Comment = ({
@@ -26,7 +26,7 @@ const Comment = ({
   });
   const commentDeleteMutate = useDeleteCommentMutation();
 
-  const deleteComment = () => {
+  const checkDeleteComment = () => {
     openModal(
       <Modal
         option="CONFIRM"
@@ -58,7 +58,9 @@ const Comment = ({
               <S.Date>{date}</S.Date>
             </S.ItemWrap>
           </S.ProfileWrap>
-          {hasPermission && <S.Delete onClick={deleteComment}>삭제</S.Delete>}
+          {hasPermission && (
+            <S.Delete onClick={checkDeleteComment}>삭제</S.Delete>
+          )}
         </S.InfoWrap>
       </S.Info>
       <S.Content>

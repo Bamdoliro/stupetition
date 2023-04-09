@@ -5,14 +5,38 @@ import {
   deleteAnswer,
   deleteCommentPetition,
   deletePetition,
+  getPetitionDetail,
 } from 'api/petition.api';
-import { useMutation, useQueryClient } from 'react-query';
+import { useMutation, useQuery, useQueryClient } from 'react-query';
 import * as KEY from 'constants/key.constant';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { useModal } from 'hooks/useModal';
 import { Authority } from 'types/user.type';
 import { Dispatch, SetStateAction } from 'react';
+import { PetitionDetailType } from 'types/petition.type';
+import { useUser } from 'hooks/useUser';
+import { petitionDetail } from 'fixtures';
+
+// 청원 상세 데이터
+
+export const usePetitionDetailData = (petitionId: number) => {
+  const { user } = useUser();
+
+  const { data, isLoading, isError } = useQuery<PetitionDetailType>(
+    [KEY.PETITION, petitionId],
+    () => getPetitionDetail(petitionId),
+    {
+      enabled: !!user.authority,
+    },
+  );
+
+  return {
+    isLoading,
+    isError,
+    data: data || petitionDetail,
+  };
+};
 
 // 청원 동의
 

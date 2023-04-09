@@ -1,4 +1,4 @@
-import { LogoutFeature } from 'features/user/LogoutFeature';
+import { LogoutFeature } from 'features/LogoutFeature';
 import { useNavigate } from 'react-router-dom';
 import { Dispatch, SetStateAction } from 'react';
 import * as S from './style';

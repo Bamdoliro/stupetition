@@ -1,6 +1,6 @@
 import Button from 'components/common/Button';
 import Ment from 'components/common/Ment';
-import { GoogleLoginFeature } from 'features/auth/GoogleLoginFeature';
+import { useGoogleLink } from 'features/GoogleLoginFeature';
 import GoogleImg from 'assets/google.svg';
 import { useState } from 'react';
 import * as S from './style';
@@ -8,7 +8,6 @@ import Council from './Council';
 
 const Login = () => {
   const [isOpenLoginCouncil, setIsOpenLoginCouncil] = useState(true);
-  const { useGoogleLink } = GoogleLoginFeature();
   const { data } = useGoogleLink();
 
   return (
