@@ -16,32 +16,28 @@ interface MyPetitionList {
 export const MyPetitionFeature = (status: StatusType) => {
   const { user } = useUser();
 
-  const ApprovedPetitionFeature = () => {
-    const { isLoading, isError, data } = useQuery<MyPetitionList[]>(
+  const useApprovedPetitionList = () => {
+    return useQuery<MyPetitionList[]>(
       [KEY.PETITION_APPROVED],
       () => approvedPetition(),
       {
         enabled: !!user.authority,
       },
     );
-
-    return { isLoading, data, isError };
   };
 
-  const WrotePetitionFeature = () => {
-    const { isLoading, isError, data } = useQuery<MyPetitionList[]>(
+  const useWrotePetitionList = () => {
+    return useQuery<MyPetitionList[]>(
       [KEY.PETITION_WROTE],
       () => wrotePetition(),
       {
         enabled: !!user.authority,
       },
     );
-
-    return { isLoading, data, isError };
   };
 
-  const { data, isLoading, isError } =
-    status === 'APPROVED' ? ApprovedPetitionFeature() : WrotePetitionFeature();
+  const useMyPetitionList = () =>
+    status === 'WROTE' ? useWrotePetitionList() : useApprovedPetitionList();
 
-  return { data: data || [], isLoading, isError };
+  return { useMyPetitionList };
 };

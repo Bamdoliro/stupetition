@@ -1,18 +1,17 @@
 import { useMutation, useQuery } from 'react-query';
 import { authGoogle, getGoogleAuthLink } from 'api/auth.api';
 import * as KEY from 'constants/key.constant';
-import queryString from 'query-string';
-import { useEffect } from 'react';
 import { Storage } from 'lib/storage/storage';
 import { ACCESS_KEY, REFRESH_KEY } from 'constants/token.constant';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { useCallback } from 'react';
 
 export const GoogleLoginFeature = () => {
   const useGoogleLink = () =>
     useQuery([KEY.GOOGLE_AUTH_LINK], getGoogleAuthLink);
 
-  const useGoogleLoginMutation = () => {
+  const useGoogleLoginMutation = useCallback(() => {
     const navigate = useNavigate();
 
     return useMutation(authGoogle, {
@@ -29,7 +28,7 @@ export const GoogleLoginFeature = () => {
         navigate('/login');
       },
     });
-  };
+  }, []);
 
   return {
     useGoogleLink,

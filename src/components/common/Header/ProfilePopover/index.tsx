@@ -1,4 +1,4 @@
-import { LogoutFeature } from 'features/user/logout.feature';
+import { LogoutFeature } from 'features/user/LogoutFeature';
 import { useNavigate } from 'react-router-dom';
 import { Dispatch, SetStateAction } from 'react';
 import * as S from './style';
@@ -9,9 +9,11 @@ export interface PropsType {
 }
 
 const ProfilePopover = ({ isOpen, setProfilePopoverIsOpen }: PropsType) => {
-  const close = () => setProfilePopoverIsOpen(false);
   const navigate = useNavigate();
-  const { logout } = LogoutFeature();
+  const close = () => setProfilePopoverIsOpen(false);
+
+  const { useLogoutMutation } = LogoutFeature();
+  const logoutMutate = useLogoutMutation();
 
   return (
     <S.ProfilePopover display={isOpen ? 'flex' : 'none'}>
@@ -31,7 +33,7 @@ const ProfilePopover = ({ isOpen, setProfilePopoverIsOpen }: PropsType) => {
         <S.ButtonText>문의하기</S.ButtonText>
       </S.Button>
       <S.Line />
-      <S.Button onClick={logout}>
+      <S.Button onClick={() => logoutMutate.mutate()}>
         <S.ButtonText>로그아웃</S.ButtonText>
       </S.Button>
     </S.ProfilePopover>

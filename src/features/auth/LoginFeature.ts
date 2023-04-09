@@ -5,7 +5,7 @@ import { loginUser } from 'api/auth.api';
 import { LoginType } from 'types/auth.type';
 import { Storage } from 'lib/storage/storage';
 import { toast } from 'react-toastify';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useCallback, useState } from 'react';
 
 export const LoginFeature = () => {
   const [loginData, setLoginData] = useState<LoginType>({
@@ -18,7 +18,7 @@ export const LoginFeature = () => {
     setLoginData({ ...loginData, [name]: value });
   };
 
-  const useLoginMutation = () => {
+  const useLoginMutation = useCallback(() => {
     const navigate = useNavigate();
 
     return useMutation(() => loginUser(loginData), {
@@ -31,7 +31,7 @@ export const LoginFeature = () => {
         navigate('/');
       },
     });
-  };
+  }, []);
 
   return {
     handleLoginData,

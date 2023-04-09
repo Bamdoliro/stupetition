@@ -1,6 +1,6 @@
 import PetitionList from 'components/common/PetitionList';
 import RadioTabMenu from 'components/common/RadioTabMenu';
-import { MyPetitionFeature } from 'features/user/myPetition.feature';
+import { MyPetitionFeature } from 'features/user/MyPetitionFeature';
 import NotFound from 'pages/404';
 import Loading from 'pages/Loading';
 import { useState } from 'react';
@@ -9,7 +9,9 @@ import * as S from './style';
 
 const MyPetition = () => {
   const [status, setStatus] = useState<StatusType>('WROTE');
-  const { data, isLoading, isError } = MyPetitionFeature(status);
+  const { useMyPetitionList } = MyPetitionFeature(status);
+
+  const { data, isError, isLoading } = useMyPetitionList();
 
   return (
     <S.MyPetitionLayout>
@@ -25,7 +27,7 @@ const MyPetition = () => {
           {isError && <NotFound />}
           {isLoading && <Loading />}
           <S.PetitionWrap>
-            {data.map((item) => (
+            {data?.map((item) => (
               <PetitionList
                 option="LIST"
                 key={item.id}
