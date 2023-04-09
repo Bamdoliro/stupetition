@@ -1,22 +1,12 @@
 import Button from 'components/common/Button';
 import Input from 'components/common/Input';
-import { ChangeEvent, useState } from 'react';
-import { LoginType } from 'types/auth.type';
-import { LoginFeature } from 'features/auth/login.feature';
+import { LoginFeature } from 'features/auth/LoginFeature';
 import * as S from './style';
 
 const Council = () => {
-  const [loginData, setLoginData] = useState<LoginType>({
-    username: '',
-    password: '',
-  });
+  const { handleLoginData, useLoginMutation, loginData } = LoginFeature();
+  const loginMutate = useLoginMutation();
 
-  const { login } = LoginFeature(loginData);
-
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setLoginData({ ...loginData, [name]: value });
-  };
   return (
     <>
       <S.Council>
@@ -26,7 +16,7 @@ const Council = () => {
           type="text"
           name="username"
           value={loginData.username}
-          onChange={onChange}
+          onChange={handleLoginData}
         />
         <Input
           desc="비밀번호"
@@ -34,10 +24,15 @@ const Council = () => {
           type="password"
           name="password"
           value={loginData.password}
-          onChange={onChange}
+          onChange={handleLoginData}
         />
       </S.Council>
-      <Button onClick={login} option="FILLED" width="50%" value="로그인" />
+      <Button
+        onClick={() => loginMutate.mutate()}
+        option="FILLED"
+        width="50%"
+        value="로그인"
+      />
     </>
   );
 };

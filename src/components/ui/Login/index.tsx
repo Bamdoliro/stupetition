@@ -1,14 +1,15 @@
 import Button from 'components/common/Button';
 import Ment from 'components/common/Ment';
-import { GoogleAuthLink } from 'features/auth/googleAuth.feature';
+import { GoogleLoginFeature } from 'features/auth/GoogleLoginFeature';
 import GoogleImg from 'assets/google.svg';
 import { useState } from 'react';
 import * as S from './style';
 import Council from './Council';
 
 const Login = () => {
-  const { google } = GoogleAuthLink();
   const [isOpenLoginCouncil, setIsOpenLoginCouncil] = useState(true);
+  const { useGoogleLink } = GoogleLoginFeature();
+  const { data } = useGoogleLink();
 
   return (
     <S.LoginLayout>
@@ -38,7 +39,7 @@ const Login = () => {
           {isOpenLoginCouncil ? (
             <Button
               imgSrc={GoogleImg}
-              onClick={google}
+              onClick={() => window.location.replace(data)}
               option="UNFILLED"
               width="100%"
               value="학교 계정으로 로그인"
