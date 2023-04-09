@@ -6,10 +6,10 @@ import { LoginType } from 'types/auth.type';
 import { Storage } from 'lib/storage/storage';
 import { toast } from 'react-toastify';
 
-export const LoginFeature = (loginData: LoginType) => {
+export const useLoginMutation = (loginData: LoginType) => {
   const navigate = useNavigate();
 
-  const { mutate } = useMutation(loginUser, {
+  return useMutation(() => loginUser(loginData), {
     onSuccess: (res) => {
       const { accessToken, refreshToken } = res;
 
@@ -19,10 +19,4 @@ export const LoginFeature = (loginData: LoginType) => {
       navigate('/');
     },
   });
-
-  const login = () => {
-    mutate(loginData);
-  };
-
-  return { login };
 };

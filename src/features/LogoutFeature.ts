@@ -2,21 +2,17 @@ import { useMutation } from 'react-query';
 import { logoutUser } from 'api/user.api';
 import { useSetRecoilState } from 'recoil';
 import { userEmpty, userState } from 'atoms/user.atom';
+import { useNavigate } from 'react-router-dom';
 
-export const LogoutFeature = () => {
+export const useLogoutMutation = () => {
+  const navigate = useNavigate();
   const setUser = useSetRecoilState(userState);
 
-  const { mutate } = useMutation(logoutUser, {
+  return useMutation(logoutUser, {
     onSuccess: () => {
       localStorage.clear();
       setUser(userEmpty);
-      window.location.href = '/';
+      navigate('/');
     },
   });
-
-  const logout = () => {
-    mutate();
-  };
-
-  return { logout };
 };

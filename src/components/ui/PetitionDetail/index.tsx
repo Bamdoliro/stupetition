@@ -3,16 +3,18 @@ import Progressbar from 'components/common/Progressbar';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { FormatDatetime } from 'utils/FormatDatetime';
-import { PetitionDetailFeature } from 'features/posts/petitionDetail.feature';
-import { ReplyFeature } from 'features/posts/reply.feature';
-import { ApproveFeature } from 'features/posts/approve.feature';
 import Loading from 'pages/Loading';
 import NotFound from 'pages/404';
-import DeletePetitionFeature from 'features/posts/deletePetition.feature';
 import { useModal } from 'hooks/useModal';
 import Modal from 'components/common/Modal';
 import { useUser } from 'hooks/useUser';
 import { EmailReplace } from 'utils/EmailReplace';
+import {
+  useApprovePetitionMutation,
+  useDeletePetitionMutation,
+  usePetitionCommentMutation,
+  usePetitionDetailData,
+} from 'features/PetitionFeature';
 import Comment from './Comment';
 import * as S from './style';
 
@@ -24,17 +26,23 @@ const PetitionDetail = () => {
   const { user } = useUser();
   const [comment, setComment] = useState('');
 
-  // 쿼리
-  const { isLoading, isError, data } = PetitionDetailFeature(petitionId);
-  const { replySubmit } = ReplyFeature({ petitionId, setComment, comment });
-  const { approveSubmit } = ApproveFeature(petitionId);
-  const { deleteSubmit } = DeletePetitionFeature(petitionId);
+  const { useCommentMutation } = usePetitionCommentMutation({
+    petitionId,
+    setComment,
+    comment,
+  });
+
+  const approveMutate = useApprovePetitionMutation(petitionId);
+  const commentStudentMutate = useCommentMutation('STUDENT');
+  const commentCouncilMutate = useCommentMutation('STUDENT_COUNCIL');
+  const deletePetitionMutate = useDeletePetitionMutation(petitionId);
+  const { isLoading, isError, data } = usePetitionDetailData(petitionId);
 
   const { color, progress } = ProgressChecker(data.status);
   const { date } = FormatDatetime(data.createdAt);
   const { userEmail } = EmailReplace(data.writer.email);
 
-  const deletePetition = () => {
+  const checkDeletePetition = () => {
     openModal(
       <Modal
         option="CONFIRM"
@@ -43,7 +51,7 @@ const PetitionDetail = () => {
         closeText="취소"
         confirmText="삭제"
         handleClose={closeModal}
-        handleConfirm={deleteSubmit}
+        handleConfirm={() => deletePetitionMutate.mutate()}
       />,
     );
   };
@@ -66,10 +74,13 @@ const PetitionDetail = () => {
                   <S.Progress color={color}>{progress}</S.Progress>
                   <S.Title>{data.title}</S.Title>
                   <S.PetitionInfo>
-                    <S.Date>{date}</S.Date>|<S.Email>학생 #{userEmail}</S.Email>
+                    <S.Date>{date}</S.Date>|
+                    <S.Email>
+                      {data.writer.name} #{userEmail}
+                    </S.Email>
                   </S.PetitionInfo>
                   {data.hasPermission && (
-                    <S.Delete onClick={deletePetition}>삭제</S.Delete>
+                    <S.Delete onClick={checkDeletePetition}>삭제</S.Delete>
                   )}
                 </S.ItemWrap>
                 <Progressbar
@@ -85,12 +96,12 @@ const PetitionDetail = () => {
               <S.Pre>{data.content}</S.Pre>
             </S.Content>
             {user.authority === 'ROLE_STUDENT_COUNCIL' ||
-            user.email === data.writer.email ? null : data.approved ? (
+            data.hasPermission ? null : data.approved ? (
               <S.ApprovedButton>
                 <S.ApproveText>동의 완료</S.ApproveText>
               </S.ApprovedButton>
             ) : (
-              <S.ApproveButton onClick={approveSubmit}>
+              <S.ApproveButton onClick={() => approveMutate.mutate()}>
                 <S.ApproveText>동의 하기</S.ApproveText>
               </S.ApproveButton>
             )}
@@ -106,12 +117,14 @@ const PetitionDetail = () => {
               />
               {user.authority === 'ROLE_STUDENT_COUNCIL' ? (
                 <S.CommentSendButton
-                  onClick={() => replySubmit('STUDENT_COUNCIL')}
+                  onClick={() => commentCouncilMutate.mutate()}
                 >
                   <S.CommentSendText>답변 작성</S.CommentSendText>
                 </S.CommentSendButton>
               ) : (
-                <S.CommentSendButton onClick={() => replySubmit('STUDENT')}>
+                <S.CommentSendButton
+                  onClick={() => commentStudentMutate.mutate()}
+                >
                   <S.CommentSendText>댓글 작성</S.CommentSendText>
                 </S.CommentSendButton>
               )}

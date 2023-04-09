@@ -5,20 +5,15 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { WritePetitionType } from 'types/petition.type';
 
-export const WriteFeature = (petitionData: WritePetitionType) => {
+export const useWritePetition = (petitionData: WritePetitionType) => {
   const navigate = useNavigate();
   const { closeModal } = useModal();
-  const { mutate } = useMutation(writePetition, {
+
+  return useMutation(() => writePetition(petitionData), {
     onSuccess: () => {
       toast.success('작성 성공');
+      closeModal();
       navigate('/');
     },
   });
-
-  const write = () => {
-    mutate(petitionData);
-    closeModal();
-  };
-
-  return { write };
 };

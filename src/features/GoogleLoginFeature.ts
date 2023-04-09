@@ -1,30 +1,22 @@
 import { useMutation, useQuery } from 'react-query';
 import { authGoogle, getGoogleAuthLink } from 'api/auth.api';
 import * as KEY from 'constants/key.constant';
-import queryString from 'query-string';
-import { useEffect } from 'react';
 import { Storage } from 'lib/storage/storage';
 import { ACCESS_KEY, REFRESH_KEY } from 'constants/token.constant';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
-export const GoogleAuthLink = () => {
+export const useGoogleLink = () => {
   const { data } = useQuery([KEY.GOOGLE_AUTH_LINK], getGoogleAuthLink);
-
-  const google = () => {
-    window.location.replace(data);
-  };
-
-  return { google };
+  return { data };
 };
 
-export const GoogleAuth = () => {
+export const useGoogleLoginMutation = () => {
   const navigate = useNavigate();
 
-  const { mutate } = useMutation(authGoogle, {
+  return useMutation(authGoogle, {
     onSuccess: (res) => {
       const { accessToken, refreshToken } = res;
-
       Storage.setItem(ACCESS_KEY, accessToken);
       Storage.setItem(REFRESH_KEY, refreshToken);
       toast.success('로그인 성공');
@@ -35,11 +27,4 @@ export const GoogleAuth = () => {
       navigate('/login');
     },
   });
-
-  useEffect(() => {
-    const q = queryString.parse(window.location.search);
-    if (q.code !== undefined && typeof q.code === 'string') {
-      mutate(q.code);
-    }
-  }, []);
 };

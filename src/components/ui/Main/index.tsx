@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { StatusType } from 'types/petition.type';
 import { useNavigate } from 'react-router-dom';
 import MiniButton from 'components/common/MiniButton';
-import { PetitionListFeature } from 'features/posts/petitionList.feature';
+import { usePetitionList } from 'features/PetitionListFeature';
 import Loading from 'pages/Loading';
 import NotFound from 'pages/404';
 import { useUser } from 'hooks/useUser';
@@ -15,7 +15,7 @@ const Main = () => {
   const { user } = useUser();
   const [status, setStatus] = useState<StatusType>('PETITION');
   const [isBannerOpen, setIsBannerOpen] = useState(true);
-  const { isLoading, isError, data } = PetitionListFeature(status);
+  const { isLoading, isError, data } = usePetitionList(status);
 
   return (
     <S.MainLayout>
