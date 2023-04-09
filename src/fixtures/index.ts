@@ -13,6 +13,7 @@ export const petitionDetail: PetitionDetailType = {
   id: 0,
   hasPermission: false,
   writer: {
+    name: '학생',
     authority: 'ROLE_STUDENT',
     email: '',
     schoolName: '',

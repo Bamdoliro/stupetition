@@ -4,4 +4,5 @@ export interface UserInfoType {
   authority: string;
   email: string;
   schoolName: string;
+  name: string;
 }
