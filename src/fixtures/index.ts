@@ -1,6 +1,7 @@
 import { PetitionDetailType } from 'types/petition.type';
+import { UserInfoType } from 'types/user.type';
 
-export const petitionDetail: PetitionDetailType = {
+export const petitionDetailData: PetitionDetailType = {
   answer: [],
   approved: false,
   comments: [],
@@ -20,4 +21,11 @@ export const petitionDetail: PetitionDetailType = {
     status: 'ATTENDING',
     userId: 0,
   },
+};
+
+export const userEmpty: UserInfoType = {
+  authority: '',
+  email: '',
+  schoolName: '',
+  name: '',
 };

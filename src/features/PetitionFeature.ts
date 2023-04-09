@@ -16,7 +16,7 @@ import { Authority } from 'types/user.type';
 import { Dispatch, SetStateAction } from 'react';
 import { PetitionDetailType } from 'types/petition.type';
 import { useUser } from 'hooks/useUser';
-import { petitionDetail } from 'fixtures';
+import { petitionDetailData } from 'fixtures';
 
 // 청원 상세 데이터
 
@@ -34,7 +34,7 @@ export const usePetitionDetailData = (petitionId: number) => {
   return {
     isLoading,
     isError,
-    data: data || petitionDetail,
+    data: data || petitionDetailData,
   };
 };
 
