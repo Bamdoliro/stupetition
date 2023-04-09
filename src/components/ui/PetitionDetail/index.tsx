@@ -130,7 +130,7 @@ const PetitionDetail = () => {
               )}
             </S.CommentSendBox>
             <S.CommentWrap>
-              {data.answer.map((item) => (
+              {data.answer?.map((item) => (
                 <Comment
                   option="STUDENT_COUNCIL"
                   key={item.id}
@@ -141,7 +141,7 @@ const PetitionDetail = () => {
                   writer={item.writer}
                 />
               ))}
-              {data.comments.map((item) => (
+              {data.comments?.map((item) => (
                 <Comment
                   option="STUDENT"
                   key={item.id}
