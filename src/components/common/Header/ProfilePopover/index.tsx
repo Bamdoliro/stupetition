@@ -1,4 +1,4 @@
-import { LogoutFeature } from 'features/LogoutFeature';
+import { useLogoutMutation } from 'features/LogoutFeature';
 import { useNavigate } from 'react-router-dom';
 import { Dispatch, SetStateAction } from 'react';
 import * as S from './style';
@@ -12,7 +12,6 @@ const ProfilePopover = ({ isOpen, setProfilePopoverIsOpen }: PropsType) => {
   const navigate = useNavigate();
   const close = () => setProfilePopoverIsOpen(false);
 
-  const { useLogoutMutation } = LogoutFeature();
   const logoutMutate = useLogoutMutation();
 
   return (

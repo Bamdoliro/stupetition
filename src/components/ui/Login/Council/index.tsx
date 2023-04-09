@@ -1,11 +1,22 @@
 import Button from 'components/common/Button';
 import Input from 'components/common/Input';
-import { LoginFeature } from 'features/LoginFeature';
+import { useLoginMutation } from 'features/LoginFeature';
+import { ChangeEvent, useState } from 'react';
+import { LoginType } from 'types/auth.type';
 import * as S from './style';
 
 const Council = () => {
-  const { handleLoginData, useLoginMutation, loginData } = LoginFeature();
-  const loginMutate = useLoginMutation();
+  const [loginData, setLoginData] = useState<LoginType>({
+    username: '',
+    password: '',
+  });
+
+  const handleLoginData = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setLoginData({ ...loginData, [name]: value });
+  };
+
+  const loginMutate = useLoginMutation(loginData);
 
   return (
     <>

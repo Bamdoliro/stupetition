@@ -61,7 +61,6 @@ export const useDeletePetitionMutation = (petitionId: number) => {
   return useMutation(() => deletePetition(petitionId), {
     onSuccess: () => {
       closeModal();
-
       toast.success('삭제 완료');
       queryClient.invalidateQueries([KEY.PETITION_LIST]);
       navigate('/');

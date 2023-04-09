@@ -13,31 +13,27 @@ interface MyPetitionList {
   status: StatusType;
 }
 
-export const MyPetitionFeature = (status: StatusType) => {
+export const useMyPetitionList = (status: StatusType) => {
   const { user } = useUser();
 
-  const useApprovedPetitionList = () => {
-    return useQuery<MyPetitionList[]>(
-      [KEY.PETITION_APPROVED],
-      () => approvedPetition(),
-      {
-        enabled: !!user.authority,
-      },
-    );
-  };
+  const approvedPetitionList = useQuery<MyPetitionList[]>(
+    [KEY.PETITION_APPROVED],
+    () => approvedPetition(),
+    {
+      enabled: !!user.authority,
+    },
+  );
 
-  const useWrotePetitionList = () => {
-    return useQuery<MyPetitionList[]>(
-      [KEY.PETITION_WROTE],
-      () => wrotePetition(),
-      {
-        enabled: !!user.authority,
-      },
-    );
-  };
+  const wrotePetitionList = useQuery<MyPetitionList[]>(
+    [KEY.PETITION_WROTE],
+    () => wrotePetition(),
+    {
+      enabled: !!user.authority,
+    },
+  );
 
-  const useMyPetitionList = () =>
-    status === 'WROTE' ? useWrotePetitionList() : useApprovedPetitionList();
+  const { data, isLoading, isError } =
+    status === 'WROTE' ? wrotePetitionList : approvedPetitionList;
 
-  return { useMyPetitionList };
+  return { data, isLoading, isError };
 };

@@ -17,7 +17,6 @@ export const useGoogleLoginMutation = () => {
   return useMutation(authGoogle, {
     onSuccess: (res) => {
       const { accessToken, refreshToken } = res;
-
       Storage.setItem(ACCESS_KEY, accessToken);
       Storage.setItem(REFRESH_KEY, refreshToken);
       toast.success('로그인 성공');
