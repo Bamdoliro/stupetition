@@ -2,10 +2,10 @@ import ProfileSvg from 'assets/profile.svg';
 import { FormatDatetime } from 'utils/FormatDatetime';
 import CheckSvg from 'assets/check.svg';
 import { CommentType } from 'types/petition.type';
-import { DeleteReplyFeature } from 'features/posts/deleteReply.feature';
 import { useModal } from 'hooks/useModal';
 import Modal from 'components/common/Modal';
 import { EmailReplace } from 'utils/EmailReplace';
+import { useDeletePetitionCommentMutation } from 'features/posts/PetitionFeature';
 import * as S from './style';
 
 const Comment = ({
@@ -18,8 +18,13 @@ const Comment = ({
 }: CommentType) => {
   const { openModal, closeModal } = useModal();
   const { date } = FormatDatetime(createdAt);
-  const { deleteSubmit } = DeleteReplyFeature({ id, option });
   const { userEmail } = EmailReplace(writer.email);
+
+  const { useDeleteCommentMutation } = useDeletePetitionCommentMutation({
+    id,
+    option,
+  });
+  const commentDeleteMutate = useDeleteCommentMutation();
 
   const deleteComment = () => {
     openModal(
@@ -30,7 +35,7 @@ const Comment = ({
         closeText="취소"
         confirmText="삭제"
         handleClose={closeModal}
-        handleConfirm={deleteSubmit}
+        handleConfirm={() => commentDeleteMutate.mutate()}
       />,
     );
   };
