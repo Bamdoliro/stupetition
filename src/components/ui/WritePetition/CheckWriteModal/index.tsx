@@ -28,12 +28,14 @@ const CheckWriteModal = ({
     <S.BlurBackground display={isOpenCheckWriteModal ? 'flex' : 'none'}>
       <S.CheckWriteModal>
         <S.CheckWriteModalWrap>
-          <S.Title>최종 확인</S.Title>
-          <S.PreviewBox>
+          <S.InfoBox>
+            <S.Title>최종 확인</S.Title>
             <S.Warning>
-              ⚠️ 남을 비방하는 말이나 부적절한 언어, 욕이 포함되어 있을 경우
-              처벌을 받을 수 있습니다
+              ⚠️ 남을 비방하는 말이나 부적절한 언어, 욕이 포함돼있을 경우
+              처벌받을 수 있습니다
             </S.Warning>
+          </S.InfoBox>
+          <S.PreviewBox>
             <S.Preview>썸네일 미리보기</S.Preview>
             <PetitionList
               option="MODAL"
