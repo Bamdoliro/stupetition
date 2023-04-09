@@ -98,6 +98,7 @@ export const Content = styled(T.p2)`
   white-space: pre-line;
   text-align: left;
   color: ${color.gray900};
+  min-height: 200px;
 `;
 
 export const ApproveButton = styled.button`
@@ -125,7 +126,7 @@ export const ApproveText = styled(T.H5)`
   color: ${color.white};
 `;
 
-export const CommentSendWrap = styled.div`
+export const CommentSendBox = styled.div`
   margin: 60px 0px 40px 0px;
   display: flex;
   flex-direction: column;
