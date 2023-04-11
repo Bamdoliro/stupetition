@@ -13,6 +13,7 @@ interface PetitionListType {
   title: string;
 }
 
+/** 청원 리스트 얻어오기 */
 export const usePetitionList = (status: StatusType) => {
   const { user } = useUser();
 

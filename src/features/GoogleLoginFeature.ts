@@ -6,11 +6,13 @@ import { ACCESS_KEY, REFRESH_KEY } from 'constants/token.constant';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
+/** 구글 로그인하러 가는 링크 반환 */
 export const useGoogleLink = () => {
   const { data } = useQuery([KEY.GOOGLE_AUTH_LINK], getGoogleAuthLink);
   return { data };
 };
 
+/** 구글 로그인 */
 export const useGoogleLoginMutation = () => {
   const navigate = useNavigate();
 
