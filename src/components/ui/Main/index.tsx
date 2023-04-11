@@ -25,7 +25,7 @@ const Main = () => {
         <S.ContentsWrap>
           <S.SubNav>
             <RadioTabMenu option="MAIN" setStatus={setStatus} status={status} />
-            {user.authority && (
+            {user.authority === 'ROLE_STUDENT' && (
               <MiniButton
                 onClick={() => navigate('/petition/write')}
                 option="FILLED"
