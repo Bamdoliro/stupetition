@@ -1,9 +1,9 @@
 import {
   answerPetition,
   approvePetition,
-  commentPetition,
+  writeComment,
   deleteAnswer,
-  deleteCommentPetition,
+  deleteComment,
   deletePetition,
   getPetitionDetail,
 } from 'api/petition.api';
@@ -85,7 +85,7 @@ export const usePetitionCommentMutation = ({
 
   const useStudentCommentMutation = useMutation(
     () =>
-      commentPetition({
+      writeComment({
         comment,
         petitionId,
       }),
@@ -135,16 +135,13 @@ export const useDeletePetitionCommentMutation = ({
   const queryClient = useQueryClient();
   const { closeModal } = useModal();
 
-  const useDeleteStudentCommentMutation = useMutation(
-    () => deleteCommentPetition(id),
-    {
-      onSuccess: () => {
-        toast.success('삭제 성공');
-        queryClient.invalidateQueries([KEY.PETITION]);
-        closeModal();
-      },
+  const useDeleteStudentCommentMutation = useMutation(() => deleteComment(id), {
+    onSuccess: () => {
+      toast.success('삭제 성공');
+      queryClient.invalidateQueries([KEY.PETITION]);
+      closeModal();
     },
-  );
+  });
 
   const useDeleteCouncilCommentMutation = useMutation(() => deleteAnswer(id), {
     onSuccess: () => {

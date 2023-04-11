@@ -2,7 +2,7 @@ import MiniButton from 'components/common/MiniButton';
 import PetitionList from 'components/common/PetitionList';
 import { MouseEventHandler } from 'react';
 import { WritePetitionType } from 'types/petition.type';
-import { useWritePetition } from 'features/WritePetitionFeature';
+import { useCreatePetition } from 'features/WritePetitionFeature';
 import * as S from './style';
 
 interface PropsType {
@@ -16,7 +16,7 @@ const CheckWriteModal = ({
   petitionData,
   isOpenCheckWriteModal,
 }: PropsType) => {
-  const writePetitionMutate = useWritePetition(petitionData);
+  const writePetitionMutate = useCreatePetition(petitionData);
 
   const date = {
     year: new Date().getFullYear(),

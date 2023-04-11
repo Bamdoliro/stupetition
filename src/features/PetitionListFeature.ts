@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query';
-import { getPetition } from 'api/petition.api';
+import { getPetitions } from 'api/petition.api';
 import { StatusType } from 'types/petition.type';
 import * as KEY from 'constants/key.constant';
 import { useUser } from 'hooks/useUser';
@@ -18,7 +18,7 @@ export const usePetitionList = (status: StatusType) => {
 
   const { data, isLoading, isError } = useQuery<PetitionListType[]>(
     [KEY.PETITION_LIST, status],
-    () => getPetition(status),
+    () => getPetitions(status),
     {
       enabled: !!user.authority,
     },
