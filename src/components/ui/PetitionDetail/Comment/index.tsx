@@ -4,7 +4,10 @@ import CheckSvg from 'assets/check.svg';
 import { CommentType } from 'types/petition.type';
 import { useModal } from 'hooks/useModal';
 import Modal from 'components/common/Modal';
-import { useDeletePetitionCommentMutation } from 'features/PetitionFeature';
+import {
+  useDeleteAnswerMutation,
+  useDeleteCommentMutation,
+} from 'features/PetitionFeature';
 import { EmailReplace } from 'utils/EmailReplace';
 import * as S from './style';
 
@@ -20,11 +23,11 @@ const Comment = ({
   const { date } = FormatDatetime(createdAt);
   const { userEmail } = EmailReplace(writer.email);
 
-  const { useDeleteCommentMutation } = useDeletePetitionCommentMutation({
-    id,
-    option,
-  });
-  const commentDeleteMutate = useDeleteCommentMutation();
+  const deleteCommentMutate = useDeleteCommentMutation(id);
+  const deleteAnswerMutate = useDeleteAnswerMutation(id);
+
+  const deleteMutate =
+    option === 'STUDENT' ? deleteCommentMutate : deleteAnswerMutate;
 
   const checkDeleteComment = () => {
     openModal(
@@ -35,7 +38,7 @@ const Comment = ({
         closeText="취소"
         confirmText="삭제"
         handleClose={closeModal}
-        handleConfirm={() => commentDeleteMutate.mutate()}
+        handleConfirm={() => deleteMutate.mutate()}
       />,
     );
   };

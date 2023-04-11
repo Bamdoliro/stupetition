@@ -12,8 +12,9 @@ import { EmailReplace } from 'utils/EmailReplace';
 import {
   useApprovePetitionMutation,
   useDeletePetitionMutation,
-  usePetitionCommentMutation,
-  usePetitionDetailData,
+  useWriteCommentMutation,
+  usePetitionDetail,
+  useWriteAnswerMutation,
 } from 'features/PetitionFeature';
 import Comment from './Comment';
 import * as S from './style';
@@ -26,17 +27,19 @@ const PetitionDetail = () => {
   const { user } = useUser();
   const [comment, setComment] = useState('');
 
-  const { useCommentMutation } = usePetitionCommentMutation({
+  const approveMutate = useApprovePetitionMutation(petitionId);
+  const writeCommentMutate = useWriteCommentMutation({
     petitionId,
     setComment,
     comment,
   });
-
-  const approveMutate = useApprovePetitionMutation(petitionId);
-  const commentStudentMutate = useCommentMutation('STUDENT');
-  const commentCouncilMutate = useCommentMutation('STUDENT_COUNCIL');
+  const writeAnswerMutate = useWriteAnswerMutation({
+    petitionId,
+    setComment,
+    comment,
+  });
   const deletePetitionMutate = useDeletePetitionMutation(petitionId);
-  const { isLoading, isError, data } = usePetitionDetailData(petitionId);
+  const { isLoading, isError, data } = usePetitionDetail(petitionId);
 
   const { color, progress } = ProgressChecker(data.status);
   const { date } = FormatDatetime(data.createdAt);
@@ -116,14 +119,12 @@ const PetitionDetail = () => {
                 onChange={(e) => setComment(e.target.value)}
               />
               {user.authority === 'ROLE_STUDENT_COUNCIL' ? (
-                <S.CommentSendButton
-                  onClick={() => commentCouncilMutate.mutate()}
-                >
+                <S.CommentSendButton onClick={() => writeAnswerMutate.mutate()}>
                   <S.CommentSendText>답변 작성</S.CommentSendText>
                 </S.CommentSendButton>
               ) : (
                 <S.CommentSendButton
-                  onClick={() => commentStudentMutate.mutate()}
+                  onClick={() => writeCommentMutate.mutate()}
                 >
                   <S.CommentSendText>댓글 작성</S.CommentSendText>
                 </S.CommentSendButton>

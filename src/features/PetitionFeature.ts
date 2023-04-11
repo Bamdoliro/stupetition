@@ -12,15 +12,13 @@ import * as KEY from 'constants/key.constant';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { useModal } from 'hooks/useModal';
-import { Authority } from 'types/user.type';
 import { Dispatch, SetStateAction } from 'react';
 import { PetitionDetailType } from 'types/petition.type';
 import { useUser } from 'hooks/useUser';
 import { petitionDetailData } from 'fixtures';
 
-// 청원 상세 데이터
-
-export const usePetitionDetailData = (petitionId: number) => {
+/** 청원 상세 페이지 데이터 불러오기 */
+export const usePetitionDetail = (petitionId: number) => {
   const { user } = useUser();
 
   const { data, isLoading, isError } = useQuery<PetitionDetailType>(
@@ -38,8 +36,7 @@ export const usePetitionDetailData = (petitionId: number) => {
   };
 };
 
-// 청원 동의
-
+/** 청원 동의하기 */
 export const useApprovePetitionMutation = (petitionId: number) => {
   const queryClient = useQueryClient();
 
@@ -51,8 +48,7 @@ export const useApprovePetitionMutation = (petitionId: number) => {
   });
 };
 
-// 청원 삭제
-
+/** 청원 삭제하기 */
 export const useDeletePetitionMutation = (petitionId: number) => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
@@ -68,22 +64,21 @@ export const useDeletePetitionMutation = (petitionId: number) => {
   });
 };
 
-// 댓글 작성
-
 interface CommentPropsType {
   petitionId: number;
   setComment: Dispatch<SetStateAction<string>>;
   comment: string;
 }
 
-export const usePetitionCommentMutation = ({
+/** 청원 댓글 쓰기 (학생) */
+export const useWriteCommentMutation = ({
   petitionId,
   setComment,
   comment,
 }: CommentPropsType) => {
   const queryClient = useQueryClient();
 
-  const useStudentCommentMutation = useMutation(
+  return useMutation(
     () =>
       writeComment({
         comment,
@@ -92,13 +87,22 @@ export const usePetitionCommentMutation = ({
     {
       onSuccess: () => {
         setComment('');
-        toast.success('답변 성공');
+        toast.success('작성 성공');
         queryClient.invalidateQueries([KEY.PETITION]);
       },
     },
   );
+};
 
-  const useCouncilCommentMutation = useMutation(
+/** 청원 답변 쓰기 (학생회) */
+export const useWriteAnswerMutation = ({
+  petitionId,
+  setComment,
+  comment,
+}: CommentPropsType) => {
+  const queryClient = useQueryClient();
+
+  return useMutation(
     () =>
       answerPetition({
         comment,
@@ -112,49 +116,32 @@ export const usePetitionCommentMutation = ({
       },
     },
   );
-
-  const useCommentMutation = (option: Authority) =>
-    option === 'STUDENT_COUNCIL'
-      ? useCouncilCommentMutation
-      : useStudentCommentMutation;
-
-  return { useCommentMutation };
 };
 
-// 댓글 삭제
-
-interface DeleteCommentPropsType {
-  id: number;
-  option: Authority;
-}
-
-export const useDeletePetitionCommentMutation = ({
-  id,
-  option,
-}: DeleteCommentPropsType) => {
+/** 댓글 삭제 (학생) */
+export const useDeleteCommentMutation = (id: number) => {
   const queryClient = useQueryClient();
   const { closeModal } = useModal();
 
-  const useDeleteStudentCommentMutation = useMutation(() => deleteComment(id), {
+  return useMutation(() => deleteComment(id), {
     onSuccess: () => {
       toast.success('삭제 성공');
       queryClient.invalidateQueries([KEY.PETITION]);
       closeModal();
     },
   });
+};
 
-  const useDeleteCouncilCommentMutation = useMutation(() => deleteAnswer(id), {
+/** 답변 삭제 (학생회) */
+export const useDeleteAnswerMutation = (id: number) => {
+  const queryClient = useQueryClient();
+  const { closeModal } = useModal();
+
+  return useMutation(() => deleteAnswer(id), {
     onSuccess: () => {
       toast.success('삭제 성공');
       queryClient.invalidateQueries([KEY.PETITION]);
       closeModal();
     },
   });
-
-  const useDeleteCommentMutation = () =>
-    option === 'STUDENT_COUNCIL'
-      ? useDeleteCouncilCommentMutation
-      : useDeleteStudentCommentMutation;
-
-  return { useDeleteCommentMutation };
 };
