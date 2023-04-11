@@ -1,5 +1,4 @@
 import Logo from 'assets/logo.svg';
-import { useNavigate } from 'react-router-dom';
 import * as S from './style';
 
 interface PropsType {
@@ -7,11 +6,9 @@ interface PropsType {
 }
 
 const Ment = ({ posistion }: PropsType) => {
-  const navigate = useNavigate();
-
   return (
     <S.Ment style={{ alignSelf: posistion }}>
-      <S.LogoBox onClick={() => navigate('/main')}>
+      <S.LogoBox>
         <S.Logo src={Logo} />
         <S.LogoText>학생청원</S.LogoText>
       </S.LogoBox>

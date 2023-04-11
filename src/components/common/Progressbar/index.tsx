@@ -27,7 +27,7 @@ const Progressbar = ({
         value={percentageOfApprover}
         maxValue={100}
         styles={buildStyles({
-          strokeLinecap: 'butt',
+          strokeLinecap: 'round',
           pathColor: color.main,
         })}
       >

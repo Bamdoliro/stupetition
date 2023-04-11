@@ -14,6 +14,6 @@ export const tokenExpired = async () => {
   } catch {
     toast.error('다시 로그인 해주세요');
     localStorage.clear();
-    window.location.href = '/';
+    window.location.href = '/login';
   }
 };

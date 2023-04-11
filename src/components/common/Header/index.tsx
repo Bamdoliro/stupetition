@@ -10,14 +10,14 @@ import * as S from './style';
 
 const Header = () => {
   const navigate = useNavigate();
-
   const { user } = useUser();
+
   const [profilePopoverIsOpen, setProfilePopoverIsOpen] = useState(false);
 
   return (
     <S.Header>
       <S.HeaderWrap>
-        <S.LogoWrap onClick={() => navigate('/main')}>
+        <S.LogoWrap onClick={() => navigate('/')}>
           <S.Logo src={Logo} />
           <S.LogoText>학생청원</S.LogoText>
         </S.LogoWrap>
@@ -44,7 +44,7 @@ const Header = () => {
             <MiniButton
               value="로그인"
               option="UNFILLED"
-              onClick={() => navigate('/')}
+              onClick={() => navigate('/login')}
             />
           )}
         </S.NavWrap>

@@ -24,7 +24,7 @@ const WritePetition = () => {
   const writeClose = () => {
     const close = () => closeModal();
     const confirm = () => {
-      navigate('/main');
+      navigate('/');
       closeModal();
     };
     if (petitionData.content || petitionData.title) {
@@ -46,7 +46,7 @@ const WritePetition = () => {
         />,
       );
     } else {
-      navigate('/main');
+      navigate('/');
     }
   };
 

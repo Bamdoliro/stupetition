@@ -6,18 +6,21 @@ import MyPetition from 'components/ui/MyPetition';
 import Main from 'components/ui/Main';
 import Login from 'components/ui/Login';
 import Callback from 'components/ui/Callback';
+import useTokenCheck from 'hooks/useTokenCheck';
 
 const App = () => {
+  useTokenCheck();
+
   return (
     <Routes>
       <Route element={<Layout />}>
-        <Route path="/main" element={<Main />} />
+        <Route path="/" element={<Main />} />
         <Route path="/petition/:id" element={<PetitionDetail />} />
         <Route path="/petition/my" element={<MyPetition />} />
       </Route>
       <Route path="/callback/google" element={<Callback />} />
       <Route path="/petition/write" element={<CreatePetition />} />
-      <Route path="/" element={<Login />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 };
