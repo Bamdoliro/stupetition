@@ -16,7 +16,7 @@ export const useLoginMutation = (loginData: LoginType) => {
       Storage.setItem(ACCESS_KEY, accessToken);
       Storage.setItem(REFRESH_KEY, refreshToken);
       toast.success('로그인 성공');
-      navigate('/');
+      navigate('/main');
     },
   });
 };

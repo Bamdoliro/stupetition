@@ -63,7 +63,7 @@ export const useDeletePetitionMutation = (petitionId: number) => {
       closeModal();
       toast.success('삭제 완료');
       queryClient.invalidateQueries([KEY.PETITION_LIST]);
-      navigate('/');
+      navigate('/main');
     },
   });
 };

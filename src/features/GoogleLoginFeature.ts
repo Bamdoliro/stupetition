@@ -20,11 +20,11 @@ export const useGoogleLoginMutation = () => {
       Storage.setItem(ACCESS_KEY, accessToken);
       Storage.setItem(REFRESH_KEY, refreshToken);
       toast.success('로그인 성공');
-      navigate('/');
+      navigate('/main');
     },
     onError: () => {
       toast.error('학교 계정으로 로그인 해주세요');
-      navigate('/login');
+      navigate('/');
     },
   });
 };

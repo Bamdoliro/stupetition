@@ -11,7 +11,7 @@ const Ment = ({ posistion }: PropsType) => {
 
   return (
     <S.Ment style={{ alignSelf: posistion }}>
-      <S.LogoBox onClick={() => navigate('/')}>
+      <S.LogoBox onClick={() => navigate('/main')}>
         <S.Logo src={Logo} />
         <S.LogoText>학생청원</S.LogoText>
       </S.LogoBox>
