@@ -9,6 +9,7 @@ import { useModal } from 'hooks/useModal';
 import Modal from 'components/common/Modal';
 import { useUser } from 'hooks/useUser';
 import { EmailReplace } from 'utils/EmailReplace';
+import Answer from 'components/ui/PetitionDetail/Answer';
 import {
   useApprovePetitionMutation,
   useDeletePetitionMutation,
@@ -132,23 +133,20 @@ const PetitionDetail = () => {
             </S.CommentSendBox>
             <S.CommentListBox>
               {data.answer?.map((item) => (
-                <Comment
-                  option="STUDENT_COUNCIL"
+                <Answer
                   key={item.id}
                   id={item.id}
-                  comment={item.comment}
                   hasPermission={item.hasPermission}
+                  comment={item.comment}
                   createdAt={item.createdAt}
-                  writer={item.writer}
                 />
               ))}
               {data.comments?.map((item) => (
                 <Comment
-                  option="STUDENT"
                   key={item.id}
                   id={item.id}
-                  hasPermission={item.hasPermission}
                   comment={item.comment}
+                  hasPermission={item.hasPermission}
                   createdAt={item.createdAt}
                   writer={item.writer}
                 />
