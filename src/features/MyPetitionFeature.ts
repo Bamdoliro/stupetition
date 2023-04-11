@@ -1,4 +1,4 @@
-import { approvedPetition, wrotePetition } from 'api/petition.api';
+import { getApprovedPetitions, getWrotePetitions } from 'api/petition.api';
 import { useQuery } from 'react-query';
 import { StatusType } from 'types/petition.type';
 import * as KEY from 'constants/key.constant';
@@ -13,12 +13,13 @@ interface MyPetitionList {
   status: StatusType;
 }
 
+/** 내 청원 불러오기 */
 export const useMyPetitionList = (status: StatusType) => {
   const { user } = useUser();
 
   const approvedPetitionList = useQuery<MyPetitionList[]>(
     [KEY.PETITION_APPROVED],
-    () => approvedPetition(),
+    () => getApprovedPetitions(),
     {
       enabled: !!user.authority,
     },
@@ -26,7 +27,7 @@ export const useMyPetitionList = (status: StatusType) => {
 
   const wrotePetitionList = useQuery<MyPetitionList[]>(
     [KEY.PETITION_WROTE],
-    () => wrotePetition(),
+    () => getWrotePetitions(),
     {
       enabled: !!user.authority,
     },

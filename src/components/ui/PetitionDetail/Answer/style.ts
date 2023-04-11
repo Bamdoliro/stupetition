@@ -2,7 +2,7 @@ import * as T from 'styles/text.style';
 import styled from 'styled-components';
 import { color } from 'styles/theme.style';
 
-export const Comment = styled.div`
+export const Answer = styled.div`
   width: 100%;
   border-bottom: 1px solid ${color.gray200};
   margin-bottom: 28px;
@@ -44,6 +44,11 @@ export const NameWrap = styled.div`
 
 export const Name = styled(T.p1)`
   color: ${color.gray900};
+`;
+
+export const Check = styled.img`
+  width: 24px;
+  height: 24px;
 `;
 
 export const Date = styled(T.p3)`

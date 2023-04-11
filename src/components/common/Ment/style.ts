@@ -17,11 +17,12 @@ export const Text = styled(T.H2)`
   font-weight: 600;
 `;
 
-export const LogoWrap = styled.div`
+export const LogoBox = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
   gap: 6px;
+  cursor: pointer;
 `;
 
 export const Logo = styled.img``;

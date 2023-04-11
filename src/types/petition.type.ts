@@ -6,20 +6,24 @@ export type StatusType =
   | 'APPROVED'
   | 'WROTE';
 
-export type CommentOptionType = 'STUDENT' | 'STUDENT_COUNCIL';
-
 export interface WritePetitionType {
   title: string;
   content: string;
 }
 
 export interface CommentType {
-  option: CommentOptionType;
   id: number;
   comment: string;
   createdAt: string;
   hasPermission: boolean;
   writer: Writer;
+}
+
+export interface AnswerType {
+  id: number;
+  comment: string;
+  createdAt: string;
+  hasPermission: boolean;
 }
 
 export interface Writer {
@@ -38,7 +42,7 @@ export interface PetitionDetailType {
   numberOfApprover: number;
   percentageOfApprover: number;
   status: StatusType;
-  answer: CommentType[];
+  answer: AnswerType[];
   title: string;
   createdAt: string;
   approved: boolean;

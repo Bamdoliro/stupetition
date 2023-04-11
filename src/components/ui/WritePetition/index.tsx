@@ -24,7 +24,7 @@ const WritePetition = () => {
   const writeClose = () => {
     const close = () => closeModal();
     const confirm = () => {
-      navigate('/');
+      navigate('/main');
       closeModal();
     };
     if (petitionData.content || petitionData.title) {
@@ -34,7 +34,7 @@ const WritePetition = () => {
           title="창 닫기"
           content={
             <p>
-              이대로 나가면 변경사항이 모두 삭제됩니다
+              이대로 나가면 변경사항이 모두 삭제됩니다.
               <br />
               정말 이 페이지를 나가시겠습니까?
             </p>
@@ -46,7 +46,7 @@ const WritePetition = () => {
         />,
       );
     } else {
-      navigate('/');
+      navigate('/main');
     }
   };
 
@@ -68,7 +68,7 @@ const WritePetition = () => {
             )}
           </S.HeaderWrap>
         </S.Header>
-        <S.ContentsWrap>
+        <S.ContentsBox>
           <S.TitleInput
             onChange={onChange}
             name="title"
@@ -81,7 +81,7 @@ const WritePetition = () => {
             name="content"
             placeholder="청원 내용을 입력하세요."
           />
-        </S.ContentsWrap>
+        </S.ContentsBox>
       </S.WritePetitionLayout>
       <CheckWriteModal
         petitionData={petitionData}

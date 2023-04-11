@@ -9,11 +9,13 @@ import { useModal } from 'hooks/useModal';
 import Modal from 'components/common/Modal';
 import { useUser } from 'hooks/useUser';
 import { EmailReplace } from 'utils/EmailReplace';
+import Answer from 'components/ui/PetitionDetail/Answer';
 import {
   useApprovePetitionMutation,
   useDeletePetitionMutation,
-  usePetitionCommentMutation,
-  usePetitionDetailData,
+  useWriteCommentMutation,
+  usePetitionDetail,
+  useWriteAnswerMutation,
 } from 'features/PetitionFeature';
 import Comment from './Comment';
 import * as S from './style';
@@ -26,17 +28,19 @@ const PetitionDetail = () => {
   const { user } = useUser();
   const [comment, setComment] = useState('');
 
-  const { useCommentMutation } = usePetitionCommentMutation({
+  const approveMutate = useApprovePetitionMutation(petitionId);
+  const writeCommentMutate = useWriteCommentMutation({
     petitionId,
     setComment,
     comment,
   });
-
-  const approveMutate = useApprovePetitionMutation(petitionId);
-  const commentStudentMutate = useCommentMutation('STUDENT');
-  const commentCouncilMutate = useCommentMutation('STUDENT_COUNCIL');
+  const writeAnswerMutate = useWriteAnswerMutation({
+    petitionId,
+    setComment,
+    comment,
+  });
   const deletePetitionMutate = useDeletePetitionMutation(petitionId);
-  const { isLoading, isError, data } = usePetitionDetailData(petitionId);
+  const { isLoading, isError, data } = usePetitionDetail(petitionId);
 
   const { color, progress } = ProgressChecker(data.status);
   const { date } = FormatDatetime(data.createdAt);
@@ -68,9 +72,9 @@ const PetitionDetail = () => {
           <Loading />
         ) : (
           <>
-            <S.Info>
+            <S.InfoBox>
               <S.InfoWrap>
-                <S.ItemWrap>
+                <S.ItemsBox>
                   <S.Progress color={color}>{progress}</S.Progress>
                   <S.Title>{data.title}</S.Title>
                   <S.PetitionInfo>
@@ -82,7 +86,7 @@ const PetitionDetail = () => {
                   {data.hasPermission && (
                     <S.Delete onClick={checkDeletePetition}>삭제</S.Delete>
                   )}
-                </S.ItemWrap>
+                </S.ItemsBox>
                 <Progressbar
                   option="DETAIL"
                   width="150px"
@@ -91,7 +95,7 @@ const PetitionDetail = () => {
                   percentageOfApprover={data.percentageOfApprover}
                 />
               </S.InfoWrap>
-            </S.Info>
+            </S.InfoBox>
             <S.ContentBox>
               <S.Content>{data.content}</S.Content>
             </S.ContentBox>
@@ -102,7 +106,7 @@ const PetitionDetail = () => {
               </S.ApprovedButton>
             ) : (
               <S.ApproveButton onClick={() => approveMutate.mutate()}>
-                <S.ApproveText>동의 하기</S.ApproveText>
+                <S.ApproveText>동의하기</S.ApproveText>
               </S.ApproveButton>
             )}
             <S.CommentSendBox>
@@ -116,23 +120,29 @@ const PetitionDetail = () => {
                 onChange={(e) => setComment(e.target.value)}
               />
               {user.authority === 'ROLE_STUDENT_COUNCIL' ? (
-                <S.CommentSendButton
-                  onClick={() => commentCouncilMutate.mutate()}
-                >
+                <S.CommentSendButton onClick={() => writeAnswerMutate.mutate()}>
                   <S.CommentSendText>답변 작성</S.CommentSendText>
                 </S.CommentSendButton>
               ) : (
                 <S.CommentSendButton
-                  onClick={() => commentStudentMutate.mutate()}
+                  onClick={() => writeCommentMutate.mutate()}
                 >
                   <S.CommentSendText>댓글 작성</S.CommentSendText>
                 </S.CommentSendButton>
               )}
             </S.CommentSendBox>
-            <S.CommentWrap>
-              {data.answer.map((item) => (
+            <S.CommentListBox>
+              {data.answer?.map((item) => (
+                <Answer
+                  key={item.id}
+                  id={item.id}
+                  hasPermission={item.hasPermission}
+                  comment={item.comment}
+                  createdAt={item.createdAt}
+                />
+              ))}
+              {data.comments?.map((item) => (
                 <Comment
-                  option="STUDENT_COUNCIL"
                   key={item.id}
                   id={item.id}
                   comment={item.comment}
@@ -141,18 +151,7 @@ const PetitionDetail = () => {
                   writer={item.writer}
                 />
               ))}
-              {data.comments.map((item) => (
-                <Comment
-                  option="STUDENT"
-                  key={item.id}
-                  id={item.id}
-                  hasPermission={item.hasPermission}
-                  comment={item.comment}
-                  createdAt={item.createdAt}
-                  writer={item.writer}
-                />
-              ))}
-            </S.CommentWrap>
+            </S.CommentListBox>
           </>
         )}
       </S.PetitionDetailWrap>
