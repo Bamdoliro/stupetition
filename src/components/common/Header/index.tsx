@@ -44,7 +44,7 @@ const Header = () => {
             <MiniButton
               value="로그인"
               option="UNFILLED"
-              onClick={() => navigate('/')}
+              onClick={() => navigate('/login')}
             />
           )}
         </S.NavWrap>

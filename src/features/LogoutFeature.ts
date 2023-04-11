@@ -14,7 +14,7 @@ export const useLogoutMutation = () => {
     onSuccess: () => {
       localStorage.clear();
       setUser(userEmpty);
-      navigate('/');
+      navigate('/login');
     },
   });
 };
