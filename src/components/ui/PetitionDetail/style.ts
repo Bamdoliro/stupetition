@@ -19,7 +19,7 @@ export const PetitionDetailWrap = styled.div`
   height: 100%;
 `;
 
-export const Info = styled.div`
+export const InfoBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -50,7 +50,7 @@ export const Progress = styled.div`
   line-height: 160%;
 `;
 
-export const ItemWrap = styled.div`
+export const ItemsBox = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -166,7 +166,7 @@ export const CommentSendText = styled(T.btn1)`
   color: ${color.main};
 `;
 
-export const CommentWrap = styled.div`
+export const CommentListBox = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;

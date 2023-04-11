@@ -25,7 +25,7 @@ export const HeaderWrap = styled.div`
   align-items: flex-end;
 `;
 
-export const ContentsWrap = styled.div`
+export const ContentsBox = styled.div`
   width: 56.6%;
   height: 70%;
 `;

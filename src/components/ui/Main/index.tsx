@@ -8,6 +8,7 @@ import NotFound from 'pages/404';
 import { useUser } from 'hooks/useUser';
 import PetitionList from 'components/common/PetitionList';
 import RadioTabMenu from 'components/common/RadioTabMenu';
+import Banner from './Banner';
 import * as S from './style';
 
 const Main = () => {
@@ -19,22 +20,9 @@ const Main = () => {
 
   return (
     <S.MainLayout>
-      {isBannerOpen && (
-        <S.Banner>
-          <S.BannerWrap>
-            <S.BannerText>
-              학생청원,
-              <br />
-              학생들의 목소리를 듣다
-            </S.BannerText>
-            <S.CloseBanner onClick={() => setIsBannerOpen(false)}>
-              X 닫기
-            </S.CloseBanner>
-          </S.BannerWrap>
-        </S.Banner>
-      )}
+      {isBannerOpen && <Banner setIsBannerOpen={setIsBannerOpen} />}
       <S.ContentsBox>
-        <S.ContentsInnerWrap>
+        <S.ContentsWrap>
           <S.SubNav>
             <RadioTabMenu option="MAIN" setStatus={setStatus} status={status} />
             {user.authority && (
@@ -63,7 +51,7 @@ const Main = () => {
               ))}
             </S.PetitionListBox>
           )}
-        </S.ContentsInnerWrap>
+        </S.ContentsWrap>
       </S.ContentsBox>
     </S.MainLayout>
   );

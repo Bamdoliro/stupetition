@@ -15,7 +15,7 @@ const MyPetition = () => {
   return (
     <S.MyPetitionLayout>
       <S.MyPetitionWrap>
-        <S.InnerWrap>
+        <S.ContentsBox>
           <S.RadioTabMenuWrap>
             <RadioTabMenu
               option="MY_PETITION"
@@ -25,7 +25,7 @@ const MyPetition = () => {
           </S.RadioTabMenuWrap>
           {isError && <NotFound />}
           {isLoading && <Loading />}
-          <S.PetitionWrap>
+          <S.PetitionListBox>
             {data.map((item) => (
               <PetitionList
                 option="LIST"
@@ -38,8 +38,8 @@ const MyPetition = () => {
                 status={item.status}
               />
             ))}
-          </S.PetitionWrap>
-        </S.InnerWrap>
+          </S.PetitionListBox>
+        </S.ContentsBox>
       </S.MyPetitionWrap>
     </S.MyPetitionLayout>
   );

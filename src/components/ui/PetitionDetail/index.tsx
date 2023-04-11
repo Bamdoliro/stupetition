@@ -68,9 +68,9 @@ const PetitionDetail = () => {
           <Loading />
         ) : (
           <>
-            <S.Info>
+            <S.InfoBox>
               <S.InfoWrap>
-                <S.ItemWrap>
+                <S.ItemsBox>
                   <S.Progress color={color}>{progress}</S.Progress>
                   <S.Title>{data.title}</S.Title>
                   <S.PetitionInfo>
@@ -82,7 +82,7 @@ const PetitionDetail = () => {
                   {data.hasPermission && (
                     <S.Delete onClick={checkDeletePetition}>삭제</S.Delete>
                   )}
-                </S.ItemWrap>
+                </S.ItemsBox>
                 <Progressbar
                   option="DETAIL"
                   width="150px"
@@ -91,7 +91,7 @@ const PetitionDetail = () => {
                   percentageOfApprover={data.percentageOfApprover}
                 />
               </S.InfoWrap>
-            </S.Info>
+            </S.InfoBox>
             <S.ContentBox>
               <S.Content>{data.content}</S.Content>
             </S.ContentBox>
@@ -102,7 +102,7 @@ const PetitionDetail = () => {
               </S.ApprovedButton>
             ) : (
               <S.ApproveButton onClick={() => approveMutate.mutate()}>
-                <S.ApproveText>동의 하기</S.ApproveText>
+                <S.ApproveText>동의하기</S.ApproveText>
               </S.ApproveButton>
             )}
             <S.CommentSendBox>
@@ -129,7 +129,7 @@ const PetitionDetail = () => {
                 </S.CommentSendButton>
               )}
             </S.CommentSendBox>
-            <S.CommentWrap>
+            <S.CommentListBox>
               {data.answer?.map((item) => (
                 <Comment
                   option="STUDENT_COUNCIL"
@@ -152,7 +152,7 @@ const PetitionDetail = () => {
                   writer={item.writer}
                 />
               ))}
-            </S.CommentWrap>
+            </S.CommentListBox>
           </>
         )}
       </S.PetitionDetailWrap>
