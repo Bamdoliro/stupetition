@@ -30,8 +30,9 @@ export const SubNav = styled.div`
 
 export const PetitionListBox = styled.div`
   display: grid;
-  grid-template-columns: 48.5% 48.5%;
-  gap: 30px;
+  grid-template-columns: 49% 49%;
+  row-gap: 7%;
+  column-gap: 2%;
   width: 100%;
 `;
 
