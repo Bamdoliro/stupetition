@@ -10,8 +10,8 @@ import * as S from './style';
 
 const Header = () => {
   const navigate = useNavigate();
-
   const { user } = useUser();
+
   const [profilePopoverIsOpen, setProfilePopoverIsOpen] = useState(false);
 
   return (

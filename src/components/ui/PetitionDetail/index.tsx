@@ -28,6 +28,7 @@ const PetitionDetail = () => {
   const { user } = useUser();
   const [comment, setComment] = useState('');
 
+  const { isLoading, isError, data } = usePetitionDetail(petitionId);
   const approveMutate = useApprovePetitionMutation(petitionId);
   const writeCommentMutate = useWriteCommentMutation({
     petitionId,
@@ -40,7 +41,6 @@ const PetitionDetail = () => {
     comment,
   });
   const deletePetitionMutate = useDeletePetitionMutation(petitionId);
-  const { isLoading, isError, data } = usePetitionDetail(petitionId);
 
   const { color, progress } = ProgressChecker(data.status);
   const { date } = FormatDatetime(data.createdAt);

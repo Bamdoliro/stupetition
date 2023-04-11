@@ -13,7 +13,7 @@ const useTokenCheck = () => {
     ) {
       navigate('/login');
     }
-  }, []);
+  }, [navigate]);
 };
 
 export default useTokenCheck;

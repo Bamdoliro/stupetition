@@ -10,6 +10,7 @@ import useTokenCheck from 'hooks/useTokenCheck';
 
 const App = () => {
   useTokenCheck();
+
   return (
     <Routes>
       <Route element={<Layout />}>
