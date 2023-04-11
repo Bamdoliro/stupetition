@@ -14,7 +14,7 @@ export const useCreatePetition = (petitionData: WritePetitionType) => {
     onSuccess: () => {
       toast.success('작성 성공');
       closeModal();
-      navigate('/main');
+      navigate('/');
     },
   });
 };

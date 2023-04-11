@@ -135,9 +135,9 @@ const PetitionDetail = () => {
               {data.answer?.map((item) => (
                 <Answer
                   key={item.id}
+                  comment={item.comment}
                   id={item.id}
                   hasPermission={item.hasPermission}
-                  comment={item.comment}
                   createdAt={item.createdAt}
                 />
               ))}
