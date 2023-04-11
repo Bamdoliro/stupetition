@@ -1,26 +1,19 @@
 import ProfileSvg from 'assets/profile.svg';
 import { FormatDatetime } from 'utils/FormatDatetime';
-import { CommentType } from 'types/petition.type';
+import CheckSvg from 'assets/check.svg';
+import { AnswerType } from 'types/petition.type';
 import { useModal } from 'hooks/useModal';
 import Modal from 'components/common/Modal';
-import { useDeleteCommentMutation } from 'features/PetitionFeature';
-import { EmailReplace } from 'utils/EmailReplace';
+import { useDeleteAnswerMutation } from 'features/PetitionFeature';
 import * as S from './style';
 
-const Comment = ({
-  comment,
-  createdAt,
-  id,
-  hasPermission,
-  writer,
-}: CommentType) => {
+const Answer = ({ comment, createdAt, hasPermission, id }: AnswerType) => {
   const { openModal, closeModal } = useModal();
   const { date } = FormatDatetime(createdAt);
-  const { userEmail } = EmailReplace(writer.email);
 
-  const deleteCommentMutate = useDeleteCommentMutation(id);
+  const deleteAnswerMutate = useDeleteAnswerMutation(id);
 
-  const checkDeleteComment = () => {
+  const checkDeleteAnswer = () => {
     openModal(
       <Modal
         option="CONFIRM"
@@ -29,34 +22,33 @@ const Comment = ({
         closeText="취소"
         confirmText="삭제"
         handleClose={closeModal}
-        handleConfirm={() => deleteCommentMutate.mutate()}
+        handleConfirm={() => deleteAnswerMutate.mutate()}
       />,
     );
   };
 
   return (
-    <S.Comment>
+    <S.Answer>
       <S.Info>
         <S.InfoWrap>
           <S.ProfileWrap>
             <S.Profile src={ProfileSvg} />
             <S.ItemWrap>
               <S.NameWrap>
-                <S.Name>
-                  {writer.name} #{userEmail}
-                </S.Name>
+                <S.Name>학생회</S.Name>
+                <S.Check src={CheckSvg} />
               </S.NameWrap>
               <S.Date>{date}</S.Date>
             </S.ItemWrap>
           </S.ProfileWrap>
           {hasPermission && (
-            <S.Delete onClick={checkDeleteComment}>삭제</S.Delete>
+            <S.Delete onClick={checkDeleteAnswer}>삭제</S.Delete>
           )}
         </S.InfoWrap>
       </S.Info>
       <S.Content>{comment}</S.Content>
-    </S.Comment>
+    </S.Answer>
   );
 };
 
-export default Comment;
+export default Answer;

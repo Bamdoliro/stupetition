@@ -6,6 +6,7 @@ import { LoginType } from 'types/auth.type';
 import { Storage } from 'lib/storage/storage';
 import { toast } from 'react-toastify';
 
+/** 학생회 로그인 */
 export const useLoginMutation = (loginData: LoginType) => {
   const navigate = useNavigate();
 
@@ -16,7 +17,7 @@ export const useLoginMutation = (loginData: LoginType) => {
       Storage.setItem(ACCESS_KEY, accessToken);
       Storage.setItem(REFRESH_KEY, refreshToken);
       toast.success('로그인 성공');
-      navigate('/');
+      navigate('/main');
     },
   });
 };

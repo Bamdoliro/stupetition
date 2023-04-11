@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Dispatch, SetStateAction } from 'react';
 import * as S from './style';
 
-export interface PropsType {
+interface PropsType {
   isOpen: boolean;
   setProfilePopoverIsOpen: Dispatch<SetStateAction<boolean>>;
 }
