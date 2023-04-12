@@ -16,7 +16,9 @@ const WritePetition = () => {
     title: '',
     content: '',
   });
-  const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handlePetitionData = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
     setPetitionData({ ...petitionData, [name]: value });
   };
@@ -70,14 +72,14 @@ const WritePetition = () => {
         </S.Header>
         <S.ContentsBox>
           <S.TitleInput
-            onChange={onChange}
+            onChange={handlePetitionData}
             name="title"
             placeholder="제목을 입력해 주세요."
             minLength={2}
             maxLength={20}
           />
           <S.ContentInput
-            onChange={onChange}
+            onChange={handlePetitionData}
             name="content"
             placeholder="청원 내용을 입력하세요."
           />
