@@ -114,9 +114,13 @@ export const useWriteAnswerMutation = ({
       }),
     {
       onSuccess: () => {
-        setComment('');
-        toast.success('답변 성공');
-        queryClient.invalidateQueries([KEY.PETITION]);
+        if (comment.length < 2 || comment.length > 500) {
+          toast.error('크기가 2에서 500 사이여야 합니다');
+        } else {
+          setComment('');
+          toast.success('답변 성공');
+          queryClient.invalidateQueries([KEY.PETITION]);
+        }
       },
     },
   );
