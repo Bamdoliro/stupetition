@@ -58,7 +58,7 @@ const WritePetition = () => {
         <S.Header>
           <S.HeaderWrap>
             <MiniButton value="취소" option="UNFILLED" onClick={writeClose} />
-            {petitionData.content.length >= 2 &&
+            {petitionData.content.length >= 100 &&
             petitionData.title.length >= 2 ? (
               <MiniButton
                 value="다음"
@@ -81,7 +81,7 @@ const WritePetition = () => {
           <S.ContentInput
             onChange={handlePetitionData}
             name="content"
-            placeholder="청원 내용을 입력하세요."
+            placeholder="청원 내용을 입력하세요. (최소 100자)"
           />
         </S.ContentsBox>
       </S.WritePetitionLayout>

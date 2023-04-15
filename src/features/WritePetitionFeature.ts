@@ -16,5 +16,9 @@ export const useCreatePetition = (petitionData: WritePetitionType) => {
       closeModal();
       navigate('/');
     },
+    onError: () => {
+      toast.error('크기가 100에서 4000 사이여야 합니다');
+      closeModal();
+    },
   });
 };
