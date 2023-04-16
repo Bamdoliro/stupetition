@@ -18,6 +18,7 @@ const Main = () => {
   const [isBannerOpen, setIsBannerOpen] = useState(true);
   const { isLoading, isError, data } = usePetitionList(status);
 
+  if (isLoading) return <Loading />;
   if (isError) return <NotFound />;
   return (
     <S.MainLayout>
@@ -34,7 +35,6 @@ const Main = () => {
               />
             )}
           </S.SubNav>
-          {isLoading && <Loading />}
           {user.authority && (
             <S.PetitionListBox>
               {data.map((item) => (
