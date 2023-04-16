@@ -60,10 +60,7 @@ const PetitionDetail = () => {
     );
   };
 
-  if (isError) {
-    return <NotFound />;
-  }
-
+  if (isError) return <NotFound />;
   return (
     <S.PetitionDetailLayout>
       <S.PetitionDetailWrap>
