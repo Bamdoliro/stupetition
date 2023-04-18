@@ -16,6 +16,7 @@ import { Dispatch, SetStateAction } from 'react';
 import { PetitionDetailType } from 'types/petition.type';
 import { useUser } from 'hooks/useUser';
 import { petitionDetailData } from 'fixtures';
+import { AxiosError } from 'axios';
 
 /** 청원 상세 페이지 데이터 불러오기 */
 export const usePetitionDetail = (petitionId: number) => {
@@ -86,13 +87,13 @@ export const useWriteCommentMutation = ({
       }),
     {
       onSuccess: () => {
-        if (comment.length < 2 || comment.length > 500) {
+        setComment('');
+        toast.success('작성 성공');
+        queryClient.invalidateQueries([KEY.PETITION]);
+      },
+      onError: (error: AxiosError) => {
+        if (error.status === 400)
           toast.error('크기가 2에서 500 사이여야 합니다');
-        } else {
-          setComment('');
-          toast.success('작성 성공');
-          queryClient.invalidateQueries([KEY.PETITION]);
-        }
       },
     },
   );
@@ -114,13 +115,13 @@ export const useWriteAnswerMutation = ({
       }),
     {
       onSuccess: () => {
-        if (comment.length < 2 || comment.length > 500) {
-          toast.error('크기가 2에서 500 사이여야 합니다');
-        } else {
-          setComment('');
-          toast.success('답변 성공');
-          queryClient.invalidateQueries([KEY.PETITION]);
-        }
+        setComment('');
+        toast.success('답변 성공');
+        queryClient.invalidateQueries([KEY.PETITION]);
+      },
+      onError: (error: AxiosError) => {
+        if (error.status === 400)
+          toast.error('크기가 2에서 4000 사이여야 합니다');
       },
     },
   );

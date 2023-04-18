@@ -34,6 +34,12 @@ export const PetitionListBox = styled.div`
   gap: 7% 2%;
   width: 100%;
   padding-bottom: 200px;
+  @media only screen and (max-width: 1024px) {
+    & {
+      display: grid;
+      grid-template: 100%;
+    }
+  }
 `;
 
 export const CreatePetition = styled.button`

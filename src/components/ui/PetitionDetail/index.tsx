@@ -60,100 +60,89 @@ const PetitionDetail = () => {
     );
   };
 
-  if (isError) {
-    return <NotFound />;
-  }
-
+  if (isLoading) return <Loading />;
+  if (isError) return <NotFound />;
   return (
     <S.PetitionDetailLayout>
       <S.PetitionDetailWrap>
-        {isError && <NotFound />}
-        {isLoading ? (
-          <Loading />
-        ) : (
-          <>
-            <S.InfoBox>
-              <S.InfoWrap>
-                <S.ItemsBox>
-                  <S.Progress color={color}>{progress}</S.Progress>
-                  <S.Title>{data.title}</S.Title>
-                  <S.PetitionInfo>
-                    <S.Date>{date}</S.Date>|
-                    <S.Email>
-                      {data.writer.name} #{userEmail}
-                    </S.Email>
-                  </S.PetitionInfo>
-                  {data.hasPermission && (
-                    <S.Delete onClick={checkDeletePetition}>삭제</S.Delete>
-                  )}
-                </S.ItemsBox>
-                <Progressbar
-                  option="DETAIL"
-                  width="150px"
-                  height="150px"
-                  numberOfApprover={Number(data.numberOfApprover)}
-                  percentageOfApprover={data.percentageOfApprover}
-                />
-              </S.InfoWrap>
-            </S.InfoBox>
-            <S.ContentBox>
-              <S.Content>{data.content}</S.Content>
-            </S.ContentBox>
-            {user.authority === 'ROLE_STUDENT_COUNCIL' ||
-            data.hasPermission ? null : data.approved ? (
-              <S.ApprovedButton>
-                <S.ApproveText>동의 완료</S.ApproveText>
-              </S.ApprovedButton>
-            ) : (
-              <S.ApproveButton onClick={() => approveMutate.mutate()}>
-                <S.ApproveText>동의하기</S.ApproveText>
-              </S.ApproveButton>
-            )}
-            <S.CommentSendBox>
-              <S.CommentSendInput
-                placeholder={
-                  user.authority === 'ROLE_STUDENT_COUNCIL'
-                    ? '학생회의 답변을 써주세요.'
-                    : '댓글을 입력해주세요.'
-                }
-                value={comment}
-                onChange={(e) => setComment(e.target.value)}
-              />
-              {user.authority === 'ROLE_STUDENT_COUNCIL' ? (
-                <S.CommentSendButton onClick={() => writeAnswerMutate.mutate()}>
-                  <S.CommentSendText>답변 작성</S.CommentSendText>
-                </S.CommentSendButton>
-              ) : (
-                <S.CommentSendButton
-                  onClick={() => writeCommentMutate.mutate()}
-                >
-                  <S.CommentSendText>댓글 작성</S.CommentSendText>
-                </S.CommentSendButton>
+        <S.InfoBox>
+          <S.InfoWrap>
+            <S.ItemsBox>
+              <S.Progress color={color}>{progress}</S.Progress>
+              <S.Title>{data.title}</S.Title>
+              <S.PetitionInfo>
+                <S.Date>{date}</S.Date>|
+                <S.Email>
+                  {data.writer.name} #{userEmail}
+                </S.Email>
+              </S.PetitionInfo>
+              {data.hasPermission && (
+                <S.Delete onClick={checkDeletePetition}>삭제</S.Delete>
               )}
-            </S.CommentSendBox>
-            <S.CommentListBox>
-              {data.answer?.map((item) => (
-                <Answer
-                  key={item.id}
-                  comment={item.comment}
-                  id={item.id}
-                  hasPermission={item.hasPermission}
-                  createdAt={item.createdAt}
-                />
-              ))}
-              {data.comments?.map((item) => (
-                <Comment
-                  key={item.id}
-                  id={item.id}
-                  comment={item.comment}
-                  hasPermission={item.hasPermission}
-                  createdAt={item.createdAt}
-                  writer={item.writer}
-                />
-              ))}
-            </S.CommentListBox>
-          </>
+            </S.ItemsBox>
+            <Progressbar
+              option="DETAIL"
+              width="150px"
+              height="150px"
+              numberOfApprover={Number(data.numberOfApprover)}
+              percentageOfApprover={data.percentageOfApprover}
+            />
+          </S.InfoWrap>
+        </S.InfoBox>
+        <S.ContentBox>
+          <S.Content>{data.content}</S.Content>
+        </S.ContentBox>
+        {user.authority === 'ROLE_STUDENT_COUNCIL' ||
+        data.hasPermission ? null : data.approved ? (
+          <S.ApprovedButton>
+            <S.ApproveText>동의 완료</S.ApproveText>
+          </S.ApprovedButton>
+        ) : (
+          <S.ApproveButton onClick={() => approveMutate.mutate()}>
+            <S.ApproveText>동의하기</S.ApproveText>
+          </S.ApproveButton>
         )}
+        <S.CommentSendBox>
+          <S.CommentSendInput
+            placeholder={
+              user.authority === 'ROLE_STUDENT_COUNCIL'
+                ? '학생회의 답변을 써주세요.'
+                : '댓글을 입력해주세요.'
+            }
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+          />
+          {user.authority === 'ROLE_STUDENT_COUNCIL' ? (
+            <S.CommentSendButton onClick={() => writeAnswerMutate.mutate()}>
+              <S.CommentSendText>답변 작성</S.CommentSendText>
+            </S.CommentSendButton>
+          ) : (
+            <S.CommentSendButton onClick={() => writeCommentMutate.mutate()}>
+              <S.CommentSendText>댓글 작성</S.CommentSendText>
+            </S.CommentSendButton>
+          )}
+        </S.CommentSendBox>
+        <S.CommentListBox>
+          {data.answer?.map((item) => (
+            <Answer
+              key={item.id}
+              comment={item.comment}
+              id={item.id}
+              hasPermission={item.hasPermission}
+              createdAt={item.createdAt}
+            />
+          ))}
+          {data.comments?.map((item) => (
+            <Comment
+              key={item.id}
+              id={item.id}
+              comment={item.comment}
+              hasPermission={item.hasPermission}
+              createdAt={item.createdAt}
+              writer={item.writer}
+            />
+          ))}
+        </S.CommentListBox>
       </S.PetitionDetailWrap>
     </S.PetitionDetailLayout>
   );

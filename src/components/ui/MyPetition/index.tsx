@@ -12,6 +12,8 @@ const MyPetition = () => {
 
   const { data, isError, isLoading } = useMyPetitionList(status);
 
+  if (isLoading) return <Loading />;
+  if (isError) return <NotFound />;
   return (
     <S.MyPetitionLayout>
       <S.MyPetitionWrap>
@@ -23,8 +25,6 @@ const MyPetition = () => {
               setStatus={setStatus}
             />
           </S.RadioTabMenuWrap>
-          {isError && <NotFound />}
-          {isLoading && <Loading />}
           <S.PetitionListBox>
             {data.map((item) => (
               <PetitionList
