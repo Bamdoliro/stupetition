@@ -1,4 +1,5 @@
 import { color } from 'styles/theme.style';
+import { font } from 'styles/text.style';
 import styled from 'styled-components';
 
 export const RadioTabMenu = styled.div`
@@ -15,15 +16,12 @@ export const RadioInput = styled.input`
 `;
 
 export const RadioLabel = styled.label`
+  ${font.btn2}
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px 16px;
   border-radius: 8px;
-  font-weight: 500;
-  font-size: 0.875rem;
-  line-height: 130%;
-  letter-spacing: 0px;
   color: ${color.gray600};
 
   cursor: pointer;

@@ -4,8 +4,6 @@ import { color } from 'styles/theme.style';
 
 export const Desc = styled.p`
   ${font.caption}
-  font-size: 0.75rem;
-  font-weight: 400;
   color: ${color.gray600};
   padding-bottom: 12px;
 `;
@@ -27,12 +25,12 @@ export const Img = styled.img`
 `;
 
 export const Input = styled.input`
+  ${font.p2}
   border-radius: 0px 8px 8px 0px;
   background-color: ${color.gray100};
   color: ${color.gray900};
   width: 100%;
   height: 100%;
-  font-size: 1rem;
   &::placeholder {
     color: ${color.gray500};
   }

@@ -1,5 +1,6 @@
 import { color } from 'styles/theme.style';
 import styled from 'styled-components';
+import { font } from 'styles/text.style';
 
 export const WritePetitionLayout = styled.div`
   display: flex;
@@ -31,10 +32,7 @@ export const ContentsBox = styled.div`
 `;
 
 export const TitleInput = styled.input`
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 140%;
-  letter-spacing: 0.25px;
+  ${font.H1}
   width: 100%;
   margin-bottom: 39px;
   &::placeholder {
@@ -43,15 +41,13 @@ export const TitleInput = styled.input`
 `;
 
 export const ContentInput = styled.textarea`
+  ${font.p2}
   padding: 16px 20px;
   border: 1px solid ${color.gray200};
   border-radius: 8px;
   width: 100%;
   height: 100%;
   resize: none;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 160%;
   &::placeholder {
     color: ${color.gray400};
   }

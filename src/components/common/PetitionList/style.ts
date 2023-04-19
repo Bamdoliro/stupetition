@@ -48,6 +48,7 @@ export const Date = styled.p`
 `;
 
 export const Progress = styled.div`
+  ${font.caption}
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,7 +57,4 @@ export const Progress = styled.div`
   border: 1px solid ${(props) => props.color};
   border-radius: 50px;
   color: ${(props) => props.color};
-  font-weight: 500;
-  font-size: 0.75rem;
-  line-height: 160%;
 `;
