@@ -17,10 +17,10 @@ const Header = () => {
   return (
     <S.Header>
       <S.HeaderWrap>
-        <S.LogoWrap onClick={() => navigate('/')}>
-          <S.Logo src={Logo} />
-          <S.LogoText>학생청원</S.LogoText>
-        </S.LogoWrap>
+        <S.Logo onClick={() => navigate('/')}>
+          <S.Icon src={Logo} />
+          학생청원
+        </S.Logo>
         <S.NavWrap>
           <SearchInput
             height="40px"

@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { font } from 'styles/text.style';
 import { color } from 'styles/theme.style';
-import * as T from 'styles/text.style';
 
-const NotFoundText = styled(T.H1)`
+const NotFoundText = styled.p`
+  ${font.H1}
   color: ${color.gray900};
   text-align: center;
   position: fixed;

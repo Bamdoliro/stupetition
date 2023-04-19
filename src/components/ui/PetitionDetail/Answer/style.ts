@@ -1,6 +1,6 @@
-import * as T from 'styles/text.style';
 import styled from 'styled-components';
 import { color } from 'styles/theme.style';
+import { font } from 'styles/text.style';
 
 export const Answer = styled.div`
   width: 100%;
@@ -42,7 +42,8 @@ export const NameWrap = styled.div`
   gap: 4px;
 `;
 
-export const Name = styled(T.p1)`
+export const Name = styled.p`
+  ${font.p1}
   color: ${color.gray900};
 `;
 
@@ -51,11 +52,13 @@ export const Check = styled.img`
   height: 24px;
 `;
 
-export const Date = styled(T.p3)`
+export const Date = styled.p`
+  ${font.p3}
   color: ${color.gray500};
 `;
 
-export const Delete = styled(T.p3)`
+export const Delete = styled.p`
+  ${font.p3}
   color: ${color.gray600};
   cursor: pointer;
   &:hover {
@@ -64,7 +67,8 @@ export const Delete = styled(T.p3)`
   }
 `;
 
-export const Content = styled(T.p2)`
+export const Content = styled.p`
+  ${font.p1}
   white-space: pre-line;
   color: ${color.gray900};
   width: 87%;

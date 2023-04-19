@@ -1,9 +1,10 @@
 import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
-import * as T from 'styles/text.style';
+import { font } from 'styles/text.style';
 import { color } from 'styles/theme.style';
 import { ButtonOptionType } from 'types/common/button.type';
 
 export const Button = styled.button<{ option: ButtonOptionType }>`
+  ${font.H5}
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,8 +13,6 @@ export const Button = styled.button<{ option: ButtonOptionType }>`
   border-radius: 8px;
   ${({ option }) => option && getButtonStyle[option]}
 `;
-
-export const ButtonText = styled(T.H5)``;
 
 export const Img = styled.img``;
 

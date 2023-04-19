@@ -10,7 +10,7 @@ interface MiniButtonPropsType extends ButtonHTMLAttributes<HTMLButtonElement> {
 const MiniButton = ({ value, onClick, width, option }: MiniButtonPropsType) => {
   return (
     <S.MiniButton option={option} style={{ width }} onClick={onClick}>
-      <S.MiniButtonText>{value}</S.MiniButtonText>
+      {value}
     </S.MiniButton>
   );
 };

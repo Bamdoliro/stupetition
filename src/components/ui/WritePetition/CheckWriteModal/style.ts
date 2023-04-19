@@ -1,6 +1,6 @@
 import { color } from 'styles/theme.style';
-import * as T from 'styles/text.style';
 import styled from 'styled-components';
+import { font } from 'styles/text.style';
 
 export const BlurBackground = styled.div<{ display: string }>`
   display: ${(props) => props.display};
@@ -36,11 +36,13 @@ export const InfoBox = styled.div`
   gap: 12px;
 `;
 
-export const Title = styled(T.H3)`
+export const Title = styled.p`
+  ${font.H3}
   color: ${color.gray900};
 `;
 
-export const Warning = styled(T.p3)`
+export const Warning = styled.p`
+  ${font.p3}
   color: ${color.red};
 `;
 
@@ -50,7 +52,8 @@ export const PreviewBox = styled.div`
   gap: 12px;
 `;
 
-export const Preview = styled(T.p3)`
+export const Preview = styled.p`
+  ${font.H3}
   color: ${color.gray600};
 `;
 

@@ -1,6 +1,6 @@
 import BannerImg from 'assets/banner.png';
 import { color } from 'styles/theme.style';
-import * as T from 'styles/text.style';
+import { font } from 'styles/text.style';
 import styled from 'styled-components';
 
 export const Banner = styled.div`
@@ -14,14 +14,14 @@ export const Banner = styled.div`
 `;
 
 export const BannerWrap = styled.div`
+  ${font.D2}
+  color: ${color.gray900};
+
   width: 74.4%;
 `;
 
-export const BannerText = styled(T.D2)`
-  color: ${color.gray900};
-`;
-
-export const Close = styled(T.caption)`
+export const Close = styled.p`
+  ${font.caption}
   position: absolute;
   color: ${color.gray600};
   border-bottom: 1px solid ${color.gray600};

@@ -1,6 +1,6 @@
-import * as T from 'styles/text.style';
 import { color } from 'styles/theme.style';
 import styled from 'styled-components';
+import { font } from 'styles/text.style';
 
 export const Header = styled.div`
   display: flex;
@@ -23,7 +23,10 @@ export const HeaderWrap = styled.div`
   background-color: ${color.white};
 `;
 
-export const LogoWrap = styled.div`
+export const Logo = styled.div`
+  ${font.H5}
+  color: ${color.black};
+
   height: 100%;
   display: flex;
   align-items: center;
@@ -31,18 +34,9 @@ export const LogoWrap = styled.div`
   cursor: pointer;
 `;
 
-export const Logo = styled.img``;
-
-export const LogoText = styled(T.H5)`
-  color: ${color.black};
-`;
+export const Icon = styled.img``;
 
 export const Profile = styled.img`
-  cursor: pointer;
-`;
-
-export const Logout = styled(T.H5)`
-  color: ${color.black};
   cursor: pointer;
 `;
 

@@ -1,5 +1,4 @@
 import { color } from 'styles/theme.style';
-import * as T from 'styles/text.style';
 import styled from 'styled-components';
 
 export const MainLayout = styled.div`
@@ -52,8 +51,4 @@ export const CreatePetition = styled.button`
   &:hover {
     background-color: ${color.hover};
   }
-`;
-
-export const CreatePetitionText = styled(T.btn2)`
-  color: ${color.white};
 `;
