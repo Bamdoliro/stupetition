@@ -1,5 +1,4 @@
 import { color } from 'styles/theme.style';
-import * as T from 'styles/text.style';
 import styled from 'styled-components';
 
 export const MainLayout = styled.div`
@@ -34,6 +33,12 @@ export const PetitionListBox = styled.div`
   gap: 7% 2%;
   width: 100%;
   padding-bottom: 200px;
+  @media only screen and (max-width: 1024px) {
+    & {
+      display: grid;
+      grid-template: 100%;
+    }
+  }
 `;
 
 export const CreatePetition = styled.button`
@@ -46,8 +51,4 @@ export const CreatePetition = styled.button`
   &:hover {
     background-color: ${color.hover};
   }
-`;
-
-export const CreatePetitionText = styled(T.btn2)`
-  color: ${color.white};
 `;

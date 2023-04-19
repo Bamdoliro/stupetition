@@ -18,7 +18,7 @@ const Button = ({
   return (
     <S.Button style={{ width }} option={option} onClick={onClick}>
       {imgSrc && <S.Img src={imgSrc} />}
-      <S.ButtonText>{value}</S.ButtonText>
+      {value}
     </S.Button>
   );
 };

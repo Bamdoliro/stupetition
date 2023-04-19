@@ -3,7 +3,7 @@ import { WritePetitionType } from 'types/petition.type';
 import MiniButton from 'components/common/MiniButton';
 import { useModal } from 'hooks/useModal';
 import { useNavigate } from 'react-router-dom';
-import Modal from 'components/common/Modal';
+import Modal from 'components/common/Confirm';
 import * as S from './style';
 import CheckWriteModal from './CheckWriteModal';
 
@@ -16,7 +16,9 @@ const WritePetition = () => {
     title: '',
     content: '',
   });
-  const onChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handlePetitionData = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
     setPetitionData({ ...petitionData, [name]: value });
   };
@@ -30,7 +32,6 @@ const WritePetition = () => {
     if (petitionData.content || petitionData.title) {
       openModal(
         <Modal
-          option="CONFIRM"
           title="창 닫기"
           content={
             <p>
@@ -56,7 +57,7 @@ const WritePetition = () => {
         <S.Header>
           <S.HeaderWrap>
             <MiniButton value="취소" option="UNFILLED" onClick={writeClose} />
-            {petitionData.content.length >= 2 &&
+            {petitionData.content.length >= 100 &&
             petitionData.title.length >= 2 ? (
               <MiniButton
                 value="다음"
@@ -70,16 +71,16 @@ const WritePetition = () => {
         </S.Header>
         <S.ContentsBox>
           <S.TitleInput
-            onChange={onChange}
+            onChange={handlePetitionData}
             name="title"
             placeholder="제목을 입력해 주세요."
             minLength={2}
             maxLength={20}
           />
           <S.ContentInput
-            onChange={onChange}
+            onChange={handlePetitionData}
             name="content"
-            placeholder="청원 내용을 입력하세요."
+            placeholder="청원 내용을 입력하세요. (최소 100자)"
           />
         </S.ContentsBox>
       </S.WritePetitionLayout>

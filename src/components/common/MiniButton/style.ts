@@ -1,9 +1,10 @@
 import { color } from 'styles/theme.style';
-import * as T from 'styles/text.style';
 import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
 import { MiniButtonOptionType } from 'types/common/button.type';
+import { font } from 'styles/text.style';
 
 export const MiniButton = styled.button<{ option: MiniButtonOptionType }>`
+  ${font.btn2}
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,8 +12,6 @@ export const MiniButton = styled.button<{ option: MiniButtonOptionType }>`
   padding: 10px 16px;
   ${({ option }) => option && getMiniButtonStyle[option]}
 `;
-
-export const MiniButtonText = styled(T.btn2)``;
 
 const getMiniButtonStyle: Record<
   MiniButtonOptionType,

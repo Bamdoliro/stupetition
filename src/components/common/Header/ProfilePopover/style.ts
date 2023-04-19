@@ -1,6 +1,6 @@
 import { color } from 'styles/theme.style';
-import * as T from 'styles/text.style';
 import styled from 'styled-components';
+import { font } from 'styles/text.style';
 
 export const ProfilePopover = styled.div<{ display: string }>`
   display: ${(props) => props.display};
@@ -18,6 +18,8 @@ export const ProfilePopover = styled.div<{ display: string }>`
 `;
 
 export const Button = styled.button`
+  ${font.p3}
+  color: ${color.gray700};
   text-align: left;
   width: 100%;
   height: 38px;
@@ -27,10 +29,6 @@ export const Button = styled.button`
   &:hover {
     background-color: ${color.gray100};
   }
-`;
-
-export const ButtonText = styled(T.p3)`
-  color: ${color.gray700};
 `;
 
 export const Line = styled.div`

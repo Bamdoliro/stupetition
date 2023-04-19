@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import * as T from 'styles/text.style';
+import { font } from 'styles/text.style';
 import { color } from 'styles/theme.style';
 
 export const Ment = styled.div`
@@ -12,12 +12,15 @@ export const Ment = styled.div`
   }
 `;
 
-export const Text = styled(T.H2)`
+export const Text = styled.p`
+  ${font.H2}
   color: rgba(0, 0, 0, 0.7);
   font-weight: 600;
 `;
 
-export const LogoBox = styled.div`
+export const Logo = styled.div`
+  ${font.H5}
+  color: ${color.black};
   height: 100%;
   display: flex;
   align-items: center;
@@ -25,8 +28,4 @@ export const LogoBox = styled.div`
   cursor: pointer;
 `;
 
-export const Logo = styled.img``;
-
-export const LogoText = styled(T.H5)`
-  color: ${color.black};
-`;
+export const Icon = styled.img``;

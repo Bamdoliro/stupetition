@@ -22,19 +22,18 @@ const ProfilePopover = ({ isOpen, setProfilePopoverIsOpen }: PropsType) => {
           close();
         }}
       >
-        <S.ButtonText>내 청원</S.ButtonText>
+        내 청원
       </S.Button>
       <S.Button
         onClick={() => {
-          window.location.href = 'https://www.instagram.com/bamdoliro/';
+          window.open('https://www.instagram.com/bamdoliro/', '_blank');
+          close();
         }}
       >
-        <S.ButtonText>문의하기</S.ButtonText>
+        문의하기
       </S.Button>
       <S.Line />
-      <S.Button onClick={() => logoutMutate.mutate()}>
-        <S.ButtonText>로그아웃</S.ButtonText>
-      </S.Button>
+      <S.Button onClick={() => logoutMutate.mutate()}>로그아웃</S.Button>
     </S.ProfilePopover>
   );
 };
