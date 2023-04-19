@@ -1,6 +1,6 @@
 import { color } from 'styles/theme.style';
-import * as T from 'styles/text.style';
 import styled from 'styled-components';
+import { font } from 'styles/text.style';
 
 export const PetitionDetailLayout = styled.div`
   display: flex;
@@ -57,7 +57,8 @@ export const ItemsBox = styled.div`
   width: 100%;
 `;
 
-export const Title = styled(T.H1)`
+export const Title = styled.p`
+  ${font.H1}
   color: ${color.gray900};
   max-width: 80%;
   text-overflow: ellipsis;
@@ -81,11 +82,13 @@ export const PetitionInfo = styled.div`
   gap: 8px;
 `;
 
-export const Date = styled(T.p2)`
+export const Date = styled.p`
+  ${font.p2}
   color: ${color.gray500};
 `;
 
-export const Email = styled(T.p2)`
+export const Email = styled.p`
+  ${font.p2}
   color: ${color.gray500};
 `;
 
@@ -94,7 +97,8 @@ export const ContentBox = styled.div`
   word-break: break-all;
 `;
 
-export const Content = styled(T.p2)`
+export const Content = styled.p`
+  ${font.p2}
   white-space: pre-line;
   text-align: left;
   color: ${color.gray900};
@@ -112,6 +116,8 @@ export const ApproveButton = styled.button`
 `;
 
 export const ApprovedButton = styled.button`
+  ${font.H5}
+  color: ${color.white};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -120,10 +126,6 @@ export const ApprovedButton = styled.button`
   border-radius: 8px;
   color: ${color.white};
   cursor: default;
-`;
-
-export const ApproveText = styled(T.H5)`
-  color: ${color.white};
 `;
 
 export const CommentSendBox = styled.div`
@@ -151,6 +153,8 @@ export const CommentSendInput = styled.textarea`
 `;
 
 export const CommentSendButton = styled.button`
+  ${font.btn1}
+  color: ${color.main};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -162,17 +166,14 @@ export const CommentSendButton = styled.button`
   padding: 10px 16px;
 `;
 
-export const CommentSendText = styled(T.btn1)`
-  color: ${color.main};
-`;
-
 export const CommentListBox = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
 `;
 
-export const Delete = styled(T.p3)`
+export const Delete = styled.p`
+  ${font.p3}
   color: ${color.gray600};
   cursor: pointer;
   &:hover {

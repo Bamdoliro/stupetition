@@ -49,7 +49,6 @@ const PetitionDetail = () => {
   const checkDeletePetition = () => {
     openModal(
       <Modal
-        option="CONFIRM"
         title="청원 삭제"
         content={<p>정말 청원을 삭제 하시겠습니까?</p>}
         closeText="취소"
@@ -94,12 +93,10 @@ const PetitionDetail = () => {
         </S.ContentBox>
         {user.authority === 'ROLE_STUDENT_COUNCIL' ||
         data.hasPermission ? null : data.approved ? (
-          <S.ApprovedButton>
-            <S.ApproveText>동의 완료</S.ApproveText>
-          </S.ApprovedButton>
+          <S.ApprovedButton>동의 완료</S.ApprovedButton>
         ) : (
           <S.ApproveButton onClick={() => approveMutate.mutate()}>
-            <S.ApproveText>동의하기</S.ApproveText>
+            동의하기
           </S.ApproveButton>
         )}
         <S.CommentSendBox>
@@ -114,11 +111,11 @@ const PetitionDetail = () => {
           />
           {user.authority === 'ROLE_STUDENT_COUNCIL' ? (
             <S.CommentSendButton onClick={() => writeAnswerMutate.mutate()}>
-              <S.CommentSendText>답변 작성</S.CommentSendText>
+              답변 작성
             </S.CommentSendButton>
           ) : (
             <S.CommentSendButton onClick={() => writeCommentMutate.mutate()}>
-              <S.CommentSendText>댓글 작성</S.CommentSendText>
+              댓글 작성
             </S.CommentSendButton>
           )}
         </S.CommentSendBox>

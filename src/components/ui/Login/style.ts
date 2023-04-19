@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Background from 'assets/background.png';
-import * as T from 'styles/text.style';
 import { color } from 'styles/theme.style';
+import { font } from 'styles/text.style';
 
 export const LoginLayout = styled.div`
   display: flex;
@@ -43,16 +43,19 @@ export const TextBox = styled.div`
   gap: 8px;
 `;
 
-export const Title = styled(T.H1)`
+export const Title = styled.p`
+  ${font.H1}
   color: ${color.gray900};
   padding-bottom: 8px;
 `;
 
-export const SubTitle = styled(T.p2)`
+export const SubTitle = styled.p`
+  ${font.p2}
   color: ${color.gray600};
 `;
 
-export const Council = styled(T.p2)`
+export const Council = styled.p`
+  ${font.p2}
   color: ${color.main};
   cursor: pointer;
 `;

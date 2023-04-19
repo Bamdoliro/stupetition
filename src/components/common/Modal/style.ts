@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import * as T from 'styles/text.style';
+import { font } from 'styles/text.style';
 import { color } from 'styles/theme.style';
 
 export const BlurBackground = styled.div`
@@ -37,54 +37,17 @@ export const ConfirmTextBox = styled.div`
   gap: 12px;
 `;
 
-export const ConfirmTitle = styled(T.H3)`
+export const ConfirmTitle = styled.p`
+  ${font.H3}
   color: ${color.gray900};
 `;
 
-export const ConfirmContent = styled(T.p2)`
+export const ConfirmContent = styled.p`
+  ${font.p2}
   color: ${color.gray900};
 `;
 
 export const ConfirmButtonBox = styled.div`
   display: flex;
   justify-content: space-between;
-`;
-
-// alert
-
-export const Alert = styled.div`
-  position: absolute;
-  width: 416px;
-  height: 268px;
-  left: calc(50% - 416px / 2);
-  top: calc(50% - 268px / 2);
-  padding: 36px;
-  background: ${color.white};
-  border-radius: 8px;
-`;
-
-export const AlertWrap = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
-
-export const AlertTextBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-`;
-
-export const AlertTitle = styled(T.H3)`
-  color: ${color.gray900};
-`;
-
-export const AlertContent = styled(T.p2)`
-  color: ${color.gray900};
-`;
-
-export const AlertButtonBox = styled.div`
-  display: flex;
-  justify-content: center;
 `;

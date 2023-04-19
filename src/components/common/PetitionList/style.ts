@@ -1,5 +1,5 @@
-import * as T from 'styles/text.style';
 import { color } from 'styles/theme.style';
+import { font } from 'styles/text.style';
 import styled from 'styled-components';
 
 export const PetitionList = styled.div`
@@ -27,7 +27,8 @@ export const Info = styled.div`
   gap: 17px;
 `;
 
-export const Title = styled(T.H4)`
+export const Title = styled.p`
+  ${font.H4}
   color: ${color.gray900};
   max-width: 100%;
   text-overflow: ellipsis;
@@ -41,7 +42,8 @@ export const DetailInfo = styled.div`
   gap: 12px;
 `;
 
-export const Date = styled(T.p3)`
+export const Date = styled.p`
+  ${font.p3}
   color: ${color.gray600};
 `;
 

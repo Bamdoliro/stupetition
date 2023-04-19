@@ -16,7 +16,6 @@ const Answer = ({ comment, createdAt, hasPermission, id }: AnswerType) => {
   const checkDeleteAnswer = () => {
     openModal(
       <Modal
-        option="CONFIRM"
         title="댓글 삭제"
         content={<p>정말 댓글을 삭제 하시겠습니까?</p>}
         closeText="취소"

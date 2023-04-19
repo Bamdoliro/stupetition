@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { font } from 'styles/text.style';
 import { color } from 'styles/theme.style';
-import * as T from 'styles/text.style';
 
-export const Desc = styled(T.caption)`
+export const Desc = styled.p`
+  ${font.caption}
   font-size: 0.75rem;
   font-weight: 400;
   color: ${color.gray600};

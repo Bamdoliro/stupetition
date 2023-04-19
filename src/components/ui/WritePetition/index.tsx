@@ -32,7 +32,6 @@ const WritePetition = () => {
     if (petitionData.content || petitionData.title) {
       openModal(
         <Modal
-          option="CONFIRM"
           title="창 닫기"
           content={
             <p>
