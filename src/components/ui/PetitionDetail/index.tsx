@@ -6,7 +6,7 @@ import { FormatDatetime } from 'utils/FormatDatetime';
 import Loading from 'pages/Loading';
 import NotFound from 'pages/404';
 import { useModal } from 'hooks/useModal';
-import Modal from 'components/common/Modal';
+import Modal from 'components/common/Confirm';
 import { useUser } from 'hooks/useUser';
 import { EmailReplace } from 'utils/EmailReplace';
 import Answer from 'components/ui/PetitionDetail/Answer';

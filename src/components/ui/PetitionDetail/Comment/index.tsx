@@ -2,7 +2,7 @@ import ProfileSvg from 'assets/profile.svg';
 import { FormatDatetime } from 'utils/FormatDatetime';
 import { CommentType } from 'types/petition.type';
 import { useModal } from 'hooks/useModal';
-import Modal from 'components/common/Modal';
+import Modal from 'components/common/Confirm';
 import { useDeleteCommentMutation } from 'features/PetitionFeature';
 import { EmailReplace } from 'utils/EmailReplace';
 import * as S from './style';

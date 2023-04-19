@@ -3,7 +3,7 @@ import { FormatDatetime } from 'utils/FormatDatetime';
 import CheckSvg from 'assets/check.svg';
 import { AnswerType } from 'types/petition.type';
 import { useModal } from 'hooks/useModal';
-import Modal from 'components/common/Modal';
+import Modal from 'components/common/Confirm';
 import { useDeleteAnswerMutation } from 'features/PetitionFeature';
 import * as S from './style';
 

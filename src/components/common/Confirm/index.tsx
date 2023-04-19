@@ -11,7 +11,7 @@ interface PropsType {
   handleConfirm: MouseEventHandler<HTMLButtonElement>;
 }
 
-const Modal = ({
+const Confirm = ({
   title,
   content,
   closeText,
@@ -45,4 +45,4 @@ const Modal = ({
   );
 };
 
-export default Modal;
+export default Confirm;

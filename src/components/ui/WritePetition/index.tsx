@@ -3,7 +3,7 @@ import { WritePetitionType } from 'types/petition.type';
 import MiniButton from 'components/common/MiniButton';
 import { useModal } from 'hooks/useModal';
 import { useNavigate } from 'react-router-dom';
-import Modal from 'components/common/Modal';
+import Modal from 'components/common/Confirm';
 import * as S from './style';
 import CheckWriteModal from './CheckWriteModal';
 
