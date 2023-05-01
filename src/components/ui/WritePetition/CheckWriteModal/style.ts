@@ -1,6 +1,6 @@
-import { color } from 'styles/theme.style';
-import styled from 'styled-components';
-import { font } from 'styles/text.style';
+import { color } from "styles/theme.style";
+import styled from "styled-components";
+import { font } from "styles/text.style";
 
 export const BlurBackground = styled.div<{ display: string }>`
   display: ${(props) => props.display};
@@ -53,7 +53,7 @@ export const PreviewBox = styled.div`
 `;
 
 export const Preview = styled.p`
-  ${font.H3}
+  ${font.p3}
   color: ${color.gray600};
 `;
 

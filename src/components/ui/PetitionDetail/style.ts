@@ -104,6 +104,7 @@ export const Content = styled.p`
 `;
 
 export const ApproveButton = styled.button`
+  ${font.H5}
   display: flex;
   justify-content: center;
   align-items: center;
