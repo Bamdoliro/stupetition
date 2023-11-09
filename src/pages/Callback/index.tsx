@@ -1,5 +1,5 @@
 import { useGoogleLoginMutation } from 'features/GoogleLoginFeature';
-import Loading from 'pages/Loading';
+import Loading from 'components/common/Loading';
 import queryString from 'query-string';
 import { useEffect } from 'react';
 import * as S from './style';

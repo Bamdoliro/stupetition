@@ -1,15 +1,14 @@
 import { ProgressChecker } from 'utils/ProgressChecker';
-import Progressbar from 'components/common/Progressbar';
+import Progressbar from 'components/Progressbar';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { FormatDatetime } from 'utils/FormatDatetime';
-import Loading from 'pages/Loading';
-import NotFound from 'pages/404';
+import Loading from 'components/common/Loading';
+import NotFound from 'pages/NotFound';
 import { useModal } from 'hooks/useModal';
 import Modal from 'components/common/Confirm';
 import { useUser } from 'hooks/useUser';
 import { EmailReplace } from 'utils/EmailReplace';
-import Answer from 'components/ui/PetitionDetail/Answer';
 import {
   useApprovePetitionMutation,
   useDeletePetitionMutation,
@@ -17,6 +16,7 @@ import {
   usePetitionDetail,
   useWriteAnswerMutation,
 } from 'features/PetitionFeature';
+import Answer from './Answer';
 import Comment from './Comment';
 import * as S from './style';
 

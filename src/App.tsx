@@ -1,11 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 import Layout from 'components/common/Layout';
-import PetitionDetail from 'components/ui/PetitionDetail';
-import CreatePetition from 'components/ui/WritePetition';
-import MyPetition from 'components/ui/MyPetition';
-import Main from 'components/ui/Main';
-import Login from 'components/ui/Login';
-import Callback from 'components/ui/Callback';
+import PetitionDetail from 'pages/PetitionDetail';
+import CreatePetition from 'pages/WritePetition';
+import MyPetition from 'pages/MyPetition';
+import Main from 'pages/Main';
+import Login from 'pages/Login';
+import Callback from 'pages/Callback';
 import useTokenCheck from 'hooks/useTokenCheck';
 
 const App = () => {

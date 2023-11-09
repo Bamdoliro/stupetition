@@ -1,5 +1,5 @@
 import MiniButton from 'components/common/MiniButton';
-import PetitionList from 'components/common/PetitionList';
+import PetitionList from 'components/PetitionList';
 import { MouseEventHandler } from 'react';
 import { WritePetitionType } from 'types/petition.type';
 import { useCreatePetition } from 'features/WritePetitionFeature';

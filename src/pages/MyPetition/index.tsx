@@ -1,8 +1,8 @@
-import PetitionList from 'components/common/PetitionList';
-import RadioTabMenu from 'components/common/RadioTabMenu';
+import PetitionList from 'components/PetitionList';
+import RadioTabMenu from 'components/RadioTabMenu';
 import { useMyPetitionList } from 'features/MyPetitionFeature';
-import NotFound from 'pages/404';
-import Loading from 'pages/Loading';
+import NotFound from 'pages/NotFound';
+import Loading from 'components/common/Loading';
 import { useState } from 'react';
 import { StatusType } from 'types/petition.type';
 import * as S from './style';

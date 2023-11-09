@@ -1,5 +1,5 @@
 import Button from 'components/common/Button';
-import Ment from 'components/common/Ment';
+import Ment from 'components/Ment';
 import { useGoogleLink } from 'features/GoogleLoginFeature';
 import GoogleImg from 'assets/google.svg';
 import { useState } from 'react';

@@ -2,7 +2,7 @@ import 'react-circular-progressbar/dist/styles.css';
 import { useNavigate } from 'react-router-dom';
 import { FormatDatetime } from 'utils/FormatDatetime';
 import { ProgressChecker } from 'utils/ProgressChecker';
-import Progressbar from 'components/common/Progressbar';
+import Progressbar from 'components/Progressbar';
 import { StatusType } from 'types/petition.type';
 import * as S from './style';
 

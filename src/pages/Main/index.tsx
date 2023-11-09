@@ -3,11 +3,11 @@ import { StatusType } from 'types/petition.type';
 import { useNavigate } from 'react-router-dom';
 import MiniButton from 'components/common/MiniButton';
 import { usePetitionList } from 'features/PetitionListFeature';
-import Loading from 'pages/Loading';
-import NotFound from 'pages/404';
+import Loading from 'components/common/Loading';
+import NotFound from 'pages/NotFound';
 import { useUser } from 'hooks/useUser';
-import PetitionList from 'components/common/PetitionList';
-import RadioTabMenu from 'components/common/RadioTabMenu';
+import PetitionList from 'components/PetitionList';
+import RadioTabMenu from 'components/RadioTabMenu';
 import Banner from './Banner';
 import * as S from './style';
 
