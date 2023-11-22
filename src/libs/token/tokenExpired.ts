@@ -1,7 +1,7 @@
-import { customAxios } from 'lib/axios/customAxios';
+import { customAxios } from 'libs/axios/customAxios';
 import { ACCESS_KEY, REFRESH_KEY } from 'constants/token.constant';
 import { toast } from 'react-toastify';
-import { Storage } from 'lib/storage/storage';
+import { Storage } from 'libs/storage/storage';
 
 export const tokenExpired = async () => {
   try {

@@ -3,7 +3,7 @@ import { ACCESS_KEY, REFRESH_KEY } from 'constants/token.constant';
 import { useMutation } from 'react-query';
 import { loginUser } from 'api/auth.api';
 import { LoginType } from 'types/auth.type';
-import { Storage } from 'lib/storage/storage';
+import { Storage } from 'libs/storage/storage';
 import { toast } from 'react-toastify';
 
 /** 학생회 로그인 */

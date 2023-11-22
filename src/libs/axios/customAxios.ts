@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { tokenExpired } from 'lib/token/tokenExpired';
+import { tokenExpired } from 'libs/token/tokenExpired';
 import { toast } from 'react-toastify';
 
 const customAxios = axios.create({

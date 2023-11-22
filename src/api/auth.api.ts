@@ -1,4 +1,4 @@
-import { customAxios } from 'lib/axios/customAxios';
+import { customAxios } from 'libs/axios/customAxios';
 import { LoginType } from 'types/auth.type';
 
 /** 학생회 로그인 */

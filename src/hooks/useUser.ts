@@ -2,7 +2,7 @@ import * as KEY from 'constants/key.constant';
 import { useQuery } from 'react-query';
 import { getUser } from 'api/user.api';
 import { UserInfoType } from 'types/user.type';
-import { Storage } from 'lib/storage/storage';
+import { Storage } from 'libs/storage/storage';
 import { ACCESS_KEY } from 'constants/token.constant';
 import { useRecoilState } from 'recoil';
 import { userState } from 'atoms/user';

@@ -1,6 +1,6 @@
-import { customAxios } from 'lib/axios/customAxios';
-import { authorization } from 'lib/token/authorization';
-import { Storage } from 'lib/storage/storage';
+import { customAxios } from 'libs/axios/customAxios';
+import { authorization } from 'libs/token/authorization';
+import { Storage } from 'libs/storage/storage';
 import { ACCESS_KEY, REFRESH_KEY, REQUEST_KEY } from 'constants/token.constant';
 
 /** user info 얻어오기 */

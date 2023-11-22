@@ -1,5 +1,5 @@
-import { customAxios } from 'lib/axios/customAxios';
-import { authorization } from 'lib/token/authorization';
+import { customAxios } from 'libs/axios/customAxios';
+import { authorization } from 'libs/token/authorization';
 import { WritePetitionType, StatusType } from 'types/petition.type';
 
 export interface ReplyPetitionParamsType {

@@ -1,6 +1,6 @@
 import { ACCESS_KEY, REFRESH_KEY } from 'constants/token.constant';
 import { useEffect } from 'react';
-import { Storage } from 'lib/storage/storage';
+import { Storage } from 'libs/storage/storage';
 import { useNavigate } from 'react-router-dom';
 
 const useTokenCheck = () => {

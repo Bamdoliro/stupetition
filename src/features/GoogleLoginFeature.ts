@@ -1,7 +1,7 @@
 import { useMutation, useQuery } from 'react-query';
 import { authGoogle, getGoogleAuthLink } from 'api/auth.api';
 import * as KEY from 'constants/key.constant';
-import { Storage } from 'lib/storage/storage';
+import { Storage } from 'libs/storage/storage';
 import { ACCESS_KEY, REFRESH_KEY } from 'constants/token.constant';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
